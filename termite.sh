@@ -1,1 +1,28 @@
-/home/jk/.config/termite/config
+[options]
+    resize_grip = false
+    scroll_on_output = false
+    scroll_on_keystroke = true
+    audible_bell = true
+    visible_bell = false
+    mouse_autohide = true
+    allow_bold = true
+    dynamic_title = true
+    urgent_on_bell = true
+    clickable_url = true
+    scrollback_lines = 8000
+    search_wrap = true
+    #icon_name = terminal
+    #geometry = 640x480
+
+    # "system", "on" or "off"
+    cursor_blink = system
+
+    # "block", "underline" or "ibeam"
+    cursor_shape = ibeam
+
+    # $BROWSER is used by default
+    browser = /usr/bin/google-chrome
+
+[colors]
+    foreground = #ffffff
+    background = #000000
