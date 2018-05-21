@@ -9,7 +9,7 @@
     dynamic_title = true
     urgent_on_bell = true
     clickable_url = true
-    scrollback_lines = 8000
+    scrollback_lines = 1000
     search_wrap = true
     #icon_name = terminal
     #geometry = 640x480
