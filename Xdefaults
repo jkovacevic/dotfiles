@@ -1,7 +1,8 @@
 URxvt*termName:            	rxvt
 URxvt*reverseVideo:        	true
 URxvt*scrollBar:        	false
-URxvt*cursorUnderline:		true
+URxvt*cursorBlink:			true
+URxvt*cursorUnderline:		false
 URxvt*font:            		xft:DejaVu Sans Mono:size=12
 
 URxvt*perl-ext:            default,matcher
