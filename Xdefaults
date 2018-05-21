@@ -1,0 +1,21 @@
+URxvt*termName:            	rxvt
+URxvt*reverseVideo:        	true
+URxvt*scrollBar:        	false
+URxvt*cursorUnderline:		true
+URxvt*font:            		xft:DejaVu Sans Mono:size=12
+
+URxvt*perl-ext:            default,matcher
+URxvt*matcher.button:        1
+URxvt*urlLauncher:              firefox
+
+!urxvt.matcher.pattern.0: \\b(?:(?:https?|ftp|news|file):\/\/|mailto:)[ab-zA-Z0-9\-\@;\/?:&=%\$_.+!*\x27(),~#]+ [ab-zA-Z0-9\-\@;\/?:&=%\$_+!*\x27()~]
+URxvt*matcher.pattern.0: \\b(?:(?:https?|ftp):\/\/|mailto:)[\\w\-\@;\/?:&=%\$_.+!*\x27(),~#]+ [\\w\-\@;\/?:&=%\$_+!*\x27()~]
+URxvt*matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+
+!!! This one matches image URLs and open them in FEH
+URxvt*matcher.pattern.2:    \\bhttps?:\/\/[\\w-.]*\/[\\w./?&@#-]*.(jpg|jpeg|png)
+URxvt*matcher.launcher.2:    feh $0
+
+!!! Open youtubeliks in your own youtubescript
+URxvt*matcher.pattern.3:        \\bhttp:\/\/(www.youtube|youtube).com\/watch\\?v=([\\w-]*)
+URxvt*matcher.launcher.3:    /usr/local/bin/dutub $2

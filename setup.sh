@@ -13,5 +13,8 @@ rm $HOME/.config/sublime-text-3/Packages/User/LocalHistory.sublime-settings; ln 
 echo "termite"
 rm $HOME/.config/termite/config; ln -s $HOME/dotfiles/termite.sh $HOME/.config/termite/config;
 
+echo "Xdefaults"
+rm $HOME/.Xdefaults; ln -s $HOME/dotfiles/Xdefaults $HOME/.Xdefaults
+
 echo "zshrc"
 rm $HOME/.zshrc; ln -s $HOME/dotfiles/zshrc.sh $HOME/.zshrc

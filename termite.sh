@@ -15,7 +15,7 @@
     #geometry = 640x480
 
     # "system", "on" or "off"
-    cursor_blink = system
+    cursor_blink = off
 
     # "block", "underline" or "ibeam"
     cursor_shape = ibeam
