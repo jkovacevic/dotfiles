@@ -13,6 +13,9 @@ rm $HOME/.config/sublime-text-3/Packages/User/LocalHistory.sublime-settings; ln 
 echo "termite"
 rm $HOME/.config/termite/config; ln -s $HOME/dotfiles/termite.sh $HOME/.config/termite/config;
 
+echo "polybar"
+rm $HOME/.config/polybar/config; ln -s $HOME/dotfiles/polybar $HOME/.config/polybar/config
+
 echo "Xdefaults"
 rm $HOME/.Xdefaults; ln -s $HOME/dotfiles/Xdefaults $HOME/.Xdefaults
 
