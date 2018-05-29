@@ -1,4 +1,4 @@
-URxvt*termName:            	rxvt
+URxvt*termName:            	rxv
 URxvt*reverseVideo:        	true
 URxvt*scrollBar:        	false
 URxvt*cursorBlink:			true

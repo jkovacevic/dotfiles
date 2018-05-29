@@ -1,12 +1,12 @@
 [options]
     resize_grip = false
     scroll_on_output = false
-    scroll_on_keystroke = true
+    scroll_on_keystroke = false
     audible_bell = true
     visible_bell = false
     mouse_autohide = true
     allow_bold = true
-    dynamic_title = true
+    dynamic_title = false
     urgent_on_bell = true
     clickable_url = true
     scrollback_lines = 1000
