@@ -43,6 +43,8 @@ alias lr='ls -tRFh --color=auto --group-directories-first'   #sorted by date,rec
 alias lt='ls -ltFh --color=auto --group-directories-first'   #long list,sorted by date,show type,human readable
 alias ll='ls -l --color=auto --group-directories-first'      #long list
 alias grep='grep --color=auto'
+alias spark-scala='/opt/spark-2.3.0-bin-hadoop2.7/bin/spark-shell --conf spark.driver.extraJavaOptions="-Dscala.color"'
+alias spark-python='/opt/spark-2.3.0-bin-hadoop2.7/bin/pyspark'
 
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
@@ -51,3 +53,8 @@ nom () {nohup nomacs "$@" > /dev/null 2>&1 & disown}
 yvid() { youtube-dl $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
+
+fs() {find -iname \*$1\*; }
+fss() {sudo find -iname \*$1\*; }
+ws() {grep -rn $1; }
+wss() {sudo grep -rn $1; }
