@@ -1,7 +1,7 @@
 [options]
     resize_grip = false
     scroll_on_output = false
-    scroll_on_keystroke = false
+    scroll_on_keystroke = true
     audible_bell = true
     visible_bell = false
     mouse_autohide = true
@@ -26,3 +26,9 @@
 [colors]
     foreground = #ffffff
     background = #000000
+
+    # blue
+    color4  = #3AD9C5
+    color12 = #3AD9C5
+
+    
