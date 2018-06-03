@@ -45,8 +45,6 @@ alias grep='grep --color=auto'
 
 alias pacman='sudo pacman'
 alias yaourt='yaourt --noconfirm'
-alias spark-scala='/opt/spark-2.3.0-bin-hadoop2.7/bin/spark-shell --conf spark.driver.extraJavaOptions="-Dscala.color"'
-alias spark-python='/opt/spark-2.3.0-bin-hadoop2.7/bin/pyspark'
 
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
