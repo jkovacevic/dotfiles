@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 10
+font pango:DejaVu Sans 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -37,6 +37,7 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+space exec dmenu_run
+bindsym $mod+c exec clipmenu
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -164,6 +165,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        font pango:DejaVu Sans 12
 }
 
 focus_follows_mouse no
@@ -172,7 +174,7 @@ focus_follows_mouse no
 assign [class="Google-chrome"] 1
 assign [class="jetbrains-pycharm-ce"] 2
 assign [class="jetbrains-idea-ce"] 2
-assign [class="Sublime_text"] 3
+assign [class="Subl"] 3
 assign [class="jetbrains-datagrip"] 4
 assign [class="Slack"] 9
 assign [class="Thunderbird"] 11
@@ -183,13 +185,14 @@ assign [class="jupyter-qtconsole"] 12
 
 bindsym $mod+Tab move workspace to output left
 
-# exec /home/jk/bash/startup.sh
-exec /usr/bin/x-terminal-emulator
-exec /usr/bin/google-chrome
+exec /usr/bin/startup
+exec /usr/bin/termite
+exec /usr/bin/google-chrome-stable
 exec /usr/bin/subl
 exec /usr/bin/nm-applet
 exec /usr/bin/thunderbird
-exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/bin/clipmenud
 
 bindsym $mod+l exec i3lock --color "#000000"
 

@@ -1,4 +1,5 @@
 echo "Creating symlinks for configuration files."
+echo "Modify this script [Arch/Ubuntu]"
 echo "i3wm"
 rm $HOME/.config/i3/config; ln -s $HOME/dotfiles/i3.md $HOME/.config/i3/config;
 
@@ -14,4 +15,4 @@ echo "termite"
 rm $HOME/.config/termite/config; ln -s $HOME/dotfiles/termite.sh $HOME/.config/termite/config;
 
 echo "zshrc"
-rm $HOME/.zshrc; ln -s $HOME/dotfiles/zshrc.sh $HOME/.zshrc
+rm $HOME/.zshrc; ln -s $HOME/dotfiles/zshrc-arch.sh $HOME/.zshrc
