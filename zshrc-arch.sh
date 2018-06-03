@@ -1,6 +1,6 @@
 # Lines configured by zsh-newuser-install
 setopt inc_append_history
-setopt share_history              
+setopt share_history
 HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 HISTFILE=~/.histfile
 HISTSIZE=100000
@@ -32,7 +32,6 @@ vcs_info_wrapper() {
 
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-
 export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
 export RPROMPT='$(vcs_info_wrapper)'
 
@@ -43,8 +42,9 @@ alias lr='ls -tRFh --color=auto --group-directories-first'   #sorted by date,rec
 alias lt='ls -ltFh --color=auto --group-directories-first'   #long list,sorted by date,show type,human readable
 alias ll='ls -l --color=auto --group-directories-first'      #long list
 alias grep='grep --color=auto'
-alias spark-scala='/opt/spark-2.3.0-bin-hadoop2.7/bin/spark-shell --conf spark.driver.extraJavaOptions="-Dscala.color"'
-alias spark-python='/opt/spark-2.3.0-bin-hadoop2.7/bin/pyspark'
+
+alias pacman='sudo pacman'
+alias yaourt='yaourt --noconfirm'
 
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
@@ -58,3 +58,13 @@ fs() {find -iname \*$1\*; }
 fss() {sudo find -iname \*$1\*; }
 ws() {grep -rn $1; }
 wss() {sudo grep -rn $1; }
+
+# Git shortcuts
+ga () {	if [[ $1 == "" ]]; then git add .;	else git add $1; fi }
+gpu () {git push}
+gpl () {git pull}
+gs () {git status}
+gc () {git commit -m "$1"}
+gr () {git reset HEAD^}
+gd () {git difftool $1}
+gm () {git mergetool $1}
