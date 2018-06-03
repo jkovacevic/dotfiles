@@ -22,6 +22,8 @@
 
     # $BROWSER is used by default
     browser = /usr/bin/google-chrome
+	
+    font = Liberation Mono 12
 
 [colors]
     foreground = #ffffff
