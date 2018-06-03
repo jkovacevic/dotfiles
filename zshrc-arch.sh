@@ -61,8 +61,8 @@ wss() {sudo grep -rn $1; }
 
 # Git shortcuts
 ga () {	if [[ $1 == "" ]]; then git add .;	else git add $1; fi }
-gpu () {git push}
-gpl () {git pull}
+gp () {git push}
+gf () {git pull}
 gs () {git status}
 gc () {git commit -m "$1"}
 gr () {git reset HEAD^}
