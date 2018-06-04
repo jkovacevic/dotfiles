@@ -50,7 +50,7 @@ alias spark-python='/opt/spark-2.3.0-bin-hadoop2.7/bin/pyspark'
 
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
-libreoffice () {nohup libreoffice "$@" > /dev/null 2>&1 & disown}
+office () {nohup libreoffice "$@" > /dev/null 2>&1 & disown}
 nom () {nohup nomacs "$@" > /dev/null 2>&1 & disown}
 yvid() { youtube-dl $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }

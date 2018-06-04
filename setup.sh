@@ -23,6 +23,6 @@ ln -s $HOME/dotfiles/sublime-keymap.json $HOME/.config/sublime-text-3/Packages/U
 rm $HOME/.config/sublime-text-3/Packages/User/LocalHistory.sublime-settings; 
 ln -s $HOME/dotfiles/sublime-lhistory.json $HOME/.config/sublime-text-3/Packages/User/LocalHistory.sublime-settings;
 echo "- termite"
-rm $HOME/.config/termite/config; ln -s $HOME/dotfiles/termite.sh $HOME/.config/termite/config;
+rm $HOME/.config/termite/config; ln -s $HOME/dotfiles/termite-$os.sh $HOME/.config/termite/config;
 echo "- zshrc"
 rm $HOME/.zshrc; ln -s $HOME/dotfiles/zshrc-$os.sh $HOME/.zshrc
