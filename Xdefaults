@@ -1,0 +1,59 @@
+URxvt*termName: rxvt-unicode
+
+*foreground: #ffffff
+*foreground_bold: #a8a19f
+*cursor: #a8a19f
+*background:       #1b1918
+!!*background: rgba(0, 0, 0, .7)
+
+!! black
+*color0: #1b1918
+*color8: #766e6b
+!! red
+*color1: #f22c40
+*color9: #f22c40
+!! green
+*color2: #5ab738
+*color10: #5ab738
+!! yellow
+*color3: #d5911a
+*color11: #d5911a
+!! blue
+*color4: #3AD9C5
+*color12: #3AD9C5
+!! magenta
+*color5: #6666ea
+*color13: #6666ea
+!! cyan
+*color6: #00ad9c
+*color14: #00ad9c
+!! white
+*color7: #a8a19f
+*color15: #f1efee
+
+URxvt.intensityStyles:	false
+URxvt.background:       #000000
+URxvt.depth:		32
+URxvt.font: 		xft:Liberation Mono:size=12
+URxvt.scrollBar:	false
+URxvt.cursorColor:	white
+
+!! Extensions
+URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,selection-to-clipboard
+URxvt.colorUL:		#4682B4
+!! url-select
+URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.url-select.launcher: linkhandler
+URxvt.url-select.underline: true
+!! keyboard-select:
+URxvt.keysym.Control-Escape: perl:keyboard-select:activate
+!! Matcher
+URxvt.url-launcher:	linkhandler
+URxvt.matcher.button:	1
+
+# Remapping of keyboard-select keys
+# Go to ./usr/lib/urxvt/perl/keyboard-select
+# Switch E <-> e, B <-> b
+
+# Copy paste
+URxvt.keysym.Control-v: eval:paste_clipboard
