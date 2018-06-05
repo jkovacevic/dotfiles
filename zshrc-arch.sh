@@ -46,6 +46,9 @@ alias grep='grep --color=auto'
 alias pacman='sudo pacman'
 alias yaourt='yaourt --noconfirm'
 
+bindkey    "^[[3~"          delete-char
+bindkey    "^[3;5~"         delete-char
+
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
 office () {nohup libreoffice "$@" > /dev/null 2>&1 & disown}
