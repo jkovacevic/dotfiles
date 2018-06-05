@@ -42,12 +42,12 @@ URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,se
 URxvt.colorUL:		#4682B4
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
-URxvt.url-select.launcher: linkhandler
+URxvt.url-select.launcher: xdg-open
 URxvt.url-select.underline: true
 !! keyboard-select:
 URxvt.keysym.Control-Escape: perl:keyboard-select:activate
 !! Matcher
-URxvt.url-launcher:	linkhandler
+URxvt.url-launcher:	xdg-open
 URxvt.matcher.button:	1
 
 # Remapping of keyboard-select keys
