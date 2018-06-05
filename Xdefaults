@@ -1,6 +1,4 @@
 *foreground: 		#ffffff
-*foreground_bold: 	#a8a19f
-*cursor: 			#a8a19f
 *background:       	#1b1918
 !!*background: rgba(0, 0, 0, .7)
 
@@ -8,8 +6,8 @@ URxvt*color0: #1b1918
 URxvt*color8: #766e6b
 URxvt*color1: #f22c40
 URxvt*color9: #f22c40
-URxvt*color2: #5ab738
-URxvt*color10: #5ab738
+URxvt*color2: #00FF00
+URxvt*color10: #00FF00
 URxvt*color3: #d5911a
 URxvt*color11: #d5911a
 URxvt*color4: #3AD9C5
@@ -18,8 +16,8 @@ URxvt*color5: #6666ea
 URxvt*color13: #6666ea
 URxvt*color6: #00ad9c
 URxvt*color14: #00ad9c
-URxvt*color7: #a8a19f
-URxvt*color15: #f1efee
+URxvt*color7: #ffffff
+URxvt*color15: #ffffff
 
 URxvt.intensityStyles:	false
 URxvt.background:       #000000
