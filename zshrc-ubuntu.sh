@@ -29,6 +29,7 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 alias l='ls -lFh --color=auto --group-directories-first'     #size,show type,human readable
 alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
+alias mocp='mocp -T black_orange'
 
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
