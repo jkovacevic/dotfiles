@@ -186,7 +186,7 @@ assign [class="jupyter-qtconsole"] 12
 bindsym $mod+Tab move workspace to output left
 
 exec /usr/bin/startup
-exec /usr/bin/termite
+exec /usr/bin/urxvt
 exec /usr/bin/google-chrome-stable
 exec /usr/bin/subl
 exec /usr/bin/nm-applet
