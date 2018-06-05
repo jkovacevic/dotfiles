@@ -11,4 +11,5 @@ Run setup.sh to configure dotfiles.
 	* Compare side by side
 	* Markdown live preview
 	* Sublimerge
+	* Color Highlighter
 	* Spacegray theme + color scheme

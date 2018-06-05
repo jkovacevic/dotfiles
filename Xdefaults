@@ -37,7 +37,7 @@ URxvt.url-select.underline: true
 URxvt.url-launcher:	xdg-open
 
 !! keyboard-select:
-URxvt.keysym.Control-Escape: perl:keyboard-select:activate
+URxvt.keysym.C-Escape: perl:keyboard-select:activate
 
 # Remapping of keyboard-select keys
 # Go to ./usr/lib/urxvt/perl/keyboard-select and remap movement keys
@@ -49,4 +49,4 @@ URxvt.keysym.Control-Escape: perl:keyboard-select:activate
 # $self->{patterns}{'e'} = qr/\S(?=\s|$)/;
 
 # Copy paste
-URxvt.keysym.Control-v: eval:paste_clipboard
+URxvt.keysym.C-v: eval:paste_clipboard
