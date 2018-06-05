@@ -22,7 +22,7 @@ rm $HOME/.config/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-keymap;
 ln -s $HOME/dotfiles/sublime-keymap.json $HOME/.config/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-keymap;
 rm $HOME/.config/sublime-text-3/Packages/User/LocalHistory.sublime-settings; 
 ln -s $HOME/dotfiles/sublime-lhistory.json $HOME/.config/sublime-text-3/Packages/User/LocalHistory.sublime-settings;
-echo "- termite"
-rm $HOME/.config/termite/config; ln -s $HOME/dotfiles/termite-$os.sh $HOME/.config/termite/config;
+echo "- urxvt"
+rm $HOME/.Xdefaults; ln -s $HOME/dotfiles/Xdefaults $HOME/.Xdefaults;
 echo "- zshrc"
 rm $HOME/.zshrc; ln -s $HOME/dotfiles/zshrc-$os.sh $HOME/.zshrc

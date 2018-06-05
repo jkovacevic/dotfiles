@@ -1,9 +1,7 @@
-URxvt*termName: rxvt-unicode
-
-*foreground: #ffffff
-*foreground_bold: #a8a19f
-*cursor: #a8a19f
-*background:       #1b1918
+*foreground: 		#ffffff
+*foreground_bold: 	#a8a19f
+*cursor: 			#a8a19f
+*background:       	#1b1918
 !!*background: rgba(0, 0, 0, .7)
 
 !! black
@@ -33,10 +31,11 @@ URxvt*termName: rxvt-unicode
 
 URxvt.intensityStyles:	false
 URxvt.background:       #000000
-URxvt.depth:		32
-URxvt.font: 		xft:Liberation Mono:size=12
-URxvt.scrollBar:	false
-URxvt.cursorColor:	white
+URxvt.depth:			32
+URxvt.font: 			xft:Liberation Mono:size=12
+URxvt.scrollBar:		false
+URxvt.cursorColor:		white
+
 
 !! Extensions
 URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,selection-to-clipboard
@@ -52,8 +51,13 @@ URxvt.url-launcher:	linkhandler
 URxvt.matcher.button:	1
 
 # Remapping of keyboard-select keys
-# Go to ./usr/lib/urxvt/perl/keyboard-select
-# Switch E <-> e, B <-> b
+# Go to ./usr/lib/urxvt/perl/keyboard-select and remap movement keys
+# $self->{patterns}{'w'} = qr/\w[^\w\s]|\W\w|\s\S/;
+# $self->{patterns}{'W'} = qr/\s\S/;
+# $self->{patterns}{'B'} = qr/.*(?:\w[^\w\s]|\W\w|\s\S)/;
+# $self->{patterns}{'b'} = qr/.*\s\S/;
+# $self->{patterns}{'E'} = qr/[^\w\s](?=\w)|\w(?=\W)|\S(?=\s|$)/;
+# $self->{patterns}{'e'} = qr/\S(?=\s|$)/;
 
 # Copy paste
 URxvt.keysym.Control-v: eval:paste_clipboard
