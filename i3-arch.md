@@ -194,7 +194,9 @@ exec /usr/bin/thunderbird
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec /usr/bin/clipmenud
 
+# Shortcuts
 bindsym $mod+l exec i3lock --color "#000000"
+bindsym $mod+Control+P exec pavucontrol
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10% # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10% # decrease screen brightness
