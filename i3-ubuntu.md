@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Sans 12
+font pango:DejaVu Sans 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -165,7 +165,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-        font pango:DejaVu Sans 12
+        font pango:DejaVu Sans 10
 }
 
 focus_follows_mouse no
@@ -183,18 +183,20 @@ assign [class="Pinta"] 5
 assign [class="Image Lounge"] 5
 assign [class="jupyter-qtconsole"] 12
 
-bindsym $mod+Tab move workspace to output left
-
 exec /usr/bin/startup
-exec /usr/bin/termite
+exec /usr/bin/urxvt
 exec /usr/bin/google-chrome-stable
 exec /usr/bin/subl
+exec /usr/bin/slack
 exec /usr/bin/nm-applet
 exec /usr/bin/thunderbird
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec /usr/bin/clipmenud
 
+bindsym $mod+Tab move workspace to output left
 bindsym $mod+l exec i3lock --color "#000000"
+bindsym $mod+j exec --no-startup-id /home/janko/bash/dmenu-search/dmenu-search.sh
+bindsym $mod+Control+P exec pavucontrol
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10% # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10% # decrease screen brightness

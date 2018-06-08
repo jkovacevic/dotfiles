@@ -22,9 +22,10 @@ URxvt*color15: #ffffff
 URxvt.intensityStyles:	false
 URxvt.background:       #000000
 URxvt.depth:			32
-URxvt.font: 			xft:Liberation Mono:size=12
+URxvt.font: 			xft:Liberation Mono:size=10
 URxvt.scrollBar:		false
 URxvt.cursorColor:		white
+URxvt*letterSpace: 		-1
 
 !! Extensions
 URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,selection-to-clipboard
