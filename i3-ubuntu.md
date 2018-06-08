@@ -195,7 +195,7 @@ exec /usr/bin/clipmenud
 
 bindsym $mod+Tab move workspace to output left
 bindsym $mod+l exec i3lock --color "#000000"
-bindsym $mod+j exec --no-startup-id /home/janko/bash/dmenu-search/dmenu-search.sh
+bindsym $mod+j exec --no-startup-id dmenu-search
 bindsym $mod+Control+P exec pavucontrol
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10% # increase screen brightness

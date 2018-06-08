@@ -37,7 +37,6 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+space exec dmenu_run
-bindsym $mod+c exec clipmenu
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -183,8 +182,6 @@ assign [class="Pinta"] 5
 assign [class="Image Lounge"] 5
 assign [class="jupyter-qtconsole"] 12
 
-bindsym $mod+Tab move workspace to output left
-
 exec /usr/bin/startup
 exec /usr/bin/urxvt
 exec /usr/bin/google-chrome-stable
@@ -195,8 +192,11 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec /usr/bin/clipmenud
 
 # Shortcuts
+bindsym $mod+Tab move workspace to output left
+bindsym $mod+Control+p exec pavucontrol
 bindsym $mod+l exec i3lock --color "#000000"
-bindsym $mod+Control+P exec pavucontrol
+bindsym $mod+c exec clipmenu
+bindsym $mod+j exec $HOME/dotfiles/bash/dmenu-search/dmenu_search.sh
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10% # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10% # decrease screen brightness

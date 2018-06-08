@@ -9,6 +9,8 @@ else
 	echo "Input [a] or [u]!"
 	exit -1
 fi;
+
+echo "Configuration"
 echo "- i3wm"
 rm $HOME/.config/i3/config; ln -s $HOME/dotfiles/i3-$OS.md $HOME/.config/i3/config;
 echo "- git"
@@ -26,3 +28,14 @@ echo "- urxvt"
 rm $HOME/.Xdefaults; ln -s $HOME/dotfiles/Xdefaults $HOME/.Xdefaults;
 echo "- zshrc"
 rm $HOME/.zshrc; ln -s $HOME/dotfiles/zshrc-$OS.sh $HOME/.zshrc
+
+echo "Scripts"
+echo "- ss"
+sudo ln -s $HOME/dotfiles/bash/create_ss/ss.sh /usr/bin/ss
+echo "- gif"
+sudo ln -s $HOME/dotfiles/bash/create_gif/gif.sh /usr/bin/gif
+sudo ln -s $HOME/dotfiles/bash/create_gif/rflag.sh /usr/bin/gife
+echo "- imgur"
+sudo ln -s $HOME/dotfiles/bash/imgur.sh /usr/bin/imgur
+echo "- dmenu search"
+sudo ln -s $HOME/dotfiles/dmenu-search/dmenu_search.sh /usr/bin/dmenu_search
