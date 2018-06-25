@@ -7,9 +7,12 @@ unsetopt autocd beep
 plugins=(zsh-completions)
 
 HISTCONTROL=ignoredups:erasedups  # no duplicate entries
-HISTFILE=~/.histfile
+export HISTFILE=~/.zsh_history  # ensure history file visibility
+export HH_CONFIG=monochromatics        # get more colors
 HISTSIZE=100000
 SAVEHIST=100000
+bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # Color prompt and git
@@ -35,6 +38,7 @@ pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
 office () {nohup libreoffice "$@" > /dev/null 2>&1 & disown}
 nom () {nohup nomacs "$@" > /dev/null 2>&1 & disown}
+vlc() {nohup vlc "$@" > /dev/null 2>&1 & disown}
 yvid() { youtube-dl $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
