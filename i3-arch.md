@@ -44,8 +44,8 @@ bindsym $mod+space exec dmenu_run
 
 # change focus
 #bindsym $mod+h focus left
-#bindsym $mod+j focus down
-#bindsym $mod+k focus up
+bindsym $mod+j focus left
+bindsym $mod+k focus right
 #bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
@@ -104,11 +104,14 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-bindsym $mod+m workspace 11
-bindsym $mod+k workspace 12
-bindsym $mod+slash workspace 13
-bindsym $mod+minus workspace 14
-bindsym $mod+equal workspace 15
+bindsym $mod+i workspace i
+bindsym $mod+minus workspace 11
+bindsym $mod+equal workspace 12
+bindsym $mod+slash workspace /
+bindsym $mod+F1 workspace f1
+bindsym $mod+F2 workspace f2
+bindsym $mod+F3 workspace f3
+bindsym $mod+F4 workspace f4
 
 # move focused container to workspace
 bindsym $mod+Shift+grave move container to workspace 0
@@ -122,11 +125,14 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+Shift+m move container to workspace 11
-bindsym $mod+Shift+k move container to workspace 12
-bindsym $mod+Shift+slash move container to workspace 13
-bindsym $mod+Shift+minus move container to workspace 14
-bindsym $mod+Shift+equal move container to workspace 15
+bindsym $mod+Shift+i move container to workspace i
+bindsym $mod+Shift+minus move container to workspace 11
+bindsym $mod+Shift+equal move container to workspace 12
+bindsym $mod+Shift+slash move container to workspace /
+bindsym $mod+Shift+F1 move container to workspace /
+bindsym $mod+Shift+F2 move container to workspace /
+bindsym $mod+Shift+F3 move container to workspace /
+bindsym $mod+Shift+F4 move container to workspace /
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -196,7 +202,7 @@ bindsym $mod+Tab move workspace to output left
 bindsym $mod+Control+p exec pavucontrol
 bindsym $mod+l exec i3lock --color "#000000"
 bindsym $mod+c exec clipmenu
-bindsym $mod+j exec $HOME/dotfiles/bash/dmenu-search/dmenu_search.sh
+bindsym $mod+g exec $HOME/dotfiles/bash/dmenu-search/dmenu_search.sh
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10% # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10% # decrease screen brightness

@@ -34,6 +34,14 @@ alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
 
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+export CDPATH="~:/home/jk/hard-disk"
+
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
 office () {nohup libreoffice "$@" > /dev/null 2>&1 & disown}
