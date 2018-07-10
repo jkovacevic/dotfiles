@@ -6,7 +6,7 @@ unsetopt autocd beep
 
 plugins=(zsh-completions)
 
-export CDPATH="~:$HOME/IdeaProjects"
+#export CDPATH=""
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTFILE=~/.zsh_history  # ensure history file visibility
