@@ -58,12 +58,13 @@ ws() {grep -rn $1; }
 wss() {sudo grep -rn $1; }
 
 # Git shortcuts
+gg () {git add .; git commit -m "no-commit-message"; git push;}
 ga () {	if [[ $1 == "" ]]; then git add .;	else git add $1; fi }
 gp () {git push}
 gf () {git pull}
 gs () {git status}
 gc () {git commit -m "$1"}
 gr () {git checkout $1}
-gg () {git add .; git commit -m "no-commit-message"; git push;}
+
 gd () {git difftool $1}
 gm () {git mergetool $1}
