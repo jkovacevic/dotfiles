@@ -64,5 +64,6 @@ gf () {git pull}
 gs () {git status}
 gc () {git commit -m "$1"}
 gr () {git reset HEAD^}
+gg () {git add .; git commit -m "no-commit-message"; git push;}
 gd () {git difftool $1}
 gm () {git mergetool $1}
