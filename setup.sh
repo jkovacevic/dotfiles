@@ -18,7 +18,7 @@ ln -s $HOME/dotfiles/sublime-lhistory.json $HOME/.config/sublime-text-3/Packages
 echo "- urxvt"
 rm $HOME/.Xdefaults; ln -s $HOME/dotfiles/Xdefaults $HOME/.Xdefaults;
 echo "- zshrc"
-rm $HOME/.zshrc; echo "source $HOME/dotfiles/zshrc.sh" >> .zshrc; 
+rm $HOME/.zshrc; echo "source $HOME/dotfiles/zshrc.sh" >> $HOME/.zshrc; 
 
 echo "Scripts"
 echo "- ss"

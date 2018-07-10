@@ -66,7 +66,3 @@ gc () {git commit -m "$1"}
 gr () {git reset HEAD^}
 gd () {git difftool $1}
 gm () {git mergetool $1}
-
-# Arch terminal delete issue
-bindkey    "^[[3~"          delete-char
-bindkey    "^[3;5~"         delete-char
