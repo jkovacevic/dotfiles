@@ -24,8 +24,8 @@ echo "Scripts"
 echo "- ss"
 sudo ln -s $HOME/dotfiles/bash/create_ss/ss.sh /usr/bin/ss
 echo "- vid"
-sudo ln -s $HOME/dotfiles/bash/create_gif/gif.sh /usr/bin/vid
-sudo ln -s $HOME/dotfiles/bash/create_gif/rflag.sh /usr/bin/vide
+sudo ln -s $HOME/dotfiles/bash/create_vid/vid.sh /usr/bin/vid
+sudo ln -s $HOME/dotfiles/bash/create_vid/rflag.sh /usr/bin/vide
 echo "- imgur"
 sudo ln -s $HOME/dotfiles/bash/imgur.sh /usr/bin/imgur
 echo "- dmenu search"
