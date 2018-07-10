@@ -14,10 +14,10 @@
 [difftool "sublimerge"]
 	cmd = subl -n --wait \"$REMOTE\" \"$LOCAL\" --command \"sublimerge_diff_views {\\\"left_read_only\\\": false, \\\"right_read_only\\\": true}\"
 
-[user]
-	email = jk.simunic@gmail.com
-	name = jkovacevic
 [credential]
 	helper = cache --timeout=3600
 [difftool]
 	prompt = false
+[user]
+	email = jk.simunic@gmail.com
+	name = jkovacevic
