@@ -4,8 +4,6 @@ echo "## Setup dotfiles ##"
 echo "Configuration"
 echo "- i3wm"
 rm $HOME/.config/i3/config; ln -s $HOME/dotfiles/i3.md $HOME/.config/i3/config;
-echo "- git"
-rm $HOME/.gitconfig; ln -s $HOME/dotfiles/gitconfig $HOME/.gitconfig
 echo "- ipython"
 rm $HOME/.ipython/profile_default/ipython_config.py; ln -s $HOME/dotfiles/ipython.py $HOME/.ipython/profile_default/ipython_config.py;
 echo "- sublime"
