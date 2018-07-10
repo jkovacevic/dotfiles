@@ -13,13 +13,12 @@ export HISTFILE=~/.zsh_history  # ensure history file visibility
 export HH_CONFIG=monochromatics # get more colors
 export HISTSIZE=100000
 export SAVEHIST=100000
-bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
-
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # Color prompt and git
 export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
 export RPROMPT='$(vcs_info_wrapper)'
+
 vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "%{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}$del"; fi; }
 autoload -Uz vcs_info compinit && compinit
 zstyle ':vcs_info:*' enable git cvs svn
@@ -29,6 +28,8 @@ autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
+
+bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
 
 # Functions and aliases
 alias l='ls -lFh --color=auto --group-directories-first'     #size,show type,human readable
