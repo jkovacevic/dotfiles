@@ -6,7 +6,7 @@ unsetopt autocd beep
 
 plugins=(zsh-completions)
 
-#export CDPATH=""
+export CDPATH="$HOME:"
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTFILE=~/.zsh_history  # ensure history file visibility
@@ -37,6 +37,7 @@ alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
 
 # Navigation
+alias cd='cd > /dev/null 2>&1'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
