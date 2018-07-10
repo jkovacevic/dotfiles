@@ -1,18 +1,9 @@
 #!/bin/bash
 echo "## Setup dotfiles ##"
-read -p "Arch or Ubuntu? [a/u]: " OS
-if [[ $OS == "a" ]]; then
-	OS="arch"
-elif [[ $OS == "u" ]]; then
-	OS="ubuntu"
-else
-	echo "Input [a] or [u]!"
-	exit -1
-fi;
 
 echo "Configuration"
 echo "- i3wm"
-rm $HOME/.config/i3/config; ln -s $HOME/dotfiles/i3-$OS.md $HOME/.config/i3/config;
+rm $HOME/.config/i3/config; ln -s $HOME/dotfiles/i3.md $HOME/.config/i3/config;
 echo "- git"
 rm $HOME/.gitconfig; ln -s $HOME/dotfiles/gitconfig $HOME/.gitconfig
 echo "- ipython"
@@ -27,7 +18,7 @@ ln -s $HOME/dotfiles/sublime-lhistory.json $HOME/.config/sublime-text-3/Packages
 echo "- urxvt"
 rm $HOME/.Xdefaults; ln -s $HOME/dotfiles/Xdefaults $HOME/.Xdefaults;
 echo "- zshrc"
-rm $HOME/.zshrc; ln -s $HOME/dotfiles/zshrc-$OS.sh $HOME/.zshrc
+rm $HOME/.zshrc; echo "source $HOME/dotfiles/zshrc.sh" >> .zshrc; 
 
 echo "Scripts"
 echo "- ss"

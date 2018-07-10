@@ -6,10 +6,15 @@ unsetopt autocd beep
 
 plugins=(zsh-completions)
 
-HISTCONTROL=ignoredups:erasedups  # no duplicate entries
-HISTFILE=~/.histfile
-HISTSIZE=100000
-SAVEHIST=100000
+export CDPATH="~:$HOME/IdeaProjects"
+
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTFILE=~/.zsh_history  # ensure history file visibility
+export HH_CONFIG=monochromatics # get more colors
+export HISTSIZE=100000
+export SAVEHIST=100000
+bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # Color prompt and git
@@ -31,10 +36,17 @@ alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
 
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
 office () {nohup libreoffice "$@" > /dev/null 2>&1 & disown}
 nom () {nohup nomacs "$@" > /dev/null 2>&1 & disown}
+vlc() {nohup vlc "$@" > /dev/null 2>&1 & disown}
 yvid() { youtube-dl $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
@@ -54,3 +66,7 @@ gc () {git commit -m "$1"}
 gr () {git reset HEAD^}
 gd () {git difftool $1}
 gm () {git mergetool $1}
+
+# Arch terminal delete issue
+bindkey    "^[[3~"          delete-char
+bindkey    "^[3;5~"         delete-char
