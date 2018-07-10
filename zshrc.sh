@@ -41,7 +41,6 @@ alias cd='cd > /dev/null 2>&1'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias .....='cd ../../../..'
 
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
@@ -64,7 +63,7 @@ gp () {git push}
 gf () {git pull}
 gs () {git status}
 gc () {git commit -m "$1"}
-gr () {git reset HEAD^}
+gr () {git checkout $1}
 gg () {git add .; git commit -m "no-commit-message"; git push;}
 gd () {git difftool $1}
 gm () {git mergetool $1}
