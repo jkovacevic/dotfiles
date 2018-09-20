@@ -4,9 +4,10 @@ setopt share_history
 setopt prompt_subst
 unsetopt autocd beep
 
-plugins=(zsh-completions)
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
-export CDPATH="$HOME:"
+plugins=(zsh-completions)
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTFILE=~/.zsh_history  # ensure history file visibility
@@ -28,8 +29,6 @@ autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
-
-bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
 
 # Functions and aliases
 alias l='ls -lFh --color=auto --group-directories-first'     #size,show type,human readable
@@ -66,6 +65,8 @@ gf () {git pull}
 gs () {git status}
 gc () {git commit -m "$1"}
 gr () {git checkout $1}
+gd () {git diff $1}
 
-gd () {git difftool $1}
-gm () {git mergetool $1}
+# Arch terminal delete issue
+bindkey    "^[[3~"          delete-char
+bindkey    "^[3;5~"         delete-char
