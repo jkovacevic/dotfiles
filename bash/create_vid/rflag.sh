@@ -1,1 +1,0 @@
-rm /tmp/record_gif_flag
