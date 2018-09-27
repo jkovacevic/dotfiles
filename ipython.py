@@ -1,10 +1,16 @@
-import pandas as pd
-import numpy as np
+try:
+	import pandas as pd
+	pd.set_option('display.max_rows', 0)
+	pd.set_option('display.max_columns', 0)
+except:
+	pass
 
-np.core.arrayprint._line_width = 120
-np.set_printoptions(formatter={'float_kind': lambda x: "%.2f" % x})
-pd.set_option('display.max_rows', 0)
-pd.set_option('display.max_columns', 0)
+try:	
+	import numpy as np
+	np.core.arrayprint._line_width = 120
+	np.set_printoptions(formatter={'float_kind': lambda x: "%.2f" % x})
+except:
+	pass
 
 c.InteractiveShell.color_info = True
 c.InteractiveShell.colors = 'Linux'
