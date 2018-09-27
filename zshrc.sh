@@ -39,8 +39,7 @@ alias mocp='mocp -T black_orange'
 # Navigation
 alias cd='cd > /dev/null 2>&1'
 alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ....='cd ../..'
 
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
