@@ -57,7 +57,7 @@ ws() {grep -rn $1; }
 wss() {sudo grep -rn $1; }
 
 # Git shortcuts
-gg () {git add .; git commit -m "no-commit-message"; git push;}
+gg () {git add .; git commit -m "automated commit message"; git push;}
 ga () {	if [[ $1 == "" ]]; then git add .;	else git add $1; fi }
 gp () {git push}
 gf () {git pull}
