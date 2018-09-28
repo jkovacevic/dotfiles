@@ -12,7 +12,7 @@ ln -s $HOME/dotfiles/sublime-settings.json $HOME/.config/sublime-text-3/Packages
 rm $HOME/.config/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-keymap; 
 ln -s $HOME/dotfiles/sublime-keymap.json $HOME/.config/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-keymap;
 rm $HOME/.config/sublime-text-3/Packages/User/LocalHistory.sublime-settings; 
-ln -s $HOME/dotfiles/sublime-lhistory.json $HOME/.config/sublime-text-3/Packages/User/LocalHistory.sublime-settings;
+ln -s $HOME/dotfiles/sublime-history.json $HOME/.config/sublime-text-3/Packages/User/LocalHistory.sublime-settings;
 echo "- urxvt"
 rm $HOME/.Xdefaults; ln -s $HOME/dotfiles/Xdefaults $HOME/.Xdefaults;
 echo "- zshrc"
