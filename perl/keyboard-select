@@ -29,12 +29,12 @@ use strict;
 sub on_start{
 	my ($self) = @_;
 
-	$self->{patterns}{'w'} = qr/\w[^\w\s]|\W\w|\s\S/;
-	$self->{patterns}{'W'} = qr/\s\S/;
-	$self->{patterns}{'b'} = qr/.*(?:\w[^\w\s]|\W\w|\s\S)/;
-	$self->{patterns}{'B'} = qr/.*\s\S/;
-	$self->{patterns}{'e'} = qr/[^\w\s](?=\w)|\w(?=\W)|\S(?=\s|$)/;
-	$self->{patterns}{'E'} = qr/\S(?=\s|$)/;
+	#$self->{patterns}{'w'} = qr/\w[^\w\s]|\W\w|\s\S/;
+	#$self->{patterns}{'W'} = qr/\s\S/;
+	#$self->{patterns}{'B'} = qr/.*(?:\w[^\w\s]|\W\w|\s\S)/;
+	$self->{patterns}{'b'} = qr/.*\s\S/;
+	#$self->{patterns}{'E'} = qr/[^\w\s](?=\w)|\w(?=\W)|\S(?=\s|$)/;
+	$self->{patterns}{'f'} = qr/\s\S/;
 
 	()
 }
@@ -166,14 +166,18 @@ sub key_press {
 		move_cursor($self, 'h');
 	} elsif ($key eq 'l' || $keysym == 0xff53) {
 		move_cursor($self, 'l');
-	} elsif ('gG0^$HML' =~ m/\Q$key\E/ ||
+	} elsif ($key eq 'u' || $keysym == 0xff52) {
+		move_cursor($self, 'u');
+	} elsif ($key eq 'd' || $keysym == 0xff54) {
+		move_cursor($self, 'd');
+	} elsif ('eaAE' =~ m/\Q$key\E/ ||
 			('fbdu' =~ m/\Q$key\E/ && $event->{state} & urxvt::ControlMask)) {
 		move_cursor($self, $key);
-	} elsif (lc($key) eq 'f') {
-		$self->{move_to} = 1;
-		$self->{move_dir} = $key eq 'F' ? -1 : 1;
-		status_area($self, $key);
-	} elsif (';,wWbBeE' =~ m/\Q$key\E/) {
+	} elsif (';,bf' =~ m/\Q$key\E/ && urxvt::ShiftMask) {
+		toggle_select($self, 'l');
+		move_to($self, $key);
+		toggle_select($self, 'l');
+	} elsif (';,bf' =~ m/\Q$key\E/) {
 		move_to($self, $key);
 	} elsif ($key eq '/' || $key eq '?') {
 		$self->{search} = $key;
@@ -202,11 +206,10 @@ sub move_cursor {
 		$self->{dollar} = 0;
 	} elsif ($key eq 'l' && $self->{offset} < $line->l - 1) {
 		++$self->{offset};
-	} elsif ($key eq 'f' || $key eq 'd') {
-		my $vs = $self->view_start() +
-				($key eq 'd' ? $self->nrow / 2 : $self->nrow - 1);
-		$vs = 0 if $vs > 0;
-		$cr += $vs - $self->view_start($vs);
+	} elsif ($key eq 'u' && $line->beg > $self->top_row + 3) {
+		$cr = $line->beg - 4;
+	} elsif ($key eq 'd' && $line->end < $self->nrow - 4) {
+		$cr = $line->end + 4;
 	} elsif ($key eq 'b' || $key eq 'u') {
 		my $vs = $self->view_start() -
 				($key eq 'u' ? $self->nrow / 2 : $self->nrow - 1);
@@ -218,15 +221,19 @@ sub move_cursor {
 	} elsif ($key eq 'G') {
 		($cr, $self->{offset}) = ($self->nrow - 1, 0);
 		$self->{dollar} = 0;
-	} elsif ($key eq '0') {
+	} elsif ($key eq 'a') {
 		$self->{offset} = 0;
 		$self->{dollar} = 0;
-	} elsif ($key eq '^') {
-		my $ltxt = $self->special_decode($line->t);
-		while ($ltxt =~ s/^( *)\t/$1 . " " x (8 - length($1) % 8)/e) {}
-		$self->{offset} = $ltxt =~ m/^ +/ ? $+[0] : 0;
+	} elsif ($key eq 'A') {
+		toggle_select($self, 'n');
+		$self->{offset} = 0;
 		$self->{dollar} = 0;
-	} elsif ($key eq '$') {
+	} elsif ($key eq 'e') {
+		my $co = $line->offset_of($cr, $cc);
+		$self->{dollar} = $co + 1;
+		$self->{offset} = $line->l - 1;
+	} elsif ($key eq 'E') {
+		toggle_select($self, 'n');
 		my $co = $line->offset_of($cr, $cc);
 		$self->{dollar} = $co + 1;
 		$self->{offset} = $line->l - 1;
@@ -280,8 +287,8 @@ sub move_to {
 			$found = 1;
 		} elsif ($wrap && $line->end + 1 < $self->nrow) {
 			$cr = $line->end + 1;
-			$line = $self->line($cr);
-			$offset = 0;
+			# $line = $self->line($cr);
+			$offset = $line->l - 1;
 			if (lc($key) eq 'e') {
 				goto NEXTDOWN;
 			} else {
@@ -299,9 +306,9 @@ sub move_to {
 				$found = 1;
 			} elsif ($line->beg > $self->top_row) {
 				$cr = $line->beg - 1;
-				$line = $self->line($cr);
-				$offset = $line->l;
-				goto NEXTUP;
+				# $line = $self->line($cr);
+				$offset = 0;
+				#goto NEXTUP;
 			}
 		}
 	}
