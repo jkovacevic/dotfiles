@@ -30,6 +30,7 @@ sub on_start{
 	my ($self) = @_;
 	$self->{patterns}{'b'} = qr/.*\s\S/;
 	$self->{patterns}{'f'} = qr/\s\S/;
+	$self->{patterns}{'w'} = qr/\S(?=\s|$)/;
 	()
 }
 
@@ -163,6 +164,11 @@ sub key_press {
 		move_cursor($self, 'u');
 	} elsif ($key eq 'd' || $keysym == 0xff54) {
 		move_cursor($self, 'd');
+	} elsif ($key eq 's' || $keysym == 0xff54) {
+		move_cursor($self, 'l');
+		move_to($self, 'b');
+		turn_on_select($self, 'n');
+		move_to($self, 'w');
 	} elsif ('eaAE' =~ m/\Q$key\E/) {
 		move_cursor($self, $key);
 	} elsif ('bf' =~ m/\Q$key\E/) {
