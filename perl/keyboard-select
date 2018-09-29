@@ -201,10 +201,10 @@ sub move_cursor {
 			$cr = $self->top_row;
 		}
 	} elsif ($key eq 'd') {
-		 if ($line->end + 4 < $self->nrow) {
+		 if ($line->end + 4 < $self->nrow - 1) {
 		 	$cr = $line->end + 4;
 		 } else {
-		 	$cr = $self->nrow;
+		 	$cr = $self->nrow - 1;
 		 }
 	} elsif ($key eq 'g') {
 		($cr, $self->{offset}) = ($self->top_row, 0);
