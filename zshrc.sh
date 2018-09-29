@@ -35,6 +35,7 @@ alias l='ls -lFh --color=auto --group-directories-first'     #size,show type,hum
 alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
+alias cat='bat'
 
 # Navigation
 alias cd='cd > /dev/null 2>&1'
