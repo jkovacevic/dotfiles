@@ -11,3 +11,5 @@ Run setup.sh to configure dotfiles.
 	* Compare side by side
 	* Color Highlighter
 	* Spacegray theme + color scheme
+* bat as replacement for cat
+* httpie as replacement for curl
