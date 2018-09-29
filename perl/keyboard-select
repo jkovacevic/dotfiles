@@ -47,6 +47,7 @@ sub on_user_command {
 	if (not $self->{active}) {
 		if ($cmd eq 'keyboard-select:activate') {
 			activate($self);
+			move_cursor($self, 'e');
 		} elsif ($cmd eq 'keyboard-select:search') {
 			activate($self, 1);
 		}
