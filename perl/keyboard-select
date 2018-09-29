@@ -28,21 +28,14 @@ use strict;
 
 sub on_start{
 	my ($self) = @_;
-
-	#$self->{patterns}{'w'} = qr/\w[^\w\s]|\W\w|\s\S/;
-	#$self->{patterns}{'W'} = qr/\s\S/;
-	#$self->{patterns}{'B'} = qr/.*(?:\w[^\w\s]|\W\w|\s\S)/;
 	$self->{patterns}{'b'} = qr/.*\s\S/;
-	#$self->{patterns}{'E'} = qr/[^\w\s](?=\w)|\w(?=\W)|\S(?=\s|$)/;
 	$self->{patterns}{'f'} = qr/\s\S/;
-
 	()
 }
 
 
 sub on_action {
     my ($self, $action) = @_;
-
     on_user_command($self, "keyboard-select:" . $action);
 }
 
@@ -170,10 +163,9 @@ sub key_press {
 		move_cursor($self, 'u');
 	} elsif ($key eq 'd' || $keysym == 0xff54) {
 		move_cursor($self, 'd');
-	} elsif ('eaAE' =~ m/\Q$key\E/ ||
-			('fbdu' =~ m/\Q$key\E/ && $event->{state} & urxvt::ControlMask)) {
+	} elsif ('eaAE' =~ m/\Q$key\E/) {
 		move_cursor($self, $key);
-	} elsif ('bfBF' =~ m/\Q$key\E/) {
+	} elsif ('bf' =~ m/\Q$key\E/) {
 		move_to($self, $key);
 	} elsif ($key eq '/' || $key eq '?') {
 		$self->{search} = $key;
@@ -224,7 +216,7 @@ sub move_cursor {
 		$self->{offset} = 0;
 		$self->{dollar} = 0;
 	} elsif ($key eq 'A') {
-		toggle_select($self, 'n');
+		turn_on_select($self, 'n');
 		$self->{offset} = 0;
 		$self->{dollar} = 0;
 	} elsif ($key eq 'e') {
@@ -232,7 +224,7 @@ sub move_cursor {
 		$self->{dollar} = $co + 1;
 		$self->{offset} = $line->l - 1;
 	} elsif ($key eq 'E') {
-		toggle_select($self, 'n');
+		turn_on_select($self, 'n');
 		my $co = $line->offset_of($cr, $cc);
 		$self->{dollar} = $co + 1;
 		$self->{offset} = $line->l - 1;
@@ -550,6 +542,20 @@ sub toggle_select {
 		}
 		$self->{select} = $mode;
 	}
+
+	status_area($self);
+	$self->want_refresh();
+
+	()
+}
+
+sub turn_on_select {
+	my ($self, $mode) = @_;
+
+	if (not $self->{select}) {
+		($self->{ar}, $self->{ac}) = $self->screen_cur();
+	}
+	$self->{select} = $mode;
 
 	status_area($self);
 	$self->want_refresh();
