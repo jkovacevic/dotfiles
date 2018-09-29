@@ -47,7 +47,6 @@ sub on_user_command {
 	if (not $self->{active}) {
 		if ($cmd eq 'keyboard-select:activate') {
 			activate($self);
-			move_cursor($self, 'e');
 		} elsif ($cmd eq 'keyboard-select:search') {
 			activate($self, 1);
 		}
@@ -63,6 +62,21 @@ sub key_press {
 
 	if (lc($key) eq 'c' && $event->{state} & urxvt::ControlMask) {
 		deactivate($self);
+	} elsif ($key eq 'p') {
+		my ($cr, $cc) = $self->screen_cur();
+		my $line = $self->line($cr);
+		my $filename = '/tmp/kselect.log';
+		open(my $fh, '>>', $filename);
+		print $fh "\n\n# Variables: \n";
+		print $fh "cr: ", $cr, "\n";
+		print $fh "cc: ", $cc, "\n";
+		print $fh "self->top_row: ", $self->top_row, "\n";
+		print $fh "self->nrow: ", $self->nrow, "\n";
+		print $fh "line->l: ", $line->l, "\n";
+		print $fh "line->beg: ", $line->beg, "\n";
+		print $fh "line->end: ", $line->end, "\n";
+		close $fh;
+		
 	} elsif ($self->{search}) {
 		if ($keysym == 0xff1b) {
 			if ($self->{search_mode}) {
@@ -185,7 +199,6 @@ sub key_press {
 
 	return 1;
 }
-
 
 sub move_cursor {
 	my ($self, $key) = @_;
