@@ -173,11 +173,7 @@ sub key_press {
 	} elsif ('eaAE' =~ m/\Q$key\E/ ||
 			('fbdu' =~ m/\Q$key\E/ && $event->{state} & urxvt::ControlMask)) {
 		move_cursor($self, $key);
-	} elsif (';,bf' =~ m/\Q$key\E/ && urxvt::ShiftMask) {
-		toggle_select($self, 'l');
-		move_to($self, $key);
-		toggle_select($self, 'l');
-	} elsif (';,bf' =~ m/\Q$key\E/) {
+	} elsif ('bfBF' =~ m/\Q$key\E/) {
 		move_to($self, $key);
 	} elsif ($key eq '/' || $key eq '?') {
 		$self->{search} = $key;
@@ -206,15 +202,18 @@ sub move_cursor {
 		$self->{dollar} = 0;
 	} elsif ($key eq 'l' && $self->{offset} < $line->l - 1) {
 		++$self->{offset};
-	} elsif ($key eq 'u' && $line->beg > $self->top_row + 3) {
-		$cr = $line->beg - 4;
-	} elsif ($key eq 'd' && $line->end < $self->nrow - 4) {
-		$cr = $line->end + 4;
-	} elsif ($key eq 'b' || $key eq 'u') {
-		my $vs = $self->view_start() -
-				($key eq 'u' ? $self->nrow / 2 : $self->nrow - 1);
-		$vs = $self->top_row if $vs < $self->top_row;
-		$cr += $vs - $self->view_start($vs);
+	} elsif ($key eq 'u') {
+		if ($line->beg - 4 > $self->top_row) {
+			$cr = $line->beg - 4;
+		} else {
+			$cr = $self->top_row;
+		}
+	} elsif ($key eq 'd') {
+		 if ($line->end + 4 < $self->nrow) {
+		 	$cr = $line->end + 4;
+		 } else {
+		 	$cr = $self->nrow;
+		 }
 	} elsif ($key eq 'g') {
 		($cr, $self->{offset}) = ($self->top_row, 0);
 		$self->{dollar} = 0;
@@ -512,13 +511,13 @@ sub status_area {
 		}
 
 		if ($self->top_row == 0) {
-			$stat .= "All";
+			$stat .= "[100 %]";
 		} elsif ($self->view_start() == $self->top_row) {
-			$stat .= "Top";
+			$stat .= "[  0 %]";
 		} elsif ($self->view_start() == 0) {
-			$stat .= "Bot";
+			$stat .= "[100 %]";
 		} else {
-			$stat .= sprintf("%2d%%",
+			$stat .= sprintf("[%3d %]",
 					($self->top_row - $self->view_start) * 100 / $self->top_row);
 		}
 		
