@@ -40,7 +40,7 @@ URxvt.url-select.underline: true
 URxvt.url-launcher:	xdg-open
 
 !! keyboard-select:
-URxvt.keysym.C-w: perl:keyboard-select:activate
+URxvt.keysym.C-Escape: perl:keyboard-select:activate
 
 # Copy paste
 URxvt.keysym.C-v: eval:paste_clipboard
