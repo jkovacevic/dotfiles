@@ -31,7 +31,7 @@ URxvt*letterSpace: 		-1
 
 !! Extensions
 URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,selection-to-clipboard
-URxvt.colorUL:			#4682B4
+URxvt.colorUL:			#3AD9C5
 
 !! url-select
 URxvt.keysym.M-u:	perl:url-select:select_next
@@ -41,15 +41,6 @@ URxvt.url-launcher:	xdg-open
 
 !! keyboard-select:
 URxvt.keysym.C-Escape: perl:keyboard-select:activate
-
-# Remapping of keyboard-select keys
-# Go to ./usr/lib/urxvt/perl/keyboard-select and remap movement keys
-# $self->{patterns}{'w'} = qr/\w[^\w\s]|\W\w|\s\S/;
-# $self->{patterns}{'W'} = qr/\s\S/;
-# $self->{patterns}{'B'} = qr/.*(?:\w[^\w\s]|\W\w|\s\S)/;
-# $self->{patterns}{'b'} = qr/.*\s\S/;
-# $self->{patterns}{'E'} = qr/[^\w\s](?=\w)|\w(?=\W)|\S(?=\s|$)/;
-# $self->{patterns}{'e'} = qr/\S(?=\s|$)/;
 
 # Copy paste
 URxvt.keysym.C-v: eval:paste_clipboard
