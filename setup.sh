@@ -14,6 +14,7 @@ function create_symlink {
 echo "## Setup dotfiles ##"
 create_symlink "$HOME/dotfiles/zshrc.sh" "$HOME/.zshrc"
 create_symlink "$HOME/dotfiles/i3.md" "$HOME/.config/i3/config"
+create_symlink "$HOME/dotfiles/i3status" "$HOME/.config/i3status/config"
 create_symlink "$HOME/dotfiles/ipython.py" "$HOME/.ipython/profile_default/ipython_config.py"
 create_symlink "$HOME/dotfiles/sublime-settings.json" "$HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
 create_symlink "$HOME/dotfiles/sublime-keymap.json" "$HOME/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap"
