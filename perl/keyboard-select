@@ -55,9 +55,6 @@ sub on_user_command {
 	if (not $self->{active}) {
 		if ($cmd eq 'keyboard-select:activate') {
 			activate($self);
-			move_cursor($self, 'k');
-			move_cursor($self, 'e');
-			move_cursor($self, 'j');
 		} elsif ($cmd eq 'keyboard-select:search') {
 			activate($self, 1);
 		}
@@ -605,6 +602,5 @@ sub calc_span {
 	} else {
 		++$ec;
 	}
-
 	return ($br, $bc, $er, $ec);
 }
