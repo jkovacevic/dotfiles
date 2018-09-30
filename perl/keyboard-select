@@ -23,6 +23,15 @@
 #   y/Return:   Copy selection to primary buffer, Return: deactivate afterwards
 #   q/Escape:   Deactivate keyboard selection mode
 
+sub log_message {
+	my ($message) = @_;
+	my $filename = '/tmp/kselect.log';
+	open($fh, '>>', $filename);
+	print $fh $message, "\n";
+	close $fh;
+	()
+}
+
 use strict;
 
 sub on_start{
@@ -46,22 +55,15 @@ sub on_user_command {
 	if (not $self->{active}) {
 		if ($cmd eq 'keyboard-select:activate') {
 			activate($self);
+			move_cursor($self, 'k');
+			move_cursor($self, 'e');
+			move_cursor($self, 'j');
 		} elsif ($cmd eq 'keyboard-select:search') {
 			activate($self, 1);
 		}
 	}
 	()
 }
-
-sub log_message {
-	my ($message) = @_;
-	my $filename = '/tmp/kselect.log';
-	open($fh, '>>', $filename);
-	print $fh $message, "\n";
-	close $fh;
-	()
-}
-
 
 sub key_press {
 	my ($self, $event, $keysym, $char) = @_;
@@ -271,20 +273,14 @@ sub move_to {
 	my ($dir, $pattern);
 	my ($wrap, $found) = (0, 0);
 
-	if ($key eq ';' || $key eq ',') {
-		$dir = $self->{move_dir} * ($key eq ',' ? -1 : 1);
-		$pattern = $self->{patterns}{sprintf('f%+d', $dir)};
-		return if not $pattern;
+	if (lc($key) eq 'b') {
+		$dir = -1;
 	} else {
-		if (lc($key) eq 'b') {
-			$dir = -1;
-		} else {
-			$dir = 1;
-			++$offset if lc($key) eq 'e';
-		}
-		$pattern = $self->{patterns}{$key};
-		$wrap = 1;
+		$dir = 1;
+		++$offset if lc($key) eq 'e';
 	}
+	$pattern = $self->{patterns}{$key};
+	$wrap = 1;
 
 	if ($dir > 0) {
 		NEXTDOWN: my $text = substr($line->t, $offset);
