@@ -23,7 +23,6 @@
 #   y/Return:   Copy selection to primary buffer, Return: deactivate afterwards
 #   q/Escape:   Deactivate keyboard selection mode
 
-
 use strict;
 
 sub on_start{
@@ -51,7 +50,15 @@ sub on_user_command {
 			activate($self, 1);
 		}
 	}
+	()
+}
 
+sub log_message {
+	my ($message) = @_;
+	my $filename = '/tmp/kselect.log';
+	open($fh, '>>', $filename);
+	print $fh $message, "\n";
+	close $fh;
 	()
 }
 
@@ -65,18 +72,6 @@ sub key_press {
 	} elsif ($key eq 'p') {
 		my ($cr, $cc) = $self->screen_cur();
 		my $line = $self->line($cr);
-		my $filename = '/tmp/kselect.log';
-		open(my $fh, '>>', $filename);
-		print $fh "\n\n# Variables: \n";
-		print $fh "cr: ", $cr, "\n";
-		print $fh "cc: ", $cc, "\n";
-		print $fh "self->top_row: ", $self->top_row, "\n";
-		print $fh "self->nrow: ", $self->nrow, "\n";
-		print $fh "line->l: ", $line->l, "\n";
-		print $fh "line->beg: ", $line->beg, "\n";
-		print $fh "line->end: ", $line->end, "\n";
-		close $fh;
-		
 	} elsif ($self->{search}) {
 		if ($keysym == 0xff1b) {
 			if ($self->{search_mode}) {
@@ -298,7 +293,6 @@ sub move_to {
 			$found = 1;
 		} elsif ($wrap && $line->end + 1 < $self->nrow) {
 			$cr = $line->end + 1;
-			# $line = $self->line($cr);
 			$offset = $line->l - 1;
 			if (lc($key) eq 'e') {
 				goto NEXTDOWN;
@@ -308,6 +302,9 @@ sub move_to {
 		}
 	} elsif ($dir < 0) {
 		NEXTUP: my $text = substr($line->t, 0, $offset);
+		if($offset > length($text)) {
+			$offset = length($text);
+		}
 		if ($text =~ m/$pattern/) {
 			$offset += $+[0] - length($text) - 1;
 			$found = 1;
@@ -317,7 +314,6 @@ sub move_to {
 				$found = 1;
 			} elsif ($line->beg > $self->top_row) {
 				$cr = $line->beg - 1;
-				# $line = $self->line($cr);
 				$offset = 0;
 				#goto NEXTUP;
 			}
