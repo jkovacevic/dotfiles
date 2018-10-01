@@ -4,8 +4,8 @@ setopt share_history
 setopt prompt_subst
 unsetopt autocd beep
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+source $HOME/.fzf/shell/key-bindings.zsh
+source $HOME/.fzf/shell/completion.zsh
 
 plugins=(zsh-completions)
 
@@ -40,7 +40,6 @@ alias mocp='mocp -T black_orange'
 alias cat='bat'
 
 # Navigation
-alias cd='cd > /dev/null 2>&1'
 alias ..='cd ..; l'
 alias ....='cd ../..; l'
 
