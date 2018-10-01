@@ -41,8 +41,8 @@ alias cat='bat'
 
 # Navigation
 alias cd='cd > /dev/null 2>&1'
-alias ..='cd ..; l'
-alias ....='cd ../..; l'
+alias ..='cd ..'
+alias ....='cd ../..'
 
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
