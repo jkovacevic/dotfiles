@@ -25,6 +25,7 @@ vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "%{$fg[gr
 autoload -Uz vcs_info compinit && compinit
 zstyle ':vcs_info:*' enable git cvs svn
 zstyle ':vcs_info:*' formats '%F{white}[%F{cyan}%b%F{white}]%f '
+zstyle ':completion:*' verbose yes
 
 autoload -U compinit && compinit
 zstyle ':completion:*' menu select
@@ -40,8 +41,8 @@ alias cat='bat'
 
 # Navigation
 alias cd='cd > /dev/null 2>&1'
-alias ..='cd ..'
-alias ....='cd ../..'
+alias ..='cd ..; l'
+alias ....='cd ../..; l'
 
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
