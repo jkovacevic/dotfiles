@@ -25,7 +25,6 @@ URxvt.depth:			32
 URxvt.font: 			xft:Liberation Mono:size=10
 URxvt.scrollBar:		false
 URxvt.cursorColor:		white
-URxvt.cursorUnderline:	1
 URxvt.cursorBlink:		1
 URxvt*letterSpace: 		-1
 
