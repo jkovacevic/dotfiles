@@ -40,8 +40,8 @@ alias mocp='mocp -T black_orange'
 alias cat='bat'
 
 # Navigation
-alias ..='cd ..; l'
-alias ....='cd ../..; l'
+alias ..='cd ..'
+alias ....='cd ../..'
 
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
