@@ -68,9 +68,6 @@ sub key_press {
 
 	if (lc($key) eq 'c' && $event->{state} & urxvt::ControlMask) {
 		deactivate($self);
-	} elsif ($key eq 'p') {
-		my ($cr, $cc) = $self->screen_cur();
-		my $line = $self->line($cr);
 	} elsif ($self->{search}) {
 		if ($keysym == 0xff1b) {
 			if ($self->{search_mode}) {
