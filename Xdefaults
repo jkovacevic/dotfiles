@@ -41,6 +41,7 @@ URxvt.url-launcher:	xdg-open
 
 !! keyboard-select:
 URxvt.keysym.Escape: perl:keyboard-select:activate
+URxvt.keysym.C-f: perl:keyboard-select:search
 
 # Copy paste
 URxvt.keysym.C-v: eval:paste_clipboard
