@@ -37,7 +37,7 @@ alias l='ls -lFh --color=auto --group-directories-first'     #size,show type,hum
 alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
-alias cat='bat'
+alias cat='bat --theme=Monokai\ Extended\ Light'
 
 # Navigation
 alias ..='cd ..'
@@ -51,6 +51,8 @@ vlc() {nohup vlc "$@" > /dev/null 2>&1 & disown}
 yvid() { youtube-dl $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
+s3() { if [[ $1 == *"/"* ]]; then echo "1"; aws s3 ls s3://$1 --recursive --human-readable; else echo "2"; aws s3 ls s3://$1; fi; }
+s3r() { aws s3 ls s3://$1 --recursive }
 
 # Text and word find
 fs() {find -iname \*$1\*; }
