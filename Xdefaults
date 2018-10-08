@@ -25,6 +25,7 @@ URxvt.depth:			32
 URxvt.font: 			xft:Liberation Mono:size=10
 URxvt.scrollBar:		false
 URxvt.cursorColor:		white
+URxvt.cursorUnderline:	1
 URxvt.cursorBlink:		1
 URxvt*letterSpace: 		-1
 
@@ -39,7 +40,8 @@ URxvt.url-select.underline: true
 URxvt.url-launcher:	xdg-open
 
 !! keyboard-select:
-URxvt.keysym.C-Escape: perl:keyboard-select:activate
+URxvt.keysym.Escape: perl:keyboard-select:activate
+URxvt.keysym.C-f: perl:keyboard-select:search
 
 # Copy paste
 URxvt.keysym.C-v: eval:paste_clipboard
