@@ -22,7 +22,7 @@ URxvt*color15: #ffffff
 URxvt.intensityStyles:	false
 URxvt.background:       #000000
 URxvt.depth:			32
-URxvt.font: 			xft:Liberation Mono:size=10
+URxvt.font: 			xft:Liberation Mono:size=12
 URxvt.scrollBar:		false
 URxvt.cursorColor:		white
 URxvt.cursorUnderline:	1
