@@ -1,0 +1,165 @@
+<html>
+	<head>
+		<title>JK Wiki</title>
+		 <link rel="stylesheet" href="wiki.css">
+		 <link rel="icon" href="img/icon.jpg">
+	</head>
+	<body>
+		<h1>JK Wiki</h1>
+		<h2><p><a href="#linux">Linux</a></p></h2>
+		<h2><p><a href="#db">Database</a></p></h2>
+		<h2><p><a href="#py">Python</a></p></h2>
+		<h2><p><a href="#ml">Machine Learning</a></p></h2>
+		<h2><p><a href="#nppd">Numpy and Pandas</a></p></h2>
+		<h2><p><a href="#matplotlib">Matplotlib</a></p></h2>
+		<h2><p><a href="#ansible">Ansible</a></p></h2>
+		<h2><p><a href="#docker">Docker</a></p></h2>
+		<h2><p><a href="#smt">Smaato</a></p></h2>
+		<h2><p><a href="#cro">Croatian letters</a></p></h2>
+		<h1><a name="linux">Linux</a></h1>
+		<h3>Redirect output to dev/null</h3>
+		<p><code>> /dev/null 2>&1</code></p>
+		<h3>Install .tar.gz in linux</h3>
+		<p>Move it to /opt, tar -xf it, find executable file and create symlink to /usr/bin.</p>
+		<code>ln -s /opt/app/a.sh /usr/bin/a.sh</code>
+		<h3>Clear swap</h3>
+		<p><code>sudo swapoff -a; sudo swapon -a</code></p>
+		<h3>Install .deb in linux</h3>
+		<code>sudo dpkg -i f.deb</code>
+		<h3>Find all processes with their PID</h3>
+		<p><code>ps aux</p></code>
+		<h3>Kill process on given port</h3>
+		<code>killall gunicorn</code>
+		<h3>See all IP adresses in localhost</h3>
+		<code>arp -na</code>
+		<h3>List all users and groups</h3>
+		<p><code>cut -d: -f1 /etc/passwd</code></p>
+		<p><code>cut -d: -f1 /etc/group</code></p>
+		<h3>File Permissions</h3>
+		<img src="img/linux_permissions.png"></img>
+		<h3>SSH rsync folders with .pem key from remote to home</h3>
+		<p>Execute this from host computer</p>
+		<code>rsync -Pav -e "ssh -i file.pem" /home/jk/file pi@10.0.1.18:/home/pi/</code>
+		<h1><a name="db">Database</a></h1>
+		<h3>Create localhost database</h3>
+		<p><code>sudo apt-get install postgresql postgresql-client postgresql-contrib libpq-dev</code></p>
+		<p><code>sudo -u postgres psql postgres</code></p>
+		<p>	When in psql shell dotcomma is important otherwise command won't work!</p>
+		<p><code>alter user postgres with password 'postgres';</code></p>
+		<p><code>create database database_name;</code></p>
+		<p><code>\connect database_name;</code></p>
+		<p><code>create schema eu;</code></p>
+		<h3>Backup database with pg_dump</h3>
+		<p>Run this locally</p>
+		<p><code>/usr/bin/pg_dump --format=c --create --dbname=datawarehouse --file=home/jk/data/dwh.pg_dump --username=obiwan --host=datawarehouse-db.cexptksyemov.eu-central-1.rds.amazonaws.com --port=5432</code></p>
+		<h3>Restore database with pg_restore</h3>
+		<p><code>/usr/bin/pg_restore --format=c --clean --dbname=datawarehouse --username=postgres --host=localhost --port=5432 /home/jk/data/dwh.pg_dump</code></p>
+		<h1><a name="py">Python</a></h1>
+		<h3>Pickle and load object</h3>
+		<p><code>import pickle</code></p>	
+		<p><code>f = open("/tmp/a.pkl", "wb")</code></p>
+		<p><code>pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)</code></p>
+		<p><code>f.close()</code></p>
+		<p><code>import pickle</code></p>	
+		<p><code>f = open("/tmp/a.pkl", "rb")</code></p>
+		<p><code>obj = pickle.load(f)</code></p>
+		<p><code>f.close()</code></p>
+		<h3>SCP file via SSH</h3>
+		<p>
+			<code>from paramiko import SSHClient</code><br>
+			<code>from scp import SCPClient</code><br>
+			<code>import os</code><br>
+			<code>def scp_file(file_src, file_dest, host, user):</code><br>
+			<code>	ssh = SSHClient()</code><br>
+			<code>	ssh.set_missing_host_key_policy(AutoAddPolicy())</code><br>
+			<code>	key = RSAKey.from_private_key_file(os.path.expanduser("~/.ssh/id_rsa"))</code><br>
+			<code>	ssh.connect(host, username=user)</code><br>
+			<code>	with SCPClient(ssh.get_transport()) as scp:</code><br>
+			<code>		scp.put(file_src, remote_path=file_dest)</code>
+		</p>
+		<h3>Debug with sql alchemy</h3>
+		<p>Export this environment variable before debugging</p>
+		<p><code>export JB_DISABLE_BUFFERING=True</code></p>
+		<h1><a name="ml">Machine Learning</a></h1>
+		<h3>Setup jupyter notebook with virtualenv</h3>
+		<p><code>virtualenv -p /usr/bin/python3.5 my_project</code></p>
+		<p><code>source my_project/bin/activate</code></p>
+		<p><code>pip install numpy pandas matplotlib tensorflow scikit-learn jupyter scipy ipykernel jupyter_contrib_nbextensions</code></p>
+		<p><code>jupyter contrib nbextension install --user</code></p>
+		<p><code>python -m ipykernel install --user --name=my_project</code></p>
+		<h1><a name="nppd">Numpy and Pandas</a></h1>
+		<h3>Rules of Broadcasting</h3>
+		<ul>
+			<li>Rule 1: If the two arrays differ in their number of dimensions, the shape of the one with fewer dimensions is padded 
+			 with ones on its leading (left) side.</li>
+			<li>Rule 2: If the shape of the two arrays does not match in any dimension, the array with shape equal to 1 in that dimension is stretched to match the other shape.</li>
+			<li>Rule 3: If in any dimension the sizes disagree and neither is equal to 1, an error is raised.</li>
+		</ul>
+		<h3>Interactively explore dataset</h3>
+		<p><code>from gtabview import view</code></p>
+		<p><code>view(df)</code></p>
+		<h3>Read dataframe in chunks</h3>
+		<p><code>tp = pd.read_csv("dataset.csv", iterator=True, chunksize=100000)</code></p>
+		<p><code>df = pd.concat(tp, ignore_index=True)</code></p>
+		<h3>Find rows containing null</h3>
+		<p><code>df[df.isnull().any(axis=1)]</code></p>
+		<h3>Find columns containing null</h3>
+		<p><code>df[df.isnull().any(axis=0)]</code></p>
+		<h3>Pandas from SQL</h3>
+		<p><code>import pandas as pd</code></p>
+		<p><code>sql = "select * from {}.jobs where created_at > '2017-10-02' and created_at < '2018-01-01'".format("eu")</code></p>
+		<p><code>url = "postgresql+psycopg2://postgres:postgres@localhost/datawarehouse"</code></p>
+		<p><code>df = pd.read_sql_query(sql, url)</code></p>
+		<h3>Formatting options</h3>
+		<p><code>np.core.arrayprint._line_width = 120 </code></p>
+		<p><code>np.set_printoptions(formatter={'float_kind': lambda x: "%.2f" % x})</code></p>
+		<p><code>pd.set_option('display.height', 500)</code></p>
+		<p><code>pd.set_option('display.width', 175)</code></p>
+		<p><code>pd.set_option('display.max_rows', 30)</code></p>
+		<p><code>pd.set_option('display.max_columns', 30)</code></p>
+		<h1><a name="matplotlib">Matplotlib</a></h1>
+		<h3>Quickgraph</h3>
+		<p>
+			<code>x = np.arange(0, 7+1)</code></br>
+			<code>y = np.array([10, 5, 17, 20, 15, 19, 25, 7])</code></br>
+			<code>plt.plot(x, y, c='black')</code></br>
+			<code>plt.scatter(x, y, c='red')</code></br>
+			<code>plt.xticks(fontsize=18)</code></br>
+			<code>plt.xlim(0, 7)</code></br>
+			<code>plt.xlabel("t", fontsize=18)</code></br>
+			<code>plt.yticks(np.arange(0, 30+1, 2),fontsize=18)</code></br>
+			<code>plt.ylabel("Price in $USD", fontsize=18)</code>
+		</p>
+		<h1><a name="ansible">Ansible</a></h1>
+		<h3>Humanly readable output</h3>
+		<p>Add variable ANSIBLE_STDOUT_CALLBACK=debug before ansible command:</p>
+		<p><code>ANSIBLE_STDOUT_CALLBACK=debug ansible-playbook ansible/playbooks/docker_images.yaml</code></p>
+		<h3>Debug variable</h3>
+		<p><code>- debug: </p></code>
+  		<p><code>    msg: "{{repository}}"</p></code>
+		<h1><a name="docker">Docker</a></h1>
+		<h3>Display running containers</h3>
+		<p><code>docker ps -a</code></p>
+		<h3>Bash into image</h3>
+		<p><code>docker run --rm -it image_id /bin/bash</code></p>
+		<h3>Bash into running container</h3>
+		<p><code>docker exec -it container_id /bin/bash</code></p>
+		<h3>Docker status (CPU / memory)</h3>
+		<p><code>docker stats</code></p>
+		<h3>Copy to host from docker</h3>
+		<p><code>docker cp [containerId]:/file/path/within/container /host/path/target</code></p>
+		<h3>Delete all images and containers</h3>
+		<p>
+			<code>docker rm $(docker ps -a -q) --force</code></br>
+			<code>docker rmi $(docker images -q) --force</code>
+		</p>
+		<h3>Install dependency in image</h3>
+		<p>
+			<code>docker run -it image_id pip install awscli botocore boto3</code><br>
+			<code>docker ps -a</code><br>
+			<code>docker commit container_id image_name:image_tag</code></p>
+		<h1><a name="cro">Croatian letters</a></h1>
+		<p>Č, Ć, DŽ, Đ, Š, Ž</p>
+		<p>č, ć, dž, đ, š, ž</p>
+	</body>
+</html>
