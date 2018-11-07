@@ -4,8 +4,8 @@ setopt share_history
 setopt prompt_subst
 unsetopt autocd beep
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+source $HOME/.fzf/shell/key-bindings.zsh
+source $HOME/.fzf/shell/completion.zsh
 
 plugins=(zsh-completions)
 
@@ -37,10 +37,9 @@ alias l='ls -lFh --color=auto --group-directories-first'     #size,show type,hum
 alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
-alias cat='bat --style=plain'
+alias cat='bat --theme=Monokai\ Extended\ Light --style=plain'
 
 # Navigation
-alias cd='cd > /dev/null 2>&1'
 alias ..='cd ..'
 alias ....='cd ../..'
 
