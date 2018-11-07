@@ -4,8 +4,8 @@ setopt share_history
 setopt prompt_subst
 unsetopt autocd beep
 
-source $HOME/.fzf/shell/key-bindings.zsh
-source $HOME/.fzf/shell/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 plugins=(zsh-completions)
 
