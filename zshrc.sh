@@ -35,6 +35,7 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 # Functions and aliases
 alias l='ls -lFh --color=auto --group-directories-first'     #size,show type,human readable
 alias ls='ls --color=auto --group-directories-first'
+alias ldot='ls -ld .*'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
 alias cat='bat --theme=Monokai\ Extended\ Light --style=plain'
