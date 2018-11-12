@@ -28,8 +28,10 @@
 		<code>sudo dpkg -i f.deb</code>
 		<h3>Find all processes with their PID</h3>
 		<p><code>ps aux</p></code>
-		<h3>Kill process on given port</h3>
+		<h3>Kill process by name</h3>
 		<code>killall gunicorn</code>
+		<h3>Kill process by port</h3>
+		<code>kill $(lsof -t -i:8080)</code>
 		<h3>See all IP adresses in localhost</h3>
 		<code>arp -na</code>
 		<h3>List all users and groups</h3>
