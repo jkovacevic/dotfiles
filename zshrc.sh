@@ -53,6 +53,7 @@ yvid() { youtube-dl $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
 cpcat() { cat $1 | xclip -selection clipboard; }
+fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":\"$(realpath $2)\"}\' }
 
 # Text and word find
 fs() {find -iname \*$1\*; }
