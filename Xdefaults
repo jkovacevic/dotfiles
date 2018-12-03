@@ -1,6 +1,5 @@
-*foreground: 		#ffffff
-*background:       	#1b1918
-!!*background: rgba(0, 0, 0, .7)
+URxvt*foreground: 		White
+URxvt*background:       Black
 
 URxvt*color0: #1b1918
 URxvt*color8: #766e6b
