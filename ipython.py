@@ -1,5 +1,4 @@
 c.TerminalInteractiveShell.highlighting_style = 'monokai'
-#c.TerminalInteractiveShell.highlighting_style = 'igor'
 c.TerminalInteractiveShell.highlight_matching_brackets = False
 
 # Configuration file for ipython.
