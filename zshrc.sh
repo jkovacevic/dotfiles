@@ -1,4 +1,3 @@
-# Lines configured by zsh-newuser-install
 setopt inc_append_history
 setopt share_history
 setopt prompt_subst
@@ -38,7 +37,7 @@ alias ls='ls --color=auto --group-directories-first'
 alias ldot='ls -ld .*'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
-alias cat='bat --theme=Monokai\ Extended\ Light --style=plain'
+alias cat='bat --theme=Monokai\ Extended --style=plain'
 
 # Navigation
 alias ..='cd ..'
