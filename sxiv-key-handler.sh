@@ -1,8 +1,13 @@
 #!/bin/sh
 keypress_single_selection() {
-	file_name="$1"
+	file_name=$(realpath "$1")
 	key="$2"
 	case "$key" in
+	"d")
+		rm "$file_name"
+		notify-send "Deleted $file_name" ;;
+	"e")
+		pinta "$file_name" ;;
 	"r")
 		convert -rotate 90 "$file_name" "$file_name" ;;
 	esac
