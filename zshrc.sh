@@ -47,6 +47,7 @@ alias ....='cd ../..'
 pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
 evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
 office () {nohup libreoffice "$@" > /dev/null 2>&1 & disown}
+sxiv () { if [[ $# -eq '0' ]]; then /usr/bin/sxiv -t .; elif [[ -d $1 ]]; then /usr/bin/sxiv -t $1; else /usr/bin/sxiv $@; fi; }
 vlc() {nohup vlc "$@" > /dev/null 2>&1 & disown}
 yvid() { youtube-dl $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
