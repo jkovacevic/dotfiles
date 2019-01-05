@@ -3,12 +3,16 @@ keypress_single_selection() {
 	file_name=$(realpath "$1")
 	key="$2"
 	case "$key" in
-	"d")
+	"C-x")
 		rm "$file_name"
 		notify-send "Deleted $file_name" ;;
-	"e")
+	"C-e")
 		pinta "$file_name" ;;
-	"r")
+	"C-s")
+		output="$HOME/hard-disk/image"
+		cp "$file_name" $output
+		notify-send "Copied $file_name to $output" ;;
+	"C-r")
 		convert -rotate 90 "$file_name" "$file_name" ;;
 	esac
 }
@@ -17,11 +21,11 @@ keypress_multi_selection() {
 	file_names="$1"
 	key="$2"
 	case $key in
-	"h")
+	"C-h")
 		output=$(pwd)/"img-append.png"
         convert -append $file_names $output
         notify-send "Horizontally stacked $file_names to $output" ;;
-	"v")
+	"C-v")
         output=$(pwd)/"img-append.png"
         convert +append $file_names $output
         notify-send "Vertically stacked $file_names to $output" ;;

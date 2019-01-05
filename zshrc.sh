@@ -32,7 +32,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
 
-# Functions and aliases
+# Aliases
 alias l='ls -lFh --color=auto --group-directories-first'     #size,show type,human readable
 alias ls='ls --color=auto --group-directories-first'
 alias ldot='ls -ld .*'
@@ -44,11 +44,13 @@ alias cat='bat --style=plain'
 alias ..='cd ..'
 alias ....='cd ../..'
 
-pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
-evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
-office () {nohup libreoffice "$@" > /dev/null 2>&1 & disown}
-sxiv () { if [[ $# -eq '0' ]]; then /usr/bin/sxiv -t .; elif [[ -d $1 ]]; then /usr/bin/sxiv -t $1; else /usr/bin/sxiv $@; fi; }
-vlc() {nohup vlc "$@" > /dev/null 2>&1 & disown}
+# Function
+bg() { nohup $@ > /dev/null 2>&1 & disown }
+pinta () { bg pinta "$@" }
+evince () { bg evince "$@" }
+office () { bg libreoffice "$@" }
+vlc() { bg vlc "$@" }
+sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t $1; else bg /usr/bin/sxiv $@; fi; }
 yvid() { youtube-dl $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
