@@ -43,11 +43,12 @@ alias cat='bat --theme=Monokai\ Extended --style=plain'
 alias ..='cd ..'
 alias ....='cd ../..'
 
-pinta () {nohup pinta "$@" > /dev/null 2>&1 & disown}
-evince () {nohup evince "$@" > /dev/null 2>&1 & disown}
-office () {nohup libreoffice "$@" > /dev/null 2>&1 & disown}
-nom () {nohup nomacs "$@" > /dev/null 2>&1 & disown}
-vlc() {nohup vlc "$@" > /dev/null 2>&1 & disown}
+bg() { nohup $@ > /dev/null 2>&1 & disown }
+pinta () { bg pinta "$@" }
+evince () { bg evince "$@" }
+office () { bg libreoffice "$@" }
+vlc() { bg vlc "$@" }
+sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t $1; else bg /usr/bin/sxiv $@; fi; }
 yvid() { youtube-dl $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
