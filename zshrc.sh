@@ -38,6 +38,7 @@ alias ldot='ls -ld .*'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
 alias cat='bat --theme=Monokai\ Extended --style=plain'
+alias clip='xclip -selection clipboard'
 
 # Navigation
 alias ..='cd ..'
@@ -46,7 +47,7 @@ alias ....='cd ../..'
 bg() { nohup $@ > /dev/null 2>&1 & disown }
 pinta () { bg pinta "$@" }
 evince () { bg evince "$@" }
-office () { bg libreoffice "$@" }
+libreoffice () { bg libreoffice "$@" }
 vlc() { bg vlc "$@" }
 sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t *; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t $1/*; else bg /usr/bin/sxiv $@; fi; }
 yvid() { youtube-dl $1; }

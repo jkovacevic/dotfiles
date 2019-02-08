@@ -8,10 +8,6 @@ keypress_single_selection() {
 		notify-send "Deleted $file_name" ;;
 	"C-e")
 		pinta "$file_name" ;;
-	"C-s")
-		output="$HOME/hard-disk/image"
-		cp "$file_name" $output
-		notify-send "Copied $file_name to $output" ;;
 	"C-r")
 		convert -rotate 90 "$file_name" "$file_name" ;;
 	esac
