@@ -31,12 +31,12 @@ ethernet _first_ {
 
 battery 0 {
         last_full_capacity = true
-        format = "<span size='small'>%status %percentage</span>"
+        format = "<span size='small'>  %status %percentage</span>"
 }
 
 battery 1 {
         last_full_capacity = true
-        format = "<span size='small'>%status %percentage</span>"
+        format = "<span size='small'>  %status %percentage</span>"
 }
 
 tztime local {
@@ -53,8 +53,8 @@ disk "/" {
 }
 
 volume master {
-        format = "<span size='small'>VOL %volume</span>"
-        format_muted = "<span size='small'>VOL MUTE</span>"
+        format = "<span size='small'>  %volume</span>"
+        format_muted = "<span size='small'>no sound</span>"
         device = "default"
         mixer = "Master"
         mixer_idx = 0

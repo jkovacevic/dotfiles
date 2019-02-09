@@ -16,6 +16,7 @@
 		<h2><p><a href="#docker">Docker</a></p></h2>
 		<h2><p><a href="#smt">Smaato</a></p></h2>
 		<h2><p><a href="#cro">Croatian letters</a></p></h2>
+		
 		<h1><a name="linux">Linux</a></h1>
 		<h3>Redirect output to dev/null</h3>
 		<p><code>> /dev/null 2>&1</code></p>
@@ -37,11 +38,15 @@
 		<h3>List all users and groups</h3>
 		<p><code>cut -d: -f1 /etc/passwd</code></p>
 		<p><code>cut -d: -f1 /etc/group</code></p>
-		<h3>File Permissions</h3>
-		<img src="img/linux_permissions.png"></img>
+		<h3>See [loop, ethernet, wifi] network devices</h3>
+		<p><code>ip link</code></p>
+		<h3>See wifi network devices</h3>
+		<p><code>iw dev</code></p>
 		<h3>SSH rsync folders with .pem key from remote to home</h3>
 		<p>Execute this from host computer</p>
 		<code>rsync -Pav -e "ssh -i file.pem" /home/jk/file pi@10.0.1.18:/home/pi/</code>
+
+		
 		<h1><a name="db">Database</a></h1>
 		<h3>Create localhost database</h3>
 		<p><code>sudo apt-get install postgresql postgresql-client postgresql-contrib libpq-dev</code></p>
@@ -56,6 +61,7 @@
 		<p><code>/usr/bin/pg_dump --format=c --create --dbname=datawarehouse --file=home/jk/data/dwh.pg_dump --username=obiwan --host=datawarehouse-db.cexptksyemov.eu-central-1.rds.amazonaws.com --port=5432</code></p>
 		<h3>Restore database with pg_restore</h3>
 		<p><code>/usr/bin/pg_restore --format=c --clean --dbname=datawarehouse --username=postgres --host=localhost --port=5432 /home/jk/data/dwh.pg_dump</code></p>
+		
 		<h1><a name="py">Python</a></h1>
 		<h3>Pickle and load object</h3>
 		<p>
@@ -93,6 +99,7 @@
 			<code>jupyter contrib nbextension install --user</code></br>
 			<code>python -m ipykernel install --user --name=my_project</code>
 		</p>
+		
 		<h1><a name="nppd">Numpy and Pandas</a></h1>
 		<h3>Interactively explore dataset</h3>
 		<p><code>from gtabview import view</code></p>
@@ -122,6 +129,7 @@
 			<code>pd.set_option('display.max_rows', 30)</code></br>
 			<code>pd.set_option('display.max_columns', 30)</code></br>
 		</p>
+		
 		<h1><a name="matplotlib">Matplotlib</a></h1>
 		<h3>Quickgraph</h3>
 		<p>
@@ -135,6 +143,7 @@
 			<code>plt.yticks(np.arange(0, 30+1, 2),fontsize=18)</code></br>
 			<code>plt.ylabel("Price in $USD", fontsize=18)</code>
 		</p>
+		
 		<h1><a name="ansible">Ansible</a></h1>
 		<h3>Humanly readable output</h3>
 		<p>Add variable ANSIBLE_STDOUT_CALLBACK=debug before ansible command:</p>
@@ -144,6 +153,7 @@
 			<code>- debug: </code></br>
   			<code>    msg: "{{repository}}"</code>
   		</p>
+		
 		<h1><a name="docker">Docker</a></h1>
 		<h3>Display running containers</h3>
 		<p><code>docker ps -a</code></p>
