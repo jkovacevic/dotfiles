@@ -20,6 +20,8 @@ def format_file_name(file_name):
 						.replace("}", "")\
 						.replace("@", "")\
 						.replace("&", "")\
+						.replace("$", "")\
+						.replace("€", "")\
 						.lower()
 	count = new_file_name.count(".") - 1 if os.path.isfile(file_name) else new_file_name.count(".")
 	new_file_name = new_file_name.replace(".", "_", count)

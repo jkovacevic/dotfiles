@@ -9,7 +9,7 @@ keypress_single_selection() {
 	"C-e")
 		pinta "$file_name" ;;
 	"C-s")
-		output="$HOME/hard-disk/image"
+		output="$HOME/hdd/image"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	"C-r")
