@@ -21,8 +21,8 @@ def format_file_name(file_name):
 						.replace("@", "")\
 						.replace("&", "")\
 						.lower()
-	count = new_file_name.count(".") - 1
-	new_file_name = new_file_name.replace(".", "", count)
+	count = new_file_name.count(".") - 1 if os.path.isfile(file_name) else new_file_name.count(".")
+	new_file_name = new_file_name.replace(".", "_", count)
 	return re.sub('_+','_', new_file_name)
 
 for file_name in os.listdir():
