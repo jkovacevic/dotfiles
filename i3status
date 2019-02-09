@@ -25,8 +25,8 @@ wireless _first_ {
 
 ethernet _first_ {
         # if you use %speed, i3status requires root privileges
-        format_up = "<span size='small'> %speed - %ip </span>"
-        format_down = "<span size='small'> down</span>"
+        format_up = "<span size='small'> %speed - %ip </span>"
+        format_down = "<span size='small'> down</span>"
 }
 
 battery 0 {
@@ -40,7 +40,7 @@ battery 1 {
 }
 
 tztime local {
-        format = "<span size='small'>%time</span>"
+        format = "<span size='small'>  %time</span>"
         format_time = "%Y-%m-%d %H:%M:%S"
 }
 
