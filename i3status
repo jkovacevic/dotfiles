@@ -40,7 +40,7 @@ battery 1 {
 }
 
 tztime local {
-        format = "<span size='small'>  %time</span>"
+        format = "<span size='small'> %time</span>"
         format_time = "%Y-%m-%d %H:%M:%S"
 }
 
