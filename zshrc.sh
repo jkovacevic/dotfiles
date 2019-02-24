@@ -48,7 +48,7 @@ alias ....='cd ../..'
 bg() { nohup $@ > /dev/null 2>&1 & disown }
 pinta () { bg pinta "$@" }
 evince () { bg evince "$@" }
-office () { bg libreoffice "$@" }
+libreoffice () { bg libreoffice "$@" }
 vlc() { bg vlc "$@" }
 sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
 yvid() { youtube-dl $1; }
