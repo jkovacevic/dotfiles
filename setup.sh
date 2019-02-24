@@ -25,6 +25,4 @@ create_symlink "$HOME/dotfiles/perl/keyboard-select" "/usr/lib/urxvt/perl/keyboa
 create_symlink "$HOME/dotfiles/dmenu-search/dmenu_search.sh" "/usr/local/bin/dmenu_search"
 create_symlink "$HOME/dotfiles/bash/create_ss/ss.sh" "/usr/local/bin/ss"
 create_symlink "$HOME/dotfiles/bash/sxiv-key-handler/sxiv-key-handler.sh" "$HOME/.config/sxiv/exec/key-handler"
-create_symlink "$HOME/dotfiles/bash/py-clicker/clicker-start.py" "/usr/local/bin/clicker-start"
-create_symlink "$HOME/dotfiles/bash/py-clicker/clicker-stop.sh" "/usr/local/bin/clicker-stop"
-create_symlink "$HOME/dotfiles/python/fflinux.py" "/usr/local/bin/fflinux.py"
+create_symlink "$HOME/dotfiles/python/file_format.py" "/usr/local/bin/file_format.py"
