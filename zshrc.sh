@@ -32,8 +32,8 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
 
-# Aliases
-alias l='ls -lFh --color=auto --group-directories-first'     #size,show type,human readable
+# Functions and aliases
+alias l='ls -lFh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
 alias ldot='ls -ld .*'
 alias grep='grep --color=auto'
