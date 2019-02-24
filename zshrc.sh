@@ -39,18 +39,19 @@ alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
 alias cat='bat --theme=Monokai\ Extended --style=plain'
 alias clip='xclip -selection clipboard'
-alias edit='cat > /tmp/term.txt; subl /tmp/term.txt'
+alias edit='cat > /tmp/_.txt; subl /tmp/_.txt'
 
 # Navigation
 alias ..='cd ..'
 alias ....='cd ../..'
 
+# Function
 bg() { nohup $@ > /dev/null 2>&1 & disown }
 pinta () { bg pinta "$@" }
 evince () { bg evince "$@" }
 libreoffice () { bg libreoffice "$@" }
 vlc() { bg vlc "$@" }
-sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t *; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t $1/*; else bg /usr/bin/sxiv $@; fi; }
+sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
 yvid() { youtube-dl $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
