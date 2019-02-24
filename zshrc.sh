@@ -39,6 +39,8 @@ alias ldot='ls -ld .*'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
 alias cat='bat --style=plain'
+alias clip='xclip -selection clipboard'
+alias edit='cat > /tmp/term.txt; subl /tmp/term.txt'
 
 # Navigation
 alias ..='cd ..'
