@@ -40,7 +40,7 @@ alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
 alias cat='bat --style=plain'
 alias clip='xclip -selection clipboard'
-alias edit='cat > /tmp/term.txt; subl /tmp/term.txt'
+alias edit='cat > /tmp/_.txt; subl /tmp/_.txt'
 
 # Navigation
 alias ..='cd ..'
