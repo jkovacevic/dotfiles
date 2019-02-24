@@ -7,7 +7,9 @@
 	<body>
 		<h1>JK Wiki</h1>
 		<h2><p><a href="#linux">Linux</a></p></h2>
+		<h2><p><a href="#bash">Bash</a></p></h2>
 		<h2><p><a href="#db">Database</a></p></h2>
+		<h2><p><a href="#aws">AWS</a></p></h2>
 		<h2><p><a href="#py">Python</a></p></h2>
 		<h2><p><a href="#ml">Machine Learning</a></p></h2>
 		<h2><p><a href="#nppd">Numpy and Pandas</a></p></h2>
@@ -20,13 +22,8 @@
 		<h1><a name="linux">Linux</a></h1>
 		<h3>Redirect output to dev/null</h3>
 		<p><code>> /dev/null 2>&1</code></p>
-		<h3>Install .tar.gz in linux</h3>
-		<p>Move it to /opt, tar -xf it, find executable file and create symlink to /usr/bin.</p>
-		<code>ln -s /opt/app/a.sh /usr/bin/a.sh</code>
 		<h3>Clear swap</h3>
 		<p><code>sudo swapoff -a; sudo swapon -a</code></p>
-		<h3>Install .deb in linux</h3>
-		<code>sudo dpkg -i f.deb</code>
 		<h3>Find all processes with their PID</h3>
 		<p><code>ps aux</p></code>
 		<h3>Kill process by name</h3>
@@ -46,6 +43,11 @@
 		<p>Execute this from host computer</p>
 		<code>rsync -Pav -e "ssh -i file.pem" /home/jk/file pi@10.0.1.18:/home/pi/</code>
 
+		<h1><a name="bash">Bash</a></h1>
+		<h3>Check number of input cli arguments</h3>
+		<p><code>if [ "$#" -eq 3 ]; then echo "Three cli arguments";</code></p>
+		<h3>Awk split line by space and get last element</h3>
+		<p><code>awk '{ print $NF }'</code></p>
 		
 		<h1><a name="db">Database</a></h1>
 		<h3>Create localhost database</h3>
@@ -61,8 +63,14 @@
 		<p><code>/usr/bin/pg_dump --format=c --create --dbname=datawarehouse --file=home/jk/data/dwh.pg_dump --username=obiwan --host=datawarehouse-db.cexptksyemov.eu-central-1.rds.amazonaws.com --port=5432</code></p>
 		<h3>Restore database with pg_restore</h3>
 		<p><code>/usr/bin/pg_restore --format=c --clean --dbname=datawarehouse --username=postgres --host=localhost --port=5432 /home/jk/data/dwh.pg_dump</code></p>
+
+		<h1><a name="aws">AWS</a></h1>
+		<h3>Copy from remote bucket to local file</h3>
+		<p><code>aws s3 cp s3://smart-platform-test/df.csv/ /tmp/df.csv --recursive --include "*.csv"</code></p>
 		
 		<h1><a name="py">Python</a></h1>
+		<h3>Format integer with leading zeros</h3>
+		<p><code>print("{:02d}".format(5))</code></br></p>
 		<h3>Pickle and load object</h3>
 		<p>
 			<code>import pickle</code></br>	
@@ -93,10 +101,12 @@
 		<h1><a name="ml">Machine Learning</a></h1>
 		<h3>Setup jupyter notebook with virtualenv</h3>
 		<p>
-			<code>virtualenv -p /usr/bin/python3 venv</code></br>
-			<code>source venv/bin/activate</code></br>
-			<code>pip install ipykernel</code>
-			<code>ipython kernel install --user --name=project_name</code>
+			<code>virtualenv -p /usr/bin/python3.5 my_project</code></br>
+			<code>source my_project/bin/activate</code></br>
+
+			<code>pip install numpy pandas matplotlib tensorflow scikit-learn jupyter scipy ipykernel jupyter_contrib_nbextensions</code></br>
+			<code>jupyter contrib nbextension install --user</code></br>
+			<code>python -m ipykernel install --user --name=my_project</code>
 		</p>
 		
 		<h1><a name="nppd">Numpy and Pandas</a></h1>
