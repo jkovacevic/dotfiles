@@ -73,6 +73,7 @@ gs () {git status}
 gc () {git commit -m "$1"}
 gr () {git checkout $1}
 gd () {git diff $1}
+gh () {smerge log $1}
 
 # Arch terminal delete issue
 bindkey    "^[[3~"          delete-char
