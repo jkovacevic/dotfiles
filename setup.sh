@@ -24,4 +24,4 @@ create_symlink "$HOME/dotfiles/perl/keyboard-select" "/usr/lib/urxvt/perl/keyboa
 create_symlink "$HOME/dotfiles/bash/create_ss/ss.sh" "/usr/local/bin/ss"
 create_symlink "$HOME/dotfiles/dmenu-search/dmenu_search.sh" "/usr/local/bin/dmenu_search"
 create_symlink "$HOME/dotfiles/python/file_format.py" "/usr/local/bin/file_format.py"
-create_symlink "$HOME/dotfiles/sxiv-key-handler.sh" "$HOME/.config/sxiv/exec/key-handler"
+create_symlink "$HOME/dotfiles/bash/sxiv-key-handler/sxiv-key-handler.sh" "$HOME/.config/sxiv/exec/key-handler"
