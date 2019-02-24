@@ -93,11 +93,10 @@
 		<h1><a name="ml">Machine Learning</a></h1>
 		<h3>Setup jupyter notebook with virtualenv</h3>
 		<p>
-			<code>virtualenv -p /usr/bin/python3.5 my_project</code></br>
-			<code>source my_project/bin/activate</code></br>
-			<code>pip install numpy pandas matplotlib tensorflow scikit-learn jupyter scipy ipykernel jupyter_contrib_nbextensions</code></br>
-			<code>jupyter contrib nbextension install --user</code></br>
-			<code>python -m ipykernel install --user --name=my_project</code>
+			<code>virtualenv -p /usr/bin/python3 venv</code></br>
+			<code>source venv/bin/activate</code></br>
+			<code>pip install ipykernel</code>
+			<code>ipython kernel install --user --name=project_name</code>
 		</p>
 		
 		<h1><a name="nppd">Numpy and Pandas</a></h1>
