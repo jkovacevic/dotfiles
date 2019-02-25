@@ -37,7 +37,7 @@ alias ls='ls --color=auto --group-directories-first'
 alias ldot='ls -ld .*'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
-alias cat='bat --theme=Monokai\ Extended --style=plain'
+alias cat='bat --style=plain'
 alias clip='xclip -selection clipboard'
 alias edit='cat > /tmp/_.txt; subl /tmp/_.txt'
 
