@@ -73,10 +73,12 @@ gs () {git status}
 gc () {git commit -m "$1"}
 gr () {git checkout $1}
 gh () {smerge log $1}
-gd () {git diff $1}
-gdr () { if [ "$#" -eq 3 ]; then f1=$3; f2=$3; elif [ "$#" -eq 4 ]; then f1=$3; f2=$4; else echo "Expected arguments: first branch name, second branch name, file name, [file name in second branch]"; return 1; fi;
-	b1=$1; b2=$2; fn1=$(cut -d "/" -f 2 <<< "$f1"); fn2=$(cut -d "/" -f 2 <<< "$f2");
-	git cat-file blob origin/$b1:$f1 > /tmp/$b1-$fn1; git cat-file blob origin/$b2:$f2 > /tmp/$b2-$fn2; fd /tmp/$b1-$fn1 /tmp/$b2-$fn2
+gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1; 
+		elif [ "$#" -eq 3 ]; then f1=$3; f2=$3; 
+		elif [ "$#" -eq 4 ]; then f1=$3; f2=$4; 
+		else echo "Expected arguments: first branch name, second branch name, file name, [file name in second branch]"; return 1; fi;
+		b1=$1; b2=$2; fn1=$(cut -d "/" -f 2 <<< "$f1"); fn2=$(cut -d "/" -f 2 <<< "$f2");
+		git cat-file blob origin/$b1:$f1 > /tmp/$b1-$fn1; git cat-file blob origin/$b2:$f2 > /tmp/$b2-$fn2; fd /tmp/$b1-$fn1 /tmp/$b2-$fn2
 }
 
 # Arch terminal delete issue
