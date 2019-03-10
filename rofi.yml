@@ -1,5 +1,4 @@
 rofi.combi-modi:    window,drun,ssh
 rofi.theme:         arc-red-dark
-rofi.font:          hack 14
-rofi.modi:          combi
+rofi.font:          DejaVu Sans 14
 rofi.yoffset:       -100
