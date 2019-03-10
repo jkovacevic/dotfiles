@@ -2,3 +2,4 @@ rofi.combi-modi:    window,drun,ssh
 rofi.theme:         arc-red-dark
 rofi.font:          DejaVu Sans 14
 rofi.yoffset:       -100
+rofi.show-icons:    true
