@@ -32,11 +32,15 @@ ethernet _first_ {
 battery 0 {
         last_full_capacity = true
         format = "<span size='small'>  %percentage</span>"
+        threshold_type = percentage
+        low_threshold = 1
 }
 
 battery 1 {
         last_full_capacity = true
         format = "<span size='small'>  %percentage</span>"
+        threshold_type = percentage
+        low_threshold = 1
 }
 
 tztime local {
