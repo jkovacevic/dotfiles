@@ -1,6 +1,6 @@
 rofi.combi-modi:        window,drun,ssh
 rofi.theme:             arc-red-dark
-rofi.font:              DejaVu Sans 14
+rofi.font:              DejaVu Sans 12
 rofi.location:          2
 rofi.yoffset:           20
 rofi.width:             40
