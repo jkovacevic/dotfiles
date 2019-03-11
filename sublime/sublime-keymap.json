@@ -232,7 +232,7 @@
 	{ "keys": ["ctrl+shift+h"], "command": "replace_next" },
 	{ "keys": ["f3"], "command": "find_next" },
 	{ "keys": ["shift+f3"], "command": "find_prev" },
-	{ "keys": ["ctrl+r"], "command": "find_under" },
+	{ "keys": ["ctrl+r"], "command": "find_all_under" },
 	{ "keys": ["ctrl+shift+f3"], "command": "find_under_prev" },
 	{ "keys": ["alt+f3"], "command": "find_all_under" },
 	{ "keys": ["ctrl+e"], "command": "slurp_find_string" },
