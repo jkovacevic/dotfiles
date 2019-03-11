@@ -26,3 +26,4 @@ create_symlink "$HOME/dotfiles/perl/keyboard-select" "/usr/lib/urxvt/perl/keyboa
 create_symlink "$HOME/dotfiles/sublime/sublime-settings.json" "$HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
 create_symlink "$HOME/dotfiles/sublime/sublime-keymap.json" "$HOME/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap"
 create_symlink "$HOME/dotfiles/sublime/sublime-history.json" "$HOME/.config/sublime-text-3/Packages/User/LocalHistory.sublime-settings"
+create_symlink "$HOME/dotfiles/applications/screenshot.desktop" "$HOME/.local/share/applications/screenshot.desktop"
