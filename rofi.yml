@@ -2,7 +2,7 @@ rofi.combi-modi:        window,drun,ssh
 rofi.theme:             arc-red-dark
 rofi.font:              DejaVu Sans 14
 rofi.location:          2
-rofi.yoffset:           25
+rofi.yoffset:           15
 rofi.width:             40
 rofi.show-icons:        true
 rofi.fixed-num-lines:   true
