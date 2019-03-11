@@ -1,5 +1,8 @@
-rofi.combi-modi:    window,drun,ssh
-rofi.theme:         arc-red-dark
-rofi.font:          DejaVu Sans 14
-rofi.yoffset:       -100
-rofi.show-icons:    true
+rofi.combi-modi:        window,drun,ssh
+rofi.theme:             arc-red-dark
+rofi.font:              DejaVu Sans 14
+rofi.location:          2
+rofi.yoffset:           20
+rofi.width:             40
+rofi.show-icons:        true
+rofi.fixed-num-lines:   true
