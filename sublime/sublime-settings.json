@@ -168,5 +168,6 @@
 	"use_tab_stops": true,
 	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?",
 	"word_wrap": "auto",
-	"wrap_width": 0
+	"wrap_width": 0,
+	"mini_diff": false
 }
