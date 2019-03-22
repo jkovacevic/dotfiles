@@ -12,3 +12,4 @@ find_image_name() {
 find_image_name
 x=$IMAGE_NAME && touch $x && scrot -s $x;
 echo -n $IMAGE_NAME | xclip -selection clipboard;
+notify-send "Created screenshot: $IMAGE_NAME"
