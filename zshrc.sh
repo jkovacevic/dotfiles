@@ -51,7 +51,7 @@ pinta () { bg pinta "$@" }
 evince () { bg evince "$@" }
 libreoffice () { bg libreoffice "$@" }
 vlc() { bg vlc "$@" }
-sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
+sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a *; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
 yvid() { youtube-dl $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
