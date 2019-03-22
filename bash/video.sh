@@ -10,7 +10,7 @@ find_video_name() {
 
 find_video_name
 {
-	ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0 -q 1 -vcodec mpeg4 $VIDEO_NAME
+	ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0 -q 1 -vcodec libx264 -acodec aac $VIDEO_NAME
 } || {
 	notify-send "Created video: $VIDEO_NAME"
 }
