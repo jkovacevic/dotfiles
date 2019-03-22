@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Video
+Comment=Record video of desktop
+GenericName=Video script for Linux
+Exec=/usr/local/bin/video
+Icon=camera
+Type=Application
+StartupNotify=true

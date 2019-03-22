@@ -2,7 +2,7 @@
 Name=Screenshot
 Comment=Take screenshot
 GenericName=Screenshot script for Linux
-Exec=/usr/local/bin/ss
+Exec=/usr/local/bin/screenshot
 Icon=camera
 Type=Application
 StartupNotify=true
