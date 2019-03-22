@@ -10,7 +10,8 @@ find_video_name() {
 
 find_video_name
 {
-	ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0 -q 1 -vcodec libx264 -acodec aac $VIDEO_NAME
+	ffmpeg -f x11grab -y -r 25 -s 1920x1080 -i :0.0 -q 1 -c:v libx264 -c:a aac -pix_fmt yuv420p $VIDEO_NAME
 } || {
+	echo -n $VIDEO_NAME | xclip -selection clipboard;
 	notify-send "Created video: $VIDEO_NAME"
 }
