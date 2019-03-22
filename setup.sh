@@ -20,7 +20,6 @@ create_symlink "$HOME/dotfiles/themes/arc-red-dark.rasi" "$HOME/.config/rofi/arc
 create_symlink "$HOME/dotfiles/Xdefaults" "$HOME/.Xdefaults"
 create_symlink "$HOME/dotfiles/bash/screenshot.sh" "/usr/local/bin/screenshot"
 create_symlink "$HOME/dotfiles/bash/video.sh" "/usr/local/bin/video"
-create_symlink "$HOME/dotfiles/bash/ss.sh" "/usr/local/bin/ss"
 create_symlink "$HOME/dotfiles/bash/sxiv-key-handler.sh" "$HOME/.config/sxiv/exec/key-handler"
 create_symlink "$HOME/dotfiles/python/ipython.py" "$HOME/.ipython/profile_default/ipython_config.py"
 create_symlink "$HOME/dotfiles/python/file_format.py" "/usr/local/bin/file_format.py"
