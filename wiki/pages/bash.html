@@ -10,6 +10,10 @@
 		<p><code>if [ "$#" -eq 3 ]; then echo "Three cli arguments";</code></p>
 		<h3>Awk split line by space and get last element</h3>
 		<p><code>awk '{ print $NF }'</code></p>
+		<h3>Awk split by delimiter and get element at index i</h3>
+		<p><code>echo "/tmp/file.txt" | awk '{split($0, a, "."); print a[1]}'</code></p>
+		<h3>Remove all extra whitespace from file</h3>
+		<p><code>sed '/^[[:space:]]*$/d' $FILE > $NEW</p></code>
 		<h3>Try-catch</h3>
 		<p><code>{ function } || { after_function }</code></p>
 	</body>
