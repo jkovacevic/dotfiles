@@ -177,7 +177,9 @@ exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 bindsym $mod+Tab move workspace to output left
 bindsym $mod+Control+p exec pavucontrol
 bindsym $mod+l exec i3lock --color "#000001"
-bindsym $mod+c exec $HOME/dotfiles/bash/clipboard-compare.sh
+bindsym $mod+F1 exec $HOME/dotfiles/bash/buffer.sh 1
+bindsym $mod+F2 exec $HOME/dotfiles/bash/buffer.sh 2
+bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
 
 # Video recording
 bindsym $mod+F12 exec kill $(pgrep -f "ffmpeg -f x11grab")
