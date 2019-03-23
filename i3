@@ -173,15 +173,9 @@ exec /usr/bin/dunst
 bindsym $mod+Tab move workspace to output left
 bindsym $mod+Control+p exec pavucontrol
 bindsym $mod+l exec betterlockscreen -l
-bindsym $mod+c exec $HOME/dotfiles/bash/clipboard-compare.sh
+
+bindsym $mod+F1 exec $HOME/dotfiles/bash/buffer.sh 1
+bindsym $mod+F2 exec $HOME/dotfiles/bash/buffer.sh 2
+bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
 # Video recording
 bindsym $mod+F12 exec kill $(pgrep -f "ffmpeg -f x11grab")
-
-## Volume control
-set $volumepath $HOME/dotfiles/bash
-set $statuscmd i3status
-set $statussig SIGUSR1
-set $volumestep 10
-bindsym XF86AudioRaiseVolume exec $volumepath/volume.sh -np -i $volumestep -t $statuscmd -u $statussig
-bindsym XF86AudioLowerVolume exec $volumepath/volume.sh -np -d $volumestep -t $statuscmd -u $statussig
-bindsym XF86AudioMute        exec $volumepath/volume.sh -mn -t $statuscmd -u $statussig
