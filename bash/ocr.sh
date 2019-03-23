@@ -6,3 +6,6 @@ tesseract -l eng --dpi 200 $(xclip -selection clipboard -o) $FILE_NAME
 sed '/^[[:space:]]*$/d' $FILE_PATH > $FILE_PATH2
 cat $FILE_PATH2 | xclip -selection clipboard
 notify-send "OCR copied to clipboard"
+rm $FILE_NAME
+rm $FILE_PATH
+rm $FILE_PATH2
