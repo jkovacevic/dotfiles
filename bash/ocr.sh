@@ -1,11 +1,9 @@
-FILE_NAME=/tmp/_1
-FILE_PATH=/tmp/_1.txt
-FILE_PATH2=/tmp/_2.txt
-/usr/local/bin/screenshot
-tesseract -l eng --dpi 200 $(xclip -selection clipboard -o) $FILE_NAME
-sed '/^[[:space:]]*$/d' $FILE_PATH > $FILE_PATH2
-cat $FILE_PATH2 | xclip -selection clipboard
+IMAGE_NAME=/tmp/_.png
+FILE_NAME=/tmp/_.txt
+FILE_TMP=/tmp/__.txt
+x=$IMAGE_NAME && touch $x && scrot -s $x;
+tesseract -l eng --dpi 200 $IMAGE_NAME $(echo $FILE_NAME | awk '{split($0, a, "."); print a[1]}')
+sed '/^[[:space:]]*$/d' $FILE_NAME > $FILE_TMP
+cat $FILE_TMP | xclip -selection clipboard
+rm $IMAGE_NAME $FILE_NAME $FILE_TMP
 notify-send "OCR copied to clipboard"
-rm $FILE_NAME
-rm $FILE_PATH
-rm $FILE_PATH2
