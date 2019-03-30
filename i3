@@ -177,5 +177,6 @@ bindsym $mod+l exec betterlockscreen -l
 bindsym $mod+F1 exec $HOME/dotfiles/bash/buffer.sh 1
 bindsym $mod+F2 exec $HOME/dotfiles/bash/buffer.sh 2
 bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
+bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
 # Video recording
 bindsym $mod+F12 exec kill $(pgrep -f "ffmpeg -f x11grab")
