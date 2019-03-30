@@ -8,8 +8,15 @@ keypress_single_selection() {
 		notify-send "Deleted $file_name" ;;
 	"C-e")
 		pinta "$file_name" ;;
+	"C-p")
+		echo "$file_name" | xclip -selection clipboard
+		notify-send "Copied $file_name to clipboard" ;;
 	"C-s")
-		output="$HOME/hdd/image"
+		output="$HOME/hard-disk/image"
+		cp "$file_name" $output
+		notify-send "Copied $file_name to $output" ;;
+	"C-f")
+		output="$HOME/hard-disk/funny"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	"C-r")
