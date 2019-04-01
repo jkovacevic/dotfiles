@@ -98,8 +98,8 @@
 		<h3>String interpolation</h3>
 		<p>
 			<code>val animal = "fox"</code></br>
-			<code>val object = "fence"</code></br>
-			<code>val text = s"Little brown ${animal} jumped over red ${object}"</code>
+			<code>val item = "fence"</code></br>
+			<code>val text = s"Little brown ${animal} jumped over red ${item}"</code>
 		</p>
 		<h3>Get row at specific index</h3>
 		<p>
@@ -116,7 +116,8 @@
 		</p>
 		<h3>Create arbitrary dataframe</h3>
 		<p>
-		<code>case class MyClass(dpid:Integer, asId:Integer, ccod:String, decision: Integer)</code></br>
+		<code>// Class needs to be defined in separate cell</code></br>
+		<code>case class MyClass(dpid:Integer, asId:Integer, ccod:String, decision: Integer)</code></br></br>
 		<code>val schema = StructType( Seq (</code></br>
 		<code>    StructField( "dpid", IntegerType, true),</code></br>
 		<code>    StructField( "asId", IntegerType, true),</code></br>
