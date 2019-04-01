@@ -85,6 +85,10 @@ gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1;
 		fd /tmp/$b1-$f /tmp/$b2-$f
 }
 
+# AWS
+aws-prod () { alias aws='aws --profile=smaato-prod-admin'}
+aws-test () { alias aws='aws --profile=smaato-test-admin'}
+
 # Arch terminal delete issue
 bindkey    "^[[3~"          delete-char
 bindkey    "^[3;5~"         delete-char
