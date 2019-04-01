@@ -12,33 +12,22 @@
 		<p><code>df = spark.read.options(header=True, inferSchema=True).csv("dataframe.csv")</code></p>
 		<h3>Write to .csv</h3>
 		<p><code>df.repartition(1).write.csv('/mnt/dataframe.csv', header = True)</code></p>
-		<h3>Dataframe creation</h3>
-		<p>	
-			<code>schema = StructType(</code></br>
-			<code>    [StructField("age", IntegerType()),</code></br>
-			<code>    StructField("rt", LongType()),</code></br>
-			<code>    StructField("ccod", StringType()),</code></br>
-			<code>    StructField("label", IntegerType())])</code></br></br>
-			<code>data = [[20, 1549974188869, 'US', 1],</code></br>
-			<code>    [None, None, 'US', 1],</code></br>
-			<code>    [80, 1549972905314, 'US', 0]]</code></br>
-			<code>df = spark.createDataFrame(data, schema=schema)</code></br>
-		</p>
-		<h3>Dataframe iteration</h3>
-		<p>	
-			<code>for row in df.rdd.collect():</code></br>
-			<code>    print(row)</code></br>
-			<code>    print(row['column'])</code></br>
-		</p>
 
 		<h3>Dataframe exploration</h3>
 		<p>	
 			<code>print(df.count(), len(df.columns))</code></br>
 			<code>print(df.columns, df.dtypes)</code></br>
+			<code>df.printSchema()</code></br>
 			<code>df.show(20)</code></br>
 			<code>df.limit(20)</code></br>
 			<code>df.sample(False, 0.1)</code>
 		</p>
+		<h3>Unique column values with count</h3>
+		<p>	
+			<code>column="dpid"</code></br>
+			<code>df.groupBy(column).count()</code></br>
+		</p>
+
 		<h3>Dataframe columns</h3>
 		<p>	
 			<code>df.select('column_name')</code></br>
@@ -79,6 +68,25 @@
 		<p>	
 			<code>df1.join(df2, on='key')</code></br>
 			<code>df1.join(df2, df1.age == df2.age)</code></br>
+		</p>
+
+		<h3>Dataframe creation</h3>
+		<p>	
+			<code>schema = StructType(</code></br>
+			<code>    [StructField("age", IntegerType()),</code></br>
+			<code>    StructField("rt", LongType()),</code></br>
+			<code>    StructField("ccod", StringType()),</code></br>
+			<code>    StructField("label", IntegerType())])</code></br></br>
+			<code>data = [[20, 1549974188869, 'US', 1],</code></br>
+			<code>    [None, None, 'US', 1],</code></br>
+			<code>    [80, 1549972905314, 'US', 0]]</code></br>
+			<code>df = spark.createDataFrame(data, schema=schema)</code></br>
+		</p>
+		<h3>Dataframe iteration</h3>
+		<p>	
+			<code>for row in df.rdd.collect():</code></br>
+			<code>    print(row)</code></br>
+			<code>    print(row['column'])</code></br>
 		</p>
 	</body>
 </html>
