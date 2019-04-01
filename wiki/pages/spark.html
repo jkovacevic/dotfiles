@@ -6,6 +6,7 @@
 	</head>
 	<body>
 		<h1>Python Spark</h1>
+		<h3>Frequently needed imports</h3>
 		<p><code>from pyspark.sql import functions as f</code></p>
 		<p><code>from pyspark.sql.types import *</code></p>
 		<h3>Read from .csv</h3>
@@ -70,7 +71,7 @@
 			<code>df1.join(df2, df1.age == df2.age)</code></br>
 		</p>
 
-		<h3>Dataframe creation</h3>
+		<h3>Create arbitrary dataframe</h3>
 		<p>	
 			<code>schema = StructType(</code></br>
 			<code>    [StructField("age", IntegerType()),</code></br>
@@ -87,6 +88,49 @@
 			<code>for row in df.rdd.collect():</code></br>
 			<code>    print(row)</code></br>
 			<code>    print(row['column'])</code></br>
+		</p>
+		<h1>Scala Spark</h1>
+		<h3>Frequently needed imports</h3>
+		<p>
+			<code>import org.apache.spark.sql.functions._</code></br>
+			<code>import org.apache.spark.sql.types.{StructField, StructType, IntegerType, DoubleType, StringType, BooleanType}</code>
+		</p>
+		<h3>String interpolation</h3>
+		<p>
+			<code>val animal = "fox"</code></br>
+			<code>val object = "fence"</code></br>
+			<code>val text = s"Little brown ${animal} jumped over red ${object}"</code>
+		</p>
+		<h3>Get row at specific index</h3>
+		<p>
+			<code>val index = 5</code></br>
+			<code>val row = df.rdd.take(index).last</code>
+		</p>
+		<h3>Convert Dataframe to Pandas</h3>
+		<p>
+			<code>%scala</code></br>
+			<code>df.createOrReplaceTempView("df")</code></br></br>
+			<code>%py</code></br>
+			<code>df = sqlContext.table("df").toPandas()</code></br>
+			<code>df.head()</code>
+		</p>
+		<h3>Create arbitrary dataframe</h3>
+		<p>
+		<code>case class MyClass(dpid:Integer, asId:Integer, ccod:String, decision: Integer)</code></br>
+		<code>val schema = StructType( Seq (</code></br>
+		<code>    StructField( "dpid", IntegerType, true),</code></br>
+		<code>    StructField( "asId", IntegerType, true),</code></br>
+		<code>    StructField( "ccod", StringType, true),</code></br>
+		<code>    StructField( "decision", IntegerType, true)</code></br>
+		<code>  ))</code></br>
+		<code>val dataframeValues: List[MyClass] = List(</code></br>
+		<code>    MyClass(1, 5, "US", 1),</code></br>
+		<code>    MyClass(2, 6, "DE", 1),</code></br>
+		<code>    MyClass(3, 7, "GB", 0)</code></br>
+		<code>)</code></br>
+		<code>val rdd: RDD[MyClass] =  sc.parallelize( dataframeValues )</code></br>
+		<code>val rowRDD: RDD[Row] = rdd.map( (i: MyClass) ⇒ Row(i.dpid, i.asId, i.ccod, i.decision))</code></br>
+		<code>val df = sqlContext.createDataFrame( rowRDD, schema )</code></br>
 		</p>
 	</body>
 </html>
