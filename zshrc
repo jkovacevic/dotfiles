@@ -31,6 +31,9 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
 
+autoload -U select-word-style
+select-word-style bash
+
 # Functions and aliases
 alias l='ls -lFh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
