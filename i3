@@ -64,10 +64,9 @@ set $workspace7 "7:"
 set $workspace8 "8:"
 set $workspace9 "9:"
 set $workspace10 "10:"
-set $workspace11 "11:"
-set $workspace12 "12:"
+set $workspace11 "11:"
+set $workspace12 "12:"
 set $workspace13 "13:"
-set $workspace14 "14:"
 
 # switch to workspace
 bindsym $mod+grave      workspace $workspace0
@@ -81,10 +80,9 @@ bindsym $mod+7          workspace $workspace7
 bindsym $mod+8          workspace $workspace8
 bindsym $mod+9          workspace $workspace9
 bindsym $mod+0          workspace $workspace10
-bindsym $mod+n          workspace $workspace11
-bindsym $mod+m          workspace $workspace12
-bindsym $mod+minus      workspace $workspace13
-bindsym $mod+equal      workspace $workspace14
+bindsym $mod+m          workspace $workspace11
+bindsym $mod+minus      workspace $workspace12
+bindsym $mod+equal      workspace $workspace13
 
 # move focused container to workspace
 bindsym $mod+Shift+grave        move container to workspace $workspace0
@@ -98,10 +96,9 @@ bindsym $mod+Shift+7            move container to workspace $workspace7
 bindsym $mod+Shift+8            move container to workspace $workspace8
 bindsym $mod+Shift+9            move container to workspace $workspace9
 bindsym $mod+Shift+0            move container to workspace $workspace10
-bindsym $mod+Shift+n            move container to workspace $workspace11
-bindsym $mod+Shift+m            move container to workspace $workspace12
-bindsym $mod+Shift+minus        move container to workspace $workspace13
-bindsym $mod+Shift+equal        move container to workspace $workspace14
+bindsym $mod+Shift+m            move container to workspace $workspace11
+bindsym $mod+Shift+minus        move container to workspace $workspace12
+bindsym $mod+Shift+equal        move container to workspace $workspace13
 
 # In command line use xprop command
 assign [class="jetbrains-pycharm-ce"]   	$workspace2
@@ -120,7 +117,7 @@ assign [class="TeXstudio"]              	$workspace6
 assign [class="Evince"]                 	$workspace6
 assign [class="Slack"]                  	$workspace9
 assign [class="Sublime_merge"]          	$workspace10
-assign [class="Thunderbird"]            	$workspace12
+assign [class="Thunderbird"]            	$workspace11
 
 for_window [workspace=$workspace3] layout stacked
 for_window [workspace=$workspace5] layout stacked

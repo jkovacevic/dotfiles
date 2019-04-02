@@ -7,8 +7,18 @@
 	<body>
 		<h1>Python Spark</h1>
 		<h3>Frequently needed imports</h3>
-		<p><code>from pyspark.sql import functions as f</code></p>
-		<p><code>from pyspark.sql.types import *</code></p>
+		<p>
+			<code>from pyspark.sql import functions as f</code></br>
+			<code>from pyspark.sql.types import *</code></br>
+		</p>
+		<h3>Get number of partitions on Dataframe</h3>
+		<p>
+			<code>df.rdd.getNumPartitions()</code></br>
+		</p>
+		<h3>Change number of partitions of Dataframe</h3>
+		<p>
+			<code>df = df.repartition(30)</code></br>
+		</p>
 		<h3>Read from .csv</h3>
 		<p><code>df = spark.read.options(header=True, inferSchema=True).csv("dataframe.csv")</code></p>
 		<h3>Write to .csv</h3>
