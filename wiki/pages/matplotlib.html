@@ -5,5 +5,54 @@
 		 <link rel=icon href=icon.jpg>
 	</head>
 	<body>
+		<h1>Matplotlib</h1>
+		<h3>Example 1 - regression graph</h3>
+		<p>
+			<code>x = np.arange(0, 7+1)</code></br>
+			<code>y = np.array([10, 5, 17, 20, 15, 19, 25, 7])</code></br>
+			<code>plt.plot(x, y, c='black')</code></br>
+			<code>plt.scatter(x, y, c='red')</code></br>
+			<code>plt.xticks(fontsize=18)</code></br>
+			<code>plt.xlim(0, 7)</code></br>
+			<code>plt.yticks(np.arange(0, 30+1, 2),fontsize=18)</code></br>
+			<code>plt.title("Title of chart", fontsize=18)</code></br>
+			<code>plt.xlabel("t", fontsize=18)</code></br>
+			<code>plt.ylabel("Price in $USD", fontsize=18)</code></br>
+			<code>plt.grid()</code></br>
+			<code>plt.legend()</code></br>
+			<code>plt.show()</code>
+		</p>
+		<h3>Example 2 - histogram graph of percentiles </h3>
+		<p>
+			<code>p = ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%"]</code></br>
+			<code>v = [1.000000, 1.000000, 1.000002, 1.041116, 1.107426, 1.175309, 1.285470, 1.459854, 1.857692]</code></br>
+			<code>ind = np.arange(len(p))</code></br>
+			<code>plt.bar(ind, v)</code></br>
+			<code>plt.xticks(ind, p)</code></br>
+			<code>plt.title("Percentiles distribution of quotient between Bid price and Clearing price\n2019-01-18, n=375131")</code></br>
+			<code>plt.ylabel("Number with which Clearing price needs to be multiplied with in order to reach Bid price")</code></br>
+			<code>plt.xlabel("Number of winning bids which belong to percentile")</code></br>
+			<code>plt.grid()</code></br>
+			<code>plt.show()</code>
+		</p>
+		<h3>Example 3 - percentiles based on two columns (categorical & count)</h3>
+		<p>
+			<code>df = pd.read_csv('...')</code></br>
+			<code>num_buckets = 41</code></br>
+			<code>df.columns = ['categorical', 'counts']</code></br>
+			<code>df = df.sort_values(by=['counts'], ascending=False)</code></br>
+			<code>p = df.describe(percentiles=np.linspace(0, 1, num_buckets))</code></br>
+			<code>p = p.drop(['max', 'min', 'std', 'mean', 'count'])</code></br>
+			<code>ind = np.arange(num_buckets)</code></br>
+			<code>values = list(p['counts'].values)</code></br>
+			<code>labels = [str(float(x.replace("%", ''))) + "%" for x in list(p.index.values)]</code></br>
+			<code>plt.bar(ind, values)</code></br>
+			<code>plt.xticks(ind, labels, rotation='vertical')</code></br>
+			<code>plt.yscale('log')</code></br>
+			<code>plt.title("Percentiles distribution for ...")</code></br>
+			<code>plt.ylabel("Count per ...")</code></br>
+			<code>plt.grid()</code></br>
+			<code>plt.show()</code>
+		</p>
 	</body>
 </html>
