@@ -19,8 +19,10 @@ keypress_single_selection() {
 		output="$HOME/hard-disk/funny"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
-	"C-r")
-		convert -rotate 90 "$file_name" "$file_name" ;;
+	"C-g")
+		output="$HOME/hard-disk/gif"
+		cp "$file_name" $output
+		notify-send "Copied $file_name to $output" ;;
 	esac
 }
 
