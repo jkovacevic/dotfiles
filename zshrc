@@ -21,6 +21,9 @@ export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
 export RPROMPT='$(vcs_info_wrapper)'
 export EDITOR="micro"
 
+autoload -U select-word-style
+select-word-style bash
+
 vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "%{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}$del"; fi; }
 autoload -Uz vcs_info compinit && compinit
 zstyle ':vcs_info:*' enable git cvs svn

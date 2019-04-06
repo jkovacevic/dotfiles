@@ -7,6 +7,7 @@
 	{ "keys": ["alt+o"], "command": "switch_file", "args": {"extensions": ["cpp", "cxx", "cc", "c", "hpp", "hxx", "hh", "h", "ipp", "inl", "m", "mm"]} },
 	{ "keys": ["ctrl+n"], "command": "new_file" },
 	{ "keys": ["f13", "s"], "command": "save" },
+	{ "keys": ["f13", "p"], "command": "copy_path" },
 	{ "keys": ["ctrl+f4"], "command": "close_file" },
 	{ "keys": ["ctrl+w"], "command": "close" },
 
