@@ -1,4 +1,3 @@
-# Lines configured by zsh-newuser-install
 setopt inc_append_history
 setopt share_history
 setopt prompt_subst
@@ -21,9 +20,6 @@ export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
 export RPROMPT='$(vcs_info_wrapper)'
 export EDITOR="micro"
 
-autoload -U select-word-style
-select-word-style bash
-
 vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "%{$fg[green]%}${vcs_info_msg_0_}%{$reset_color%}$del"; fi; }
 autoload -Uz vcs_info compinit && compinit
 zstyle ':vcs_info:*' enable git cvs svn
@@ -34,6 +30,9 @@ autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
+
+autoload -U select-word-style
+select-word-style bash
 
 # Functions and aliases
 alias l='ls -lFh --color=auto --group-directories-first'
