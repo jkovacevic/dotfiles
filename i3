@@ -1,56 +1,55 @@
 # i3 configuration file
 set $mod Mod4
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
 font pango:DejaVu Sans 12
-
-# Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+focus_follows_mouse no
 
-# start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-
-# kill focused window
 bindsym $mod+Escape kill
-
-# start dmenu (a program launcher)
 bindsym $mod+space exec rofi -show drun -padding 16
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
 bindsym $mod+h split h
-
-# split in vertical orientation
 bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
+# Startup
+exec /usr/bin/urxvt
+exec /usr/bin/google-chrome-stable
+exec /usr/bin/subl
+exec /usr/bin/thunderbird
+exec /usr/bin/slack
+exec /usr/bin/startup
+exec /usr/bin/dunst
+exec /usr/bin/nm-applet
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# focus the parent container
-bindsym $mod+a focus parent
+# Shortcuts
+bindsym $mod+Tab move workspace to output left
+bindsym $mod+l exec betterlockscreen -l
+bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
+bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
+bindsym $mod+F1 exec $HOME/dotfiles/bash/buffer.sh 1
+bindsym $mod+F2 exec $HOME/dotfiles/bash/buffer.sh 2
+bindsym $mod+F12 exec kill $(pgrep -f "ffmpeg -f x11grab")
+bindsym $mod+Control+p exec pavucontrol
 
-
+# Workspaces
 set $workspace0 "0:"
 set $workspace1 "1:"
 set $workspace2 "2:"
@@ -66,7 +65,7 @@ set $workspace11 "11:"
 set $workspace12 "12:"
 set $workspace13 "13:"
 
-# switch to workspace
+# Switch to workspace
 bindsym $mod+grave      workspace $workspace0
 bindsym $mod+1          workspace $workspace1
 bindsym $mod+2          workspace $workspace2
@@ -82,7 +81,7 @@ bindsym $mod+m          workspace $workspace11
 bindsym $mod+minus      workspace $workspace12
 bindsym $mod+equal      workspace $workspace13
 
-# move focused container to workspace
+# Move focused container to workspace
 bindsym $mod+Shift+grave        move container to workspace $workspace0
 bindsym $mod+Shift+1            move container to workspace $workspace1
 bindsym $mod+Shift+2            move container to workspace $workspace2
@@ -98,7 +97,7 @@ bindsym $mod+Shift+m            move container to workspace $workspace11
 bindsym $mod+Shift+minus        move container to workspace $workspace12
 bindsym $mod+Shift+equal        move container to workspace $workspace13
 
-# In command line use xprop command
+# Xprop assignation
 assign [class="Google-chrome"]          $workspace1
 assign [class="jetbrains-pycharm-ce"]   $workspace2
 assign [class="jetbrains-idea-ce"]      $workspace2
@@ -130,20 +129,11 @@ for_window [class="jetbrains-idea-ce"] focus
 for_window [class="jetbrains-pycharm-ce"] focus
 for_window [class="jetbrains-datagrip"] focus
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
 bindsym $mod+Control+Right resize shrink width 5 px
 bindsym $mod+Control+Left resize grow width 5 px
 bindsym $mod+Control+Up resize grow height 5 px
 bindsym $mod+Control+Down resize shrink height 5 px
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {	
 		tray_output eDP-1
 		status_command i3status
@@ -151,29 +141,3 @@ bar {
         strip_workspace_numbers yes
         separator_symbol "|"
 }
-
-focus_follows_mouse no
-
-exec /usr/bin/startup
-exec /usr/bin/urxvt
-exec /usr/bin/google-chrome-stable
-exec /usr/bin/subl
-exec /usr/bin/nm-applet
-exec /usr/bin/thunderbird
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec /usr/bin/clipmenud
-exec /usr/bin/slack
-exec /usr/bin/artha
-exec /usr/bin/dunst
-
-# Shortcuts
-bindsym $mod+Tab move workspace to output left
-bindsym $mod+Control+p exec pavucontrol
-bindsym $mod+l exec betterlockscreen -l
-
-bindsym $mod+F1 exec $HOME/dotfiles/bash/buffer.sh 1
-bindsym $mod+F2 exec $HOME/dotfiles/bash/buffer.sh 2
-bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
-bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
-# Video recording
-bindsym $mod+F12 exec kill $(pgrep -f "ffmpeg -f x11grab")
