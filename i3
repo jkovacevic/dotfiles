@@ -111,7 +111,7 @@ assign [class="Pinta"]                  $workspace5
 assign [class="TeXstudio"]              $workspace6
 assign [class="Evince"]                 $workspace7
 assign [class="Slack"]                  $workspace9
-assign [class="Thunderbird"]            $workspace12
+assign [class="Thunderbird"]            $workspace11
 
 for_window [workspace=$workspace3] layout stacked
 for_window [workspace=$workspace5] layout stacked
