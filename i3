@@ -51,7 +51,7 @@ bindsym $mod+Control+p exec pavucontrol
 
 # Workspaces
 set $workspace0 "0:"
-set $workspace1 "1:"
+set $workspace1 "1:"
 set $workspace2 "2:"
 set $workspace3 "3:"
 set $workspace4 "4:"
