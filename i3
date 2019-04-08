@@ -29,6 +29,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Startup
+exec /usr/bin/polybar bottom &
 exec /usr/bin/urxvt
 exec /usr/bin/google-chrome-stable
 exec /usr/bin/subl
@@ -133,11 +134,3 @@ bindsym $mod+Control+Right resize shrink width 5 px
 bindsym $mod+Control+Left resize grow width 5 px
 bindsym $mod+Control+Up resize grow height 5 px
 bindsym $mod+Control+Down resize shrink height 5 px
-
-bar {	
-		tray_output eDP-1
-		status_command i3status
-        font pango: FontAwesome 14
-        strip_workspace_numbers yes
-        separator_symbol "|"
-}
