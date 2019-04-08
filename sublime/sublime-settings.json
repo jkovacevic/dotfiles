@@ -104,6 +104,8 @@
 	"hot_exit": true,
 	"ignored_packages":
 	[
+		"0_package_control_loader",
+		"ApplySyntax",
 		"Vintage"
 	],
 	"indent_guide_options":
