@@ -22,8 +22,8 @@ spacing = 0
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Liberation Sans:style=Regular:size=10;
-font-1 = FontAwesome:size=10;
+font-0 = Liberation Sans:style=Regular:size=8
+font-1 = FontAwesome:size=10
 
 modules-left = i3
 modules-right = wireless-network wired-network pulseaudio battery0 battery1 date
@@ -153,7 +153,7 @@ interface = enp0s31f6
 interval = 1.0
 ping-interval = 10
 
-label-connected = %{F#70ffff}%{F-} %linkspeed% - %local_ip%
+label-connected = %{F#70ffff}%{F-} %linkspeed%
 label-connected-foreground = ${colors.foreground}
 
 ;label-disconnected = %{F#70ffff}%{F-} None

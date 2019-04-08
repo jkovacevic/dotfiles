@@ -129,6 +129,7 @@
 	"match_brackets_square": true,
 	"match_selection": true,
 	"match_tags": true,
+	"mini_diff": false,
 	"move_to_limit_on_up_down": false,
 	"open_files_in_new_window": true,
 	"overlay_scroll_bars": "system",
@@ -168,6 +169,5 @@
 	"use_tab_stops": true,
 	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?",
 	"word_wrap": "auto",
-	"wrap_width": 0,
-	"mini_diff": false
+	"wrap_width": 0
 }
