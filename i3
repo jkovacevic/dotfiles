@@ -34,7 +34,6 @@ exec /usr/bin/google-chrome-stable
 exec /usr/bin/subl
 exec /usr/bin/thunderbird
 exec /usr/bin/slack
-exec $HOME/startup.sh
 exec /usr/bin/nm-applet
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 
 
@@ -50,7 +49,7 @@ bindsym $mod+Control+p exec pavucontrol
 
 # Workspaces
 set $workspace0 "0:"
-set $workspace1 "1:"
+set $workspace1 "1:"
 set $workspace2 "2:"
 set $workspace3 "3:"
 set $workspace4 "4:"
@@ -109,8 +108,8 @@ assign [class="vlc"]                  		$workspace5
 assign [class="Soffice"] 					$workspace6
 assign [class="libreoffice-startcenter"] 	$workspace6
 assign [class="libreoffice-calc"] 			$workspace6
-assign [class="TeXstudio"]              	$workspace6
-assign [class="Evince"]                 	$workspace6
+assign [class="TeXstudio"]              	$workspace7
+assign [class="Evince"]                 	$workspace7
 assign [class="Slack"]                  	$workspace9
 assign [class="Sublime_merge"]          	$workspace10
 assign [class="Thunderbird"]            	$workspace11
