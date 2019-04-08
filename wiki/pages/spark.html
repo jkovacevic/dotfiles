@@ -75,6 +75,10 @@
 			<code>df.groupBy("gaid").agg(f.count("sid").alias("num_sessions"))</code></br>
 			<code>df.groupBy('A', 'B').pivot('C').sum('D')</code></br>
 		</p>
+		<h3>Dataframe sorting</h3>
+		<p>
+			<code>df.sort(f.col("count").desc())</code>
+		</p>
 		<h3>Dataframe joins</h3>
 		<p>	
 			<code>df1.join(df2, on='key')</code></br>
