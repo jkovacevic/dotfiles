@@ -1,0 +1,159 @@
+[colors]
+underline = #00ffff
+selected = #3f3f3f
+foreground = #ffffff
+background = #000000
+urgent = #bd2c40
+
+[bar/bottom]
+monitor = DP-2-2
+bottom = true
+width = 100%
+height = 30
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 2
+
+spacing = 0
+module-margin-left = 2
+module-margin-right = 2
+
+font-0 = DejaVu Sans:size=8;
+font-1 = FontAwesome:size=10;
+
+modules-left = i3
+modules-right = wireless-network wired-network pulseaudio battery0 battery1 date
+
+[module/i3]
+type = internal/i3
+strip-wsnumbers = true
+wrapping-scroll = false
+label-mode = %mode%
+
+label-mode-padding = 4
+label-mode-background = #e60053
+
+label-focused = %name%
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.background}
+label-focused-underline = ${colors.underline}
+label-focused-padding = 4
+
+label-unfocused = %name%
+label-unfocused-padding = 4
+
+label-visible = %name%
+label-visible-padding = 4
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.background}
+label-urgent-padding = 4
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+
+format-volume = %{F#70ffff}<ramp-volume>%{F-} <label-volume>
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+label-muted = Sound Muted
+format-muted-foreground = ${colors.urgent}
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+
+format = %{F#70ffff}<ramp>%{F-} <label>
+label = %percentage%%
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+[module/battery0]
+type = internal/battery
+full-at = 98
+battery = BAT0
+
+format-charging = %{F#70ffff}<animation-charging>%{F-} <label-charging>
+format-discharging = %{F#70ffff}<ramp-capacity>%{F-} <label-discharging>
+label-charging = %percentage%%
+label-discharging = %percentage%%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-framerate = 1000
+
+[module/battery1]
+type = internal/battery
+full-at = 98
+battery = BAT1
+
+format-charging = %{F#70ffff}<animation-charging>%{F-} <label-charging>
+format-discharging = %{F#70ffff}<ramp-capacity>%{F-} <label-discharging>
+label-charging = %percentage%%
+label-discharging = %percentage%%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-framerate = 1000
+
+[module/date]
+type = internal/date
+interval = 1.0
+
+date = %Y-%m-%d
+time = %H:%M:%S
+
+label = %date% %time%
+format = <label>
+label-underline = ${colors.underline}
+label-padding-left = 1
+label-padding-right = 1
+
+[module/wireless-network]
+type = internal/network
+interface = wlp58s0
+interval = 1.0
+ping-interval = 10
+
+format-connected = <label-connected>
+label-connected = %{F#70ffff}%{F-}  %signal%% - %essid%
+label-connected-foreground = ${colors.foreground}
+
+;label-disconnected =  None
+;label-disconnected-foreground = #ff0000
+
+[module/wired-network]
+type = internal/network
+interface = enp0s31f6
+interval = 1.0
+ping-interval = 10
+
+label-connected = %{F#70ffff}%{F-} %linkspeed% at %local_ip%
+label-connected-foreground = ${colors.foreground}
+
+;label-disconnected = %{F#70ffff}%{F-} None
+;label-disconnected-foreground = #ff0000
