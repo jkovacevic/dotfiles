@@ -29,7 +29,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Startup
-exec_always --no-startup-id /usr/local/bin/polybar bottom
+
+exec_always killall polybar && /usr/local/bin/polybar bottom
 exec $HOME/startup.sh
 exec /usr/bin/urxvt
 exec /usr/bin/google-chrome-stable
@@ -104,12 +105,12 @@ assign [class="Subl"]                   	$workspace3
 assign [class="Sublime_merge"]          	$workspace3
 assign [class="jetbrains-datagrip"]     	$workspace4
 assign [class="Dragondisk"]     			$workspace4
+assign [class="Soffice"] 					$workspace4
+assign [class="libreoffice-startcenter"] 	$workspace4
+assign [class="libreoffice-calc"] 			$workspace4
 assign [class="Pinta"]                  	$workspace5
 assign [class="Sxiv"]                  		$workspace5
 assign [class="vlc"]                  		$workspace5
-assign [class="Soffice"] 					$workspace6
-assign [class="libreoffice-startcenter"] 	$workspace6
-assign [class="libreoffice-calc"] 			$workspace6
 assign [class="TeXstudio"]              	$workspace7
 assign [class="Evince"]                 	$workspace7
 assign [class="Slack"]                  	$workspace9
