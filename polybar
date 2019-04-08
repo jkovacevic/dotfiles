@@ -5,6 +5,9 @@ foreground = #ffffff
 background = #000000
 urgent = #bd2c40
 
+[i3]
+icon-padding = 4
+
 [bar/bottom]
 monitor = DP-2-2
 bottom = true
@@ -32,25 +35,22 @@ wrapping-scroll = false
 index-sort = true
 label-mode = %mode%
 
-label-mode-padding = 3
-label-mode-background = #e60053
-
 label-focused = %name%
 label-focused-foreground = ${colors.foreground}
 label-focused-background = ${colors.selected}
 label-focused-underline = ${colors.underline}
-label-focused-padding = 3
+label-focused-padding = ${i3.icon-padding}
 
 label-unfocused = %name%
-label-unfocused-padding = 3
+label-unfocused-padding = ${i3.icon-padding}
 
 label-visible = %name%
-label-visible-padding = 3
+label-visible-padding = ${i3.icon-padding}
 
 label-urgent = %name%
 label-urgent-foreground = ${colors.foreground}
-label-urgent-background = ${colors.background}
-label-urgent-padding = 3
+label-urgent-background = ${colors.urgent}
+label-urgent-padding = ${i3.icon-padding}
 
 [module/pulseaudio]
 type = internal/pulseaudio
