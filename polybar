@@ -13,7 +13,7 @@ height = 32
 
 background = ${colors.background}
 foreground = ${colors.foreground}
-line-size = 1
+line-size = 2
 
 spacing = 0
 module-margin-left = 1
