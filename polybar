@@ -1,5 +1,5 @@
 [colors]
-underline = #00ffff	
+underline = #00ffff
 selected = #3f3f3f
 foreground = #ffffff
 background = #000000
@@ -19,8 +19,8 @@ spacing = 0
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = DejaVu Sans:size=12;
-font-1 = FontAwesome:size=14;
+font-0 = DejaVu Sans:size=11;
+font-1 = FontAwesome:size=13;
 
 modules-left = i3
 modules-right = wireless-network wired-network pulseaudio battery0 battery1 date
