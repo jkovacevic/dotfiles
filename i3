@@ -41,7 +41,7 @@ exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # Shortcuts
 bindsym $mod+Tab move workspace to output left
-bindsym $mod+l exec i3lock --color #009191
+bindsym $mod+l exec i3lock --color "#009191"
 bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
 bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
 bindsym $mod+F1 exec $HOME/dotfiles/bash/buffer.sh 1
