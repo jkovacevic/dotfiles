@@ -12,11 +12,10 @@ icon-padding = 3
 monitor = eDP-1
 bottom = true
 width = 100%
-height = 40
+height = 35
 
 tray-position = right
 tray-detached = false
-tray-padding = 3
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -26,8 +25,8 @@ spacing = 0
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = DejaVu Sans:size=11;
-font-1 = FontAwesome:size=13;
+font-0 = DejaVu Sans:size=10;
+font-1 = FontAwesome:size=12;
 
 modules-left = i3
 modules-right = wireless-network wired-network pulseaudio battery0 battery1 date
