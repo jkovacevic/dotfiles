@@ -106,11 +106,11 @@ assign [class="Subl"]                   $workspace3
 assign [class="Sublime_merge"]          $workspace3
 assign [class="jetbrains-datagrip"]     $workspace4
 assign [class="Soffice"]                $workspace4
+assign [class="Evince"]                 $workspace4
 assign [class="Sxiv"]                  	$workspace5
 assign [class="vlc"]                  	$workspace5
 assign [class="Pinta"]                  $workspace5
 assign [class="TeXstudio"]              $workspace6
-assign [class="Evince"]                 $workspace7
 assign [class="Slack"]                  $workspace9
 assign [class="Thunderbird"]            $workspace11
 

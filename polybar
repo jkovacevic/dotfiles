@@ -5,6 +5,9 @@ foreground = #ffffff
 background = #000000
 urgent = #bd2c40
 
+[i3]
+icon-padding = 3
+
 [bar/bottom]
 monitor = eDP-1
 bottom = true
@@ -38,16 +41,16 @@ label-focused = %name%
 label-focused-foreground = ${colors.foreground}
 label-focused-underline = ${colors.underline}
 label-focused-background = ${colors.selected}
-label-focused-padding = 3
+label-focused-padding = ${i3.icon-padding}
 
 label-unfocused = %name%
-label-unfocused-padding = 3
+label-unfocused-padding = ${i3.icon-padding}
 
 label-urgent = %name%
 label-urgent-foreground = ${colors.foreground}
 label-urgent-underline = ${colors.background}
 label-urgent-background = ${colors.urgent}
-label-urgent-padding = 3
+label-urgent-padding = ${i3.icon-padding}
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -148,7 +151,7 @@ interface = enp0s31f6
 interval = 1.0
 ping-interval = 10
 
-label-connected = %{F#70ffff}%{F-} %linkspeed% at %local_ip%
+label-connected = %{F#70ffff}%{F-} %linkspeed%
 label-connected-foreground = ${colors.foreground}
 
 ;label-disconnected = %{F#70ffff}%{F-} None
