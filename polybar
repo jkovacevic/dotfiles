@@ -13,7 +13,7 @@ height = 30
 
 background = ${colors.background}
 foreground = ${colors.foreground}
-line-size = 2
+line-size = 1
 
 spacing = 0
 module-margin-left = 2
@@ -29,6 +29,7 @@ modules-right = wireless-network wired-network pulseaudio battery0 battery1 date
 type = internal/i3
 strip-wsnumbers = true
 wrapping-scroll = false
+index-sort = true
 label-mode = %mode%
 
 label-mode-padding = 4
@@ -36,7 +37,7 @@ label-mode-background = #e60053
 
 label-focused = %name%
 label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.background}
+label-focused-background = ${colors.selected}
 label-focused-underline = ${colors.underline}
 label-focused-padding = 4
 
