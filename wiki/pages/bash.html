@@ -8,6 +8,10 @@
 		<h1>Bash</h1>
 		<h3>Check number of input cli arguments</h3>
 		<p><code>if [ "$#" -eq 3 ]; then echo "Three cli arguments";</code></p>
+		<h3>Check if file exists</h3>
+		<p><code>if [ ! -f /tmp/file.txt ]; then echo "File not found!" fi;</code></p>
+		<h3>Check if directory exists</h3>
+		<p><code>if [ ! -d /tmp/dir/ ]; then echo "Directory not found!" fi;</code></p>
 		<h3>Awk split line by space and get last element</h3>
 		<p><code>awk '{ print $NF }'</code></p>
 		<h3>Awk split by delimiter and get element at index i</h3>
