@@ -13,15 +13,15 @@ monitor = DP-2-2
 bottom = true
 width = 100%
 height = 30
-
+tray-position = right
+tray-detached = false
+tray-scale = 0.8
 background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 2
-
 spacing = 0
 module-margin-left = 1
 module-margin-right = 1
-
 font-0 = Liberation Sans:style=Regular:size=8
 font-1 = FontAwesome:size=10
 
