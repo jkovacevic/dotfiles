@@ -30,7 +30,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Startup
 
-exec_always killall polybar && /usr/local/bin/polybar bottom
+exec /usr/local/bin/polybar bottom
 exec $HOME/startup.sh
 exec /usr/bin/urxvt
 exec /usr/bin/google-chrome-stable
