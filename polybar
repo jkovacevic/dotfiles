@@ -33,6 +33,7 @@ modules-right = wireless-network wired-network pulseaudio battery0 battery1 date
 
 [module/i3]
 type = internal/i3
+index-sort = true
 strip-wsnumbers = true
 wrapping-scroll = false
 
