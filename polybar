@@ -16,6 +16,7 @@ height = 35
 
 tray-position = right
 tray-detached = false
+tray-reparent = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
