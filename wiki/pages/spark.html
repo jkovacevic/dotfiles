@@ -64,6 +64,7 @@
 		<p>	
 			<code>df.withColumnRenamed('old', 'new')</code></br>
 			<code>df.withColumn('value', 1 / df.age)</code></br>
+			<code>df.withColumn('date', f.lit("2019-01-01"))</code></br>
 			<code>df.withColumn('logdisp', f.log(df.disp))</code></br>
 			<code>df.withColumn("decision", f.when(f.col("dpid") == 1001708, True).otherwise(False))</code></br>
 			<code>df.withColumn('cond', f.when(df.mpg > 20, 1).when(df.cyl == 6, 2).otherwise(3))</code></br>
@@ -74,6 +75,10 @@
 		<p>	
 			<code>df.groupBy("gaid").agg(f.count("sid").alias("num_sessions"))</code></br>
 			<code>df.groupBy('A', 'B').pivot('C').sum('D')</code></br>
+		</p>
+		<h3>Dataframe sorting</h3>
+		<p>
+			<code>df.sort(f.col("count").desc())</code>
 		</p>
 		<h3>Dataframe joins</h3>
 		<p>	
