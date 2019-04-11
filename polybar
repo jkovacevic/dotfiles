@@ -13,6 +13,7 @@ monitor = eDP-1
 bottom = true
 width = 100%
 height = 35
+fixed-center = true
 
 tray-position = right
 tray-detached = false
@@ -20,7 +21,7 @@ tray-reparent = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
-line-size = 2
+underline-size = 2
 
 spacing = 0
 module-margin-left = 2
