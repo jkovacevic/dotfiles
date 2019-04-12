@@ -29,7 +29,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Startup
-exec /usr/local/bin/polybar bottom
+exec_always --no-startup-id polybar_launch.sh
 exec $HOME/startup.sh
 exec /usr/bin/urxvt
 exec /usr/bin/google-chrome-stable
