@@ -54,5 +54,27 @@
 			<code>plt.grid()</code></br>
 			<code>plt.show()</code>
 		</p>
+		<h4>Example 3 - display date on x axis</h3>
+		<p>
+			<code>df = df_source.toPandas()</code></br>
+			<code>df = df.sort_values('datetime')</code></br>
+			<code>plt.clf()</code></br>
+			<code>fig, ax = plt.subplots(figsize=(20, 10))</code></br>
+			<code>ax.plot_date(df['datetime'], df[column_name], xdate=True, linestyle='-')</code></br>
+			<code>plt.axvline(x=datetime(2019, 4, 8, 16, 15), color='red', label='model deployment')</code></br>
+			<code>ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))</code></br>
+			<code>ax.xaxis.set_major_locator(mdates.HourLocator(interval=2))</code></br>
+			<code>plt.setp(ax.xaxis.get_majorticklabels(), rotation=70)</code></br>
+			<code>first_date = df.iloc[0]['datetime']</code></br>
+			<code>last_date = df.iloc[df.shape[0] - 1]['datetime']</code></br>
+			<code>ylim_top = 1.0 if np.max(df[column_name]) * 1.2 > 1.0 else np.max(df[column_name]) * 1.2</code></br>
+			<code>ax.set_ylim(bottom=0, top=ylim_top)</code></br>
+			<code>ax.grid()</code></br>
+			<code>ax.set_title("{} measure for {} ({})\n{} -- {}".format(column_name.capitalize(), dsp_name, dsp_id, first_date.strftime("%Y-%m-%d %H:%M"), last_date.strftime("%Y-%m-%d %H:%M")))</code></br>
+			<code>ax.legend()</code></br>
+			<code>plt.ylabel("{} measure".format(column_name.capitalize()))</code></br>
+			<code>plt.tight_layout()</code></br>
+			<code>fig.show()</code></br>
+		</p>
 	</body>
 </html>
