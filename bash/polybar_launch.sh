@@ -1,2 +1,2 @@
 killall polybar;
-(sleep 2; /usr/local/bin/polybar bottom) &
+(sleep 2; /usr/bin/polybar bottom) &
