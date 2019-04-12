@@ -71,6 +71,11 @@
 			<code>df.drop('strenght')</code></br>
 			<code>df.dropDuplicates(['age', 'name'])</code></br>
 		</p>
+		<h3>Convert sparse vector to dense</h3>
+		<p>
+		<code>sparse_to_dense_udf = f.udf(lambda vector: vector.toArray().tolist(), ArrayType(DoubleType()))</code></br>
+		<code>df = df.withColumn("column", sparse_to_dense_udf(f.col("column")))</code></br>
+		</p>
 		<h3>Dataframe aggregations</h3>
 		<p>	
 			<code>df.groupBy("gaid").agg(f.count("sid").alias("num_sessions"))</code></br>
