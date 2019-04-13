@@ -45,10 +45,15 @@ bindsym $mod+Tab move workspace to output left
 bindsym $mod+l exec betterlockscreen -l
 bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
 bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
-bindsym $mod+F1 exec $HOME/dotfiles/bash/buffer.sh 1
-bindsym $mod+F2 exec $HOME/dotfiles/bash/buffer.sh 2
 bindsym $mod+F12 exec kill $(pgrep -f "ffmpeg -f x11grab")
 bindsym $mod+Control+p exec pavucontrol
+
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+
 
 # Workspaces
 set $workspace0 "0:"
