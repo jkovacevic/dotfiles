@@ -29,7 +29,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Startup
-exec_always --no-startup-id bash/polybar_launch.sh
+exec_always --no-startup-id $HOME/dotfiles/bash/polybar_launch.sh
 exec /usr/bin/urxvt
 exec /usr/bin/google-chrome-stable
 exec /usr/bin/subl
@@ -44,8 +44,9 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 bindsym $mod+Tab move workspace to output left
 bindsym $mod+l exec betterlockscreen -l
 bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
+bindsym $mod+z exec $HOME/dotfiles/bash/buffer.sh 1
+bindsym $mod+x exec $HOME/dotfiles/bash/buffer.sh 2
 bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
-bindsym $mod+F12 exec kill $(pgrep -f "ffmpeg -f x11grab")
 bindsym $mod+Control+p exec pavucontrol
 
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
@@ -53,6 +54,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86AudioMicMute exec kill $(pgrep -f "ffmpeg -f x11grab") vi
 
 
 # Workspaces
