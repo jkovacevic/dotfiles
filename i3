@@ -56,7 +56,6 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86AudioMicMute exec kill $(pgrep -f "ffmpeg -f x11grab") vi
 
-
 # Workspaces
 set $workspace0 "0:"
 set $workspace1 "1:"
