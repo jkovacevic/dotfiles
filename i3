@@ -29,7 +29,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Startup
-exec_always --no-startup-id bash/polybar_launch.sh
+exec_always --no-startup-id $HOME/dotfiles/bash/polybar_launch.sh
 exec $HOME/startup.sh
 exec /usr/bin/urxvt
 exec /usr/bin/google-chrome-stable
@@ -44,9 +44,9 @@ bindsym $mod+Tab move workspace to output left
 bindsym $mod+l exec i3lock --color "#009191"
 bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
 bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
-bindsym $mod+F1 exec $HOME/dotfiles/bash/buffer.sh 1
-bindsym $mod+F2 exec $HOME/dotfiles/bash/buffer.sh 2
-bindsym $mod+F12 exec kill $(pgrep -f "ffmpeg -f x11grab")
+bindsym $mod+z exec $HOME/dotfiles/bash/buffer.sh 1
+bindsym $mod+x exec $HOME/dotfiles/bash/buffer.sh 2
+bindsym Pause exec kill $(pgrep -f "ffmpeg -f x11grab")
 bindsym $mod+Control+p exec pavucontrol
 
 # Workspaces
