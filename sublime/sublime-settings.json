@@ -43,7 +43,7 @@
 	"caret_extra_width": 0,
 	"caret_style": "smooth",
 	"close_windows_when_empty": false,
-	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+	"color_scheme": "Packages/Monokai - Spacegray/Monokai - Spacegray.tmTheme",
 	"copy_with_empty_selection": true,
 	"create_window_at_startup": true,
 	"default_encoding": "UTF-8",
@@ -104,6 +104,7 @@
 	"hot_exit": true,
 	"ignored_packages":
 	[
+		"ApplySyntax",
 		"Vintage"
 	],
 	"indent_guide_options":
@@ -129,6 +130,7 @@
 	"match_brackets_square": true,
 	"match_selection": true,
 	"match_tags": true,
+	"mini_diff": false,
 	"move_to_limit_on_up_down": false,
 	"open_files_in_new_window": true,
 	"overlay_scroll_bars": "system",
