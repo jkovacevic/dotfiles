@@ -12,6 +12,13 @@
 		<p><code>if [ ! -f /tmp/file.txt ]; then echo "File not found!" fi;</code></p>
 		<h3>Check if directory exists</h3>
 		<p><code>if [ ! -d /tmp/dir/ ]; then echo "Directory not found!" fi;</code></p>
+		<h3>Replace string between two strings</h3>
+		<p>
+			<code>L="\"http://"</code></br>
+			<code>R=":8998\""</code></br>
+			<code>M="10.168.16.199"</code></br>
+			<code>sed -i "s|$L.*$R|$L$M$R|g" config.json</code></br>
+		</p>
 		<h3>Awk split line by space and get last element</h3>
 		<p><code>awk '{ print $NF }'</code></p>
 		<h3>Awk split by delimiter and get element at index i</h3>
