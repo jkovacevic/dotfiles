@@ -98,6 +98,7 @@ bindsym $mod+Shift+minus        move container to workspace $workspace12
 bindsym $mod+Shift+equal        move container to workspace $workspace13
 
 # Xprop assignation
+assign [class="Google-chrome"]   			$workspace1
 assign [class="jetbrains-pycharm-ce"]   	$workspace2
 assign [class="jetbrains-idea-ce"]      	$workspace2
 assign [class="Subl"]                   	$workspace3

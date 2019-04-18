@@ -60,6 +60,7 @@
 	"ensure_newline_at_eof_on_save": false,
 	"fade_fold_buttons": true,
 	"fallback_encoding": "Western (Windows 1252)",
+	"show_git_status": false,
 	"file_exclude_patterns":
 	[
 		"*.pyc",
