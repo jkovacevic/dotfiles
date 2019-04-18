@@ -66,6 +66,7 @@
 			<code>df.withColumn('value', 1 / df.age)</code></br>
 			<code>df.withColumn('date', f.lit("2019-01-01"))</code></br>
 			<code>df.withColumn('logdisp', f.log(df.disp))</code></br>
+			<code>df.withColumn('date', f.col("column_name").isin(values_list))</code></br>
 			<code>df.withColumn("decision", f.when(f.col("dpid") == 1001708, True).otherwise(False))</code></br>
 			<code>df.withColumn('cond', f.when(df.mpg > 20, 1).when(df.cyl == 6, 2).otherwise(3))</code></br>
 			<code>df.drop('strenght')</code></br>
