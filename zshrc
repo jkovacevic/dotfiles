@@ -12,7 +12,7 @@ export HH_CONFIG=monochromatics # get more colors
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 zstyle ':vcs_info:*' enable git cvs svn
-zstyle ':vcs_info:*' formats '%F{white}[%F{red}%b%F{white}]%f '
+zstyle ':vcs_info:*' formats '%F{white}(%f%F{red}%b%f%F{white})%f '
 vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}"; fi; }
 export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f $(vcs_info_wrapper)> '
 export EDITOR="micro"
