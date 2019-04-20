@@ -10,8 +10,7 @@ export HISTSIZE=100000
 export SAVEHIST=100000
 export HH_CONFIG=monochromatics # get more colors
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
-export RPROMPT='$(vcs_info_wrapper)'
+export PROMPT='[%F{cyan}%*%f] $(vcs_info_wrapper)%F{cyan}%m%f %F{red}%/%f > '
 export EDITOR="micro"
 vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}"; fi; }
 
