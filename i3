@@ -1,6 +1,6 @@
 # i3 configuration file
 set $mod Mod4
-font pango:DejaVu Sans 12
+font pango:DejaVu Sans Bold 10
 floating_modifier $mod
 focus_follows_mouse no
 
@@ -142,10 +142,10 @@ bindsym $mod+Control+Up resize grow height 5 px
 bindsym $mod+Control+Down resize shrink height 5 px
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2F343F   #2F343F
-client.focused_inactive #333333 #5f676a #ffffff #2F343F   #2F343F
+client.focused          #1e2128 #1e2128 #00ffff #2F343F   #2F343F
+client.focused_inactive #333333 #5f676a #00ffff #2F343F   #2F343F
 client.unfocused        #333333 #222222 #888888 #292d2e   #2F343F
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #2F343F
+client.urgent           #2f343a #900000 #00ffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #00ffff #000000   #2F343F
 
-client.background       #ffffff
+client.background       #00ffff
