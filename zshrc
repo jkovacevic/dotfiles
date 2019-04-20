@@ -10,9 +10,12 @@ export HISTSIZE=100000
 export SAVEHIST=100000
 export HH_CONFIG=monochromatics # get more colors
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-export PROMPT='[%F{cyan}%*%f] $(vcs_info_wrapper)%F{cyan}%m%f %F{red}%/%f > '
-export EDITOR="micro"
+
+zstyle ':vcs_info:*' enable git cvs svn
+zstyle ':vcs_info:*' formats '%F{white}[%F{red}%b%F{white}]%f '
 vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}"; fi; }
+export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f $(vcs_info_wrapper)> '
+export EDITOR="micro"
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
@@ -21,8 +24,6 @@ autoload -U compinit && compinit
 autoload -U select-word-style
 select-word-style bash
 
-zstyle ':vcs_info:*' enable git cvs svn
-zstyle ':vcs_info:*' formats '%F{white}[%F{cyan}%b%F{white}]%f '
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
