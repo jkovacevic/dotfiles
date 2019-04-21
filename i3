@@ -46,6 +46,7 @@ bindsym $mod+z exec $HOME/dotfiles/bash/buffer.sh 1
 bindsym $mod+x exec $HOME/dotfiles/bash/buffer.sh 2
 bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
 bindsym $mod+Control+p exec pavucontrol
+bindsym $mod+Control+a exec arandr
 
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
