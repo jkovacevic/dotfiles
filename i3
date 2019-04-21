@@ -30,9 +30,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Startup
 exec_always --no-startup-id $HOME/dotfiles/bash/polybar_launch.sh
-exec /usr/bin/urxvt
-exec /usr/bin/google-chrome-stable
-exec /usr/bin/subl
+exec /usr/bin/urxvt -title urxvt_
 exec /usr/bin/thunderbird
 exec /usr/bin/slack
 exec /usr/bin/startup
@@ -54,7 +52,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86AudioMicMute exec kill $(pgrep -f "ffmpeg -f x11grab") vi
+bindsym XF86AudioMicMute exec kill $(pgrep -f "ffmpeg -f x11grab")
 
 # Workspaces
 set $workspace0 "0:"
@@ -105,6 +103,7 @@ bindsym $mod+Shift+minus        move container to workspace $workspace12
 bindsym $mod+Shift+equal        move container to workspace $workspace13
 
 # Xprop assignation
+assign [title="urxvt_"]					$workspace0
 assign [class="Google-chrome"]          $workspace1
 assign [class="jetbrains-pycharm-ce"]   $workspace2
 assign [class="jetbrains-idea-ce"]      $workspace2
@@ -124,6 +123,8 @@ for_window [workspace=$workspace3] layout stacked
 for_window [workspace=$workspace5] layout stacked
 for_window [workspace=$workspace7] layout stacked
 
+for_window [class="urxvt_"] focus
+for_window [class="Google-chrome"] focus
 for_window [class="Subl"] focus
 for_window [class="Sublime_merged"] focus
 for_window [class="Evince"] focus
@@ -149,3 +150,5 @@ client.urgent           #2f343a #900000 #00ffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #00ffff #000000   #2F343F
 
 client.background       #00ffff
+
+workspace $workspace0 output eDP-1
