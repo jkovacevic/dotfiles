@@ -33,21 +33,15 @@ URxvt*letterSpace: 		-1
 URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,selection-to-clipboard
 URxvt.colorUL:			#3AD9C5
 
-!! url-select
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.keysym.C-v: eval:paste_clipboard
+URxvt.keysym.Escape: perl:keyboard-select:activate
 URxvt.keysym.M-u:	perl:url-select:select_next
 URxvt.url-select.launcher: xdg-open
 URxvt.url-select.underline: true
 URxvt.url-launcher:	xdg-open
-
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-
-!! keyboard-select:
-URxvt.keysym.Escape: perl:keyboard-select:activate
-URxvt.keysym.C-f: perl:keyboard-select:search
-
-# Copy paste
-URxvt.keysym.C-v: eval:paste_clipboard
 
 !Xterm escapes, word by word movement
 URxvt.keysym.Control-Left:			\033[1;5D
