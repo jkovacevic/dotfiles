@@ -83,5 +83,7 @@ gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1;
 # Arch terminal delete issue
 bindkey    "^[[3~"          delete-char
 bindkey    "^[3;5~"         delete-char
+bindkey    "^[f"			vi-forward-word
+bindkey    "^[b"			vi-backward-word
 
 eval "$(ntfy shell-integration)"
