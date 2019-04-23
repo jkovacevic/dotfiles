@@ -40,7 +40,6 @@ label-mode = %mode%
 
 label-focused = %name%
 label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.selected}
 label-focused-underline = ${colors.underline}
 label-focused-padding = ${i3.icon-padding}
 

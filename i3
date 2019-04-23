@@ -143,7 +143,7 @@ bindsym $mod+Control+Down resize shrink height 5 px
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1e2128 #1e2128 #00ffff #2F343F   #2F343F
-client.focused_inactive #333333 #1e2128 #1e2128 #2F343F   #2F343F
+client.focused_inactive #333333 #1e2128 #9398a0 #2F343F   #2F343F
 client.unfocused        #333333 #222222 #888888 #292d2e   #2F343F
 client.urgent           #2f343a #900000 #00ffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #00ffff #000000   #2F343F
