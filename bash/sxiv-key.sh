@@ -6,13 +6,17 @@ keypress_single_selection() {
 	"C-x")
 		rm "$file_name"
 		notify-send "Deleted $file_name" ;;
-	"C-e")
-		pinta "$file_name" ;;
 	"C-p")
 		echo "$file_name" | xclip -selection clipboard
 		notify-send "Copied $file_name to clipboard" ;;
+	"C-e")
+		pinta "$file_name" ;;
 	"C-s")
 		output="$HOME/hard-disk/image"
+		cp "$file_name" $output
+		notify-send "Copied $file_name to $output" ;;
+	"C-c")
+		output="$HOME/hard-disk/chan"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	"C-f")
