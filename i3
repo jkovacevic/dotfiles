@@ -1,6 +1,6 @@
 # i3 configuration file
 set $mod Mod4
-font pango:DejaVu Sans 10
+font pango:DejaVu Sans Bold 10
 floating_modifier $mod
 focus_follows_mouse no
 
@@ -31,9 +31,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Startup
 exec_always --no-startup-id $HOME/dotfiles/bash/polybar_launch.sh
 exec $HOME/startup.sh
-exec /usr/bin/urxvt
-exec /usr/bin/google-chrome-stable
-exec /usr/bin/subl
+exec /usr/bin/urxvt -title urxvt_
 exec /usr/bin/thunderbird
 exec /usr/bin/slack
 exec /usr/bin/nm-applet
@@ -48,6 +46,7 @@ bindsym $mod+z exec $HOME/dotfiles/bash/buffer.sh 1
 bindsym $mod+x exec $HOME/dotfiles/bash/buffer.sh 2
 bindsym Pause exec kill $(pgrep -f "ffmpeg -f x11grab")
 bindsym $mod+Control+p exec pavucontrol
+bindsym $mod+Control+a exec arandr
 
 # Workspaces
 set $workspace0 "0:"
@@ -98,6 +97,7 @@ bindsym $mod+Shift+minus        move container to workspace $workspace12
 bindsym $mod+Shift+equal        move container to workspace $workspace13
 
 # Xprop assignation
+assign [title="urxvt_"]						$workspace0
 assign [class="Google-chrome"]   			$workspace1
 assign [class="jetbrains-pycharm-ce"]   	$workspace2
 assign [class="jetbrains-idea-ce"]      	$workspace2
@@ -120,6 +120,7 @@ for_window [workspace=$workspace3] layout stacked
 for_window [workspace=$workspace5] layout stacked
 for_window [workspace=$workspace7] layout stacked
 
+for_window [class="urxvt_"] focus
 for_window [class="Subl"] focus
 for_window [class="Sublime_merged"] focus
 for_window [class="Evince"] focus
@@ -139,3 +140,12 @@ bindsym $mod+Control+Right resize shrink width 5 px
 bindsym $mod+Control+Left resize grow width 5 px
 bindsym $mod+Control+Up resize grow height 5 px
 bindsym $mod+Control+Down resize shrink height 5 px
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #1e2128 #1e2128 #00ffff #2F343F   #2F343F
+client.focused_inactive #333333 #5f676a #00ffff #2F343F   #2F343F
+client.unfocused        #333333 #222222 #888888 #292d2e   #2F343F
+client.urgent           #2f343a #900000 #00ffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #00ffff #000000   #2F343F
+
+client.background       #00ffff

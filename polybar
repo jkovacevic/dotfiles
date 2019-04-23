@@ -2,7 +2,7 @@
 underline = #00ffff
 selected = #3f3f3f
 foreground = #ffffff
-background = #000000
+background = #15171c
 urgent = #bd2c40
 
 [i3]
@@ -60,6 +60,7 @@ type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
 format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage:3%%
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
@@ -87,8 +88,8 @@ battery = BAT0
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-label-charging = %percentage%%
-label-discharging = %percentage%%
+label-charging = %percentage:3%%
+label-discharging = %percentage:3%%
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -109,8 +110,8 @@ battery = BAT1
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-label-charging = %percentage%%
-label-discharging = %percentage%%
+label-charging = %percentage:3%%
+label-discharging = %percentage:3%%
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -128,10 +129,10 @@ animation-charging-framerate = 1000
 type = internal/date
 interval = 1.0
 
-date = %Y-%m-%d
+date = %A, %d %B
 time = %H:%M:%S
 
-label = %date% %time%
+label = %date% - %time%
 format = <label>
 label-underline = ${colors.underline}
 label-padding-left = 1
