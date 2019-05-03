@@ -55,6 +55,11 @@
 		<p>	
 			<code>df.withColumn('ccod', f.when(f.col('ccod') == '', 'Empty').otherwise(f.col('ccod')))</code></br>
 		</p>
+		<h3>Separate array in multiple columns</h3>
+		<p>	
+			<code>df.withColumn('element0', f.col('array').getItem(0))</code></br>
+			<code>df.withColumn('element1', f.col('array').getItem(1))</code></br>
+		</p>
 		<h3>Filling null values</h3>
 		<p>	
 			<code>df.fillna(0)</code></br>
