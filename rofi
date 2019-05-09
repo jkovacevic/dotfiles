@@ -1,5 +1,5 @@
 rofi.combi-modi:        window,drun,ssh
-rofi.font:              Liberation Sans 14
+rofi.font:              Liberation Sans 12
 rofi.location:          2
 rofi.yoffset:           20
 rofi.show-icons:        true
