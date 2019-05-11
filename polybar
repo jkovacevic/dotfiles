@@ -38,6 +38,10 @@ type = internal/i3
 index-sort = true
 strip-wsnumbers = true
 wrapping-scroll = false
+label-mode = %mode%
+
+label-visible = %name%
+label-visible-padding = ${i3.icon-padding}
 
 label-focused = %name%
 label-focused-foreground = ${colors.foreground}
