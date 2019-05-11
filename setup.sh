@@ -7,7 +7,7 @@ function create_symlink {
 	if [ -f "$target" ] || [ -L "$target" ]; then
 		sudo rm "$target"
 	fi;
-
+	
 	sudo ln -s "$dotfile" "$target"
 }
 
