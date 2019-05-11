@@ -153,7 +153,7 @@ interface = enp0s31f6
 interval = 1.0
 ping-interval = 10
 
-label-connected =  %linkspeedj%
+label-connected =  %linkspeed%
 label-connected-foreground = ${colors.foreground}
 
 ;label-disconnected =  None
