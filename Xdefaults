@@ -1,6 +1,5 @@
-*foreground: 		#ffffff
-*background:       	#1b1918
-!!*background: rgba(0, 0, 0, .7)
+URxvt*foreground: 		White
+URxvt*background:       Black
 
 URxvt*color0: #1b1918
 URxvt*color8: #766e6b
@@ -32,9 +31,6 @@ URxvt*letterSpace: 		-1
 !! Extensions
 URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,selection-to-clipboard
 URxvt.colorUL:			#3AD9C5
-
-URxvt.iso14755: false
-URxvt.iso14755_52: false
 
 URxvt.keysym.C-v: eval:paste_clipboard
 URxvt.keysym.Escape: perl:keyboard-select:activate
