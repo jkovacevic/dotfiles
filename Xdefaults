@@ -32,6 +32,9 @@ URxvt*letterSpace: 		-1
 URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,selection-to-clipboard
 URxvt.colorUL:			#3AD9C5
 
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
 URxvt.keysym.C-v: eval:paste_clipboard
 URxvt.keysym.Escape: perl:keyboard-select:activate
 URxvt.keysym.M-u:	perl:url-select:select_next
