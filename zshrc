@@ -1,18 +1,21 @@
-setopt inc_append_history
-setopt share_history
-setopt prompt_subst
-unsetopt autocd beep
+# opt settings
+setopt SHARE_HISTORY
+setopt PROMPT_SUBST
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
 
 source $HOME/.fzf/shell/key-bindings.zsh
 source $HOME/.fzf/shell/completion.zsh
 
 plugins=(zsh-completions)
 
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTFILE=~/.zsh_history  # ensure history file visibility
-export HH_CONFIG=monochromatics # get more colors
-export HISTSIZE=100000
-export SAVEHIST=100000
 export EDITOR="micro"
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
