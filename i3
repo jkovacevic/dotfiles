@@ -42,9 +42,6 @@ exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 bindsym $mod+Tab move workspace to output left
 bindsym $mod+l exec betterlockscreen -l
 bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
-bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
-bindsym $mod+z exec $HOME/dotfiles/bash/buffer.sh 1
-bindsym $mod+x exec $HOME/dotfiles/bash/buffer.sh 2
 bindsym Pause exec kill $(pgrep -f "ffmpeg -f x11grab")
 bindsym $mod+Control+p exec pavucontrol
 bindsym $mod+Control+a exec arandr
