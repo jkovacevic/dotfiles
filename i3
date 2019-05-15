@@ -6,8 +6,8 @@ focus_follows_mouse no
 
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Escape kill
-bindsym $mod+space exec rofi -show drun -padding 16 -m 1
-bindsym $mod+ctrl+space exec rofi -show run -padding 16 -m 1
+bindsym $mod+space exec rofi -show drun -padding 16
+bindsym $mod+ctrl+space exec rofi -show run -padding 16
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
