@@ -43,9 +43,6 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 bindsym $mod+Tab move workspace to output left
 bindsym $mod+l exec betterlockscreen -l
 bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
-bindsym $mod+z exec $HOME/dotfiles/bash/buffer.sh 1
-bindsym $mod+x exec $HOME/dotfiles/bash/buffer.sh 2
-bindsym $mod+c exec $HOME/dotfiles/bash/buffer-compare.sh
 bindsym $mod+Control+p exec pavucontrol
 bindsym $mod+Control+a exec arandr
 
@@ -105,28 +102,29 @@ bindsym $mod+Shift+minus        move container to workspace $workspace12
 bindsym $mod+Shift+equal        move container to workspace $workspace13
 
 # Xprop assignation
-assign [title="urxvt_"]					$workspace0
-assign [class="Google-chrome"]          $workspace1
-assign [class="jetbrains-pycharm-ce"]   $workspace2
-assign [class="jetbrains-idea-ce"]      $workspace2
-assign [class="Subl"]                   $workspace3
-assign [class="Sublime_merge"]          $workspace3
-assign [class="jetbrains-datagrip"]     $workspace4
-assign [class="Soffice"]                $workspace4
-assign [class="Evince"]                 $workspace4
-assign [class="Sxiv"]                  	$workspace5
-assign [class="vlc"]                  	$workspace5
-assign [class="Pinta"]                  $workspace5
-assign [class="TeXstudio"]              $workspace6
-assign [class="Slack"]                  $workspace9
-assign [class="Thunderbird"]            $workspace11
+assign [title="urxvt_"]						$workspace0
+assign [class="Google-chrome"]   			$workspace1
+assign [class="jetbrains-pycharm-ce"]   	$workspace2
+assign [class="jetbrains-idea-ce"]      	$workspace2
+assign [class="Subl"]                   	$workspace3
+assign [class="Sublime_merge"]          	$workspace3
+assign [class="Evince"]                 	$workspace4
+assign [class="jetbrains-datagrip"]     	$workspace4
+assign [class="TeXstudio"]              	$workspace4
+assign [class="Soffice"] 					$workspace4
+assign [class="libreoffice-startcenter"] 	$workspace4
+assign [class="libreoffice-calc"] 			$workspace4
+assign [class="Pinta"]                  	$workspace5
+assign [class="Sxiv"]                  		$workspace5
+assign [class="vlc"]                  		$workspace5
+assign [class="Slack"]                  	$workspace9
+assign [class="Sublime_merge"]          	$workspace10
+assign [class="Thunderbird"]            	$workspace11
 
 for_window [workspace=$workspace3] layout stacked
 for_window [workspace=$workspace5] layout stacked
 for_window [workspace=$workspace7] layout stacked
 
-for_window [class="urxvt_"] focus
-for_window [class="Google-chrome"] focus
 for_window [class="Subl"] focus
 for_window [class="Sublime_merged"] focus
 for_window [class="Evince"] focus
@@ -135,6 +133,9 @@ for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
 for_window [class="Soffice"] focus
+for_window [class="libreoffice-startcenter"] focus
+for_window [class="libreoffice-calc"] focus
+for_window [class="Dragondisk"] focus
 for_window [class="jetbrains-idea-ce"] focus
 for_window [class="jetbrains-pycharm-ce"] focus
 for_window [class="jetbrains-datagrip"] focus
