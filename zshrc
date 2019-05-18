@@ -32,6 +32,7 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 # Functions and aliases
 alias l='ls -lFh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
+alias lt='ls -lhtr --color=auto --group-directories-first'
 alias ldot='ls -ld .*'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
