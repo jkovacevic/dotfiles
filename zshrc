@@ -17,8 +17,6 @@ vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_in
 export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f $(vcs_info_wrapper)> '
 export EDITOR="micro"
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
 autoload -Uz vcs_info compinit && compinit
 autoload -U compinit && compinit
 autoload -U select-word-style
@@ -88,3 +86,5 @@ bindkey    "^[f"			vi-forward-word
 bindkey    "^[b"			vi-backward-word
 
 eval "$(ntfy shell-integration)"
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
