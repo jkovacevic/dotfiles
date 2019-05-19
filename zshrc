@@ -19,7 +19,7 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 
 zstyle ':vcs_info:*' enable git cvs svn
-zstyle ':vcs_info:*' formats '%F{white}(%f%F{red}%b%f%F{white})%f '
+zstyle ':vcs_info:*' formats '%F{white}[%f%F{red}%b%f%F{white}]%f '
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
