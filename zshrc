@@ -2,7 +2,7 @@ autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
 plugins=(zsh-completions)
 setopt prompt_subst
-select-word-style bash
+export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=1000000
@@ -83,8 +83,10 @@ gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1;
 # Arch terminal delete issue
 bindkey    "^[[3~"          delete-char
 bindkey    "^[3;5~"         delete-char
-bindkey    "^[f"			vi-forward-word
-bindkey    "^[b"			vi-backward-word
+bindkey    "^[[7~"          beginning-of-line
+bindkey    "^[[8~"          end-of-line
+bindkey    ";5D"			vi-backward-blank-word
+bindkey    ";5C"			.vi-forward-blank-word
 
 eval "$(ntfy shell-integration)"
 source /usr/share/fzf/key-bindings.zsh
