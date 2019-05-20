@@ -85,6 +85,7 @@ bindkey    "^[[3~"          delete-char
 bindkey    "^[3;5~"         delete-char
 bindkey    "^[[7~"          beginning-of-line
 bindkey    "^[[8~"          end-of-line
+bindkey    "^Z"				undo
 bindkey    ";5D"			vi-backward-blank-word
 bindkey    ";5C"			.vi-forward-blank-word
 
