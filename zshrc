@@ -2,7 +2,7 @@ autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
 plugins=(zsh-completions)
 setopt prompt_subst
-select-word-style bash
+export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=1000000
@@ -19,7 +19,7 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 
 zstyle ':vcs_info:*' enable git cvs svn
-zstyle ':vcs_info:*' formats '%F{white}(%f%F{red}%b%f%F{white})%f '
+zstyle ':vcs_info:*' formats '%F{white}~ %f%F{red}%b%f%f '
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -31,6 +31,7 @@ export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f $(vcs_info_wrapper)> '
 # Functions and aliases
 alias l='ls -lFh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
+alias lt='ls -lhtr --color=auto --group-directories-first'
 alias ldot='ls -ld .*'
 alias grep='grep --color=auto'
 alias mocp='mocp -T black_orange'
@@ -86,8 +87,11 @@ aws-test () { alias aws='aws --profile=smaato-test-admin'}
 # Arch terminal delete issue
 bindkey    "^[[3~"          delete-char
 bindkey    "^[3;5~"         delete-char
-bindkey    "^[f"			vi-forward-word
-bindkey    "^[b"			vi-backward-word
+bindkey    "^[[7~"          beginning-of-line
+bindkey    "^[[8~"          end-of-line
+bindkey    "^Z"				undo
+bindkey    ";5D"			vi-backward-blank-word
+bindkey    ";5C"			.vi-forward-blank-word
 
 eval "$(ntfy shell-integration)"
 source $HOME/.fzf/shell/key-bindings.zsh
