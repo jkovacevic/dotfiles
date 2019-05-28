@@ -1,13 +1,14 @@
 autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
 plugins=(zsh-completions)
-setopt prompt_subst
+
+export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --border --exact'
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
 
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=1000000
-SAVEHIST=$HISTSIZE
-
+setopt prompt_subst
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
@@ -94,5 +95,4 @@ bindkey    ";5D"			vi-backward-blank-word
 bindkey    ";5C"			.vi-forward-blank-word
 
 eval "$(ntfy shell-integration)"
-source $HOME/.fzf/shell/key-bindings.zsh
-source $HOME/.fzf/shell/completion.zsh
+source /opt/fzf/shell/key-bindings.zsh

@@ -24,6 +24,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
@@ -104,9 +105,6 @@ assign [class="Sublime_merge"]          	$workspace3
 assign [class="Evince"]                 	$workspace4
 assign [class="jetbrains-datagrip"]     	$workspace4
 assign [class="TeXstudio"]              	$workspace4
-assign [class="Soffice"] 					$workspace4
-assign [class="libreoffice-startcenter"] 	$workspace4
-assign [class="libreoffice-calc"] 			$workspace4
 assign [class="Pinta"]                  	$workspace5
 assign [class="Sxiv"]                  		$workspace5
 assign [class="vlc"]                  		$workspace5
@@ -126,9 +124,6 @@ for_window [class="Sxiv"] focus
 for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
-for_window [class="Soffice"] focus
-for_window [class="libreoffice-startcenter"] focus
-for_window [class="libreoffice-calc"] focus
 for_window [class="Dragondisk"] focus
 for_window [class="jetbrains-idea-ce"] focus
 for_window [class="jetbrains-pycharm-ce"] focus
