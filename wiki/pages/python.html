@@ -7,37 +7,71 @@
 	<body>
 		<h1>Python</h1>
 		<h3>Format integer with leading zeros</h3>
-		<p><code>print("{:02d}".format(5))</code></br></p>
+		<code>print("{:02d}".format(5))</code>
 		<h3>Format float with fixed decimal places</h3>
-		<p><code>print("{:.2f}".format(2.7913))</code></br></p>
+		<code>print("{:.2f}".format(2.7913))</code>
 		<h3>Format current date to specific format</h3>
-		<p><code>datetime.now().strftime("%Y-%m-%d")</code></br></p>
+		<code>datetime.now().strftime("%Y-%m-%d")</code>
 		<h3>Save object using pickle</h3>
-		<p>
-			<code>import pickle</code></br>	
-			<code>f = open("/tmp/a.pkl", "wb")</code></br>
-			<code>pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)</code></br>
-			<code>f.close()</code></br>
-		</p>
+			<code>
+import pickle	
+f = open("/tmp/a.pkl", "wb")
+pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
+f.close()
+			</code>
 		<h3>Load object using pickle</h3>
-		<p>
-			<code>import pickle</code></br>	
-			<code>f = open("/tmp/a.pkl", "rb")</code></br>
-			<code>obj = pickle.load(f)</code></br>
-			<code>f.close()</code>
-		</p>
+			<code>
+import pickle
+f = open("/tmp/a.pkl", "rb")
+obj = pickle.load(f)
+f.close()
+			</code>
 		<h3>SCP file via SSH</h3>
-		<p>
-			<code>from paramiko import SSHClient</code><br>
-			<code>from scp import SCPClient</code><br>
-			<code>import os</code><br>
-			<code>def scp_file(file_src, file_dest, host, user):</code><br>
-			<code>    ssh = SSHClient()</code><br>
-			<code>    ssh.set_missing_host_key_policy(AutoAddPolicy())</code><br>
-			<code>    key = RSAKey.from_private_key_file(os.path.expanduser("~/.ssh/id_rsa"))</code><br>
-			<code>    ssh.connect(host, username=user)</code><br>
-			<code>    with SCPClient(ssh.get_transport()) as scp:</code><br>
-			<code>        scp.put(file_src, remote_path=file_dest)</code>
-		</p>
+			<code>
+from paramiko import SSHClient
+from scp import SCPClient
+import os
+def scp_file(file_src, file_dest, host, user):
+    ssh = SSHClient()
+    ssh.set_missing_host_key_policy(AutoAddPolicy())
+    key = RSAKey.from_private_key_file(os.path.expanduser("~/.ssh/id_rsa"))
+    ssh.connect(host, username=user)
+    with SCPClient(ssh.get_transport()) as scp:
+        scp.put(file_src, remote_path=file_dest)
+			</code>
+		<h3>Mashmallow JSON to object</h3>
+			<code>
+from marshmallow import fields, Schema, post_load, validate
+
+
+class AgeRangeSchema(Schema):
+    end = fields.Integer(required=True, allow_none=False, validate=validate.Range(13, 99))
+    start = fields.Integer(required=True, allow_none=False, validate=validate.Range(13, 99))
+
+    @post_load
+    def make_object(self, data):
+        return AgeRange(**data)
+
+
+class AgeRange():
+    def __init__(self, end, start):
+        self.end = end
+        self.start = start
+
+
+class AgeTargetingSchema(Schema):
+    ageRanges = fields.List(fields.Nested(AgeRangeSchema), required=True, allow_none=False)
+    whitelist = fields.Boolean(required=True, allow_none=False)
+
+    @post_load
+    def make_object(self, data):
+        return AgeTargeting(**data)
+
+
+class AgeTargeting():
+    def __init__(self, ageRanges, whitelist):
+        self.ageRanges = ageRanges
+        self.whitelist = whitelist
+			</code>
 	</body>
 </html>
