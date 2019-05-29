@@ -3,6 +3,7 @@ autoload -U select-word-style
 plugins=(zsh-completions)
 
 export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --border --exact'
+export FZF_ALT_C_COMMAND='find $HOME -type d ! -path "*\.git*" ! -path "*venv*" ! -path "*__pycache__*"'
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
