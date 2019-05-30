@@ -2,7 +2,6 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"0_package_control_loader"
 	],
 	"installed_packages":
 	[
@@ -11,6 +10,7 @@
 		"Local History",
 		"Monokai - Spacegray",
 		"Package Control",
+		"Pretty JSON",
 		"SideBarEnhancements",
 		"Theme - Spacegray"
 	]
