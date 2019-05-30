@@ -2,18 +2,18 @@
 Run setup.sh to configure dotfiles.
 
 # Requirements:
-* i3 windows manager
-* ZSH shell
+* i3 Windows Manager
 * Urxvt terminal
-* IPython python3
-* bat as replacement for cat
-* rofi as replacement for dmenu
-* httpie as replacement for curl
+* ZSH shell
 * Sublime Text 3
+* rofi
 
 Sublime Text 3 plugins:
 
+* Color Highlight
+* Compare Side-by-Side
 * Local History
-* Compare Side by Side
-* Color Highlighter
-* Spacegray theme and color scheme
+* Monokai - Spacegray
+* Pretty JSON
+* SideBarEnhancements
+* Theme - Spacegray
