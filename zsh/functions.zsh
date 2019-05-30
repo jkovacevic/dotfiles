@@ -9,6 +9,6 @@ template() {
 	if [[ "$choice" == "awk" ]]; then
 		zle -U " | awk '{ print }'";
 	elif [[ "$choice" == "sed" ]]; then
-		zle -U " | 's/unix/linux/'";
+		zle -U " | sed 's/word/replacement/g'";
 	fi;
 }; zle -N template
