@@ -1,3 +1,6 @@
+alias ..='cd ..'
+alias ....='cd ../..'
+
 alias l='ls -lFh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
 alias lt='ls -lhtr --color=auto --group-directories-first'
@@ -7,5 +10,3 @@ alias mocp='mocp -T black_orange'
 alias cat='bat --style=plain'
 alias clip='xclip -selection clipboard'
 alias edit='cat > /tmp/_.txt; subl /tmp/_.txt'
-alias ..='cd ..'
-alias ....='cd ../..'
