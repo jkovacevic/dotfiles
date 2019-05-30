@@ -1,8 +1,12 @@
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+source $HOME/dotfiles/zsh/functions.zsh
+
 autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
 plugins=(zsh-completions)
 
-export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --border --exact --sort'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --exact --sort'
 export FZF_ALT_C_COMMAND='find $HOME -type d ! -path "*\.git*" ! -path "*venv*" ! -path "*__pycache__*" ! -path "*sublime-history*"'
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
 export HISTFILE="$HOME/.zsh_history"
@@ -13,7 +17,7 @@ setopt prompt_subst
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_ignore_all_dups   # 
+setopt hist_ignore_all_dups    
 setopt hist_find_no_dups      # do not display a line previously found.
 setopt hist_save_no_dups      # don't write duplicate entries in the history file.
 setopt hist_verify            # show command with history expansion to user before running it
@@ -63,11 +67,8 @@ wss() {sudo grep -rn $1; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
 
-# Functions used as shortcuts
-copy_cmd() { zle kill-buffer; print -rn -- $CUTBUFFER | xclip -selection clipboard; };  zle -N copy_cmd
-
 # Git shortcuts
-gg () {git commit -m "automated commit message"; git push;}
+gg () {git add .; git commit -m "automated commit message"; git push;}
 ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
 gp () {git push}
 gf () {git pull}
@@ -84,17 +85,16 @@ gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1;
 }
 
 # Terminal navigation
-bindkey    "^[[3~"          	delete-char
-bindkey    "^[3;5~"         delete-char
-bindkey    "^[[7~"          	beginning-of-line
-bindkey    "^[[8~"          	end-of-line
-bindkey    "^Z"				undo
-bindkey    ";5D"				vi-backward-blank-word
-bindkey    ";5C"				.vi-forward-blank-word
+bindkey    	"^[[3~"		delete-char
+bindkey    	"^[3;5~"	delete-char
+bindkey    	"^[[7~"		beginning-of-line
+bindkey    	"^[[8~"		end-of-line
+bindkey    	"^Z"		undo
+bindkey    	";5D"		vi-backward-blank-word
+bindkey    	";5C"		.vi-forward-blank-word
 
 # Custom commands
-bindkey  "^Y" copy_cmd
+bindkey  	"^Y"		copy_cmd
+bindkey 	"^[t"		template
 
 eval "$(ntfy shell-integration)"
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
