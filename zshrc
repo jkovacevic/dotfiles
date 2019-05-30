@@ -45,34 +45,35 @@ alias edit='cat > /tmp/_.txt; subl /tmp/_.txt'
 alias ..='cd ..'
 alias ....='cd ../..'
 
-# Function
+# Functions used as commands
 bg() { nohup $@ > /dev/null 2>&1 & disown }
-pinta () { bg pinta "$@" }
-evince () { bg evince "$@" }
-libreoffice () { bg libreoffice "$@" }
-vlc() { bg vlc "$@" }
-sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
-yvid() { youtube-dl $1; }
-ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
-cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
 cpcat() { cat $1 | xclip -selection clipboard; }
 cppsh() { xclip -selection clipboard -o > $1; }
+cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
+evince () { bg evince "$@" }
 fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":\"$(realpath $2)\"}\'; }
-
-# Text and word find
 fs() {find -iname \*$1\*; }
 fss() {sudo find -iname \*$1\*; }
+libreoffice () { bg libreoffice "$@" }
+pinta () { bg pinta "$@" }
+sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
+vlc() { bg vlc "$@" }
 ws() {grep -rn $1; }
 wss() {sudo grep -rn $1; }
+ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
+yvid() { youtube-dl $1; }
+
+# Functions used as shortcuts
+copy_cmd() { zle kill-buffer; print -rn -- $CUTBUFFER | xclip -selection clipboard; };  zle -N copy_cmd
 
 # Git shortcuts
-gg () {git add .; git commit -m "automated commit message"; git push;}
-ga () {	if [[ $1 == "" ]]; then git add .;	else git add $1; fi }
+gg () {git commit -m "automated commit message"; git push;}
+ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
 gp () {git push}
 gf () {git pull}
 gs () {git status}
 gc () {git commit -m "$1"}
-gr () {git checkout $1}
+gr () {git reset $@}
 gh () {smerge log $1}
 gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1; 
 		elif [ "$#" -eq 3 ]; then f=$(cut -d "/" -f 2 <<< "$1"); b1=$2; b2=$3;
@@ -82,14 +83,17 @@ gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1;
 		fd /tmp/$b1-$f /tmp/$b2-$f
 }
 
-# Arch terminal delete issue
-bindkey    "^[[3~"          delete-char
+# Terminal navigation
+bindkey    "^[[3~"          	delete-char
 bindkey    "^[3;5~"         delete-char
-bindkey    "^[[7~"          beginning-of-line
-bindkey    "^[[8~"          end-of-line
+bindkey    "^[[7~"          	beginning-of-line
+bindkey    "^[[8~"          	end-of-line
 bindkey    "^Z"				undo
-bindkey    ";5D"			vi-backward-blank-word
-bindkey    ";5C"			.vi-forward-blank-word
+bindkey    ";5D"				vi-backward-blank-word
+bindkey    ";5C"				.vi-forward-blank-word
+
+# Custom commands
+bindkey  "^Y" copy_cmd
 
 eval "$(ntfy shell-integration)"
 source /usr/share/fzf/key-bindings.zsh
