@@ -1,6 +1,7 @@
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source $HOME/dotfiles/zsh/functions.zsh
+source $HOME/dotfiles/zsh/alias.zsh
 
 autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
@@ -33,21 +34,6 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 
 vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}"; fi; }
 export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f $(vcs_info_wrapper)> '
-
-# Functions and aliases
-alias l='ls -lFh --color=auto --group-directories-first'
-alias ls='ls --color=auto --group-directories-first'
-alias lt='ls -lhtr --color=auto --group-directories-first'
-alias ldot='ls -ld .*'
-alias grep='grep --color=auto'
-alias mocp='mocp -T black_orange'
-alias cat='bat --style=plain'
-alias clip='xclip -selection clipboard'
-alias edit='cat > /tmp/_.txt; subl /tmp/_.txt'
-
-# Navigation
-alias ..='cd ..'
-alias ....='cd ../..'
 
 # Terminal navigation
 bindkey    	"^[[3~"		delete-char
