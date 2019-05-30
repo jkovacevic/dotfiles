@@ -1,5 +1,5 @@
 rofi.combi-modi:        window,drun,ssh
-rofi.theme:             dotfiles/themes/rofi-theme-Monokai.rasi
+rofi.theme:             rofi-theme-Monokai.rasi
 rofi.font:              DejaVu Sans 14
 rofi.location:          2
 rofi.yoffset:           22
