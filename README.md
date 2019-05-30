@@ -2,18 +2,18 @@
 Run setup.sh to configure dotfiles.
 
 #### Requirements:
-* i3 Windows Manager
-* Urxvt terminal
-* ZSH shell
-* Sublime Text 3
-* rofi
 * betterlockscreen
-* tesseract
-* scrot
 * ffmpeg
-* trans
-* xclip
+* i3 windows manager
 * notify-send
+* rofi
+* scrot
+* Sublime Text 3
+* tesseract
+* trans
+* Urxvt terminal
+* xclip
+* ZSH shell
 
 #### Useful scripts:
 /bash/ocr.sh - creates OCR (english) of selection (requires: tesseract, scrot, xclip, notify-send)
