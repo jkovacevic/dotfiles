@@ -4,11 +4,11 @@ copy_cmd() {
 }; zle -N copy_cmd
 
 template() {
-	list=("awk\nsed")
-	choice=$(echo -e "$list" | rofi -dmenu)
-	if [[ "$choice" == "awk" ]]; then
+	choices=("awk\nsed")
+	selected=$(echo -e "$choices" | rofi -dmenu)
+	if [[ "$selected" == "awk" ]]; then
 		zle -U " | awk '{ print }'";
-	elif [[ "$choice" == "sed" ]]; then
+	elif [[ "$selected" == "sed" ]]; then
 		zle -U " | sed 's/word/replacement/g'";
 	fi;
 }; zle -N template
