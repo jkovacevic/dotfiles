@@ -29,7 +29,7 @@ gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1;
 		elif [ "$#" -eq 2 ]; then f=$(cut -d "/" -f 2 <<< "$1"); b=$2;
 		else echo "Expected arguments: file name, branch name"; return 1; fi;
 		git cat-file blob origin/$b:$1 > /tmp/$b-$f; 
-		fd $1 /tmp/$b-$f
+		fd $1 /tmp/$b-$f;
 }
 
 copy_cmd() { 
