@@ -6,7 +6,7 @@ Run setup.sh to configure dotfiles.
 * ffmpeg
 * i3 windows manager
 * rofi
-* scrot
+* imagemagick
 * SublimeText 3
 * tesseract
 * translate-shell
@@ -25,9 +25,9 @@ Run setup.sh to configure dotfiles.
 `cppsh` - pushes clipboard to file (i.e. cppsh file.txt)  
 
 #### Useful scripts:
-`bash/ocr.sh` - creates OCR (english) of selection (requires: `tesseract, scrot, xclip`)  
+`bash/ocr.sh` - creates OCR (english) of selection (requires: `tesseract, imagemagick, xclip`)  
 `bash/video.sh` - films a video of screen (requires: `ffmpeg, xclip`)  
-`bash/screenshot.sh` - creates a screenshot of selection (requires: `scrot, xclip`)  
+`bash/screenshot.sh` - creates a screenshot of selection (requires: `imagemagick, xclip`)  
 `bash/translate.sh` - translate mouse selection to english (requires: `translate-shell, xclip`)  
 `python/file_format.py` - renames all files in current directory to unix appropriate format  
 
