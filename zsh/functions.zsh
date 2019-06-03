@@ -23,7 +23,7 @@ gp () {git push}
 gf () {git pull}
 gs () {git status}
 gc () {git commit -m "$1"}
-gr () {git reset $@}
+gr () {git checkout $@}
 gh () {smerge log $1}
 gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1; 
 		elif [ "$#" -eq 3 ]; then f=$(cut -d "/" -f 2 <<< "$1"); b1=$2; b2=$3;
