@@ -92,11 +92,11 @@
 		".hg",
 		"CVS"
 	],
-	"font_face": "Liberation Mono",
+	"font_face": "Monaco",
 	"font_options":
 	[
 	],
-	"font_size": 11,
+	"font_size": 10,
 	"gpu_window_buffer": "auto",
 	"gutter": true,
 	"highlight_line": false,

@@ -24,7 +24,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+d floating toggle
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
@@ -43,7 +43,7 @@ exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 bindsym $mod+Tab move workspace to output left
 bindsym $mod+l exec betterlockscreen -l
 bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
-bindsym Pause exec kill $(pgrep -f "ffmpeg -f x11grab")
+bindsym $mod+x exec kill $(pgrep -f "ffmpeg -f x11grab")
 bindsym $mod+Control+p exec pavucontrol
 bindsym $mod+Control+a exec arandr
 
