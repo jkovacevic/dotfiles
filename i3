@@ -157,5 +157,3 @@ client.urgent           #2f343a #900000 #00ffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #00ffff #000000   #2F343F
 
 client.background       #00ffff
-
-workspace $workspace0 output eDP-1

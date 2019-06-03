@@ -26,11 +26,10 @@ gc () {git commit -m "$1"}
 gr () {git checkout $@}
 gh () {smerge log $1}
 gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1; 
-		elif [ "$#" -eq 3 ]; then f=$(cut -d "/" -f 2 <<< "$1"); b1=$2; b2=$3;
-		else echo "Expected arguments: file name, first branch name, second branch name,"; return 1; fi;
-		git cat-file blob origin/$b1:$f > /tmp/$b1-$f; 
-		git cat-file blob origin/$b2:$f > /tmp/$b2-$f; 
-		fd /tmp/$b1-$f /tmp/$b2-$f
+		elif [ "$#" -eq 2 ]; then f=$(cut -d "/" -f 2 <<< "$1"); b=$2;
+		else echo "Expected arguments: file name, branch name"; return 1; fi;
+		git cat-file blob origin/$b:$1 > /tmp/$b-$f; 
+		fd $1 /tmp/$b-$f
 }
 
 copy_cmd() { 
