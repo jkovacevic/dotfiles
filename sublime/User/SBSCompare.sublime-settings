@@ -1,3 +1,4 @@
 {
-	"read_only": false
+	"read_only": false,
+	"hide_sidebar": false
 }
