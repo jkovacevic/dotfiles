@@ -46,7 +46,10 @@ bindkey    	";5C"		.vi-forward-blank-word
 
 # Custom commands
 bindkey  	"^Y"		copy_cmd
-bindkey 	"^[t"		template
+bindkey 	"^T"		template
 bindkey 	"^F"		fzf-cd-widget
 
 eval "$(ntfy shell-integration)"
+
+aws-prod () { alias aws='aws --profile=smaato-prod-admin' }
+aws-test () { alias aws='aws --profile=smaato-test-admin' }
