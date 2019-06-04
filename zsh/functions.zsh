@@ -35,13 +35,15 @@ gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1;
 git_push_to_branch() {
 	if [ "$#" -ne 2 ]; then echo "Expected arguments: file_name, branch name"; return 1; fi;
 	fname=$1;
-	branch=$2;
+	remote_branch=$2;
+	local_branch=$(git status | head -1 | awk '{ print $NF }')
 	cpcat $fname;
-	git checkout $branch;
+	git checkout $remote_branch;
 	cppsh $fname;
 	git add $fname;
 	git commit -m "automated commit message";
 	git push;
+	git checkout $local_branch;
 }
 
 copy_cmd() { 
@@ -53,8 +55,8 @@ template() {
 	choices=("awk\nsed")
 	selected=$(echo -e "$choices" | rofi -dmenu)
 	if [[ "$selected" == "awk" ]]; then
-		zle -U " | awk '{ print }'";
+		zle -U "awk '{ print }'";
 	elif [[ "$selected" == "sed" ]]; then
-		zle -U " | sed 's/word/replacement/g'";
+		zle -U "sed 's/word/replacement/g'";
 	fi;
 }; zle -N template
