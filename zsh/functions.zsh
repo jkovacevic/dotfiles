@@ -24,8 +24,8 @@ gf () {git pull}
 gs () {git status}
 gc () {git commit -m "$1"}
 gr () {git checkout $@}
-gb () {git checkout $1}
 gh () {smerge log $1}
+gb () { if [ "$#" -eq 0 ]; then git branch -a; else git checkout $1; fi }
 gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1; 
 		elif [ "$#" -eq 2 ]; then f=$(cut -d "/" -f 2 <<< "$1"); b=$2;
 		else echo "Expected arguments: file name, branch name"; return 1; fi;
