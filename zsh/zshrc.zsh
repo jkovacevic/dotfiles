@@ -7,8 +7,6 @@ autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
 plugins=(zsh-completions)
 
-bindkey -r "^Q"
-
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --exact --sort'
 export FZF_ALT_C_COMMAND='find $HOME -type d ! -path "*\.git*" ! -path "*venv*" ! -path "*__pycache__*" ! -path "*sublime-history*"'
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
