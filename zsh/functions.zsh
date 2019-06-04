@@ -32,7 +32,7 @@ gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1;
 		fd $1 /tmp/$b-$f;
 }
 
-git_push_to_branch() {
+push_to_branch() {
 	if [ "$#" -ne 2 ]; then echo "Expected arguments: file_name, branch name"; return 1; fi;
 	fname=$1;
 	remote_branch=$2;
