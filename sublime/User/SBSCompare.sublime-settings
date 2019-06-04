@@ -1,4 +1,5 @@
 {
 	"read_only": false,
-	"hide_menu": false
+	"hide_menu": false,
+	"hide_minimap": false
 }
