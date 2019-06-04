@@ -46,6 +46,6 @@ bindkey    	";5C"		.vi-forward-blank-word
 # Custom commands
 bindkey  	"^Y"		copy_cmd
 bindkey 	"^[t"		template
-bindkey 	"^E"		fzf-cd-widget
+bindkey 	"^Q"		fzf-cd-widget
 
 eval "$(ntfy shell-integration)"
