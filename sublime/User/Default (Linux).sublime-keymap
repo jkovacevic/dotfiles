@@ -13,9 +13,9 @@
 	{ "keys": ["ctrl+alt+n"], "command": "sbs_next_diff" },	
 	{ "keys": ["ctrl+alt+p"], "command": "sbs_prev_diff" },	
 
+	{ "keys": ["alt+a"], "command": "plain_tasks_new","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
 	{ "keys": ["alt+c"], "command": "plain_tasks_complete","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
   	{ "keys": ["alt+x"], "command": "plain_tasks_cancel", "context": [{"key": "selector", "operator": "equal", "operand": "text.todo" }] },
-  	{ "keys": ["alt+n"], "command": "plain_tasks_new","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
 
 	{ "keys": ["backspace"], "command": "left_delete" },
 	{ "keys": ["shift+backspace"], "command": "left_delete" },
