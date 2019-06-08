@@ -429,15 +429,6 @@ sub activate {
 	$self->{dollar} = 0;
 	$self->{move_to} = 0;
 
-	if ($search) {
-		$self->{search} = '?';
-		$self->{search_dir} = -1;
-		$self->{search_mode} = 1;
-	} else {
-		$self->{search} = '';
-		$self->{search_mode} = 0;
-	}
-
 	($self->{oldcr}, $self->{oldcc}) = $self->screen_cur();
 	($self->{srhcr}, $self->{srhcc}) = $self->screen_cur();
 	$self->{old_view_start} = $self->view_start();
@@ -455,12 +446,6 @@ sub activate {
 		refresh_end   => \&refresh,
 		tt_write      => \&tt_write,
 	);
-
-	if ($self->{offset} >= $line->l) {
-		$self->{offset} = $line->l > 0 ? $line->l - 1 : 0;
-		$self->screen_cur($line->coord_of($self->{offset}));
-		$self->want_refresh();
-	}
 
 	$self->{overlay_len} = 0;
 	status_area($self);
