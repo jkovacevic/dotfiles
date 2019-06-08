@@ -9,6 +9,7 @@ plugins=(zsh-completions)
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --exact --sort'
 export FZF_ALT_C_COMMAND='find $HOME -type d ! -path "*\.git*" ! -path "*venv*" ! -path "*__pycache__*" ! -path "*sublime-history*"'
+export FZF_CTRL_T_COMMAND='find $HOME -type f ! -path "*\.git*" ! -path "*venv*" ! -path "*__pycache__*" ! -path "*sublime-history*"'
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
