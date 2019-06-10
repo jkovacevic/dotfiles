@@ -30,6 +30,7 @@ create_symlink "$HOME/dotfiles/python/ipython.py" "$HOME/.ipython/profile_defaul
 create_symlink "$HOME/dotfiles/python/file_format.py" "/usr/local/bin/ff"
 create_symlink "$HOME/dotfiles/perl/keyboard-select" "/usr/lib/urxvt/perl/keyboard-select"
 create_symlink "$HOME/dotfiles/sublime/User" "$HOME/.config/sublime-text-3/Packages/User"
+create_symlink "$HOME/.config/sublime-text-3/.sublime/Local History" "$HOME/.sublime-history"
 create_symlink "$HOME/dotfiles/applications/screenshot.desktop" "$HOME/.local/share/applications/screenshot.desktop"
 create_symlink "$HOME/dotfiles/applications/video.desktop" "$HOME/.local/share/applications/video.desktop"
 create_symlink "$HOME/dotfiles/applications/microphone.desktop" "$HOME/.local/share/applications/microphone.desktop"
