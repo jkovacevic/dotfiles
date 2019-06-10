@@ -8,7 +8,7 @@ except:
 try:	
 	import numpy as np
 	np.core.arrayprint._line_width = 120
-	np.set_printoptions(formatter={'float_kind': lambda x: "%.2f" % x})
+	np.set_printoptions(formatter={'float_kind': lambda x: "%.4if" % x})
 except:
 	pass
 
