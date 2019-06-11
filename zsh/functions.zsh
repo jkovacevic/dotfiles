@@ -11,8 +11,8 @@ libreoffice () { bg libreoffice "$@" }
 pinta () { bg pinta "$@" }
 sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
 vlc() { bg vlc "$@" }
-ws() {grep -rn $1; }
-wss() {sudo grep -rn $1; }
+ws() { rgrep -rn $1 --color=auto; }
+wss() { sudo rgrep -rn $1 --color=auto; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
 
