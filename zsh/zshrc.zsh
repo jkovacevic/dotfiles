@@ -6,8 +6,8 @@ autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
 plugins=(zsh-completions)
 
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --exact --sort'
-export FZF_ALT_C_COMMAND='find $HOME -type d ! -path "*\.git*" ! -path "*venv*" ! -path "*__pycache__*" ! -path "*sublime-history*"'
+export FZF_ALT_C_COMMAND='find / -type d ! -path "*\.git*" ! -path "*__pycache__*" ! -path "*sublime-history*" 2>/dev/null'
+export FZF_CTRL_T_COMMAND='find / -type f ! -path "*\.git*" ! -path "*__pycache__*" ! -path "*sublime-history*" 2>/dev/null'
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
@@ -24,6 +24,7 @@ setopt hist_save_no_dups      # don't write duplicate entries in the history fil
 setopt hist_verify            # show command with history expansion to user before running it
 setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
+setopt ignore_eof			  # disables closing zsh with ctrl + D
 
 zstyle ':vcs_info:*' enable git cvs svn
 zstyle ':vcs_info:*' formats '%F{white}~ %f%F{red}%b%f%f '
@@ -34,6 +35,10 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 
 vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}"; fi; }
 export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f $(vcs_info_wrapper)> '
+
+# Remove keybinds
+bindkey -r "^[c" 	# fzf-cd-widget
+bindkey -r "^d" 	# delete-char-or-list
 
 # Terminal navigation
 bindkey    	"^[[3~"		delete-char
@@ -47,7 +52,8 @@ bindkey    	";5C"		.vi-forward-blank-word
 # Custom commands
 bindkey  	"^Y"		copy_cmd
 bindkey 	"^T"		template
-bindkey 	"^F"		fzf-cd-widget
+bindkey 	"^D"		fzf-cd-widget
+bindkey 	"^F"		fzf-file-widget
 
 eval "$(ntfy shell-integration)"
 
