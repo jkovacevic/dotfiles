@@ -422,6 +422,7 @@ sub refresh {
 
 sub activate {
 	my ($self, $search) = @_;
+	$self->cmd_parse("\033[1 q");
 
 	$self->{active} = 1;
 
@@ -456,6 +457,7 @@ sub activate {
 
 sub deactivate {
 	my ($self) = @_;
+	$self->cmd_parse("\033[3 q");
 
 	$self->selection_beg(1, 0);
 	$self->selection_end(1, 0);
