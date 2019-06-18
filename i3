@@ -115,6 +115,7 @@ assign [class="Thunderbird"]            	$workspace11
 for_window [workspace=$workspace3] layout stacked
 for_window [workspace=$workspace5] layout stacked
 for_window [workspace=$workspace7] layout stacked
+for_window [class="jetbrains-pycharm-ce"] layout stacked
 
 for_window [class="urxvt_"] focus
 for_window [class="Subl"] focus
