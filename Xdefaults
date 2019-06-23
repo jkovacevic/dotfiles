@@ -21,7 +21,7 @@ URxvt*color15: #ffffff
 URxvt.intensityStyles:	false
 URxvt.background:       #000000
 URxvt.depth:			32
-URxvt.font: 			xft:Liberation Mono:size=10
+URxvt.font: 			xft:Liberation Mono:size=12
 URxvt.scrollBar:		false
 URxvt.cursorColor:		white
 URxvt.cursorUnderline:	1
@@ -32,17 +32,15 @@ URxvt*letterSpace: 		-1
 URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,selection-to-clipboard
 URxvt.colorUL:			#3AD9C5
 
-!! url-select
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.keysym.C-v: eval:paste_clipboard
+URxvt.keysym.Escape: perl:keyboard-select:activate
 URxvt.keysym.M-u:	perl:url-select:select_next
 URxvt.url-select.launcher: xdg-open
 URxvt.url-select.underline: true
 URxvt.url-launcher:	xdg-open
-
-!! keyboard-select:
-URxvt.keysym.Escape: perl:keyboard-select:activate
-
-# Copy paste
-URxvt.keysym.C-v: eval:paste_clipboard
 
 !Xterm escapes, word by word movement
 URxvt.keysym.Control-Left:			\033[1;5D
@@ -52,4 +50,4 @@ URxvt.keysym.Shift-Control-Right:  	\033[1;6C
 URxvt.keysym.Control-Up:		    \033[1;5A
 URxvt.keysym.Shift-Control-Up:  	\033[1;6A
 URxvt.keysym.Control-Down:    		\033[1;5B
-URxvt.keysym.Shift-Control-Down:    \033[1;6B
+URxvt.keysym.Shift-Control-Down:    \033[1;6B	
