@@ -8,7 +8,7 @@ autoload -U select-word-style
 plugins=(zsh-completions)
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --exact --sort'
-export FZF_ALT_C_COMMAND='find / -type d ! -path "*\.git*" ! -path "*__pycache__*" ! -path "*sublime-history*" 2>/dev/null'
+export FZF_ALT_C_COMMAND='find $HOME/ -type d ! -path "*\.git*" ! -path "*__pycache__*" ! -path "*sublime-history*" 2>/dev/null'
 export FZF_CTRL_T_COMMAND='find / -type f ! -path "*\.git*" ! -path "*__pycache__*" ! -path "*sublime-history*" 2>/dev/null'
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
 export HISTFILE="$HOME/.zsh_history"
@@ -29,14 +29,15 @@ setopt share_history          # share command history data
 setopt ignore_eof			  # disables closing zsh with ctrl + D
 
 zstyle ':vcs_info:*' enable git cvs svn
-zstyle ':vcs_info:*' formats '%F{white}~ %f%F{red}%b%f%f '
+zstyle ':vcs_info:*' formats '%F{white}[%f%F{red}%b%f%f] '
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
 
 vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}"; fi; }
-export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f $(vcs_info_wrapper)> '
+export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
+export RPROMPT='$(vcs_info_wrapper)'
 
 # Remove keybinds
 bindkey -r "^[c" 	# fzf-cd-widget
