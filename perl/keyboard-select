@@ -90,9 +90,9 @@ sub key_press {
 	my ($self, $event, $keysym, $char) = @_;
 	my $key = chr($keysym);
 
-
-	my $escapeKey = $keysym == 0xff1b;
-	if ($escapeKey) {
+	log_message($keysym);
+	my $quitKey = $keysym == 0xff1b || $keysym == 0xff08;
+	if ($quitKey) {
 		deactivate($self);
 	} elsif ($key ~~ ['k', 'j', 'h', 'l', 'u', 'd', 'e', 'a']) {
 		turn_off_select($self);
@@ -100,7 +100,7 @@ sub key_press {
 	} elsif ($key ~~ ['b', 'f', 'w']) {
 		turn_off_select($self);
 		move_to($self, $key);
-	} elsif ($key ~~ ['K', 'J', 'H', 'L', 'U', 'D', 'E', 'A']) {
+	} elsif ($key ~~ ['K', 'J', 'H', 'L', 'E', 'A']) {
 		turn_on_select($self, 'b');
 		move_cursor($self, lc $key);
 	} elsif ($key ~~ ['B', 'F', 'W']) {
@@ -139,14 +139,14 @@ sub move_cursor {
 	} elsif ($key eq 'l' && $self->{offset} < $line->l - 1) {
 		++$self->{offset};
 	} elsif ($key eq 'u') {
-		if ($line->beg - 4 > $self->top_row) {
-			$cr = $line->beg - 4;
+		if ($line->beg - 10 > $self->top_row) {
+			$cr = $line->beg - 10;
 		} else {
 			$cr = $self->top_row;
 		}
 	} elsif ($key eq 'd') {
-		 if ($line->end + 4 < $self->nrow - 1) {
-		 	$cr = $line->end + 4;
+		 if ($line->end + 10 < $self->nrow - 10) {
+		 	$cr = $line->end + 10;
 		 } else {
 		 	$cr = $self->nrow - 1;
 		 }
