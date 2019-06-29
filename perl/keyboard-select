@@ -90,15 +90,13 @@ sub key_press {
 	my ($self, $event, $keysym, $char) = @_;
 	my $key = chr($keysym);
 
-	log_message($keysym);
 	my $quitKey = $keysym == 0xff1b || $keysym == 0xff08;
+	my $shiftKey = $keysym == 0xffe1;
 	if ($quitKey) {
 		deactivate($self);
 	} elsif ($key ~~ ['k', 'j', 'h', 'l', 'u', 'd', 'e', 'a']) {
-		turn_off_select($self);
 		move_cursor($self, $key);
 	} elsif ($key ~~ ['b', 'f', 'w']) {
-		turn_off_select($self);
 		move_to($self, $key);
 	} elsif ($key ~~ ['K', 'J', 'H', 'L', 'E', 'A']) {
 		turn_on_select($self, 'b');
@@ -116,7 +114,9 @@ sub key_press {
 		toggle_select($self, 'l');
 	} elsif ($key eq 'v') {
 		toggle_select($self, 'n');
-	} elsif ($key eq 'y' && $self->{select}) {
+	} elsif ($shiftKey) {
+		toggle_select($self, 'b');
+	}elsif ($key eq 'y' && $self->{select}) {
 		yank_selection($self, $event);
 		deactivate($self);
 	}
