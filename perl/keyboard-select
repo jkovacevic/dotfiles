@@ -63,10 +63,11 @@ sub on_user_command {
 sub yank_selection {
 	my ($self, $event) = @_;
 	my ($br, $bc, $er, $ec) = calc_span($self);
-	if($self->{select} eq 'b') {
-		# Find max line lenght in the row interval
+	my $endLineSelected = $ec == $self->line($br)->l;
+	if($self->{select} eq 'b' && $endLineSelected) {
 		my $max = 0;
 		for(my $i=$br; $i <= $er; $i++) {
+			my $l = $self->line($i)->l;
 			if($max < $self->line($i)->l) {
 				$max = $self->line($i)->l;
 			}
