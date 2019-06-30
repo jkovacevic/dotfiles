@@ -51,7 +51,7 @@ aws() {	if [[ "$#" -eq 3 && "$2" == "tree" ]]; then aws_s3_tree $@; else command
 aws_s3_tree() {
 	KEY=$3
 	BUCKET=$(grep -oP "(?<=s3://).*?(?=/)" <<< "$KEY")
-	PREFIX=$(echo $KEY | sed "s/.*$BUCKET\///")
+	PREFIX=$(sed "s/.*$BUCKET\///" <<< "$KEY")
 	aws s3api list-objects --bucket $BUCKET --prefix $PREFIX | jq ".Contents[] .Key" | sed s/\"//g | sed -e s#$PREFIX##
 }
 
