@@ -51,7 +51,6 @@ sub on_action {
 
 sub on_user_command {
 	my ($self, $cmd) = @_;
-
 	if (not $self->{active}) {
 		if ($cmd eq 'keyboard-select:activate') {
 			activate($self);
@@ -60,19 +59,24 @@ sub on_user_command {
 	()
 }
 
+sub find_max_line_column {
+	my ($self, $br, $er) = @_;
+	my $max = 0;
+	for(my $i=$br; $i <= $er; $i++) {
+		my $l = $self->line($i)->l;
+		if($max < $self->line($i)->l) {
+			$max = $self->line($i)->l;
+		}
+	}
+	$max
+}
+
 sub yank_selection {
 	my ($self, $event) = @_;
 	my ($br, $bc, $er, $ec) = calc_span($self);
 	my $endLineSelected = $ec == $self->line($br)->l;
 	if($self->{select} eq 'b' && $endLineSelected) {
-		my $max = 0;
-		for(my $i=$br; $i <= $er; $i++) {
-			my $l = $self->line($i)->l;
-			if($max < $self->line($i)->l) {
-				$max = $self->line($i)->l;
-			}
-		}
-		$ec = $max;
+		$ec = find_max_line_column($self, $br, $er);
 	}
 
 	$ec = $self->line($er)->l if $self->{select} eq 'l';
