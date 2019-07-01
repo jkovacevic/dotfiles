@@ -15,7 +15,7 @@ vlc() { bg vlc "$@" }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
 
-aenv() { source venv/bin/activate }
+avenv() { source venv/bin/activate }
 
 # Git shortcuts
 gg () {git add .; git commit -m "automated commit message"; git push;}
