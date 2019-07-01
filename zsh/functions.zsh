@@ -47,9 +47,9 @@ push_to_branch() {
 	git checkout $local_branch;
 }
 
-aws() {	if [[ "$#" -eq 3 && "$2" == "tree" ]]; then aws_s3_tree $@; else command aws $@; fi; }
+aws() {	if [[ "$*" == *tree* ]]; then aws_s3_tree $@; else command aws $@; fi; }
 aws_s3_tree() {
-	KEY=$3
+	KEY=$_
 	BUCKET=$(grep -oP "(?<=s3://).*?(?=/)" <<< "$KEY")
 	PREFIX=$(sed "s/.*$BUCKET\///" <<< "$KEY")
 	aws s3api list-objects --bucket $BUCKET --prefix $PREFIX | jq ".Contents[] .Key" | sed s/\"//g | sed -e s#$PREFIX##
