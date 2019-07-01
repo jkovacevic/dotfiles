@@ -36,8 +36,8 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 URxvt.keysym.C-v: eval:paste_clipboard
-URxvt.keysym.Escape: perl:keyboard-select:activate
-URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.F13: perl:keyboard-select:activate
 URxvt.url-select.launcher: xdg-open
 URxvt.url-select.underline: true
 URxvt.url-launcher:	xdg-open

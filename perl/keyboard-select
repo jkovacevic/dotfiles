@@ -95,7 +95,8 @@ sub key_press {
 	my ($self, $event, $keysym, $char) = @_;
 	my $key = chr($keysym);
 
-	my $quitKey = $keysym == 0xff1b || $keysym == 0xff08;
+	log_message($keysym);
+	my $quitKey = $keysym == 0xffca;
 	my $shiftKey = $keysym == 0xffe1;
 	if ($quitKey) {
 		deactivate($self);
