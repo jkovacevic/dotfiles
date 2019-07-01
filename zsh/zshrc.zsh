@@ -1,5 +1,4 @@
 source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
 source $HOME/dotfiles/zsh/functions.zsh
 source $HOME/dotfiles/zsh/alias.zsh
 
@@ -8,7 +7,7 @@ autoload -U select-word-style
 plugins=(zsh-completions)
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --exact --sort'
-export FZF_ALT_C_COMMAND='find $HOME/ -type d ! -path "*\.git*" ! -path "*__pycache__*" ! -path "*sublime-history*" 2>/dev/null'
+export FZF_ALT_C_COMMAND='find / -type d ! -path "*\.git*" ! -path "*__pycache__*" ! -path "*sublime-history*" 2>/dev/null'
 export FZF_CTRL_T_COMMAND='find / -type f ! -path "*\.git*" ! -path "*__pycache__*" ! -path "*sublime-history*" 2>/dev/null'
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
 export HISTFILE="$HOME/.zsh_history"
