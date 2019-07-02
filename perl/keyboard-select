@@ -24,6 +24,10 @@
 #   q/Escape:   Deactivate keyboard selection mode
 
 sub log_message {
+	# log_message("br: " . $br . ", er: " .  $er);
+	# log_message("l: " . $l . ", i: " . $i);	
+	# log_message("br: " . $br . ", bc: " . $bc . ", er: " . $er . ", ec: " . $ec);
+	# log_message("l(br): " . $self->line($br)->l . ", l(er): " . $self->line($er)->l);
 	my ($message) = @_;
 	my $filename = '/tmp/_.log';
 	open($fh, '>>', $filename);
@@ -74,7 +78,7 @@ sub find_max_line_column {
 sub yank_selection {
 	my ($self, $event) = @_;
 	my ($br, $bc, $er, $ec) = calc_span($self);
-	my $endLineSelected = $ec == $self->line($br)->l;
+	my $endLineSelected = $ec == $self->line($br)->l || $ec == $self->line($er)->l;
 	if($self->{select} eq 'b' && $endLineSelected) {
 		$ec = find_max_line_column($self, $br, $er);
 	}
@@ -95,8 +99,7 @@ sub key_press {
 	my ($self, $event, $keysym, $char) = @_;
 	my $key = chr($keysym);
 
-	log_message($keysym);
-	my $quitKey = $keysym == 0xffca;
+	my $quitKey = $keysym == 0xff1b || $keysym == 0xff08;
 	my $shiftKey = $keysym == 0xffe1;
 	if ($quitKey) {
 		deactivate($self);
