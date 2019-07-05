@@ -17,15 +17,17 @@ ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
 
 # Git shortcuts
-gg () {git add .; git commit -m "automated commit message"; git push;}
+gg () { git add .; git commit -m "automated commit message"; git push; }
 ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
-gp () {git push}
-gf () {git pull}
-gs () {git status}
-gc () {git commit -m "$1"}
-gcl () {git checkout $@}
-gcr () {git checkout $@}
-gh () {smerge log $1}
+gp () { git push }
+gf () { git pull }
+gs () { git status }
+gc () { git commit -m "$1" }
+gcl () { git branch | fzf | xargs git checkout }
+gcr () { git branch -r | grep -v HEAD | fzf | xargs git checkout -t }
+gb () { git branch -a }
+gr () { git checkout $1 }
+gh () { smerge log $1 }
 gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1; 
 		elif [ "$#" -eq 2 ]; then f=$(cut -d "/" -f 2 <<< "$1"); b=$2;
 		else echo "Expected arguments: file name, branch name"; return 1; fi;
