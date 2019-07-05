@@ -35,15 +35,15 @@ gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1;
 		fd $1 /tmp/$b-$f;
 }
 
-push_to_branch() {
-	if [ "$#" -ne 2 ]; then echo "Expected arguments: file_name, branch name"; return 1; fi;
-	fname=$1;
-	remote_branch=$2;
+gptb() {
+	if [ "$#" -ne 1 ]; then echo "Expected arguments: file_name"; return 1; fi;
+	file_name=$1;
+	remote_branch=$(git branch | awk '{print $NF}' | fzf);
 	local_branch=$(git status | head -1 | awk '{ print $NF }')
-	cpcat $fname;
+	cpcat $file_name;
 	git checkout $remote_branch;
-	cppsh $fname;
-	git add $fname;
+	cppsh $file_name;
+	git add $file_name;
 	git commit -m "automated commit message";
 	git push;
 	git checkout $local_branch;
