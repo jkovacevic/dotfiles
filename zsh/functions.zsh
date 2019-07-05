@@ -40,15 +40,15 @@ gdb() {
 gptb() {
 	if [ "$#" -ne 1 ]; then echo "Expected arguments: file_name"; return 1; fi;
 	file_name=$1;
-	remote_branch=$(git branch | awk '{print $NF}' | fzf --prompt='origin-branch > ');
-	local_branch=$(git symbolic-ref --short HEAD)
+	local_branch=$(git branch | awk '{print $NF}' | fzf --prompt='local-branch > ');
+	current_branch=$(git symbolic-ref --short HEAD)
 	cpcat $file_name;
-	git checkout $remote_branch;
+	git checkout $local_branch;
 	cppsh $file_name;
 	git add $file_name;
 	git commit -m "automated commit message";
 	git push;
-	git checkout $local_branch;
+	git checkout $current_branch;
 }
 
 aws() {	if [[ "$*" == *tree* ]]; then aws_s3_tree $@; else command aws $@; fi; }
