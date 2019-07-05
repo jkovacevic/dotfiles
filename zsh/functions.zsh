@@ -1,16 +1,15 @@
 # Functions used as commands
 bg() { nohup $@ > /dev/null 2>&1 & disown }
+evince () { bg evince "$@" }
+libreoffice () { bg libreoffice "$@" }
+pinta () { bg pinta "$@" }
+vlc() { bg vlc "$@" }
+thunar() { bg thunar "$@" }
+sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
+fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":\"$(realpath $2)\"}\'; }
 cpcat() { cat $1 | xclip -selection clipboard; }
 cppsh() { xclip -selection clipboard -o > $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
-evince () { bg evince "$@" }
-fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":\"$(realpath $2)\"}\'; }
-fs() {find -iname \*$1\*; }
-fss() {sudo find -iname \*$1\*; }
-libreoffice () { bg libreoffice "$@" }
-pinta () { bg pinta "$@" }
-sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
-vlc() { bg vlc "$@" }
 ws() { rgrep -rn $1 --color=auto; }
 wss() { sudo rgrep -rn $1 --color=auto; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
@@ -21,7 +20,7 @@ gg () { git add .; git commit -m "automated commit message"; git push; }
 ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
 gp () { git push }
 gf () { git pull }
-gs () { git status }
+gs () { git status --short }
 gd () { git diff $1; }
 gr () { git checkout $1 }
 gh () { smerge log $1 }
