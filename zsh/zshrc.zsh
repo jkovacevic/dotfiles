@@ -59,5 +59,6 @@ bindkey 	"^F"		fzf-file-widget
 
 eval "$(ntfy shell-integration)"
 
-aws-prod () { alias aws='aws --profile=smaato-prod-admin' }
-aws-test () { alias aws='aws --profile=smaato-test-admin' }
+aws-prod() { alias aws='aws --profile=smaato-prod-admin' }
+aws-test() { alias aws='aws --profile=smaato-test-admin' }
+foxy-proxy() { ssh -i ~/.ssh/smart-platform-test.pem -N -D 8157  hadoop@$1 }
