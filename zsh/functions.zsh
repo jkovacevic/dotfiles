@@ -15,7 +15,7 @@ wss() { sudo rgrep -rn $1 --color=auto; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
 
-# Git shortcuts
+# Git functions
 gg () { git add .; git commit -m "automated commit message"; git push; }
 ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
 gp () { git push }
@@ -49,6 +49,12 @@ gptb() {
 	git commit -m "automated commit message";
 	git push;
 	git checkout $current_branch;
+}
+
+# Python 
+pipi() {
+	echo "Using $(pip --version)"
+	pip install $(python $HOME/dotfiles/python/pypi_package_list.py | fzf)
 }
 
 aws() {	if [[ "$*" == *tree* ]]; then aws_s3_tree $@; else command aws $@; fi; }
