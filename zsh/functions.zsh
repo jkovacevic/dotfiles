@@ -23,9 +23,9 @@ gp () { git push }
 gf () { git pull }
 gs () { git status }
 gc () { git commit -m "$1" }
-gcl () { git branch | fzf | xargs git checkout }
-gcr () { git branch -r | grep -v HEAD | fzf | xargs git checkout -t }
-gb () { git branch -a }
+gb () { git pull; git branch -a }
+gbl () { git branch | fzf | xargs git checkout }
+gbr () { git branch -r | grep -v HEAD | fzf | xargs git checkout -t }
 gr () { git checkout $1 }
 gh () { smerge log $1 }
 gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1; 
