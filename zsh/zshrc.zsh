@@ -41,6 +41,7 @@ export RPROMPT='$(vcs_info_wrapper)'
 # Remove keybinds
 bindkey -r "^[c" 	# fzf-cd-widget
 bindkey -r "^d" 	# delete-char-or-list
+bindkey -r "^T"		# fzf-file-widget
 
 # Terminal navigation
 bindkey    	"^[[3~"		delete-char
