@@ -53,7 +53,6 @@ bindkey    	";5C"		.vi-forward-blank-word
 
 # Custom commands
 bindkey  	"^Y"		copy_cmd
-bindkey 	"^T"		template
 bindkey 	"^D"		fzf-cd-widget
 bindkey 	"^F"		fzf-file-widget
 
