@@ -22,24 +22,27 @@ ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
 gp () { git push }
 gf () { git pull }
 gs () { git status }
+gd () { git diff $1; }
+gr () { git checkout $1 }
+gh () { smerge log $1 }
 gc () { git commit -m "$1" }
 gb () { git pull; git branch -a }
 gbl () { git branch | fzf | xargs git checkout }
 gbr () { git branch -r | grep -v HEAD | fzf | xargs git checkout -t }
-gr () { git checkout $1 }
-gh () { smerge log $1 }
-gd () { if [ "$#" -eq 1 ]; then git diff $1; return 1; 
-		elif [ "$#" -eq 2 ]; then f=$(cut -d "/" -f 2 <<< "$1"); b=$2;
-		else echo "Expected arguments: file name, branch name"; return 1; fi;
-		git cat-file blob origin/$b:$1 > /tmp/$b-$f; 
-		fd $1 /tmp/$b-$f;
+
+gdb() {
+	if [ "$#" -ne 1 ]; then echo "Expected arguments: file_name"; return 1; fi;
+	remote_branch=$(git branch -r | grep -v HEAD | fzf | xargs)
+	local_path=/tmp/$(basename $remote_branch)-$(basename $1)
+	git cat-file blob $remote_branch:$1 > $local_path;
+	fd $1 $local_path;
 }
 
 gptb() {
 	if [ "$#" -ne 1 ]; then echo "Expected arguments: file_name"; return 1; fi;
 	file_name=$1;
 	remote_branch=$(git branch | awk '{print $NF}' | fzf);
-	local_branch=$(git status | head -1 | awk '{ print $NF }')
+	local_branch=$(git status | head -1 | xargs)
 	cpcat $file_name;
 	git checkout $remote_branch;
 	cppsh $file_name;
