@@ -59,18 +59,6 @@ aws_s3_tree() {
 	aws s3api list-objects --bucket $BUCKET --prefix $PREFIX | jq ".Contents[] .Key" | sed s/\"//g | sed -e s#$PREFIX##
 }
 
-template() {
-	choices=("awk\nsed\ncut")
-	selected=$(echo -e "$choices" | rofi -dmenu)
-	if [[ "$selected" == "awk" ]]; then
-		zle -U "awk '{ print }'";
-	elif [[ "$selected" == "sed" ]]; then
-		zle -U "sed 's/word/replacement/g'";
-	elif [[ "$selected" == "cut" ]]; then
-		zle -U "cut -d / -f 1";
-	fi;
-}; zle -N template
-
 copy_cmd() { 
 	zle kill-buffer; 
 	print -rn -- $CUTBUFFER | xclip -selection clipboard; 
