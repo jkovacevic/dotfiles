@@ -42,7 +42,7 @@ gptb() {
 	if [ "$#" -ne 1 ]; then echo "Expected arguments: file_name"; return 1; fi;
 	file_name=$1;
 	remote_branch=$(git branch | awk '{print $NF}' | fzf);
-	local_branch=$(git status | head -1 | xargs)
+	local_branch=$(git symbolic-ref --short HEAD)
 	cpcat $file_name;
 	git checkout $remote_branch;
 	cppsh $file_name;
