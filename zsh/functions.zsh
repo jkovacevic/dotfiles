@@ -64,7 +64,7 @@ copy_cmd() {
 	print -rn -- $CUTBUFFER | xclip -selection clipboard; 
 }; zle -N copy_cmd
 
-man-find() {
+manfind() {
 	man -k . | fzf --prompt='man-pages > ' | awk '{print $1}' | xargs -r man
 }
 
