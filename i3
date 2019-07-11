@@ -1,6 +1,6 @@
 # i3 configuration file
 set $mod Mod4
-font pango:DejaVu Sans Bold 10
+font pango:DejaVu Sans Bold 9
 floating_modifier $mod
 focus_follows_mouse no
 
