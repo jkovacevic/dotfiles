@@ -55,7 +55,7 @@ gptb() {
 # Python 
 pipi() {
 	echo "Using $(pip --version)"
-	pip install --user $(python $HOME/dotfiles/python/list_pypi.py | fzf --prompt 'install-package > ')
+	pip install --user $(./dotfiles/python/list_pypi.py | fzf --prompt 'install-package > ')
 }
 
 aws() {	if [[ "$*" == *tree* ]]; then aws_s3_tree $@; else command aws $@; fi; }
