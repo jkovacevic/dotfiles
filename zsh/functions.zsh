@@ -20,7 +20,7 @@ gg () { git add .; git commit -m "automated commit message"; git push; }
 ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
 gp () { git push }
 gf () { git pull }
-gs () { git status --short }
+gs () { git status }
 gd () { git diff $1; }
 gr () { git checkout $1 }
 gh () { smerge log $1 }
