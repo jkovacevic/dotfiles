@@ -27,8 +27,8 @@ gr () { git checkout $1 }
 gh () { smerge log $1 }
 gc () { git commit -m "$1" }
 gb () { git pull; git branch -a }
-gbl () { git branch | fzf --prompt='local-branch > ' | xargs git checkout }
-gbr () { git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs git checkout -t }
+glb () { git branch | fzf --prompt='local-branch > ' | xargs git checkout }
+grb () { git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs git checkout -t }
 
 gdb() {
 	if [ "$#" -ne 1 ]; then echo "Expected arguments: file_name"; return 1; fi;
