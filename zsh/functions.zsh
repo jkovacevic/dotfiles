@@ -14,6 +14,7 @@ ws() { rgrep -rn $1 --color=auto; }
 wss() { sudo rgrep -rn $1 --color=auto; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
+avenv() { source venv/bin/activate; }
 
 # Git functions
 gg () { git add .; git commit -m "automated commit message"; git push; }
