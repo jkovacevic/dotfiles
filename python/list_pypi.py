@@ -1,3 +1,4 @@
+#!/usr/bin/python3.7
 from lxml import html
 import requests
 response = requests.get("https://pypi.org/simple/")

@@ -10,8 +10,8 @@ fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":
 cpcat() { cat $1 | xclip -selection clipboard; }
 cppsh() { xclip -selection clipboard -o > $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
-ws() { rgrep -rn $1 --color=auto; }
-wss() { sudo rgrep -rn $1 --color=auto; }
+ws() { rg -n $@ --color=auto; }
+wss() { sudo rg -n $@ --color=auto; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
 venv() { if [[ "$VIRTUAL_ENV" == "" ]] then; source venv/bin/activate; else deactivate; fi; }
@@ -57,7 +57,7 @@ gptb() {
 # Python 
 pipi() {
 	echo "Using $(pip --version)"
-	pip install --user $(./dotfiles/python/list_pypi.py | fzf --prompt 'install-package > ')
+	pip install $($HOME/dotfiles/python/list_pypi.py | fzf --prompt 'install-package > ')
 }
 
 aws() {	if [[ "$*" == *tree* ]]; then aws_s3_tree $@; else command aws $@; fi; }
