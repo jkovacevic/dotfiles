@@ -28,6 +28,7 @@ gh () { smerge log $1 }
 gc () { git commit -m "$1" }
 gb () { git pull; git branch -a }
 gbc () { 
+	gb;
 	local branch=$(git branch -a | grep -v HEAD | fzf --prompt='checkout-branch > ' | awk '{print $NF}';)
 	if [[ $branch == *"origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
 }
