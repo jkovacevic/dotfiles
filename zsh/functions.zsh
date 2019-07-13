@@ -31,10 +31,8 @@ gbc () {
 	local branch=$(git branch -a | grep -v HEAD | fzf --prompt='checkout-branch > ' | awk '{print $NF}';)
 	if [[ $branch == *"origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
 }
-glb () { git branch | fzf --prompt='local-branch > ' | xargs git checkout }
-grb () { git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs git checkout -t }
 
-gdb() {
+gbd() {
 	if [ "$#" -ne 1 ]; then echo "Expected arguments: file_name"; return 1; fi;
 	remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
 	local_path=/tmp/$(basename $remote_branch)-$(basename $1)
