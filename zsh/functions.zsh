@@ -28,13 +28,12 @@ gh () { smerge log $1 }
 gc () { git commit -m "$1" }
 gb () { git pull; git branch -a }
 gbc () { 
-	gb;
 	local branch=$(git branch -a | grep -v HEAD | fzf --prompt='checkout-branch > ' | awk '{print $NF}';)
-	if [[ $branch == *"origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
+	if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
 }
 
 gbd() {
-	if [ "$#" -ne 1 ]; then echo "Expected arguments: file_name"; return 1; fi;
+	if [ "$#" -ne 1 ]; then echo "Usage: gbd file.txt"; return 1; fi;
 	remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
 	local_path=/tmp/$(basename $remote_branch)-$(basename $1)
 	git cat-file blob $remote_branch:$1 > $local_path;
@@ -42,7 +41,7 @@ gbd() {
 }
 
 gptb() {
-	if [ "$#" -ne 1 ]; then echo "Expected arguments: file_name"; return 1; fi;
+	if [ "$#" -ne 1 ]; then echo "Usage: gptb file.txt"; return 1; fi;
 	file_name=$1;
 	local_branch=$(git branch | awk '{print $NF}' | fzf --prompt='local-branch > ');
 	current_branch=$(git symbolic-ref --short HEAD)
