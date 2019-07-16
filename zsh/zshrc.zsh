@@ -58,3 +58,8 @@ bindkey 	"^D"		fzf-cd-widget
 bindkey 	"^F"		fzf-file-widget
 
 eval "$(ntfy shell-integration)"
+
+aws-prod() { alias aws='aws --profile=smaato-prod-admin' }
+aws-test() { alias aws='aws --profile=smaato-test-admin' }
+aws-ssh() {ssh -i ~/.ssh/smart-platform-test.pem ec2-user@$1}
+foxy-proxy() { ssh -i ~/.ssh/smart-platform-test.pem -N -D 8157  hadoop@$1 }
