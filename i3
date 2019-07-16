@@ -8,7 +8,6 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Escape kill
 bindsym $mod+space exec rofi -show drun -padding 16
 bindsym $mod+ctrl+space exec rofi -show run -padding 16
-bindsym $mod+d exec --no-startup-id "rofi -show run -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
