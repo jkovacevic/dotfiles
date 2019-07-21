@@ -16,3 +16,5 @@ cp $tmp_file $scrap_file_path
 log "Moved $tmp_file to $scrap_file_path"
 rm $tmp_file; touch $tmp_file
 log "File $tmp_file had been cleaned"
+
+subl $scrap_file_path
