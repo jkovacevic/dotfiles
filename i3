@@ -4,10 +4,26 @@ font pango:DejaVu Sans Bold 10
 floating_modifier $mod
 focus_follows_mouse no
 
+# Shortcuts and scripts
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Escape kill
 bindsym $mod+space exec rofi -show drun -padding 16
 bindsym $mod+ctrl+space exec rofi -show run -padding 16
+bindsym $mod+Tab move workspace to output left
+
+bindsym $mod+l exec betterlockscreen -l
+bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
+bindsym $mod+x exec $HOME/dotfiles/bash/kill-proc.sh
+bindsym $mod+g exec $HOME/script/vimium_deselect_all.py
+bindsym $mod+Control+p exec pavucontrol
+bindsym $mod+Control+a exec arandr
+
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -39,20 +55,6 @@ exec /usr/bin/startup
 exec /usr/bin/dunst
 exec /usr/bin/nm-applet
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
-# Shortcuts
-bindsym $mod+Tab move workspace to output left
-bindsym $mod+l exec betterlockscreen -l
-bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
-bindsym $mod+x exec $HOME/dotfiles/bash/kill-proc.sh
-bindsym $mod+Control+p exec pavucontrol
-bindsym $mod+Control+a exec arandr
-
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 
 # Workspaces
 set $workspace0 "0:"
