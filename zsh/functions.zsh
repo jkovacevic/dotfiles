@@ -41,7 +41,6 @@ gbd() {
 }
 
 gptb() {
-
     if [ "$#" -ne 1 ]; then echo "Usage: gptb file.txt"; return 1; fi;
     file_name=$1;
     local_branch=$(git branch | awk '{print $NF}' | fzf --prompt='local-branch > ');
