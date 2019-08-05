@@ -22,17 +22,16 @@ ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
 gp () { git push }
 gf () { git pull }
 gs () { git status }
-gd () { git diff $1; }
 gr () { git checkout $1 }
 gh () { smerge log $1 }
 gc () { git commit -m "$1" }
-gba () { git pull; git branch -a }
 gb () { 
     local branch=$(git branch -a | grep -v HEAD | fzf --prompt='checkout-branch > ' | awk '{print $NF}';)
     if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
 }
 
-gbd() {
+gd () { git diff $1; }
+gdb() {
     if [ "$#" -ne 1 ]; then echo "Usage: gbd file.txt"; return 1; fi;
     remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
     local_path=/tmp/$(basename $remote_branch)-$(basename $1)
