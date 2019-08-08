@@ -85,3 +85,9 @@ pkill() {
 	fi;
 	if [ "x$pid" != "x" ]; then echo $pid | xargs kill -${1:-9}; fi
 }
+
+short-url() {
+    local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$1")
+    echo $url
+    xclip -selection clipboard <<< $url
+}
