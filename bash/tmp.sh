@@ -13,8 +13,6 @@ if [ -f $tmp_file_path ]; then
 fi;
 
 cp $tmp_file $tmp_file_path
-log "Moved $tmp_file to $tmp_file_path"
 rm $tmp_file; touch $tmp_file
-log "File $tmp_file had been cleaned"
 
 subl $tmp_file_path
