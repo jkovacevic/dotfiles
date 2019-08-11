@@ -22,42 +22,43 @@ ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
 gp () { git push }
 gf () { git pull }
 gs () { git status }
-gd () { git diff $1; }
+
 gr () { git checkout $1 }
 gh () { smerge log $1 }
 gc () { git commit -m "$1" }
-gb () { git pull; git branch -a }
-gbc () { 
-	local branch=$(git branch -a | grep -v HEAD | fzf --prompt='checkout-branch > ' | awk '{print $NF}';)
-	if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
+
+gb () { 
+    local branch=$(git branch -a | grep -v HEAD | fzf --prompt='checkout-branch > ' | awk '{print $NF}';)
+    if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
 }
 
-gbd() {
-	if [ "$#" -ne 1 ]; then echo "Usage: gbd file.txt"; return 1; fi;
-	remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
-	local_path=/tmp/$(basename $remote_branch)-$(basename $1)
-	git cat-file blob $remote_branch:$1 > $local_path;
-	fd $1 $local_path;
+gd () { git diff $1; }
+gdb() {
+    if [ "$#" -ne 1 ]; then echo "Usage: gbd file.txt"; return 1; fi;
+    remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
+    local_path=/tmp/$(basename $remote_branch)-$(basename $1)
+    git cat-file blob $remote_branch:$1 > $local_path;
+    fd $1 $local_path;
 }
 
 gptb() {
-	if [ "$#" -ne 1 ]; then echo "Usage: gptb file.txt"; return 1; fi;
-	file_name=$1;
-	local_branch=$(git branch | awk '{print $NF}' | fzf --prompt='local-branch > ');
-	current_branch=$(git symbolic-ref --short HEAD)
-	cpcat $file_name;
-	git checkout $local_branch;
-	cppsh $file_name;
-	git add $file_name;
-	git commit -m "automated commit message";
-	git push;
-	git checkout $current_branch;
+    if [ "$#" -ne 1 ]; then echo "Usage: gptb file.txt"; return 1; fi;
+    file_name=$1;
+    local_branch=$(git branch | awk '{print $NF}' | fzf --prompt='local-branch > ');
+    current_branch=$(git symbolic-ref --short HEAD)
+    cpcat $file_name;
+    git checkout $local_branch;
+    cppsh $file_name;
+    git add $file_name;
+    git commit -m "automated commit message";
+    git push;
+    git checkout $current_branch;
 }
 
 # Python 
 pipi() {
-	echo "Using $(pip --version)"
-	pip install $($HOME/dotfiles/python/list_pypi.py | fzf --prompt 'install-package > ')
+    echo "Using $(pip --version)"
+    pip install $($HOME/dotfiles/python/list_pypi.py | fzf --prompt 'install-package > ')
 }
 
 aws() {	if [[ "$*" == *tree* ]]; then aws_s3_tree $@; else command aws $@; fi; }
@@ -85,4 +86,10 @@ pkill() {
 	    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
 	fi;
 	if [ "x$pid" != "x" ]; then echo $pid | xargs kill -${1:-9}; fi
+}
+
+short-url() {
+    local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$1")
+    xclip -selection clipboard <<< $url
+    echo $url
 }
