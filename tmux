@@ -1,13 +1,20 @@
+set -g default-terminal "screen-256color"
+
 unbind C-b
 set -g prefix F12
 bind F12 send-prefix
 
-# set inactive/active window styles
-set -g window-style 'fg=colour247,bg=colour236'
-set -g window-active-style 'fg=colour250,bg=black'
+set -g base-index 1
+setw -g pane-base-index 1
 
-# set the pane border colors 
-set -g pane-border-fg colour235
-set -g pane-border-bg colour238
-set -g pane-active-border-fg colour236 
-set -g pane-active-border-bg colour250 s
+setw -g window-status-current-format ' #I.#W '
+setw -g window-status-format ' #I.#W '
+
+# default statusbar colors
+set -g status-fg white
+set -g status-bg black
+set-window-option -g window-status-style fg=default,bg=default,dim
+set-window-option -g window-status-current-style fg=cyan,bg=default,bright
+
+bind k confirm kill-window
+bind K confirm kill-server
