@@ -42,6 +42,7 @@ export RPROMPT='$(vcs_info_wrapper)'
 bindkey -r "^[c" 	# fzf-cd-widget
 bindkey -r "^d" 	# delete-char-or-list
 bindkey -r "^T"		# fzf-file-widget
+bindkey -r "^[[24"
 
 # Terminal navigation
 bindkey    	"^[[3~"		delete-char

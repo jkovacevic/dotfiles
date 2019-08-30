@@ -2,7 +2,6 @@ set -g default-terminal "screen-256color"
 
 unbind C-b
 set -g prefix F12
-bind F12 send-prefix
 
 set -g base-index 1
 setw -g pane-base-index 1
