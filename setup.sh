@@ -12,6 +12,7 @@ function create_symlink {
 }
 
 echo "## Setup dotfiles ##"
+create_symlink "$HOME/dotfiles/startup" "/usr/bin/startup"
 create_symlink "$HOME/dotfiles/zsh/zshrc.zsh" "$HOME/.zshrc"
 create_symlink "$HOME/dotfiles/i3" "$HOME/.config/i3/config"
 create_symlink "$HOME/dotfiles/i3status" "$HOME/.config/i3status/config"
