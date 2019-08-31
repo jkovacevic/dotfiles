@@ -4,9 +4,9 @@ unbind C-b
 set -g prefix F12
 
 set -g base-index 1
-setw -g pane-base-index 1
-setw -g window-status-current-format ' #I.#W '
-setw -g window-status-format ' #I.#W '
+set -g pane-base-index 1
+set -g window-status-current-format ' #I.#W '
+set -g window-status-format ' #I.#W '
 set -g status-right ''
 
 set -g status-style fg=white,bg=black
