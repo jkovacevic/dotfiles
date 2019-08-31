@@ -17,5 +17,7 @@ bind -n C-PageDown next-window
 bind -n C-PageUp previous-window
 bind -n C-S-PageDown swap-window -t +1
 bind -n C-S-PageUp swap-window -t -1
-bind k confirm kill-window
-bind K confirm kill-server
+
+bind n new-window
+bind r kill-window
+bind k confirm kill-server
