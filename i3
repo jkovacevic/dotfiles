@@ -40,7 +40,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-bindsym $mod+a floating toggle
+bindsym $mod+d floating toggle
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
