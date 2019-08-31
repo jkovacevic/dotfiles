@@ -9,11 +9,13 @@ setw -g pane-base-index 1
 setw -g window-status-current-format ' #I.#W '
 setw -g window-status-format ' #I.#W '
 
-# default statusbar colors
-set -g status-fg white
-set -g status-bg black
+set -g status-style fg=white,bg=black
 set-window-option -g window-status-style fg=default,bg=default,dim
 set-window-option -g window-status-current-style fg=cyan,bg=default,bright
 
+bind -n C-PageDown next-window
+bind -n C-PageUp previous-window
+bind -n C-S-PageDown swap-window -t +1
+bind -n C-S-PageUp swap-window -t -1
 bind k confirm kill-window
 bind K confirm kill-server
