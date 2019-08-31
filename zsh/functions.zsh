@@ -55,6 +55,10 @@ gptb() {
     git checkout $current_branch;
 }
 
+log() {
+    echo "$1" && notify-send "$1"
+}
+
 # Python 
 pipi() {
     echo "Using $(pip --version)"
@@ -92,4 +96,15 @@ short-url() {
     local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$1")
     xclip -selection clipboard <<< $url
     echo $url
+}
+
+tmp() {
+    tmp_folder=$HOME/notes/tmp
+    if [ "$#" -ne 1 ]; then 
+        tmp_file=$tmp_folder/$(head /dev/urandom | tr -dc a-z0-9 | head -c 13)
+    else
+        tmp_file=$tmp_folder/$1
+    fi;
+    touch $tmp_file
+    subl $tmp_file
 }
