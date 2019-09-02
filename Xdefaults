@@ -26,6 +26,7 @@ URxvt.scrollBar:		false
 URxvt.cursorColor:		white
 URxvt.cursorUnderline:	1
 URxvt.cursorBlink:		1
+URxvt.internalBorder:   4
 URxvt*letterSpace: 		-1
 
 !! Extensions
