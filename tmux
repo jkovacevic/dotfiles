@@ -20,4 +20,5 @@ bind -n C-S-PageUp swap-window -t -1
 
 bind n new-window
 bind r kill-window
+bind d confirm detach-client
 bind k confirm kill-server
