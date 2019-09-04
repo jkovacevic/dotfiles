@@ -63,14 +63,6 @@ pipi() {
     pip install $($HOME/dotfiles/python/list_pypi.py | fzf --prompt 'install-package > ')
 }
 
-aws() {	if [[ "$*" == *tree* ]]; then aws_s3_tree $@; else command aws $@; fi; }
-aws_s3_tree() {
-	KEY=$_
-    BUCKET=$(grep -oP "(?<=s3://).*?(?=/)" <<< "$KEY")
-    PREFIX=$(sed "s/.*$BUCKET\///" <<< "$KEY")
-    aws s3api list-objects --bucket $BUCKET $(if [[ ! -z "$PREFIX" ]]; then echo "--prefix $PREFIX"; fi) | jq ".Contents[] .Key" | sed s/\"//g | sed -e s#$PREFIX##
-}
-
 copy_cmd() { 
 	zle kill-buffer; 
 	print -rn -- $CUTBUFFER | xclip -selection clipboard; 
