@@ -80,16 +80,6 @@ manfind() {
 	man -k . | fzf --prompt='man-pages > ' | awk '{print $1}' | xargs -r man
 }
 
-pkill() {
-  	local pid 
-	if [ "$UID" != "0" ]; then
-	    pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
-	else
-	    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-	fi;
-	if [ "x$pid" != "x" ]; then echo $pid | xargs kill -${1:-9}; fi
-}
-
 short-url() {
     local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$1")
     xclip -selection clipboard <<< $url
