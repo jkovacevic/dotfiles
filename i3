@@ -97,9 +97,10 @@ bindsym $mod+Shift+equal        move container to workspace $workspace13
 
 # Xprop assignation
 assign [title="urxvt_"]						$workspace0
+assign [title="win0"]                       $workspace2
 assign [class="Google-chrome"]   			$workspace1
-assign [class="jetbrains-pycharm-ce"]   	$workspace2
 assign [class="jetbrains-idea-ce"]      	$workspace2
+assign [class="jetbrains-pycharm-ce"]       $workspace2
 assign [class="Subl"]                   	$workspace3
 assign [class="Sublime_merge"]          	$workspace3
 assign [class="Evince"]                 	$workspace4
@@ -125,10 +126,6 @@ for_window [class="Sxiv"] focus
 for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
-for_window [class="Dragondisk"] focus
-for_window [class="jetbrains-idea-ce"] focus
-for_window [class="jetbrains-pycharm-ce"] focus
-for_window [class="jetbrains-datagrip"] focus
 
 bindsym $mod+Control+Right resize shrink width 5 px
 bindsym $mod+Control+Left resize grow width 5 px
