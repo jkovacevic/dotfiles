@@ -1,8 +1,8 @@
 [
-	{ "keys": ["f12", "s"], "command": "save" },
-	{ "keys": ["f12", "p"], "command": "copy_path" },
-	{ "keys": ["f12", "n"], "command": "side_bar_new_file"},
-	{ "keys": ["f12", "r"], "command": "side_bar_delete"},
+	{ "keys": ["f13", "s"], "command": "save" },
+	{ "keys": ["f13", "p"], "command": "copy_path" },
+	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
+	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
 	{ "keys": ["ctrl+n"], "command": "new_file" },
 	{ "keys": ["ctrl+w"], "command": "close" },
 	{ "keys": ["ctrl+shift+n"], "command": "new_window" },
