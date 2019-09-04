@@ -22,7 +22,6 @@ ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
 gp () { git push }
 gf () { git pull }
 gs () { git status }
-
 gr () { git checkout $1 }
 gh () { smerge log $1 }
 gc () { git commit -m "$1" }
@@ -65,14 +64,6 @@ pipi() {
     pip install $($HOME/dotfiles/python/list_pypi.py | fzf --prompt 'install-package > ')
 }
 
-aws() {	if [[ "$*" == *tree* ]]; then aws_s3_tree $@; else command aws $@; fi; }
-aws_s3_tree() {
-	KEY=$_
-	BUCKET=$(grep -oP "(?<=s3://).*?(?=/)" <<< "$KEY")
-	PREFIX=$(sed "s/.*$BUCKET\///" <<< "$KEY")
-	aws s3api list-objects --bucket $BUCKET --prefix $PREFIX | jq ".Contents[] .Key" | sed s/\"//g | sed -e s#$PREFIX##
-}
-
 copy_cmd() { 
 	zle kill-buffer; 
 	print -rn -- $CUTBUFFER | xclip -selection clipboard; 
@@ -80,16 +71,6 @@ copy_cmd() {
 
 manfind() {
 	man -k . | fzf --prompt='man-pages > ' | awk '{print $1}' | xargs -r man
-}
-
-pkill() {
-  	local pid 
-	if [ "$UID" != "0" ]; then
-	    pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
-	else
-	    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-	fi;
-	if [ "x$pid" != "x" ]; then echo $pid | xargs kill -${1:-9}; fi
 }
 
 short-url() {
