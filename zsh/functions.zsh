@@ -16,21 +16,14 @@ ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
 venv() { if [[ "$VIRTUAL_ENV" == "" ]]; then source venv/bin/activate; else deactivate; fi; }
 
-# Git functions
 gg () { git add .; git commit -m "automated commit message"; git push; }
-ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
+ga () { if [[ $1 == "" ]]; then git add .;  else git add $@; fi }
 gp () { git push }
 gf () { git pull }
 gs () { git status }
 gr () { git checkout $1 }
 gh () { smerge log $1 }
 gc () { git commit -m "$1" }
-
-gb () { 
-    local branch=$(git branch -a | grep -v HEAD | fzf --prompt='checkout-branch > ' | awk '{print $NF}';)
-    if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
-}
-
 gd () { git diff $1; }
 gdb() {
     if [ "$#" -ne 1 ]; then echo "Usage: gbd file.txt"; return 1; fi;
@@ -39,7 +32,10 @@ gdb() {
     git cat-file blob $remote_branch:$1 > $local_path;
     fd $1 $local_path;
 }
-
+gb () { 
+    local branch=$(git branch -a | grep -v HEAD | fzf --prompt='checkout-branch > ' | awk '{print $NF}';)
+    if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
+}
 gptb() {
     if [ "$#" -ne 1 ]; then echo "Usage: gptb file.txt"; return 1; fi;
     file_name=$1;
@@ -54,23 +50,9 @@ gptb() {
     git checkout $current_branch;
 }
 
+# Other functions
 log() {
     echo "$1" && notify-send "$1"
-}
-
-# Python 
-pipi() {
-    echo "Using $(pip --version)"
-    pip install $($HOME/dotfiles/python/list_pypi.py | fzf --prompt 'install-package > ')
-}
-
-copy_cmd() { 
-	zle kill-buffer; 
-	print -rn -- $CUTBUFFER | xclip -selection clipboard; 
-}; zle -N copy_cmd
-
-manfind() {
-	man -k . | fzf --prompt='man-pages > ' | awk '{print $1}' | xargs -r man
 }
 
 short-url() {
@@ -89,3 +71,14 @@ tmp() {
     touch $tmp_file
     subl $tmp_file
 }
+
+# ZLE commands
+copy_cmd() { 
+    zle kill-buffer; 
+    print -rn -- $CUTBUFFER | xclip -selection clipboard; 
+}; zle -N copy_cmd
+
+go_back() {
+    cd ..; echo "";
+    zle reset-prompt;
+}; zle -N go_back
