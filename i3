@@ -97,7 +97,6 @@ bindsym $mod+Shift+equal        move container to workspace $workspace13
 
 # Xprop assignation
 assign [title="urxvt_"]						$workspace0
-assign [title="win0"]                       $workspace2
 assign [class="Google-chrome"]   			$workspace1
 assign [class="jetbrains-idea-ce"]      	$workspace2
 assign [class="jetbrains-pycharm-ce"]       $workspace2
@@ -116,7 +115,10 @@ assign [class="Thunderbird"]            	$workspace11
 for_window [workspace=$workspace3] layout stacked
 for_window [workspace=$workspace5] layout stacked
 for_window [workspace=$workspace7] layout stacked
-for_window [class="jetbrains-pycharm-ce"] layout stacked
+
+# Intellij and PyCharm settings for popup refresh
+for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
+for_window [class="^jetbrains-.+"] focus
 
 for_window [class="urxvt_"] focus
 for_window [class="Subl"] focus
