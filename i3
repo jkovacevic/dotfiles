@@ -117,7 +117,6 @@ for_window [workspace=$workspace5] layout stacked
 for_window [workspace=$workspace7] layout stacked
 
 # Intellij and PyCharm settings for popup refresh
-for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 for_window [class="^jetbrains-.+"] focus
 
 for_window [class="urxvt_"] focus
