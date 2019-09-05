@@ -42,7 +42,6 @@ export RPROMPT='$(vcs_info_wrapper)'
 bindkey -r "^[c" 	# fzf-cd-widget
 bindkey -r "^d" 	# delete-char-or-list
 bindkey -r "^T"		# fzf-file-widget
-bindkey -r "^[[24"
 
 # Terminal navigation
 bindkey    	"^[[3~"		delete-char
@@ -52,6 +51,7 @@ bindkey    	"^[[8~"		end-of-line
 bindkey    	"^Z"		undo
 bindkey    	";5D"		vi-backward-blank-word
 bindkey    	";5C"		.vi-forward-blank-word
+bindkey     ";2P"       go_back
 
 # Custom commands
 bindkey  	"^Y"		copy_cmd
