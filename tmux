@@ -21,7 +21,7 @@ setw -g window-status-current-style fg=cyan,bg=colour16,bright
 # Add padding above tmux status and color it black
 setw -g pane-border-status bottom
 setw -g pane-border-format ''
-setw -g pane-active-border-style bg=colour16,fg=colour16
+setw -g pane-active-border-style fg=cyan,bg=colour16,dim
 
 # Keybindings
 bind -n C-n new-window
