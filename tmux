@@ -1,6 +1,7 @@
-set -g default-terminal "screen-256color"
+set -g default-terminal "rxvt-unicode-256color"
 
 unbind C-b
+unbind s
 set -g prefix F12
 
 set -g base-index 1
@@ -29,7 +30,8 @@ bind -n M-7 select-window -t :7
 bind -n M-8 select-window -t :8
 bind -n M-9 select-window -t :9
 
-bind n new-window
-bind r kill-window
-bind d confirm detach-client
-bind k confirm kill-server
+bind -n F4 command-prompt -I "#W" "rename-window -- '%%'"
+bind -n F5 source-file ~/.tmux.conf \; display-message "Config ~/.tmux.conf reloaded."
+bind -n C-n new-window
+bind -n C-w kill-window
+bind -n C-x confirm kill-server
