@@ -40,10 +40,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Startup
 exec_always --no-startup-id $HOME/dotfiles/bash/polybar_launch.sh
-exec $HOME/startup.sh
 exec /usr/bin/urxvt -title urxvt_
 exec /usr/bin/thunderbird
 exec /usr/bin/slack
+exec /usr/bin/startup
 exec /usr/bin/nm-applet
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 
 
