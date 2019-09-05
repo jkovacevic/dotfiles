@@ -2,7 +2,7 @@ set -g default-terminal "rxvt-unicode-256color"
 
 unbind C-b
 unbind s
-set -g prefix F13
+set -g prefix F12
 
 # Start window index from 1
 set -g base-index 1
@@ -14,13 +14,14 @@ set -g window-status-current-format ' #I.#W '
 set -g status-right ''
 
 # Set active and default tab styles
-set -g window-status-style fg=white,bg=colour16,dim
-set -g window-status-current-style fg=cyan,bg=colour16,bright
+set -g status-style fg=white,bg=colour16
+setw -g window-status-style fg=white,bg=colour16,dim
+setw -g window-status-current-style fg=cyan,bg=colour16,bright
 
 # Add padding above tmux status and color it black
-set -g pane-border-status bottom
-set -g pane-border-format ''
-set -g pane-active-border-style bg=colour16,fg=colour16
+setw -g pane-border-status bottom
+setw -g pane-border-format ''
+setw -g pane-active-border-style bg=colour16,fg=colour16
 
 # Keybindings
 bind -n C-n new-window
