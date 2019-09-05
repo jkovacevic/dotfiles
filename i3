@@ -4,10 +4,18 @@ font pango:DejaVu Sans Bold 9
 floating_modifier $mod
 focus_follows_mouse no
 
+# Shortcuts and scripts
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Escape kill
 bindsym $mod+space exec rofi -show drun -padding 16
 bindsym $mod+ctrl+space exec rofi -show run -padding 16
+
+bindsym $mod+Tab move workspace to output left
+bindsym $mod+l exec betterlockscreen -l
+bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
+bindsym $mod+x exec $HOME/dotfiles/bash/kill-proc.sh
+bindsym $mod+Control+p exec pavucontrol
+bindsym $mod+Control+a exec arandr
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -38,14 +46,6 @@ exec /usr/bin/thunderbird
 exec /usr/bin/slack
 exec /usr/bin/nm-applet
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 
-
-# Shortcuts
-bindsym $mod+Tab move workspace to output left
-bindsym $mod+l exec betterlockscreen -l
-bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
-bindsym $mod+x exec $HOME/dotfiles/bash/kill-proc.sh
-bindsym $mod+Control+p exec pavucontrol
-bindsym $mod+Control+a exec arandr
 
 # Workspaces
 set $workspace0 "0:"
