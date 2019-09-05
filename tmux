@@ -2,7 +2,7 @@ set -g default-terminal "rxvt-unicode-256color"
 
 unbind C-b
 unbind s
-set -g prefix F12
+set -g prefix F1
 
 # Start window index from 1
 set -g base-index 1
@@ -27,6 +27,7 @@ setw -g pane-active-border-style bg=colour16,fg=colour16
 bind -n C-n new-window
 bind -n C-w kill-window
 bind -n C-x confirm kill-server
+bind -n ` command-prompt
 bind -n F4 command-prompt -I "#W" "rename-window -- '%%'"
 bind -n F5 source-file ~/.tmux.conf \; display-message "Config ~/.tmux.conf reloaded."
 
