@@ -105,29 +105,30 @@ bindsym $mod+Shift+minus        move container to workspace $workspace12
 bindsym $mod+Shift+equal        move container to workspace $workspace13
 
 # Xprop assignation
-assign [title="urxvt_"]						$workspace0
-assign [class="Google-chrome"]   			$workspace1
-assign [class="jetbrains-pycharm-ce"]   	$workspace2
-assign [class="jetbrains-idea-ce"]      	$workspace2
-assign [class="Subl"]                   	$workspace3
-assign [class="Sublime_merge"]          	$workspace3
-assign [class="Evince"]                 	$workspace4
-assign [class="jetbrains-datagrip"]     	$workspace4
-assign [class="TeXstudio"]              	$workspace4
-assign [class="Soffice"] 					$workspace4
-assign [class="libreoffice-startcenter"] 	$workspace4
-assign [class="libreoffice-calc"] 			$workspace4
-assign [class="Pinta"]                  	$workspace5
-assign [class="Sxiv"]                  		$workspace5
-assign [class="vlc"]                  		$workspace5
-assign [class="Slack"]                  	$workspace9
-assign [class="Sublime_merge"]          	$workspace10
-assign [class="Thunderbird"]            	$workspace11
+assign [title="urxvt_"]                     $workspace0
+assign [class="Google-chrome"]              $workspace1
+assign [class="jetbrains-idea-ce"]          $workspace2
+assign [class="jetbrains-pycharm-ce"]       $workspace2
+assign [class="Subl"]                       $workspace3
+assign [class="Sublime_merge"]              $workspace3
+assign [class="Evince"]                     $workspace4
+assign [class="jetbrains-datagrip"]         $workspace4
+assign [class="TeXstudio"]                  $workspace4
+assign [class="Pinta"]                      $workspace5
+assign [class="Sxiv"]                       $workspace5
+assign [class="vlc"]                        $workspace5
+assign [class="Slack"]                      $workspace9
+assign [class="Sublime_merge"]              $workspace10
+assign [class="Thunderbird"]                $workspace11
 
 for_window [workspace=$workspace3] layout stacked
 for_window [workspace=$workspace5] layout stacked
 for_window [workspace=$workspace7] layout stacked
 
+# Intellij and PyCharm settings for popup refresh
+for_window [class="^jetbrains-.+"] focus
+
+for_window [class="urxvt_"] focus
 for_window [class="Subl"] focus
 for_window [class="Sublime_merged"] focus
 for_window [class="Evince"] focus
@@ -135,14 +136,6 @@ for_window [class="Sxiv"] focus
 for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
-for_window [class="Soffice"] focus
-for_window [class="libreoffice-startcenter"] focus
-for_window [class="libreoffice-calc"] focus
-for_window [class="Dragondisk"] focus
-
-# Intellij and PyCharm settings for popup refresh
-for_window [class="^jetbrains-.+"] focus
-for_window [class="Tk"] floating enable
 
 bindsym $mod+Control+Right resize shrink width 5 px
 bindsym $mod+Control+Left resize grow width 5 px
