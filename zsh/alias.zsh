@@ -1,6 +1,3 @@
-alias ..='cd ..'
-alias ....='cd ../..'
-
 alias l='ls -lFh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
 alias lt='ls -lhtr --color=auto --group-directories-first'
