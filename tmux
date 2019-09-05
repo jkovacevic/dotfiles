@@ -11,6 +11,10 @@ set -g pane-base-index 1
 # Set active and default tab name format
 set -g window-status-format ' #I.#W '
 set -g window-status-current-format ' #I.#W '
+# Session indicator
+set -g status-left-style fg=cyan,bg=colour16,bright
+set -g status-left ' #[fg=white][#[fg=cyan]#S#[fg=white]] '
+# Remove right status
 set -g status-right ''
 
 # Set active and default tab styles
