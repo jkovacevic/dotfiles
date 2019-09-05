@@ -14,7 +14,6 @@ bindsym $mod+Tab move workspace to output left
 bindsym $mod+l exec betterlockscreen -l
 bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
 bindsym $mod+x exec $HOME/dotfiles/bash/kill-proc.sh
-bindsym $mod+g exec $HOME/script/vimium_deselect_all.py
 bindsym $mod+Control+p exec pavucontrol
 bindsym $mod+Control+a exec arandr
 
