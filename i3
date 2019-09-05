@@ -139,10 +139,9 @@ for_window [class="Soffice"] focus
 for_window [class="libreoffice-startcenter"] focus
 for_window [class="libreoffice-calc"] focus
 for_window [class="Dragondisk"] focus
-for_window [class="jetbrains-idea-ce"] focus
-for_window [class="jetbrains-pycharm-ce"] focus
-for_window [class="jetbrains-datagrip"] focus
 
+# Intellij and PyCharm settings for popup refresh
+for_window [class="^jetbrains-.+"] focus
 for_window [class="Tk"] floating enable
 
 bindsym $mod+Control+Right resize shrink width 5 px
