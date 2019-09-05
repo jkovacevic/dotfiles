@@ -27,7 +27,7 @@ setw -g pane-active-border-style bg=colour16,fg=colour16
 bind -n C-n new-window
 bind -n C-w kill-window
 bind -n C-x confirm kill-server
-bind -n ` command-prompt
+bind -n F2 command-prompt
 bind -n F4 command-prompt -I "#W" "rename-window -- '%%'"
 bind -n F5 source-file ~/.tmux.conf \; display-message "Config ~/.tmux.conf reloaded."
 
