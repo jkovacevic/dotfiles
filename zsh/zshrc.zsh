@@ -51,7 +51,7 @@ bindkey    	"^[[8~"		end-of-line
 bindkey    	"^Z"		undo
 bindkey    	";5D"		vi-backward-blank-word
 bindkey    	";5C"		.vi-forward-blank-word
-bindkey     ";2P"       go_back
+bindkey     "^[[25~"    go_back
 
 # Custom commands
 bindkey  	"^Y"		copy_cmd
@@ -65,7 +65,5 @@ aws-test() { alias aws='aws --profile=smaato-test-admin' }
 aws-ssh() {ssh -i ~/.ssh/smart-platform-test.pem ec2-user@$1}
 foxy-proxy() { ssh -i ~/.ssh/smart-platform-test.pem -N -D 8157  hadoop@$1 }
 
-if [ -z "$TMUX" ] 
-then 
-    tmux attach -t tmux || tmux new -s tmux
-fi
+# Shell Startup scripts
+$HOME/dotfiles/tmux/tmux.startup
