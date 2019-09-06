@@ -1,5 +1,6 @@
-tmux new -A -s tmux
+tmux new-session -d -s tmux
 tmux neww -t tmux:7 -n 'ipy' ipython
 tmux neww -t tmux:8 -n 'mocp' mocp -T rhowaldt
 tmux neww -t tmux:9 -n 'htop' htop
 tmux select-window -t tmux:1
+tmux attach -t tmux

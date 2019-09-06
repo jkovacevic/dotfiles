@@ -66,4 +66,7 @@ aws-ssh() {ssh -i ~/.ssh/smart-platform-test.pem ec2-user@$1}
 foxy-proxy() { ssh -i ~/.ssh/smart-platform-test.pem -N -D 8157  hadoop@$1 }
 
 # Shell Startup scripts
-$HOME/dotfiles/tmux/tmux.startup
+if [ -z "$TMUX" ]
+then
+    $HOME/dotfiles/tmux/tmux.startup
+fi
