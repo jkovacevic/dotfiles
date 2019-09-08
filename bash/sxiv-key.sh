@@ -3,6 +3,16 @@ keypress_single_selection() {
 	file_name=$(realpath "$1")
 	key="$2"
 	case "$key" in
+	"C-h")
+		notify-send "Help: 
+X: delete file,
+P: copy file path,
+E: open with pinta,
+S: copy to hard-disk/image,
+C: copy to hard-disk/chan,
+F: copy to hard-disk/funny,
+G: copy to hard-disk/gif,
+W: copy to hard-disk/webm" ;;
 	"C-x")
 		rm "$file_name"
 		notify-send "Deleted $file_name" ;;
@@ -25,6 +35,10 @@ keypress_single_selection() {
 		notify-send "Copied $file_name to $output" ;;
 	"C-g")
 		output="$HOME/hard-disk/gif"
+		cp "$file_name" $output
+		notify-send "Copied $file_name to $output" ;;
+	"C-w")
+		output="$HOME/hard-disk/webm"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	esac
