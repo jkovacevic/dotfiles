@@ -8,7 +8,7 @@ keypress_single_selection() {
 X: delete file,
 P: copy file path,
 E: open with pinta,
-S: copy to hard-disk/image,
+S: copy to hard-disk/save,
 C: copy to hard-disk/chan,
 F: copy to hard-disk/funny,
 G: copy to hard-disk/gif,
@@ -22,7 +22,7 @@ W: copy to hard-disk/webm" ;;
 	"C-e")
 		pinta "$file_name" ;;
 	"C-s")
-		output="$HOME/hard-disk/image"
+		output="$HOME/hard-disk/save"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	"C-c")
