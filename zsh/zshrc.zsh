@@ -52,6 +52,7 @@ bindkey    	"^Z"		undo
 bindkey    	";5D"		vi-backward-blank-word
 bindkey    	";5C"		.vi-forward-blank-word
 bindkey     "^[[25~"    go_back
+bindkey     "^[[1;2P"   go_back
 
 # Custom commands
 bindkey  	"^Y"		copy_cmd
