@@ -1,9 +1,10 @@
 [
+	{ "keys": ["ctrl+n"], "command": "noop" },
 	{ "keys": ["f13", "s"], "command": "save" },
 	{ "keys": ["f13", "p"], "command": "copy_path" },
 	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
 	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
-	{ "keys": ["ctrl+n"], "command": "new_file" },
+	{ "keys": ["ctrl+t"], "command": "new_file" },
 	{ "keys": ["ctrl+w"], "command": "close" },
 	{ "keys": ["ctrl+shift+n"], "command": "new_window" },
 	{ "keys": ["ctrl+shift+w"], "command": "close_window" },
@@ -273,8 +274,6 @@
 	{ "keys": ["ctrl+b"], "command": "build" },
 	{ "keys": ["ctrl+shift+b"], "command": "build", "args": {"select": true} },
 	{ "keys": ["ctrl+break"], "command": "cancel_build" },
-
-	{ "keys": ["ctrl+t"], "command": "transpose" },
 
 	{ "keys": ["f9"], "command": "sort_lines", "args": {"case_sensitive": false} },
 	{ "keys": ["ctrl+f9"], "command": "sort_lines", "args": {"case_sensitive": true} },
