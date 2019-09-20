@@ -5,7 +5,7 @@ libreoffice () { bg libreoffice "$@" }
 pinta () { bg pinta "$@" }
 vlc() { bg vlc "$@" }
 thunar() { bg thunar "$@" }
-sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a *; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a *; fi; }
+sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a *; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
 fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":\"$(realpath $2)\"}\'; }
 cpcat() { cat $1 | xclip -selection clipboard; }
 cppsh() { xclip -selection clipboard -o > $1; }
