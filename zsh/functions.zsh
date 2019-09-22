@@ -74,7 +74,7 @@ tmp() {
 }
 
 ts() {
-    ct=$(date +"%Y-%m-%d_%s")
+    ct=$(date +"%Y%m%d_%H%M%S")
     mv $1 $1.$ct
 }
 
