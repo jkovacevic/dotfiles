@@ -73,6 +73,11 @@ tmp() {
     subl $tmp_file
 }
 
+ts() {
+    ct=$(date +"%Y-%m-%d_%s")
+    mv $1 $1.$ct
+}
+
 # ZLE commands
 copy_cmd() { 
     zle kill-buffer; 
