@@ -9,7 +9,7 @@ sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a *; elif [[ -d $1 ]]; 
 fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":\"$(realpath $2)\"}\'; }
 cpcat() { cat $1 | xclip -selection clipboard; }
 cppsh() { xclip -selection clipboard -o > $1; }
-cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
+cpth() { readlink -f $1 | tee /dev/tty | xargs echo -n | xclip -selection clipboard; }
 ws() { rgrep -n $@ --color=auto; }
 wss() { sudo rg -n $@ --color=auto; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
