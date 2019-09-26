@@ -7,8 +7,8 @@ autoload -U select-word-style
 plugins=(zsh-completions)
 
 export FZF_DEFAULT_OPTS='--prompt="search > " --height 40% --layout=reverse --border --exact --sort'
-export FZF_CTRL_T_COMMAND='command fd . /'
-export FZF_ALT_C_COMMAND='command fd -t d . /'
+export FZF_CTRL_T_COMMAND='command fd --hidden --no-ignore --ignore-case . /'
+export FZF_ALT_C_COMMAND='command fd --hidden --no-ignore --ignore-case -t d . /'
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
