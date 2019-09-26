@@ -30,7 +30,7 @@ gdb() {
     if [ "$#" -ne 1 ]; then echo "Usage: gbd file.txt"; return 1; fi;
     remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
     local_path=/tmp/$(basename $remote_branch)-$(basename $1)
-    git cat-file blob $remote_branch:$1 > $local_path;
+    git cat-file blob $remote_branch:$(git ls-files --full-name $1) > $local_path;
     fd $1 $local_path;
 }
 gb () { 
