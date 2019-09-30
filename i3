@@ -114,13 +114,6 @@ assign [class="Slack"]                  	$workspace9
 assign [class="Sublime_merge"]          	$workspace10
 assign [class="Thunderbird"]            	$workspace11
 
-for_window [workspace=$workspace3] layout stacked
-for_window [workspace=$workspace5] layout stacked
-for_window [workspace=$workspace7] layout stacked
-
-# Intellij and PyCharm settings for popup refresh
-for_window [class="^jetbrains-.+"] focus
-
 for_window [class="urxvt_"] focus
 for_window [class="Subl"] focus
 for_window [class="Sublime_merged"] focus
@@ -131,6 +124,13 @@ for_window [class="Sxiv"] focus
 for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
+# Intellij and PyCharm settings for popup refresh
+for_window [class="^jetbrains-.+"] focus
+
+for_window [workspace=$workspace3] layout stacked
+for_window [workspace=$workspace4] layout stacked
+for_window [workspace=$workspace5] layout stacked
+for_window [workspace=$workspace7] layout stacked
 
 bindsym $mod+Control+Right resize shrink width 5 px
 bindsym $mod+Control+Left resize grow width 5 px
