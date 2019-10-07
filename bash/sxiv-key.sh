@@ -5,13 +5,15 @@ keypress_single_selection() {
 	case "$key" in
 	"C-h")
 		notify-send "Help: 
-X: delete file,
-P: copy file path,
-E: open with pinta,
-S: copy to hard-disk/save,
-C: copy to hard-disk/chan,
-F: copy to hard-disk/funny,
-G: copy to hard-disk/gif,
+X: delete file
+P: copy file path
+E: open with pinta
+S: copy to hard-disk/save
+C: copy to hard-disk/chan
+F: copy to hard-disk/funny
+I: copy to hard-disk/info
+R: copy to hard-disk/redpill
+G: copy to hard-disk/gif
 W: copy to hard-disk/webm" ;;
 	"C-x")
 		rm "$file_name"
@@ -31,6 +33,14 @@ W: copy to hard-disk/webm" ;;
 		notify-send "Copied $file_name to $output" ;;
 	"C-f")
 		output="$HOME/hard-disk/funny"
+		cp "$file_name" $output
+		notify-send "Copied $file_name to $output" ;;
+	"C-i")
+		output="$HOME/hard-disk/info"
+		cp "$file_name" $output
+		notify-send "Copied $file_name to $output" ;;
+	"C-r")
+		output="$HOME/hard-disk/redpill"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	"C-g")
