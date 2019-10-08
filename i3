@@ -16,6 +16,7 @@ bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
 bindsym $mod+x exec $HOME/dotfiles/bash/kill-proc.sh
 bindsym $mod+Control+p exec pavucontrol
 bindsym $mod+Control+a exec arandr
+bindsym $mod+Control+s exec systemctl suspend
 
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
