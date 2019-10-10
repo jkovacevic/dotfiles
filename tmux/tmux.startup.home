@@ -1,0 +1,7 @@
+tmux new-session -d -s home -n 'txt' -c ~/notes
+tmux neww -t home:2 -n 'dot' -c ~/dotfiles
+tmux neww -t home:3 -n 'ipy' ipython
+tmux neww -t home:4 -n 'mocp' mocp -T rhowaldt
+tmux neww -t home:5 -n 'htop' htop
+tmux select-window -t home:1
+tmux attach -t home
