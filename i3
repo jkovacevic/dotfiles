@@ -124,6 +124,9 @@ for_window [class="Sxiv"] focus
 for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
+for_window [title="Authy"] focus
+for_window [title="Authy"] floating enable
+
 # Intellij and PyCharm settings for popup refresh
 for_window [class="^jetbrains-.+"] focus
 
