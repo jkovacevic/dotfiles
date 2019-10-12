@@ -112,6 +112,8 @@ assign [class="jetbrains-pycharm-ce"]       $workspace2
 assign [class="Subl"]                       $workspace3
 assign [class="Sublime_merge"]              $workspace3
 assign [class="Evince"]                     $workspace4
+assign [class="Soffice"]                    $workspace4
+assign [class="(?i)libreoffice.*"]          $workspace4
 assign [class="jetbrains-datagrip"]         $workspace4
 assign [class="TeXstudio"]                  $workspace4
 assign [class="Pinta"]                      $workspace5
@@ -121,21 +123,26 @@ assign [class="Slack"]                      $workspace9
 assign [class="Sublime_merge"]              $workspace10
 assign [class="Thunderbird"]                $workspace11
 
-for_window [workspace=$workspace3] layout stacked
-for_window [workspace=$workspace5] layout stacked
-for_window [workspace=$workspace7] layout stacked
-
-# Intellij and PyCharm settings for popup refresh
-for_window [class="^jetbrains-.+"] focus
-
 for_window [class="urxvt_"] focus
 for_window [class="Subl"] focus
 for_window [class="Sublime_merged"] focus
 for_window [class="Evince"] focus
+for_window [class="Soffice"] focus
+for_window [class="(?i)libreoffice.*"] focus
 for_window [class="Sxiv"] focus
 for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
+for_window [title="Authy"] focus
+for_window [title="Authy"] floating enable
+
+# Intellij and PyCharm settings for popup refresh
+for_window [class="^jetbrains-.+"] focus
+
+for_window [workspace=$workspace3] layout stacked
+for_window [workspace=$workspace4] layout stacked
+for_window [workspace=$workspace5] layout stacked
+for_window [workspace=$workspace7] layout stacked
 
 bindsym $mod+Control+Right resize shrink width 5 px
 bindsym $mod+Control+Left resize grow width 5 px
