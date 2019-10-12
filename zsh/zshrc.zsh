@@ -64,10 +64,3 @@ aws-prod() { alias aws='aws --profile=smaato-prod-admin' }
 aws-test() { alias aws='aws --profile=smaato-test-admin' }
 aws-ssh() {ssh -i ~/.ssh/smart-platform-test.pem ec2-user@$1}
 foxy-proxy() { ssh -i ~/.ssh/smart-platform-test.pem -N -D 8157  hadoop@$1 }
-
-# Shell Startup scripts
-if [ -z "$TMUX" ]
-then
-
-    $HOME/dotfiles/tmux/tmux.startup
-fi
