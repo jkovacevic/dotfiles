@@ -1,6 +1,3 @@
 tmux new-session -d -s tmux
-tmux neww -t tmux:2
-tmux neww -t tmux:3
-tmux neww -t tmux:4 -n 'dload' -c ~/Downloads
 tmux select-window -t tmux:1
 tmux attach -t tmux
