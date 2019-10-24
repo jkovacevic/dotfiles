@@ -14,6 +14,8 @@ bindsym $mod+Tab move workspace to output left
 bindsym $mod+l exec betterlockscreen -l
 bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
 bindsym $mod+x exec $HOME/dotfiles/bash/kill-proc.sh
+bindsym $mod+Control+F11 exec $HOME/.screenlayout/laptop.sh
+bindsym $mod+Control+F12 exec $HOME/.screenlayout/workstation.sh
 bindsym $mod+Control+p exec pavucontrol
 bindsym $mod+Control+a exec arandr
 
