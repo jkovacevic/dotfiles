@@ -1,3 +1,3 @@
-tmux new-session -d -s tmux
-tmux select-window -t tmux:1
-tmux attach -t tmux
+tmux new-session -d -s shell
+tmux select-window -t shell:1
+tmux attach -t shell
