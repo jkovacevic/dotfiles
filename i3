@@ -5,47 +5,43 @@ floating_modifier $mod
 focus_follows_mouse no
 
 # Shortcuts and scripts
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Escape kill
-bindsym $mod+space exec rofi -show drun -padding 16
-bindsym $mod+ctrl+space exec rofi -show run -padding 16
-bindsym $mod+Tab move workspace to output left
+bindsym $mod+Escape             kill
+bindsym $mod+Shift+Escape       exec systemctl poweroff
+bindsym $mod+Shift+r            restart
+bindsym $mod+Shift+x            exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+l exec betterlockscreen -l
-bindsym $mod+t exec $HOME/dotfiles/bash/translate.sh
-bindsym $mod+x exec $HOME/dotfiles/bash/kill-proc.sh
-bindsym $mod+Control+p exec pavucontrol
-bindsym $mod+Control+a exec arandr
-bindsym $mod+Control+F1 exec systemctl poweroff
-bindsym $mod+Control+F2 exec systemctl suspend
+bindsym $mod+Return             exec i3-sensible-terminal
+bindsym $mod+Space              exec rofi -show drun -padding 16
+bindsym $mod+Ctrl+Space         exec rofi -show run -padding 16
 
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym $mod+l                  exec betterlockscreen -l
+bindsym $mod+t                  exec $HOME/dotfiles/bash/translate.sh
+bindsym $mod+x                  exec $HOME/dotfiles/bash/kill-media-record.sh
+bindsym $mod+Ctrl+F5            exec pavucontrol
+bindsym $mod+Ctrl+F6            exec arandr
 
+bindsym $mod+Left               focus left
+bindsym $mod+Down               focus down
+bindsym $mod+Up                 focus up
+bindsym $mod+Right              focus right
+bindsym $mod+Shift+Left         move left
+bindsym $mod+Shift+Down         move down
+bindsym $mod+Shift+Up           move up
+bindsym $mod+Shift+Right        move right
+bindsym $mod+Tab                move workspace to output left
+bindsym $mod+Shift+f            fullscreen toggle
+bindsym $mod+Shift+q            layout stacking
+bindsym $mod+Shift+w            layout tabbed
+bindsym $mod+Shift+e            layout toggle split
+bindsym $mod+Shift+t            floating toggle
+bindsym $mod+Ctrl+Left          resize shrink width 20 px
+bindsym $mod+Ctrl+Right         resize grow width 20 px
+bindsym $mod+Ctrl+Down          resize grow height 20 px
+bindsym $mod+Ctrl+Up            resize shrink height 20 px
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-bindsym $mod+h split h
-bindsym $mod+v split v
-bindsym $mod+f fullscreen toggle
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-bindsym $mod+d floating toggle
-
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym XF86AudioMute           exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume    exec pactl set-sink-volume 0 -10%
+bindsym XF86AudioRaiseVolume    exec pactl set-sink-volume 0 +10%
 
 # Startup
 exec_always --no-startup-id $HOME/dotfiles/bash/polybar_launch.sh
@@ -144,11 +140,6 @@ for_window [workspace=$workspace3] layout stacked
 for_window [workspace=$workspace4] layout stacked
 for_window [workspace=$workspace5] layout stacked
 for_window [workspace=$workspace7] layout stacked
-
-bindsym $mod+Control+Right resize shrink width 5 px
-bindsym $mod+Control+Left resize grow width 5 px
-bindsym $mod+Control+Up resize grow height 5 px
-bindsym $mod+Control+Down resize shrink height 5 px
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1e2128 #1e2128 #00ffff #2F343F   #2F343F
