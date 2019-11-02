@@ -11,8 +11,8 @@ bindsym $mod+Shift+r            restart
 bindsym $mod+Shift+x            exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+Return             exec i3-sensible-terminal
-bindsym $mod+Space              exec rofi -show drun -padding 16
-bindsym $mod+Ctrl+Space         exec rofi -show run -padding 16
+bindsym $mod+space              exec rofi -show drun -padding 16
+bindsym $mod+Ctrl+space         exec rofi -show run -padding 16
 
 bindsym $mod+l                  exec betterlockscreen -l
 bindsym $mod+t                  exec $HOME/dotfiles/bash/translate.sh
