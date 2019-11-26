@@ -52,16 +52,6 @@ gptb() {
 }
 
 # Other functions
-log() {
-    echo "$1" && notify-send "$1"
-}
-
-short-url() {
-    local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$1")
-    xclip -selection clipboard <<< $url
-    echo $url
-}
-
 tmp() {
     tmp_folder=$HOME/notes/tmp
     if [ "$#" -ne 1 ]; then 
@@ -73,9 +63,23 @@ tmp() {
     subl $tmp_file
 }
 
+log() {
+    echo "$1" && notify-send "$1"
+}
+
+short-url() {
+    local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$1")
+    xclip -selection clipboard <<< $url
+    echo $url
+}
+
 ts() {
     ct=$(date +"%Y%m%d_%H%M%S")
     mv $1 $1.$ct
+}
+
+mkreadme() {
+    for f in *; do echo "$f - "; done >> readme.md
 }
 
 # ZLE commands
