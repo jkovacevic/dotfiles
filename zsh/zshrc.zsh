@@ -66,7 +66,14 @@ aws-test() { alias aws='aws --profile=smaato-test-admin' }
 aws-ssh() {ssh -i ~/.ssh/smart-platform-test.pem ec2-user@$1}
 foxy-proxy() { ssh -i ~/.ssh/smart-platform-test.pem -N -D 8157 hadoop@$1 }
 
-if [ -z "$TMUX" ]
-then
-    $HOME/dotfiles/tmux/tmux.startup.shell
-fi
+function setup_tmux {
+    if [ -z "$TMUX" ]
+    then
+
+        echo "Shell: [W]orkshell or [H]omeshell?"
+        read shell
+        if [[ ${shell:l} == "w" ]] then $HOME/dotfiles/tmux/tmux.startup.shell; fi
+        if [[ ${shell:l} == "h" ]] then $HOME/dotfiles/tmux/tmux.startup.home; fi
+    fi
+}
+setup_tmux
