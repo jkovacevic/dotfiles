@@ -70,7 +70,7 @@ log() {
 short-url() {
 
     urlencode() {
-      python -c 'import urllib, sys; print urllib.quote(sys.argv[1], sys.argv[2])' "$1" "$urlencode_safe"
+      python -c 'import urllib, sys; print(urllib.quote(sys.argv[1], sys.argv[2]))' "$1" "$urlencode_safe"
     }
 
     encoded=$(urlencode "$1")
