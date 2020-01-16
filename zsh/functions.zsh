@@ -68,7 +68,13 @@ log() {
 }
 
 short-url() {
-    local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$1")
+
+    urlencode() {
+      python -c 'import urllib, sys; print urllib.quote(sys.argv[1], sys.argv[2])' "$1" "$urlencode_safe"
+    }
+
+    encoded=$(urlencode "$1")
+    local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$encoded")
     xclip -selection clipboard <<< $url
     echo $url
 }
