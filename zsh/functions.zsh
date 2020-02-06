@@ -13,7 +13,7 @@ cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
 ws() { rg -n $@ --color=auto; }
 wss() { sudo rg -n $@ --color=auto; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
-yvid() { youtube-dl $1 -o $2; }
+yvid() { youtube-dl $1; }
 venv() { if [[ "$VIRTUAL_ENV" == "" ]]; then source venv/bin/activate; else deactivate; fi; }
 
 gg () { git add .; git commit -m "automated commit message"; git push; }
