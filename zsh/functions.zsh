@@ -88,7 +88,7 @@ mkreadme() {
     for f in *; do echo "$f - "; done >> readme.md
 }
 
-sync() {
+sync-all() {
     echo "Syncing notes"
     (cd $HOME/notes; gf;)
     echo "Syncing dotfiles"
