@@ -102,6 +102,15 @@ push-all() {
     (cd $HOME/shared; gg;)
 }
 
+status-all() {
+    echo "Status notes"
+    (cd $HOME/notes; gg;)
+    echo "Status dotfiles"
+    (cd $HOME/dotfiles; gg;)
+    echo "Status shared"
+    (cd $HOME/shared; gg;)
+}
+
 # ZLE commands
 copy_cmd() { 
     zle kill-buffer; 
