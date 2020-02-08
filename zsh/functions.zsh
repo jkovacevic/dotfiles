@@ -27,13 +27,6 @@ gr () { git checkout $1 }
 gh () { smerge log $1 }
 gc () { git commit -m "$1" }
 gd () { git diff $1; }
-gdb() {
-    if [ "$#" -ne 1 ]; then echo "Usage: gbd file.txt"; return 1; fi;
-    remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
-    local_path=/tmp/$(basename $remote_branch)-$(basename $1)
-    git cat-file blob $remote_branch:$(git ls-files --full-name $1) > $local_path;
-    fd $1 $local_path;
-}
 gb () { 
     local branch=$(git branch -a | grep -v HEAD | fzf --prompt='checkout-branch > ' | awk '{print $NF}';)
     if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
@@ -42,7 +35,10 @@ gb () {
 gff() {
     if [ "$#" -ne 1 ]; then echo "Usage: gff file.txt"; return 1; fi;
     remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
-    git checkout --patch $remote_branch $1
+    local_path=/tmp/$(basename $remote_branch)-$(basename $1)
+    git cat-file blob $remote_branch:$(git ls-files --full-name $1) > $local_path;
+    cppth $1;
+    fd $1 $local_path;
 }
 
 gpf() {
