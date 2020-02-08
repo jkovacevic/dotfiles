@@ -26,6 +26,7 @@ setopt hist_verify            # show command with history expansion to user befo
 setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 setopt ignore_eof			  # disables closing zsh with ctrl + D
+setopt nomatch                # disables zsh-magic-matching with brackets []
 
 zstyle ':vcs_info:*' enable git cvs svn
 zstyle ':vcs_info:*' formats '%F{white}[%f%F{red}%b%f%f] '
