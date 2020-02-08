@@ -88,6 +88,20 @@ mkreadme() {
     for f in *; do echo "$f - "; done >> readme.md
 }
 
+sync() {
+    echo "Syncing notes"
+    (cd $HOME/notes; gf;)
+    echo "Syncing dotfiles"
+    (cd $HOME/dotfiles; gf;)
+}
+
+push-all() {
+    echo "Pushing notes"
+    (cd $HOME/notes; gg;)
+    echo "Pushing dotfiles"
+    (cd $HOME/dotfiles; gg;)
+}
+
 # ZLE commands
 copy_cmd() { 
     zle kill-buffer; 
