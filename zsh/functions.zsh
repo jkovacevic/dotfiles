@@ -22,6 +22,7 @@ ga () { if [[ $1 == "" ]]; then git add .;  else git add $@; fi }
 gp () { git push }
 gf () { git pull }
 gs () { git status }
+gss () { git status --short }
 gr () { git checkout $1 }
 gh () { smerge log $1 }
 gc () { git commit -m "$1" }
@@ -104,11 +105,11 @@ push-all() {
 
 status-all() {
     echo "- Status notes"
-    (cd $HOME/notes; git status --short;)
+    (cd $HOME/notes; gss;)
     echo "- Status dotfiles"
-    (cd $HOME/dotfiles; git status --short;)
+    (cd $HOME/dotfiles; gss;)
     echo "- Status shared"
-    (cd $HOME/shared; git status --short;)
+    (cd $HOME/shared; gss;)
 }
 
 # ZLE commands
