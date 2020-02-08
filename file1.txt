@@ -3,3 +3,4 @@ Second2
 Third3
 
 Hi
+MERGE
