@@ -38,13 +38,15 @@ gb () {
     local branch=$(git branch -a | grep -v HEAD | fzf --prompt='checkout-branch > ' | awk '{print $NF}';)
     if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
 }
+
 gff() {
     if [ "$#" -ne 1 ]; then echo "Usage: gff file.txt"; return 1; fi;
     remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
     git checkout --patch $remote_branch $1
 }
-gptb() {
-    if [ "$#" -ne 1 ]; then echo "Usage: gptb file.txt"; return 1; fi;
+
+gpf() {
+    if [ "$#" -ne 1 ]; then echo "Usage: gpf file.txt"; return 1; fi;
     file_name=$1;
     local_branch=$(git branch | awk '{print $NF}' | fzf --prompt='local-branch > ');
     current_branch=$(git symbolic-ref --short HEAD)
