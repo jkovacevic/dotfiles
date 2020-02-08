@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=OCR-DE
-Comment=Optical character recognition
-GenericName=OCR for Linux
-Exec=/usr/local/bin/ocr-de
-Icon=camera
-Type=Application
-StartupNotify=true

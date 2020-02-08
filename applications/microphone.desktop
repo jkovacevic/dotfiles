@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Microphone
-Comment=Record microphone input
-GenericName=Microphone script for Linux
-Exec=/usr/local/bin/microphone
-Icon=camera
-Type=Application
-StartupNotify=true
