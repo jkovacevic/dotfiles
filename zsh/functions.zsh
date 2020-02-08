@@ -89,6 +89,8 @@ sync-all() {
     (cd $HOME/notes; gf;)
     echo "Syncing dotfiles"
     (cd $HOME/dotfiles; gf;)
+    echo "Syncing shared"
+    (cd $HOME/shared; gg;)
 }
 
 push-all() {
@@ -96,6 +98,8 @@ push-all() {
     (cd $HOME/notes; gg;)
     echo "Pushing dotfiles"
     (cd $HOME/dotfiles; gg;)
+    echo "Pushing shared"
+    (cd $HOME/shared; gg;)
 }
 
 # ZLE commands
