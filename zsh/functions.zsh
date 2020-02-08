@@ -32,12 +32,12 @@ gb () {
     if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
 }
 
-gdr__() {
+gdr() {
     if [ "$#" -ne 1 ]; then echo "Usage: gdr file.txt"; return 1; fi;
     remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
     local_path=/tmp/$(basename $remote_branch)-$(basename $1)
     git cat-file blob $remote_branch:$(git ls-files --full-name $1) > $local_path;
-    cppth $1;
+    readlink -f $1 | xargs echo -n | xclip -selection clipboard;
     fd $1 $local_path;
 }
 
