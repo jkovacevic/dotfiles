@@ -85,30 +85,30 @@ ts() {
 }
 
 sync-all() {
-    echo "Syncing notes"
+    echo "- Syncing notes"
     (cd $HOME/notes; gf;)
-    echo "Syncing dotfiles"
+    echo "- Syncing dotfiles"
     (cd $HOME/dotfiles; gf;)
-    echo "Syncing shared"
+    echo "- Syncing shared"
     (cd $HOME/shared; gg;)
 }
 
 push-all() {
-    echo "Pushing notes"
+    echo "- Pushing notes"
     (cd $HOME/notes; gg;)
-    echo "Pushing dotfiles"
+    echo "- Pushing dotfiles"
     (cd $HOME/dotfiles; gg;)
-    echo "Pushing shared"
+    echo "- Pushing shared"
     (cd $HOME/shared; gg;)
 }
 
 status-all() {
-    echo "Status notes"
-    (cd $HOME/notes; gg;)
-    echo "Status dotfiles"
-    (cd $HOME/dotfiles; gg;)
-    echo "Status shared"
-    (cd $HOME/shared; gg;)
+    echo "- Status notes"
+    (cd $HOME/notes; git status --short;)
+    echo "- Status dotfiles"
+    (cd $HOME/dotfiles; git status --short;)
+    echo "- Status shared"
+    (cd $HOME/shared; git status --short;)
 }
 
 # ZLE commands
