@@ -18,7 +18,7 @@
 		}
 	],
 	"auto_complete_with_fields": false,
-	"auto_find_in_selection": false,
+	"auto_find_in_selection": true,
 	"auto_indent": true,
 	"auto_match_enabled": true,
 	"binary_file_patterns":
