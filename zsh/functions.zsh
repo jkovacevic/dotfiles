@@ -84,10 +84,6 @@ ts() {
     mv $1 $1.$ct
 }
 
-mkreadme() {
-    for f in *; do echo "$f - "; done >> readme.md
-}
-
 sync-all() {
     echo "Syncing notes"
     (cd $HOME/notes; gf;)
