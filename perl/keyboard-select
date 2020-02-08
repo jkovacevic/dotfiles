@@ -24,10 +24,6 @@
 #   q/Escape:   Deactivate keyboard selection mode
 
 sub log_message {
-	# log_message("br: " . $br . ", er: " .  $er);
-	# log_message("l: " . $l . ", i: " . $i);	
-	# log_message("br: " . $br . ", bc: " . $bc . ", er: " . $er . ", ec: " . $ec);
-	# log_message("l(br): " . $self->line($br)->l . ", l(er): " . $self->line($er)->l);
 	my ($message) = @_;
 	my $filename = '/tmp/_.log';
 	open($fh, '>>', $filename);
