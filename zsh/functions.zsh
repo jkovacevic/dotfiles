@@ -18,10 +18,11 @@ venv() { if [[ "$VIRTUAL_ENV" == "" ]]; then source venv/bin/activate; else deac
 
 # Git functions
 gg () { git add .; git commit -m "automated commit message"; git push; }
-ga () {	if [[ $1 == "" ]]; then git add .;	else git add $@; fi }
+ga () { if [[ $1 == "" ]]; then git add .;  else git add $@; fi }
 gp () { git push }
 gf () { git pull }
 gs () { git status }
+gss () { git status --short }
 gr () { git checkout $1 }
 gh () { smerge log $1 }
 gc () { git commit -m "$1" }
@@ -37,8 +38,15 @@ gb () {
     local branch=$(git branch -a | grep -v HEAD | fzf --prompt='checkout-branch > ' | awk '{print $NF}';)
     if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
 }
-gptb() {
-    if [ "$#" -ne 1 ]; then echo "Usage: gptb file.txt"; return 1; fi;
+
+gff() {
+    if [ "$#" -ne 1 ]; then echo "Usage: gff file.txt"; return 1; fi;
+    remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
+    git checkout --patch $remote_branch $1
+}
+
+gpf() {
+    if [ "$#" -ne 1 ]; then echo "Usage: gpf file.txt"; return 1; fi;
     file_name=$1;
     local_branch=$(git branch | awk '{print $NF}' | fzf --prompt='local-branch > ');
     current_branch=$(git symbolic-ref --short HEAD)
@@ -104,13 +112,12 @@ push-all() {
 
 status-all() {
     echo "- Status notes"
-    (cd $HOME/notes; git status --short;)
+    (cd $HOME/notes; gss;)
     echo "- Status dotfiles"
-    (cd $HOME/dotfiles; git status --short;)
+    (cd $HOME/dotfiles; gss;)
     echo "- Status shared"
-    (cd $HOME/shared; git status --short;)
+    (cd $HOME/shared; gss;)
 }
-
 
 # ZLE commands
 copy_cmd() { 
