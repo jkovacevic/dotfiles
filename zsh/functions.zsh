@@ -94,7 +94,7 @@ sync-all() {
     echo "- Syncing dotfiles"
     (cd $HOME/dotfiles; gf;)
     echo "- Syncing shared"
-    (cd $HOME/shared; gg;)
+    (cd $HOME/shared; gf;)
 }
 
 push-all() {
