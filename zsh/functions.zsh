@@ -88,7 +88,7 @@ ts() {
     mv $1 $1.$ct
 }
 
-sync-all() {
+fa() {
     echo "- Syncing notes"
     (cd $HOME/notes; gf;)
     echo "- Syncing dotfiles"
@@ -97,7 +97,7 @@ sync-all() {
     (cd $HOME/shared; gf;)
 }
 
-push-all() {
+pa() {
     echo "- Pushing notes"
     (cd $HOME/notes; gg;)
     echo "- Pushing dotfiles"
@@ -106,7 +106,7 @@ push-all() {
     (cd $HOME/shared; gg;)
 }
 
-status-all() {
+sa() {
     echo "- Status notes"
     (cd $HOME/notes; gss;)
     echo "- Status dotfiles"
