@@ -91,6 +91,21 @@ sub yank_selection {
 	$self->selection_end(1, 0);
 }
 
+sub yank_command {
+	my ($self, $event) = @_;
+	my ($br, $bc, $er, $ec) = calc_span($self);
+
+	$self->selection_beg($er, 0);
+	$self->selection_end($er, find_max_line_column($self, $br, $er));
+	$self->selection_make($event->{time});
+	$self->selection_grab($event->{time}, 1);
+
+	$self->selection_beg(1, 0);
+	$self->selection_end(1, 0);
+	system("/home/jk/shared/bash/tidy-up-clipboard.sh &")
+}
+
+
 sub key_press {
 	my ($self, $event, $keysym, $char) = @_;
 	my $key = chr($keysym);
@@ -121,8 +136,11 @@ sub key_press {
 		toggle_select($self, 'n');
 	} elsif ($shiftKey) {
 		toggle_select($self, 'b');
-	}elsif ($key eq 'y' && $self->{select}) {
+	} elsif ($key eq 'y' && $self->{select}) {
 		yank_selection($self, $event);
+		deactivate($self);
+	} elsif ($key eq 'c') {
+		yank_command($self, $event);
 		deactivate($self);
 	}
 

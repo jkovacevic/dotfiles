@@ -125,3 +125,7 @@ go_back() {
     cd ..; echo "";
     zle reset-prompt;
 }; zle -N go_back
+
+reset_compinit() {
+    rm $HOME/.zcompdump && compinit
+}

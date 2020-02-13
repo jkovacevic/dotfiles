@@ -69,6 +69,7 @@ aws-ssh() {ssh -i ~/.ssh/smart-platform-test.pem ec2-user@$1}
 foxy-proxy() { ssh -i ~/.ssh/smart-platform-test.pem -N -D 8157  hadoop@$1 }
 
 function setup_tmux {
+    $HOME/dotfiles/tmux/tmux.startup.shell;
     if [ -z "$TMUX" ]
     then
         echo "Shell: [W]orkshell or [H]omeshell?"
