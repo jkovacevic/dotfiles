@@ -102,7 +102,7 @@ sub yank_command {
 
 	$self->selection_beg(1, 0);
 	$self->selection_end(1, 0);
-	system("/home/jk/shared/bash/tidy-up-clipboard.sh &")
+	system("/home/janko/shared/bash/tidy-up-clipboard.sh &");
 }
 
 
