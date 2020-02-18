@@ -1,4 +1,5 @@
-tmux new-session -d -s home -n 'ipy' ipython
+tmux new-session -d -s home -n 'ipy'
+tmux send-keys -t home:ipy "cd $HOME/local-tmp/ipython && source venv/bin/activate && ipython" Enter
 tmux neww -t home:2 -n 'mocp' mocp -T rhowaldt
 tmux neww -t home:3 -n 'music' -c music
 tmux neww -t home:4 -n 'htop' htop
