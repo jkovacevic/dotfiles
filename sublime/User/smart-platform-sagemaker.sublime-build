@@ -1,3 +1,0 @@
-{
-    "shell_cmd": "source /home/janko/PyProjects/smart-platform-sagemaker/venv/bin/activate && python $file"
-}
