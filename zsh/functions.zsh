@@ -56,19 +56,31 @@ grp() {
 }
 
 # Other functions
-tmp() {
-    tmp_folder=$HOME/notes/tmp
-    if [ "$#" -ne 1 ]; then 
+create_tmp() {
+    file=$2
+    if [ "$#" -ne 2 ]; then 
         tmp_file=$tmp_folder/$(head /dev/urandom | tr -dc a-z0-9 | head -c 13)
     else
-        tmp_file=$tmp_folder/$1
+        tmp_file=$tmp_folder/$file
     fi;
-    touch $tmp_file
-    subl $tmp_file
+    if [[ $file =~ \.py$ ]]; then
+        echo "#!/home/jk/local-tmp/ipython/venv/bin/python" > $tmp_file
+    else
+        touch $tmp_file
+    fi;
+    subl $tmp_file;
+}
+
+tmp() {
+    create_tmp "/tmp/" $@;
+}
+
+tmpl() {
+    create_tmp "$HOME/notes/tmp" $@;
 }
 
 log() {
-    echo "$1" && notify-send "$1"
+    echo "$1" && notify-send "$1";
 }
 
 short-url() {

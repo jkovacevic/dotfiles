@@ -5,6 +5,17 @@ try:
 except:
 	pass
 
+def pip_install(package):
+    import pip
+    message = pip.main(["install", package])
+    print(message)
+
+
+def pip_uninstall(package):
+    import pip
+    message = pip.main(["uninstall", package])
+    print(message)
+
 c.InteractiveShell.color_info = True
 c.InteractiveShell.colors = 'Linux'
 c.TerminalInteractiveShell.highlighting_style = 'monokai'
