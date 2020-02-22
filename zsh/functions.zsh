@@ -55,6 +55,33 @@ grp() {
     git checkout $current_branch;
 }
 
+gsa() {
+    echo "- Status notes"
+    (cd $HOME/notes; gss;)
+    echo "- Status dotfiles"
+    (cd $HOME/dotfiles; gss;)
+    echo "- Status shared"
+    (cd $HOME/shared; gss;)
+}
+
+gpa() {
+    echo "- Pushing notes"
+    (cd $HOME/notes; gg;)
+    echo "- Pushing dotfiles"
+    (cd $HOME/dotfiles; gg;)
+    echo "- Pushing shared"
+    (cd $HOME/shared; gg;)
+}
+
+gfa() {
+    echo "- Syncing notes"
+    (cd $HOME/notes; gf;)
+    echo "- Syncing dotfiles"
+    (cd $HOME/dotfiles; gf;)
+    echo "- Syncing shared"
+    (cd $HOME/shared; gf;)
+}
+
 # Other functions
 create_tmp() {
     file=$2
@@ -98,33 +125,6 @@ short-url() {
 ts() {
     ct=$(date +"%Y%m%d_%H%M%S")
     mv $1 $1.$ct
-}
-
-fa() {
-    echo "- Syncing notes"
-    (cd $HOME/notes; gf;)
-    echo "- Syncing dotfiles"
-    (cd $HOME/dotfiles; gf;)
-    echo "- Syncing shared"
-    (cd $HOME/shared; gf;)
-}
-
-pa() {
-    echo "- Pushing notes"
-    (cd $HOME/notes; gg;)
-    echo "- Pushing dotfiles"
-    (cd $HOME/dotfiles; gg;)
-    echo "- Pushing shared"
-    (cd $HOME/shared; gg;)
-}
-
-sa() {
-    echo "- Status notes"
-    (cd $HOME/notes; gss;)
-    echo "- Status dotfiles"
-    (cd $HOME/dotfiles; gss;)
-    echo "- Status shared"
-    (cd $HOME/shared; gss;)
 }
 
 # ZLE commands
