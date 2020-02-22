@@ -99,11 +99,22 @@ create_tmp() {
 }
 
 tmp() {
-    create_tmp "/tmp/" $@;
-}
-
-tmpl() {
-    create_tmp "$HOME/notes/tmp" $@;
+    if [ $# -eq 2 ] || [[ $1 == "local" ]]; then
+        tmp_folder="$HOME/notes/tmp";
+        if [ -z "$2" ]; then
+            tmp_file=$tmp_folder/$(head /dev/urandom | tr -dc a-z0-9 | head -c 13);
+        else
+            tmp_file=$tmp_folder/$2;
+        fi;
+    else
+        tmp_folder="/tmp";
+        if [ -z "$1" ]; then
+            tmp_file=$tmp_folder/$(head /dev/urandom | tr -dc a-z0-9 | head -c 13);
+        else
+            tmp_file=$tmp_folder/$1;
+        fi;
+    fi;
+    touch $tmp_file && subl $tmp_file;
 }
 
 log() {
