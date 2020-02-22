@@ -32,7 +32,7 @@ gb () {
     if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
 }
 
-grd() {
+gdr() {
     if [ "$#" -ne 1 ]; then echo "Usage: gdr file.txt"; return 1; fi;
     remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
     local_path=/tmp/$(basename $remote_branch)-$(basename $1)
@@ -41,7 +41,7 @@ grd() {
     fd $1 $local_path;
 }
 
-grp() {
+gpr() {
     if [ "$#" -ne 1 ]; then echo "Usage: gpr file.txt"; return 1; fi;
     file_name=$1;
     local_branch=$(git branch | awk '{print $NF}' | fzf --prompt='local-branch > ');
