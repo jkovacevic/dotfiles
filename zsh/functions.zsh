@@ -5,12 +5,12 @@ libreoffice () { bg libreoffice "$@" }
 pinta () { bg pinta "$@" }
 vlc() { bg vlc "$@" }
 thunar() { bg thunar "$@" }
-sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a *; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
+sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
 fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":\"$(realpath $2)\"}\'; }
 cpcat() { cat $1 | xclip -selection clipboard; }
 cppsh() { xclip -selection clipboard -o > $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
-ws() { rgrep -n $@ --color=auto; }
+ws() { rg -n $@ --color=auto; }
 wss() { sudo rg -n $@ --color=auto; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
@@ -32,8 +32,8 @@ gb () {
     if [[ $branch == *"remotes/origin"* ]]; then git checkout -t $branch; else git checkout $branch; fi;  
 }
 
-grd() {
-    if [ "$#" -ne 1 ]; then echo "Usage: grd file.txt"; return 1; fi;
+gdr() {
+    if [ "$#" -ne 1 ]; then echo "Usage: gdr file.txt"; return 1; fi;
     remote_branch=$(git branch -r | grep -v HEAD | fzf --prompt='origin-branch > ' | xargs)
     local_path=/tmp/$(basename $remote_branch)-$(basename $1)
     git cat-file blob $remote_branch:$(git ls-files --full-name $1) > $local_path;
@@ -41,8 +41,8 @@ grd() {
     fd $1 $local_path;
 }
 
-grp() {
-    if [ "$#" -ne 1 ]; then echo "Usage: grp file.txt"; return 1; fi;
+gpr() {
+    if [ "$#" -ne 1 ]; then echo "Usage: gpr file.txt"; return 1; fi;
     file_name=$1;
     local_branch=$(git branch | awk '{print $NF}' | fzf --prompt='local-branch > ');
     current_branch=$(git symbolic-ref --short HEAD)
@@ -55,20 +55,59 @@ grp() {
     git checkout $current_branch;
 }
 
+gsa() {
+    echo "- Status notes"
+    (cd $HOME/notes; gss;)
+    echo "- Status dotfiles"
+    (cd $HOME/dotfiles; gss;)
+    echo "- Status shared"
+    (cd $HOME/shared; gss;)
+}
+
+gpa() {
+    echo "- Pushing notes"
+    (cd $HOME/notes; gg;)
+    echo "- Pushing dotfiles"
+    (cd $HOME/dotfiles; gg;)
+    echo "- Pushing shared"
+    (cd $HOME/shared; gg;)
+}
+
+gfa() {
+    echo "- Syncing notes"
+    (cd $HOME/notes; gf;)
+    echo "- Syncing dotfiles"
+    (cd $HOME/dotfiles; gf;)
+    echo "- Syncing shared"
+    (cd $HOME/shared; gf;)
+}
+
 # Other functions
-tmp() {
-    tmp_folder=$HOME/notes/tmp
-    if [ "$#" -ne 1 ]; then 
+create_tmp() {
+    file=$2
+    if [ "$#" -ne 2 ]; then 
         tmp_file=$tmp_folder/$(head /dev/urandom | tr -dc a-z0-9 | head -c 13)
     else
-        tmp_file=$tmp_folder/$1
+        tmp_file=$tmp_folder/$file
     fi;
-    touch $tmp_file
-    subl $tmp_file
+    if [[ $file =~ \.py$ ]]; then
+        echo "#!/home/jk/local-tmp/ipython/venv/bin/python" > $tmp_file
+    else
+        touch $tmp_file
+    fi;
+    subl $tmp_file;
+}
+
+tmp() {
+    create_tmp "/tmp/" $@;
+}
+
+tmpl() {
+    create_tmp "$HOME/notes/tmp" $@;
 }
 
 log() {
-    echo "$1" && notify-send "$1"
+    echo "$1" && notify-send "$1";
 }
 
 short-url() {
@@ -88,33 +127,6 @@ ts() {
     mv $1 $1.$ct
 }
 
-fa() {
-    echo "- Syncing notes"
-    (cd $HOME/notes; gf;)
-    echo "- Syncing dotfiles"
-    (cd $HOME/dotfiles; gf;)
-    echo "- Syncing shared"
-    (cd $HOME/shared; gf;)
-}
-
-pa() {
-    echo "- Pushing notes"
-    (cd $HOME/notes; gg;)
-    echo "- Pushing dotfiles"
-    (cd $HOME/dotfiles; gg;)
-    echo "- Pushing shared"
-    (cd $HOME/shared; gg;)
-}
-
-sa() {
-    echo "- Status notes"
-    (cd $HOME/notes; gss;)
-    echo "- Status dotfiles"
-    (cd $HOME/dotfiles; gss;)
-    echo "- Status shared"
-    (cd $HOME/shared; gss;)
-}
-
 # ZLE commands
 copy_cmd() { 
     zle kill-buffer; 
@@ -125,3 +137,7 @@ go_back() {
     cd ..; echo "";
     zle reset-prompt;
 }; zle -N go_back
+
+reset_compinit() {
+    rm $HOME/.zcompdump && compinit
+}
