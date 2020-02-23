@@ -60,8 +60,8 @@ gsa() {
     (cd $HOME/notes; gss;)
     echo "- Status dotfiles"
     (cd $HOME/dotfiles; gss;)
-    echo "- Status shared"
-    (cd $HOME/shared; gss;)
+    echo "- Status dotfiles-shared"
+    (cd $HOME/dotfiles-shared; gss;)
 }
 
 gpa() {
@@ -69,8 +69,8 @@ gpa() {
     (cd $HOME/notes; gg;)
     echo "- Pushing dotfiles"
     (cd $HOME/dotfiles; gg;)
-    echo "- Pushing shared"
-    (cd $HOME/shared; gg;)
+    echo "- Pushing dotfiles-shared"
+    (cd $HOME/dotfiles-shared; gg;)
 }
 
 gfa() {
@@ -78,8 +78,8 @@ gfa() {
     (cd $HOME/notes; gf;)
     echo "- Syncing dotfiles"
     (cd $HOME/dotfiles; gf;)
-    echo "- Syncing shared"
-    (cd $HOME/shared; gf;)
+    echo "- Syncing dotfiles-shared"
+    (cd $HOME/dotfiles-shared; gf;)
 }
 
 # Other functions
