@@ -73,8 +73,8 @@ function setup_tmux {
 
         echo "Shell: [W]orkshell or [H]omeshell?"
         read shell
-        if [[ ${shell:l} == "w" ]] then $HOME/dotfiles/tmux/tmux.startup.shell; fi
-        if [[ ${shell:l} == "h" ]] then $HOME/dotfiles/tmux/tmux.startup.home; fi
+        if [[ ${shell:l} == "w" ]] then $HOME/dotfiles-shared/tmux/tmux.startup.shell; fi
+        if [[ ${shell:l} == "h" ]] then $HOME/dotfiles-shared/tmux/tmux.startup.home; fi
     fi
 }
 setup_tmux
