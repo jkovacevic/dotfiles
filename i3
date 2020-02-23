@@ -15,8 +15,8 @@ bindsym $mod+space              exec rofi -show drun -padding 16
 bindsym $mod+Ctrl+space         exec rofi -show run -padding 16
 
 bindsym $mod+l                  exec betterlockscreen -l
-bindsym $mod+t                  exec $HOME/shared/bash/translate.sh
-bindsym $mod+x                  exec $HOME/shared/bash/kill-proc.sh
+bindsym $mod+t                  exec $HOME/dotfiles-shared/bash/translate.sh
+bindsym $mod+x                  exec $HOME/dotfiles-shared/bash/kill-proc.sh
 bindsym $mod+Ctrl+F5            exec pavucontrol
 bindsym $mod+Ctrl+F6            exec arandr
 
@@ -44,7 +44,7 @@ bindsym XF86AudioLowerVolume    exec pactl set-sink-volume 0 -10%
 bindsym XF86AudioRaiseVolume    exec pactl set-sink-volume 0 +10%
 
 # Startup
-exec_always --no-startup-id $HOME/shared/bash/polybar_launch.sh
+exec_always --no-startup-id $HOME/dotfiles-shared/bash/polybar_launch.sh
 exec /usr/bin/urxvt -title urxvt_
 exec /usr/bin/thunderbird
 exec /usr/bin/slack
