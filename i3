@@ -103,6 +103,7 @@ bindsym $mod+Shift+equal        move container to workspace $workspace13
 
 # Xprop assignation
 assign [title="urxvt_"]                     $workspace0
+assign [class="Brave-browser"]              $workspace1
 assign [class="Google-chrome"]              $workspace1
 assign [class="jetbrains-idea-ce"]          $workspace2
 assign [class="jetbrains-pycharm-ce"]       $workspace2
