@@ -14,6 +14,7 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export EDITOR='micro'
+export LS_COLORS="di=01;34" # tree will display folders
 
 setopt prompt_subst
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
@@ -60,6 +61,7 @@ bindkey     "^Y"        copy_cmd
 bindkey     "^G"        fzf-cd-widget
 bindkey     "^F"        fzf-file-widget
 bindkey     "^D"        list_dir
+bindkey     "^T"        list_tree
 
 eval "$(ntfy shell-integration)"
 
