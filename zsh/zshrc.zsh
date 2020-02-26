@@ -40,25 +40,26 @@ export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
 export RPROMPT='$(vcs_info_wrapper)'
 
 # Remove keybinds
-bindkey -r "^[c" 	# fzf-cd-widget
-bindkey -r "^d" 	# delete-char-or-list
+bindkey -r "^[c"    # fzf-cd-widget
+bindkey -r "^d"     # delete-char-or-list
 bindkey -r "^T"     # fzf-file-widget
 
 # Terminal navigation
-bindkey    	"^[[3~"		delete-char
-bindkey    	"^[3;5~"	delete-char
-bindkey    	"^[[7~"		beginning-of-line
-bindkey    	"^[[8~"		end-of-line
-bindkey    	"^Z"		undo
-bindkey    	";5D"		vi-backward-blank-word
-bindkey    	";5C"		.vi-forward-blank-word
+bindkey     "^[[3~"     delete-char
+bindkey     "^[3;5~"    delete-char
+bindkey     "^[[7~"     beginning-of-line
+bindkey     "^[[8~"     end-of-line
+bindkey     "^Z"        undo
+bindkey     ";5D"       vi-backward-blank-word
+bindkey     ";5C"       .vi-forward-blank-word
+bindkey     ";2P"       go_back
 bindkey     "^[[25~"    go_back
-bindkey     "^[[1;2P"   go_back
 
 # Custom commands
-bindkey  	"^Y"		copy_cmd
-bindkey 	"^D"		fzf-cd-widget
-bindkey 	"^F"		fzf-file-widget
+bindkey     "^Y"        copy_cmd
+bindkey     "^G"        fzf-cd-widget
+bindkey     "^F"        fzf-file-widget
+bindkey     "^D"        list_dir
 
 eval "$(ntfy shell-integration)"
 
