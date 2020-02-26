@@ -15,6 +15,7 @@ export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export EDITOR='micro'
 export PATH="$HOME/script:$PATH"
+export LS_COLORS="di=01;34" # tree will display folders
 
 setopt prompt_subst
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
@@ -43,11 +44,13 @@ export RPROMPT='$(vcs_info_wrapper)'
 # Remove keybinds
 bindkey -r "^[c" 	# fzf-cd-widget
 bindkey -r "^d" 	# delete-char-or-list
+bindkey -r "^[d"    # delete-blank-word
 bindkey -r "^T"		# fzf-file-widget
 
 # Terminal navigation
 bindkey    	"^[[3~"		delete-char
 bindkey    	"^[3;5~"	delete-char
+bindkey     "^[d"       delete-word
 bindkey    	"^[[7~"		beginning-of-line
 bindkey    	"^[[8~"		end-of-line
 bindkey    	"^Z"		undo
@@ -61,6 +64,7 @@ bindkey  	"^Y"		copy_cmd
 bindkey 	"^G"		fzf-cd-widget
 bindkey 	"^F"		fzf-file-widget
 bindkey     "^D"        list_dir
+bindkey     "^T"        list_tree
 
 eval "$(ntfy shell-integration)"
 

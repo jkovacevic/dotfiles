@@ -160,12 +160,11 @@ extract () {
     fi
 }
 
-# ZLE commands
-copy_cmd() { 
-    zle kill-buffer; 
-    print -rn -- $CUTBUFFER | xclip -selection clipboard; 
-}; zle -N copy_cmd
+killport () {
+    kill -9 `lsof -i tcp:$1 | tail -1 | awk '{ print $2;}'`
+}
 
+# ZLE commands
 go_back() {
     cd ..; echo "";
     zle reset-prompt;
@@ -175,6 +174,11 @@ list_dir() {
     echo ""; ls -lFh --color=auto --group-directories-first;
     zle reset-prompt;
 }; zle -N list_dir
+
+list_tree() {
+    echo ""; tree -F -L 3 --filelimit=25 --noreport --dirsfirst .;
+    zle reset-prompt;
+}; zle -N list_tree
 
 reset_compinit() {
     rm $HOME/.zcompdump && compinit
