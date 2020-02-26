@@ -58,8 +58,9 @@ bindkey     "^[[25~"    go_back
 
 # Custom commands
 bindkey  	"^Y"		copy_cmd
-bindkey 	"^D"		fzf-cd-widget
+bindkey 	"^G"		fzf-cd-widget
 bindkey 	"^F"		fzf-file-widget
+bindkey     "^D"        list_dir
 
 eval "$(ntfy shell-integration)"
 
