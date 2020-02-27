@@ -61,7 +61,6 @@ bindkey     "^Y"        copy_cmd
 bindkey     "^G"        fzf-cd-widget
 bindkey     "^F"        fzf-file-widget
 bindkey     "^D"        list_dir
-bindkey     "^T"        list_tree
 
 eval "$(ntfy shell-integration)"
 
