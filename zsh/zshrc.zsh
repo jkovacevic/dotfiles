@@ -44,6 +44,7 @@ export RPROMPT='$(vcs_info_wrapper)'
 bindkey -r "^[c"    # fzf-cd-widget
 bindkey -r "^d"     # delete-char-or-list
 bindkey -r "^T"     # fzf-file-widget
+bindkey -r "^L"     # clear-screen
 
 # Terminal navigation
 bindkey     "^[[3~"     delete-char
@@ -58,9 +59,10 @@ bindkey     "^[[25~"    go_back
 
 # Custom commands
 bindkey     "^Y"        copy_cmd
-bindkey     "^G"        fzf-cd-widget
+bindkey     "^D"        fzf-cd-widget
 bindkey     "^F"        fzf-file-widget
-bindkey     "^D"        list_dir
+bindkey     "^L"        list_dir
+bindkey     "^K"        clear-screen
 
 eval "$(ntfy shell-integration)"
 
