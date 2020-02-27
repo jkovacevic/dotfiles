@@ -175,11 +175,6 @@ list_dir() {
     zle reset-prompt;
 }; zle -N list_dir
 
-list_tree() {
-    echo ""; tree -F -L 3 --filelimit=25 --noreport --dirsfirst .;
-    zle reset-prompt;
-}; zle -N list_tree
-
 reset_compinit() {
     rm $HOME/.zcompdump && compinit
 }
