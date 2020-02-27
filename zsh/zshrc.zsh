@@ -16,6 +16,7 @@ export SAVEHIST=$HISTSIZE
 export EDITOR='micro'
 export LS_COLORS="di=01;34" # tree will display folders
 
+setopt auto_cd
 setopt prompt_subst
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
