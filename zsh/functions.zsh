@@ -1,4 +1,5 @@
 # Functions used as commands
+sz() { source ~/.zshrc; echo "Sourced ~/.zshrc"; }
 bg() { nohup $@ > /dev/null 2>&1 & disown }
 evince () { bg evince "$@" }
 libreoffice () { bg libreoffice "$@" }

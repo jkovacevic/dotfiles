@@ -34,6 +34,7 @@ zstyle ':vcs_info:*' enable git cvs svn
 zstyle ':vcs_info:*' formats '%F{white}[%f%F{red}%b%f%f] '
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select
+zstyle ':completion:*' insert-tab false
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
 
@@ -59,7 +60,6 @@ bindkey     ";2P"       go_back
 bindkey     "^[[25~"    go_back
 
 # Custom commands
-bindkey     "^Y"        copy_cmd
 bindkey     "^D"        fzf-cd-widget
 bindkey     "^F"        fzf-file-widget
 bindkey     "^L"        list_dir
