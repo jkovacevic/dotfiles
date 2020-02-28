@@ -17,6 +17,7 @@ export EDITOR='micro'
 export PATH="$HOME/script:$PATH"
 export LS_COLORS="di=01;34" # tree will display folders
 
+setopt auto_cd
 setopt prompt_subst
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
@@ -34,6 +35,7 @@ zstyle ':vcs_info:*' enable git cvs svn
 zstyle ':vcs_info:*' formats '%F{white}[%f%F{red}%b%f%f] '
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select
+zstyle ':completion:*' insert-tab false
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
 
@@ -46,6 +48,7 @@ bindkey -r "^[c" 	# fzf-cd-widget
 bindkey -r "^d" 	# delete-char-or-list
 bindkey -r "^[d"    # delete-blank-word
 bindkey -r "^T"		# fzf-file-widget
+bindkey -r "^L"     # clear-screen
 
 # Terminal navigation
 bindkey    	"^[[3~"		delete-char
@@ -60,10 +63,10 @@ bindkey     ";2P"       go_back
 bindkey     "^[[25~"    go_back
 
 # Custom commands
-bindkey  	"^Y"		copy_cmd
-bindkey 	"^G"		fzf-cd-widget
-bindkey 	"^F"		fzf-file-widget
-bindkey     "^D"        list_dir
+bindkey     "^D"        fzf-cd-widget
+bindkey     "^F"        fzf-file-widget
+bindkey     "^L"        list_dir
+bindkey     "^K"        clear-screen
 
 eval "$(ntfy shell-integration)"
 
