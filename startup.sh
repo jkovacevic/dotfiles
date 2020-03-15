@@ -15,6 +15,13 @@ function switch_home_end {
 	xmodmap -e "keycode 115 = Next"
 }
 
+function revert_home_end {
+	xmodmap -e "keycode 112 = Prior"
+	xmodmap -e "keycode 117 = Next"
+	xmodmap -e "keycode 110 = Home"
+	xmodmap -e "keycode 115 = End"
+}
+
 function disable_capslock {
 	xmodmap -e 'clear Lock'
 	xmodmap -e "keycode 66 = F13"
@@ -27,7 +34,7 @@ function accelarate_touchpad {
 }
 
 disable_touchpad
-switch_home_end
+# switch_home_end
 disable_capslock
 accelarate_touchpad
 
