@@ -25,7 +25,6 @@ gf () { git pull }
 gs () { git status }
 gss () { git status --short }
 gr () { git checkout $1 }
-grh () { git reset --hard origin/$(git branch | awk '{print $NF}') }
 gh () { smerge log $1 }
 gc () { git commit -m "$1" }
 gd () { git diff $1; }
