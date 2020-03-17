@@ -1,3 +1,4 @@
+#!/bin/bash
 function between_strings {
 	echo "$(sed -e "s/.*$2\(.*\)$3.*/\1/" <<< $1 | xargs)"
 }
