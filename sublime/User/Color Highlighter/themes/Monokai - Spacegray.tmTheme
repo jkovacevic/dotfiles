@@ -1420,6 +1420,17 @@
 				<string>#9D9D9DFF</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>scope</key>
+			<string>col_00030001</string>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#00030001</string>
+				<key>foreground</key>
+				<string>#9D9D9DFF</string>
+			</dict>
+		</dict>
 	</array>
 	<key>uuid</key>
 	<string>D8D5E82E-3D5B-46B5-B38E-8C841C21347D</string>
