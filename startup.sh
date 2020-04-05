@@ -34,7 +34,7 @@ function accelarate_touchpad {
 }
 
 disable_touchpad
-# switch_home_end
+switch_home_end
 disable_capslock
 accelarate_touchpad
 
