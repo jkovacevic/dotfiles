@@ -14,7 +14,7 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export EDITOR='micro'
-export PATH="$HOME/script:$PATH"
+export PATH="$HOME/script:$HOME/.local/bin/:$PATH"
 export LS_COLORS="di=01;34" # tree will display folders
 
 setopt auto_cd
