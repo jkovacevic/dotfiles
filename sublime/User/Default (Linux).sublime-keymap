@@ -217,7 +217,6 @@
 
 	{ "keys": ["ctrl+o"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
 	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
-	{ "keys": ["ctrl+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
 	{ "keys": ["ctrl+;"], "command": "show_overlay", "args": {"overlay": "goto", "text": "#"} },
 	{ "keys": ["alt+-"], "command": "jump_back" },
 	{ "keys": ["alt+shift+-"], "command": "jump_forward" },
