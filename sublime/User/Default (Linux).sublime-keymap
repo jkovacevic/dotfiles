@@ -8,7 +8,7 @@
 	{ "keys": ["ctrl+shift+n"], "command": "new_window" },
 	{ "keys": ["ctrl+shift+w"], "command": "close_window" },
 	{ "keys": ["ctrl+shift+t"], "command": "reopen_last_file" },
-
+	{ "keys": ["ctrl+shift+w"], "command": "Duplicate" },
 	{ "keys": ["ctrl+alt+n"], "command": "sbs_next_diff" },	
 	{ "keys": ["ctrl+alt+p"], "command": "sbs_prev_diff" },	
 

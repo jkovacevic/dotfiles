@@ -10,8 +10,8 @@ fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":
 cpcat() { cat $1 | xclip -selection clipboard; }
 cppsh() { xclip -selection clipboard -o > $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
-ws() { rg -n $@ --color=auto; }
-wss() { sudo rg -n $@ --color=auto; }
+ws() { rg -n $@ --ignore-case --color=auto; }
+wss() { sudo rg -n $@ --ignore-case --color=auto; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
 venv() { if [[ "$VIRTUAL_ENV" == "" ]]; then source venv/bin/activate; else deactivate; fi; }
