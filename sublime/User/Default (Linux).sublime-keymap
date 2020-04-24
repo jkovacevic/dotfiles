@@ -3,12 +3,9 @@
 	{ "keys": ["f13", "p"], "command": "copy_path" },
 	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
 	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
+	{ "keys": ["f13", "c"], "command": "clear_whitespace" },
 	{ "keys": ["ctrl+n"], "command": "new_file" },
 	{ "keys": ["ctrl+w"], "command": "close" },
-	{ "keys": ["ctrl+shift+n"], "command": "new_window" },
-	{ "keys": ["ctrl+shift+w"], "command": "close_window" },
-	{ "keys": ["ctrl+shift+t"], "command": "reopen_last_file" },
-	{ "keys": ["ctrl+shift+w"], "command": "Duplicate" },
 	{ "keys": ["ctrl+alt+n"], "command": "sbs_next_diff" },	
 	{ "keys": ["ctrl+alt+p"], "command": "sbs_prev_diff" },	
 
@@ -222,7 +219,6 @@
 	{ "keys": ["alt+keypad_minus"], "command": "jump_back" },
 	{ "keys": ["alt+shift+keypad_minus"], "command": "jump_forward" },
 
-	{ "keys": ["ctrl+i"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse": false} },
 	{ "keys": ["ctrl+shift+i"], "command": "show_panel", "args": {"panel": "incremental_find", "reverse": true} },
 	{ "keys": ["ctrl+f"], "command": "show_panel", "args": {"panel": "find", "reverse": false} },
 	{ "keys": ["ctrl+h"], "command": "show_panel", "args": {"panel": "replace", "reverse": false} },
