@@ -4,6 +4,8 @@
 	{ "keys": ["f13", "p"], "command": "copy_path" },
 	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
 	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
+	{ "keys": ["f13", "c"], "command": "clear_whitespace" },
+	
 	{ "keys": ["ctrl+t"], "command": "new_file" },
 	{ "keys": ["ctrl+w"], "command": "close" },
 	{ "keys": ["ctrl+shift+n"], "command": "new_window" },
