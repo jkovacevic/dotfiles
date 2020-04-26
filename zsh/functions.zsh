@@ -39,7 +39,7 @@ gdr() {
     local_path=/tmp/$(basename $remote_branch)-$(basename $1)
     git cat-file blob $remote_branch:$(git ls-files --full-name $1) > $local_path;
     readlink -f $1 | xargs echo -n | xclip -selection clipboard;
-    fd $1 $local_path;
+    fd $1 $local_path && subl $1;
 }
 
 gpr() {
