@@ -668,7 +668,8 @@
 	// Ctrl commands
 	{ "keys": ["ctrl+t"], "command": "create_tmp_file" },
 	{ "keys": ["ctrl+l"], "command": "split_selection_into_lines" },
-	{ "keys": ["ctrl+shift+l"], "command": "multiselect_to_line" },
+	{ "keys": ["ctrl+shift+l"], "command": "multicommand", "args": {"commands": [{"command": "multiselect_to_line"}, {"command": "show_overlay", "args": {"overlay": "goto", "text": ":"}}, {"command": "multiselect_to_line_after"}] } },
+	// { "keys": ["ctrl+shift+l"], "command": "multiselect_to_line" },
 	
 	{ "keys": ["ctrl+k"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
 	{ "keys": ["ctrl+w"], "command": "close" },
