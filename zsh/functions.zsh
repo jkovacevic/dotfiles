@@ -1,4 +1,5 @@
 # Functions used as commands
+ll() { s=$(ls -lFh --color=auto --group-directories-first | awk 'NR > 1'); echo $s | bat --number}
 sz() { source ~/.zshrc; echo "Sourced ~/.zshrc"; }
 bg() { nohup $@ > /dev/null 2>&1 & disown }
 evince () { bg evince "$@" }
@@ -177,4 +178,25 @@ list_dir() {
 
 reset_compinit() {
     rm $HOME/.zcompdump && compinit
+}
+
+s1() { s 1 }
+s2() { s 2 }
+s3() { s 3 }
+s4() { s 4 }
+s5() { s 5 }
+s6() { s 6 }
+s7() { s 7 }
+s8() { s 8 }
+s9() { s 9 }
+s() {
+    line=$(ls --color=auto --group-directories-first)
+    a=($(echo "$line" | tr ' ' '\n'))
+    f=${a[$1]}
+    if [ -d $f ]; then 
+        cd $f
+    fi;
+    if [ -f $f ]; then 
+        xdotool type ${f} > /dev/null 2>&1
+    fi;
 }
