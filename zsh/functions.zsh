@@ -180,18 +180,20 @@ reset_compinit() {
 }
 
 go() {
-    line=$(ls --color=auto --group-directories-first)
-    a=($(echo "$line" | tr ' ' '\n'))
-    sel=$(ll | /bin/cat -n | awk '{printf ("%5s\t%s\n", $1, $NF)}'| fzf --prompt='sel:')
+    sel=$(ls --color=auto --group-directories-first | /bin/cat -n | awk '{printf ("%5s\t%s\n", $1, $NF)}'| fzf --prompt='sel:')
     n=$(echo $sel | awk '{print $1}')
-    f=${a[$n]}
-    if [ -d $f ]; then 
-        zle reset-prompt;
-        cd $f && echo "" && ls -lh --color=auto --group-directories-first
-    fi;
-    if [ -f $f ]; then 
-        xdotool type ${f} > /dev/null 2>&1
-        xdotool key "ctrl+a"
-    fi;
+    re='^[0-9]+$'
+    if [[ $n =~ $re ]] ; then
+        f=${a[$n]}
+        if [ -d $f ]; then 
+            zle reset-prompt;
+            cd $f && echo "\nDirectory content:" && ls -lh --color=auto --group-directories-first
+        fi;
+        if [ -f $f ]; then 
+            xdotool type ${f} > /dev/null 2>&1
+            xdotool key "ctrl+a"
+        fi;
+    fi
     zle reset-prompt;
+
 }; zle -N go
