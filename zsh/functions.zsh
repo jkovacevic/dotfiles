@@ -180,6 +180,8 @@ reset_compinit() {
 }
 
 go() {
+    line=$(ls --color=auto --group-directories-first)
+    a=($(echo "$line" | tr ' ' '\n'))
     sel=$(ls --color=auto --group-directories-first | /bin/cat -n | awk '{printf ("%5s\t%s\n", $1, $NF)}'| fzf --prompt='sel:')
     n=$(echo $sel | awk '{print $1}')
     re='^[0-9]+$'
