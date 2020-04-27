@@ -1,5 +1,4 @@
 # Functions used as commands
-ll() { s=$(ls -lFh --color=auto --group-directories-first | awk 'NR > 1'); echo $s | bat --number}
 sz() { source ~/.zshrc; echo "Sourced ~/.zshrc"; }
 bg() { nohup $@ > /dev/null 2>&1 & disown }
 evince () { bg evince "$@" }
@@ -180,23 +179,19 @@ reset_compinit() {
     rm $HOME/.zcompdump && compinit
 }
 
-s1() { s 1 }
-s2() { s 2 }
-s3() { s 3 }
-s4() { s 4 }
-s5() { s 5 }
-s6() { s 6 }
-s7() { s 7 }
-s8() { s 8 }
-s9() { s 9 }
-s() {
+go() {
     line=$(ls --color=auto --group-directories-first)
     a=($(echo "$line" | tr ' ' '\n'))
-    f=${a[$1]}
+    sel=$(ll | /bin/cat -n | awk '{printf ("%5s\t%s\n", $1, $NF)}'| fzf --prompt='sel:')
+    n=$(echo $sel | awk '{print $1}')
+    f=${a[$n]}
     if [ -d $f ]; then 
-        cd $f
+        zle reset-prompt;
+        cd $f && echo "" && ls -lh --color=auto --group-directories-first
     fi;
     if [ -f $f ]; then 
         xdotool type ${f} > /dev/null 2>&1
+        xdotool key "ctrl+a"
     fi;
-}
+    zle reset-prompt;
+}; zle -N go
