@@ -187,9 +187,9 @@ go() {
     re='^[0-9]+$'
     if [[ $n =~ $re ]] ; then
         f=${files[$n]}
-        if [ -d $f ]; then 
-            zle reset-prompt;
-            cd $f && echo "\nDirectory content:" && ls -lh --color=auto --group-directories-first
+        if [ -d $f ]; then
+            cd $f
+            xdotool key "ctrl+l"
         fi;
         if [ -f $f ]; then 
             xdotool type ${f} > /dev/null 2>&1
