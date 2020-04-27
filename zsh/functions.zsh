@@ -181,12 +181,12 @@ reset_compinit() {
 
 go() {
     line=$(ls --color=auto --group-directories-first)
-    a=($(echo "$line" | tr ' ' '\n'))
     sel=$(ls --color=auto --group-directories-first | /bin/cat -n | awk '{printf ("%5s\t%s\n", $1, $NF)}'| fzf --prompt='sel:')
+    files=($(echo "$line" | tr ' ' '\n'))
     n=$(echo $sel | awk '{print $1}')
     re='^[0-9]+$'
     if [[ $n =~ $re ]] ; then
-        f=${a[$n]}
+        f=${files[$n]}
         if [ -d $f ]; then 
             zle reset-prompt;
             cd $f && echo "\nDirectory content:" && ls -lh --color=auto --group-directories-first
