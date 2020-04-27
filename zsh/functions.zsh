@@ -1,4 +1,5 @@
 # Functions used as commands
+sz() { source ~/.zshrc; echo "Sourced ~/.zshrc"; }
 bg() { nohup $@ > /dev/null 2>&1 & disown }
 evince () { bg evince "$@" }
 libreoffice () { bg libreoffice "$@" }
@@ -39,7 +40,7 @@ gdr() {
     local_path=/tmp/$(basename $remote_branch)-$(basename $1)
     git cat-file blob $remote_branch:$(git ls-files --full-name $1) > $local_path;
     readlink -f $1 | xargs echo -n | xclip -selection clipboard;
-    fd $1 $local_path;
+    fd $1 $local_path && subl $1;
 }
 
 gpr() {
@@ -178,3 +179,24 @@ list_dir() {
 reset_compinit() {
     rm $HOME/.zcompdump && compinit
 }
+
+go() {
+    line=$(ls --color=auto --group-directories-first)
+    sel=$(ls --color=auto --group-directories-first | /bin/cat -n | awk '{printf ("%5s\t%s\n", $1, $NF)}'| fzf --prompt='sel:')
+    files=($(echo "$line" | tr ' ' '\n'))
+    n=$(echo $sel | awk '{print $1}')
+    re='^[0-9]+$'
+    if [[ $n =~ $re ]] ; then
+        f=${files[$n]}
+        if [ -d $f ]; then
+            cd $f
+            xdotool key "ctrl+l"
+        fi;
+        if [ -f $f ]; then 
+            xdotool type ${f} > /dev/null 2>&1
+            xdotool key "ctrl+a"
+        fi;
+    fi
+    zle reset-prompt;
+
+}; zle -N go

@@ -64,9 +64,9 @@ bindkey     "^[[25~"    go_back
 
 # Custom commands
 bindkey     "^D"        fzf-cd-widget
-bindkey     "^F"        fzf-file-widget
+bindkey     "^F"        go
+bindkey     "^G"        fzf-file-widget
 bindkey     "^L"        list_dir
-bindkey     "^K"        clear-screen
 
 eval "$(ntfy shell-integration)"
 
