@@ -61,10 +61,10 @@ bindkey    	";5D"		vi-backward-blank-word
 bindkey    	";5C"		.vi-forward-blank-word
 bindkey     ";2P"       go_back
 bindkey     "^[[25~"    go_back
+bindkey     "^F"        go
 
 # Custom commands
 bindkey     "^D"        fzf-cd-widget
-bindkey     "^F"        go
 bindkey     "^G"        fzf-file-widget
 bindkey     "^L"        list_dir
 

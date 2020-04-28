@@ -168,6 +168,7 @@ killport () {
 # ZLE commands
 go_back() {
     cd ..; echo "";
+    xdotool key "ctrl+l"
     zle reset-prompt;
 }; zle -N go_back
 
@@ -182,9 +183,11 @@ reset_compinit() {
 
 go() {
     line=$(ls --color=auto --group-directories-first)
-    sel=$(ls --color=auto --group-directories-first | /bin/cat -n | awk '{printf ("%5s\t%s\n", $1, $NF)}'| fzf --prompt='sel:')
+    
+    sel=$(ls --color=auto --group-directories-first | /bin/cat -n | sed 's/ //g' | awk '{printf ("%s. %s\n", $1, $NF)}'| fzf --prompt='select > ')
     files=($(echo "$line" | tr ' ' '\n'))
     n=$(echo $sel | awk '{print $1}')
+    n=${n/./}
     re='^[0-9]+$'
     if [[ $n =~ $re ]] ; then
         f=${files[$n]}
