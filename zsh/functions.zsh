@@ -11,8 +11,8 @@ fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":
 cpcat() { cat $1 | xclip -selection clipboard; }
 cppsh() { xclip -selection clipboard -o > $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
-ws() { rgrep -n $@ --color=auto; }
-wss() { sudo rg -n $@ --color=auto; }
+ws() { rgrep -n $@ --ignore-case --color=auto; }
+wss() { sudo rg -n $@ --ignore-case --color=auto; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
 venv() { if [[ "$VIRTUAL_ENV" == "" ]]; then source venv/bin/activate; else deactivate; fi; }
@@ -167,6 +167,7 @@ killport () {
 # ZLE commands
 go_back() {
     cd ..; echo "";
+    xdotool key "ctrl+l"
     zle reset-prompt;
 }; zle -N go_back
 
@@ -181,9 +182,10 @@ reset_compinit() {
 
 go() {
     line=$(ls --color=auto --group-directories-first)
-    sel=$(ls --color=auto --group-directories-first | /bin/cat -n | awk '{printf ("%5s\t%s\n", $1, $NF)}'| fzf --prompt='sel:')
+    sel=$(ls --color=auto --group-directories-first | /bin/cat -n | sed 's/ //g' | awk '{printf ("%s. %s\n", $1, $NF)}'| fzf --prompt='select > ')
     files=($(echo "$line" | tr ' ' '\n'))
     n=$(echo $sel | awk '{print $1}')
+    n=${n/./}
     re='^[0-9]+$'
     if [[ $n =~ $re ]] ; then
         f=${files[$n]}
