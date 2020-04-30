@@ -56,7 +56,6 @@ bindkey     "^[[8~"     end-of-line
 bindkey     "^Z"        undo
 bindkey     ";5D"       vi-backward-blank-word
 bindkey     ";5C"       .vi-forward-blank-word
-bindkey     "^[[15~"    clear-screen
 bindkey     "^[[1;2P"   list_dir
 bindkey     "^[[25~"    list_dir
 bindkey     "^L"        clear-screen
@@ -64,7 +63,7 @@ bindkey     "^L"        clear-screen
 # Custom commands
 bindkey     "^K"        go
 bindkey     "^D"        fzf-cd-widget
-bindkey     "^G"        fzf-file-widget
+bindkey     "^F"        fzf-file-widget
 
 eval "$(ntfy shell-integration)"
 
