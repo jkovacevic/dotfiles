@@ -166,6 +166,27 @@ killport () {
 }
 
 # ZLE commands
+go() {
+    line=$(ls --color=auto --group-directories-first)
+    sel=$(ls --color=auto --group-directories-first | /bin/cat -n | sed 's/ //g' | awk '{printf ("%s. %s\n", $1, $NF)}'| fzf --prompt='select > ')
+    files=($(echo "$line" | tr ' ' '\n'))
+    n=$(echo $sel | awk '{print $1}')
+    n=${n/./}
+    re='^[0-9]+$'
+    if [[ $n =~ $re ]] ; then
+        f=${files[$n]}
+        if [ -d $f ]; then
+            cd $f
+        fi;
+        if [ -f $f ]; then 
+            xdotool type ${f} > /dev/null 2>&1
+            xdotool key "ctrl+a"
+        fi;
+    fi
+    zle reset-prompt;
+
+}; zle -N go
+
 go_back() {
     cd ..; echo "";
     xdotool key "ctrl+l"
@@ -180,26 +201,3 @@ list_dir() {
 reset_compinit() {
     rm $HOME/.zcompdump && compinit
 }
-
-go() {
-    line=$(ls --color=auto --group-directories-first)
-    
-    sel=$(ls --color=auto --group-directories-first | /bin/cat -n | sed 's/ //g' | awk '{printf ("%s. %s\n", $1, $NF)}'| fzf --prompt='select > ')
-    files=($(echo "$line" | tr ' ' '\n'))
-    n=$(echo $sel | awk '{print $1}')
-    n=${n/./}
-    re='^[0-9]+$'
-    if [[ $n =~ $re ]] ; then
-        f=${files[$n]}
-        if [ -d $f ]; then
-            cd $f
-            xdotool key "ctrl+l"
-        fi;
-        if [ -f $f ]; then 
-            xdotool type ${f} > /dev/null 2>&1
-            xdotool key "ctrl+a"
-        fi;
-    fi
-    zle reset-prompt;
-
-}; zle -N go

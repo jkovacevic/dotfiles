@@ -59,12 +59,11 @@ bindkey    	"^[[8~"		end-of-line
 bindkey    	"^Z"		undo
 bindkey    	";5D"		vi-backward-blank-word
 bindkey    	";5C"		.vi-forward-blank-word
-bindkey     "^[[1;2P"   list_dir
-bindkey     "^[[25~"    list_dir
-bindkey     "^L"        clear-screen
 
 # Custom commands
-bindkey     "^K"        go
+bindkey     "^[[1;2P"   go
+bindkey     "^[[25~"    go
+bindkey     "^@"        list_dir
 bindkey     "^D"        fzf-cd-widget
 bindkey     "^F"        fzf-file-widget
 
