@@ -61,9 +61,10 @@ bindkey    	";5D"		vi-backward-blank-word
 bindkey    	";5C"		.vi-forward-blank-word
 
 # Custom commands
-bindkey     "^[[1;2P"   go
-bindkey     "^[[25~"    go
-bindkey     "^@"        list_dir
+bindkey     "^[[1;2P"   list_dir
+bindkey     "^[[25~"    list_dir
+bindkey     "^L"        clear-screen
+bindkey     "^@"        go
 bindkey     "^D"        fzf-cd-widget
 bindkey     "^F"        fzf-file-widget
 

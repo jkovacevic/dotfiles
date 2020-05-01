@@ -180,7 +180,6 @@ go() {
         fi;
         if [ -f $f ]; then 
             xdotool type ${f} > /dev/null 2>&1
-            xdotool key "ctrl+a"
         fi;
     fi
     zle reset-prompt;
