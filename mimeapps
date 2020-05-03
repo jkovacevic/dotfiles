@@ -1,7 +1,11 @@
 [Added Associations]
 application/pdf=evince.desktop;
-text/plain=libreoffice-writer.desktop;
+text/plain=sublime_text_3.desktop;
+text/md=sublime_text_3.desktop;
 image/png=sxiv.desktop;
+image/jpg=sxiv.desktop;
+image/jpeg=sxiv.desktop;
+image/gif=sxiv.desktop;
 
 [Default Applications]
 x-scheme-handler/discord-461729900748079114=discord-461729900748079114.desktop
