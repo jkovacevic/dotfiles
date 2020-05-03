@@ -65,6 +65,7 @@ bindkey     "^[[1;2P"   list_dir
 bindkey     "^[[25~"    list_dir
 bindkey     "^L"        clear-screen
 bindkey     "^@"        go
+bindkey     "^H"        go_back
 bindkey     "^D"        fzf-cd-widget
 bindkey     "^F"        fzf-file-widget
 

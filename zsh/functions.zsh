@@ -188,7 +188,6 @@ go() {
 
 go_back() {
     cd ..; echo "";
-    xdotool key "ctrl+l"
     zle reset-prompt;
 }; zle -N go_back
 
