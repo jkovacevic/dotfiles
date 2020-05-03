@@ -102,7 +102,7 @@ gsa() {
 
 gpa() {
     echo "- Pushing notes"
-    (cd $HOME/notes; gg;)
+    (cd $HOME/notes; if $(gs | grep "Your branch is up to date"); then gg; fi;)
     echo "- Pushing dotfiles"
     (cd $HOME/dotfiles; gg;)
     echo "- Pushing dotshared"
