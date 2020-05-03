@@ -56,18 +56,25 @@ bindkey    	"^[3;5~"	delete-char
 bindkey     "^[d"       delete-word
 bindkey    	"^[[7~"		beginning-of-line
 bindkey    	"^[[8~"		end-of-line
-bindkey    	"^Z"		undo
 bindkey    	";5D"		vi-backward-blank-word
 bindkey    	";5C"		.vi-forward-blank-word
+bindkey    	"^Z"		undo
 
 # Custom commands
-bindkey     "^[[1;2P"   list_dir
-bindkey     "^[[25~"    list_dir
-bindkey     "^L"        clear-screen
-bindkey     "^@"        go
-bindkey     "^H"        go_back
-bindkey     "^D"        fzf-cd-widget
-bindkey     "^F"        fzf-file-widget
+CAPS_LOCK="^[[1;2P"
+SHIFT_CAPS="^[[25$"
+CTRL_L="^L"
+CTRL_D="^D"
+CTRL_F="^F"
+CTRL_BKSP="^H"
+CTRL_SP="^@"
+
+bindkey     $CTRL_L          go
+bindkey     $CAPS_LOCK       list_dir
+bindkey     $SHIFT_CAPS      clear-screen
+bindkey     $CTRL_D          fzf-cd-widget
+bindkey     $CTRL_F          fzf-file-widget
+bindkey     $CTRL_BKSP       go_back
 
 eval "$(ntfy shell-integration)"
 
