@@ -5,9 +5,11 @@
 	],
 	"installed_packages":
 	[
+		"A File Icon",
 		"Color Highlight",
 		"Compare Side-By-Side",
 		"Local History",
+		"Material Theme",
 		"Package Control",
 		"PlainTasks",
 		"Pretty JSON",
