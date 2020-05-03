@@ -150,7 +150,7 @@
             <key>settings</key>
             <dict>
                 <key>background</key>
-                <string>#1A1E2410</string>
+                <string>#0A0E14</string>
                 <key>fontStyle</key>
                 <string>bold underline</string>
                 <key>foreground</key>
