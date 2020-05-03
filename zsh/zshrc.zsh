@@ -1,6 +1,5 @@
 source /usr/share/fzf/key-bindings.zsh
 source $HOME/dotfiles/zsh/functions.zsh
-source $HOME/dotfiles/zsh/alias.zsh
 
 autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
