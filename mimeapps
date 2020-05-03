@@ -1,0 +1,7 @@
+[Added Associations]
+application/pdf=evince.desktop;
+text/plain=libreoffice-writer.desktop;
+image/png=sxiv.desktop;
+
+[Default Applications]
+x-scheme-handler/discord-461729900748079114=discord-461729900748079114.desktop

@@ -21,6 +21,7 @@ create_symlink "$HOME/dotfiles/themes/rofi-theme-Monokai.rasi" "$HOME/.config/ro
 create_symlink "$HOME/dotfiles/themes/tasks-monokai.hidden-tmTheme" "$HOME/.config/sublime-text-3/Packages/PlainTasks/tasks-monokai.hidden-tmTheme"
 create_symlink "$HOME/dotfiles/Xdefaults" "$HOME/.Xdefaults"
 create_symlink "$HOME/dotfiles/polybar" "$HOME/.config/polybar/config"
+create_symlink "$HOME/dotfiles/mimeapps" "$HOME/.config/mimeapps.list"
 create_symlink "$HOME/dotfiles/bash/screenshot.sh" "$HOME/.local/bin/screenshot"
 create_symlink "$HOME/dotfiles/bash/video.sh" "$HOME/.local/bin/video"
 create_symlink "$HOME/dotfiles/bash/microphone.sh" "$HOME/.local//bin/microphone"
