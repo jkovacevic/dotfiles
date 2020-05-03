@@ -5,16 +5,13 @@
 	],
 	"installed_packages":
 	[
-		"A File Icon",
 		"ayu",
 		"Color Highlight",
 		"Compare Side-By-Side",
 		"Local History",
-		"Material Theme",
 		"Package Control",
 		"PlainTasks",
 		"Pretty JSON",
-		"SideBarEnhancements",
-		"Theme - Spacegray"
+		"SideBarEnhancements"
 	]
 }
