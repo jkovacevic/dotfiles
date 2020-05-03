@@ -166,6 +166,37 @@ killport () {
 }
 
 # ZLE commands
+# Remove keybinds
+bindkey -r "^[c"    # fzf-cd-widget
+bindkey -r "^d"     # delete-char-or-list
+bindkey -r "^[d"    # delete-blank-word
+bindkey -r "^T"     # fzf-file-widget
+bindkey -r "^L"     # clear-screen
+
+# Terminal navigation
+bindkey     "^[[3~"     delete-char
+bindkey     "^[3;5~"    delete-char
+bindkey     "^[d"       delete-word
+bindkey     "^[[7~"     beginning-of-line
+bindkey     "^[[8~"     end-of-line
+bindkey     ";5D"       vi-backward-blank-word
+bindkey     ";5C"       .vi-forward-blank-word
+bindkey     "^Z"        undo
+
+# Custom commands
+CAPS_LOCK="^[[1;2P"
+CTRL_L="^L"
+CTRL_D="^D"
+CTRL_F="^F"
+CTRL_BKSP="^H"
+CTRL_SP="^@"
+
+bindkey     $CTRL_L          go
+bindkey     $CAPS_LOCK       list_dir
+bindkey     $CTRL_BKSP       go_back
+bindkey     $CTRL_D          fzf-cd-widget
+bindkey     $CTRL_F          fzf-file-widget
+
 go() {
     line=$(ls --color=auto --group-directories-first)
     sel=$(ls --color=auto --group-directories-first | /bin/cat -n | sed 's/ //g' | awk '{printf ("%s. %s\n", $1, $NF)}'| fzf --prompt='select > ')
@@ -183,7 +214,6 @@ go() {
         fi;
     fi
     zle reset-prompt;
-
 }; zle -N go
 
 go_back() {
@@ -195,7 +225,3 @@ list_dir() {
     echo ""; ls -lFh --color=auto --group-directories-first;
     zle reset-prompt;
 }; zle -N list_dir
-
-reset_compinit() {
-    rm $HOME/.zcompdump && compinit
-}

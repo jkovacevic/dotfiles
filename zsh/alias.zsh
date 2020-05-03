@@ -1,3 +1,4 @@
+alias cs="clear"
 alias ls='ls --color=auto --group-directories-first'
 alias lt='ls -lhrt --color=auto --group-directories-first'
 alias ldot='ls -ld .*'

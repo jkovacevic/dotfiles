@@ -43,41 +43,7 @@ vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_in
 export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
 export RPROMPT='$(vcs_info_wrapper)'
 
-# Remove keybinds
-bindkey -r "^[c" 	# fzf-cd-widget
-bindkey -r "^d" 	# delete-char-or-list
-bindkey -r "^[d"    # delete-blank-word
-bindkey -r "^T"		# fzf-file-widget
-bindkey -r "^L"     # clear-screen
-
-# Terminal navigation
-bindkey    	"^[[3~"		delete-char
-bindkey    	"^[3;5~"	delete-char
-bindkey     "^[d"       delete-word
-bindkey    	"^[[7~"		beginning-of-line
-bindkey    	"^[[8~"		end-of-line
-bindkey    	";5D"		vi-backward-blank-word
-bindkey    	";5C"		.vi-forward-blank-word
-bindkey    	"^Z"		undo
-
-# Custom commands
-CAPS_LOCK="^[[1;2P"
-SHIFT_CAPS="^[[25$"
-CTRL_L="^L"
-CTRL_D="^D"
-CTRL_F="^F"
-CTRL_BKSP="^H"
-CTRL_SP="^@"
-
-bindkey     $CTRL_L          go
-bindkey     $CAPS_LOCK       list_dir
-bindkey     $SHIFT_CAPS      clear-screen
-bindkey     $CTRL_D          fzf-cd-widget
-bindkey     $CTRL_F          fzf-file-widget
-bindkey     $CTRL_BKSP       go_back
-
 eval "$(ntfy shell-integration)"
-
 aws-prod() { alias aws='aws --profile=smaato-prod-admin' }
 aws-test() { alias aws='aws --profile=smaato-test-admin' }
 aws-ssh() {ssh -i ~/.ssh/smart-platform-test.pem ec2-user@$1}
