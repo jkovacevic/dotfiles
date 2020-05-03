@@ -137,10 +137,9 @@ for_window [title="Authy"] floating enable
 # Intellij and PyCharm settings for popup refresh
 for_window [class="^jetbrains-.+"] focus
 
-for_window [workspace=$workspace3] layout stacked
+for_window [workspace=$workspace3] layout split
 for_window [workspace=$workspace4] layout stacked
 for_window [workspace=$workspace5] layout stacked
-for_window [workspace=$workspace7] layout stacked
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1e2128 #1e2128 #00ffff #2F343F   #2F343F
