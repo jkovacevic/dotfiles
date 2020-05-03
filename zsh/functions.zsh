@@ -16,6 +16,40 @@ wss() { sudo rg -n $@ --ignore-case --color=auto; }
 ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
 yvid() { youtube-dl $1; }
 venv() { if [[ "$VIRTUAL_ENV" == "" ]]; then source venv/bin/activate; else deactivate; fi; }
+log() { echo "$1" && notify-send "$1"; }
+ts() { ct=$(date +"%Y%m%d_%H%M%S"); mv $1 $1.$ct }
+
+short-url() {
+    urlencode() {
+      python -c 'import urllib, sys; print(urllib.quote(sys.argv[1], sys.argv[2]))' "$1" "$urlencode_safe"
+    }
+
+    encoded=$(urlencode "$1")
+    local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$encoded")
+    xclip -selection clipboard <<< $url
+    echo $url
+}
+
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)        tar xjf $1        ;;
+            *.tar.gz)         tar xzf $1        ;;
+            *.bz2)            bunzip2 $1        ;;
+            *.rar)            unrar x $1        ;;
+            *.gz)             gunzip $1         ;;
+            *.tar)            tar xf $1         ;;
+            *.tbz2)           tar xjf $1        ;;
+            *.tgz)            tar xzf $1        ;;
+            *.zip)            unzip $1          ;;
+            *.Z)              uncompress $1     ;;
+            *.7z)             7zr e $1          ;;
+            *)                echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
 
 # Git functions
 gg () { git add .; git commit -m "automated commit message"; git push; }
@@ -82,87 +116,6 @@ gfa() {
     (cd $HOME/dotfiles; gf;)
     echo "- Syncing dotshared"
     (cd $HOME/dotshared; gf;)
-}
-
-# Other functions
-create_tmp() {
-    file=$2
-    if [ "$#" -ne 2 ]; then 
-        tmp_file=$tmp_folder/$(head /dev/urandom | tr -dc a-z0-9 | head -c 13)
-    else
-        tmp_file=$tmp_folder/$file
-    fi;
-    if [[ $file =~ \.py$ ]]; then
-        echo "#!/home/jk/local-tmp/ipython/venv/bin/python" > $tmp_file
-    else
-        touch $tmp_file
-    fi;
-    subl $tmp_file;
-}
-
-tmp() {
-    if [ $# -eq 2 ] || [[ $1 == "local" ]]; then
-        tmp_folder="$HOME/notes/tmp";
-        if [ -z "$2" ]; then
-            tmp_file=$tmp_folder/$(head /dev/urandom | tr -dc a-z0-9 | head -c 13);
-        else
-            tmp_file=$tmp_folder/$2;
-        fi;
-    else
-        tmp_folder="/tmp";
-        if [ -z "$1" ]; then
-            tmp_file=$tmp_folder/$(head /dev/urandom | tr -dc a-z0-9 | head -c 13);
-        else
-            tmp_file=$tmp_folder/$1;
-        fi;
-    fi;
-    touch $tmp_file && subl $tmp_file;
-}
-
-log() {
-    echo "$1" && notify-send "$1";
-}
-
-short-url() {
-
-    urlencode() {
-      python -c 'import urllib, sys; print(urllib.quote(sys.argv[1], sys.argv[2]))' "$1" "$urlencode_safe"
-    }
-
-    encoded=$(urlencode "$1")
-    local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$encoded")
-    xclip -selection clipboard <<< $url
-    echo $url
-}
-
-ts() {
-    ct=$(date +"%Y%m%d_%H%M%S")
-    mv $1 $1.$ct
-}
-
-extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)        tar xjf $1        ;;
-            *.tar.gz)         tar xzf $1        ;;
-            *.bz2)            bunzip2 $1        ;;
-            *.rar)            unrar x $1        ;;
-            *.gz)             gunzip $1         ;;
-            *.tar)            tar xf $1         ;;
-            *.tbz2)           tar xjf $1        ;;
-            *.tgz)            tar xzf $1        ;;
-            *.zip)            unzip $1          ;;
-            *.Z)              uncompress $1     ;;
-            *.7z)             7zr e $1          ;;
-            *)                echo "'$1' cannot be extracted via extract()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
-}
-
-killport () {
-    kill -9 `lsof -i tcp:$1 | tail -1 | awk '{ print $2;}'`
 }
 
 # ZLE commands
