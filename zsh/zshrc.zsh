@@ -1,6 +1,5 @@
 source /opt/fzf/shell/key-bindings.zsh
 source $HOME/dotfiles/zsh/functions.zsh
-source $HOME/dotfiles/zsh/alias.zsh
 
 autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
@@ -42,37 +41,16 @@ vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_in
 export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
 export RPROMPT='$(vcs_info_wrapper)'
 
-# Remove keybinds
-bindkey -r "^[c"    # fzf-cd-widget
-bindkey -r "^d"     # delete-char-or-list
-bindkey -r "^T"     # fzf-file-widget
-bindkey -r "^L"     # clear-screen
-
-# Terminal navigation
-bindkey     "^[[3~"     delete-char
-bindkey     "^[3;5~"    delete-char
-bindkey     "^[[7~"     beginning-of-line
-bindkey     "^[[8~"     end-of-line
-bindkey     "^Z"        undo
-bindkey     ";5D"       vi-backward-blank-word
-bindkey     ";5C"       .vi-forward-blank-word
-bindkey     "^[[1;2P"   list_dir
-bindkey     "^[[25~"    list_dir
-bindkey     "^L"        clear-screen
-
-# Custom commands
-bindkey     "^K"        go
-bindkey     "^D"        fzf-cd-widget
-bindkey     "^F"        fzf-file-widget
-
 eval "$(ntfy shell-integration)"
 
 aws-prod() { alias aws='aws --profile=smaato-prod-admin' }
 aws-test() { alias aws='aws --profile=smaato-test-admin' }
-aws-ssh() { aws ssm start-session --target $1}
-foxy-proxy() { ssh -i ~/.ssh/smart-platform-test.pem -N -D 8157 hadoop@$1 }
 
-function setup_tmux {
+aws-ssh() {ssh -i ~/.ssh/smart-platform-test.pem ec2-user@$1}
+foxy-proxy() { ssh -i ~/.ssh/smart-platform-test.pem -N -D 8157  hadoop@$1 }
+setup_tmux() {
+
+
     if [ -z "$TMUX" ]
     then
 
@@ -82,4 +60,3 @@ function setup_tmux {
         if [[ ${shell:l} == "h" ]] then $HOME/dotshared/tmux/tmux.startup.home; fi
     fi
 }
-setup_tmux

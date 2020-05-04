@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"ayu",
 		"Color Highlight",
 		"Compare Side-By-Side",
 		"Local History",
