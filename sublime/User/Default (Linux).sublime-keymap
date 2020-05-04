@@ -243,13 +243,8 @@
 
 	{ "keys": ["ctrl+alt+shift+p"], "command": "show_scope_name" },
 
-	{ "keys": ["f7"], "command": "build" },
-	{ "keys": ["ctrl+b"], "command": "build" },
 	{ "keys": ["ctrl+shift+b"], "command": "build", "args": {"select": true} },
 	{ "keys": ["ctrl+break"], "command": "cancel_build" },
-
-	{ "keys": ["f9"], "command": "sort_lines", "args": {"case_sensitive": false} },
-	{ "keys": ["ctrl+f9"], "command": "sort_lines", "args": {"case_sensitive": true} },
 
 	// Auto-pair quotes
 	{ "keys": ["\""], "command": "insert_snippet", "args": {"contents": "\"$0\""}, "context":
@@ -654,13 +649,14 @@
 
 	///////// Custom keybindings /////////
 	{ "keys": ["ctrl+n"], "command": "noop" },
+	{ "keys": ["ctrl+b"], "command": "noop" },
 
 	// CapsLock commands
 	{ "keys": ["f13", "s"], "command": "save" },
 	{ "keys": ["f13", "p"], "command": "copy_path" },
 	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
 	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
-	{ "keys": ["f13", "w"], "command": "clear_whitespace" },
+	{ "keys": ["f13", "i"], "command": "clear_whitespace" },
 	{ "keys": ["f13", "l"], "command": "multicommand", "args": {"commands": [{"command": "select_all"}, {"command": "split_selection_into_lines"} ] } },
 
 	// Ctrl commands
@@ -672,6 +668,8 @@
 	{ "keys": ["ctrl+shift+n"], "command": "new_window" },
 	{ "keys": ["ctrl+shift+w"], "command": "close_window" },
 	{ "keys": ["ctrl+shift+t"], "command": "reopen_last_file" },
+
+	{ "keys": ["f5"], "command": "build" },
 
 	{ "keys": ["ctrl+alt+n"], "command": "sbs_next_diff" },	
 	{ "keys": ["ctrl+alt+p"], "command": "sbs_prev_diff" },	
