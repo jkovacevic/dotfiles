@@ -656,7 +656,7 @@
 	{ "keys": ["f13", "p"], "command": "copy_path" },
 	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
 	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
-	{ "keys": ["f13", "i"], "command": "clear_whitespace" },
+	{ "keys": ["f13", "w"], "command": "clear_whitespace" },
 	{ "keys": ["f13", "l"], "command": "multicommand", "args": {"commands": [{"command": "select_all"}, {"command": "split_selection_into_lines"} ] } },
 
 	// Ctrl commands
