@@ -154,12 +154,13 @@ bindkey     "^Z"        undo
 # Custom commands
 CAPS_LOCK="^[[1;2P"
 CTRL_L="^L"
+CTRL_G="^G"
 CTRL_D="^D"
 CTRL_F="^F"
 CTRL_BKSP="^H"
 CTRL_SP="^@"
 
-bindkey     $CTRL_L          go
+bindkey     $CTRL_G          go
 bindkey     $CAPS_LOCK       list_dir
 bindkey     $CTRL_BKSP       go_back
 bindkey     $CTRL_D          fzf-cd-widget
@@ -178,7 +179,7 @@ go() {
             cd $f
         fi;
         if [ -f $f ]; then 
-            xdotool type ${f} > /dev/null 2>&1
+            xdotool type --delay 6 ${f} > /dev/null 2>&1
         fi;
     fi
     zle reset-prompt;
