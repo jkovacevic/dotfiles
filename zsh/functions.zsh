@@ -159,8 +159,8 @@ CTRL_F="^F"
 CTRL_BKSP="^H"
 CTRL_SP="^@"
 
-bindkey     $CTRL_L          go
-bindkey     $CAPS_LOCK       list_dir
+bindkey     $CAPS_LOCK       go
+bindkey     $CTRL_L          list_dir
 bindkey     $CTRL_BKSP       go_back
 bindkey     $CTRL_D          fzf-cd-widget
 bindkey     $CTRL_F          fzf-file-widget
