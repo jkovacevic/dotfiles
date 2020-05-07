@@ -10,7 +10,7 @@
             <key>settings</key>
             <dict>
                 <key>background</key>
-                <string>#0A0E14</string>
+                <string>#111822</string>
                 <key>caret</key>
                 <string>#E6B450</string>
                 <key>findHighlight</key>
@@ -18,7 +18,7 @@
                 <key>findHighlightForeground</key>
                 <string>#1A1E24</string>
                 <key>foreground</key>
-                <string>#F8F8F2</string>
+                <string>#f3f2f2</string>
                 <key>invisibles</key>
                 <string>#3B3A32</string>
                 <key>lineHighlight</key>
@@ -150,7 +150,7 @@
             <key>settings</key>
             <dict>
                 <key>background</key>
-                <string>#0A0E14</string>
+                <string>#111822</string>
                 <key>fontStyle</key>
                 <string>bold underline</string>
                 <key>foreground</key>
