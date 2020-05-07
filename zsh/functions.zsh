@@ -71,6 +71,11 @@ port_list() {
     echo $v | fzf
 }
 
+pid_list() {
+    local v=$(sudo ps -aux)
+    echo $v | fzf
+}
+
 # Git functions
 gg () { git add .; git commit -m "automated commit message"; git push; }
 ga () { if [[ $1 == "" ]]; then git add .;  else git add $@; fi }
