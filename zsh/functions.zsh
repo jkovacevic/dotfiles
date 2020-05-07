@@ -1,5 +1,4 @@
 # Aliases
-alias cls="clear"
 alias ls='ls --color=auto --group-directories-first'
 alias lt='ls -lhrt --color=auto --group-directories-first'
 alias ldot='ls -ld .*'
@@ -171,6 +170,7 @@ CTRL_BKSP="^H"
 CTRL_SP="^@"
 
 bindkey     $CTRL_G          go
+bindkey     $CTRL_L          clear-screen
 bindkey     $CAPS_LOCK       list_dir
 bindkey     $CTRL_BKSP       go_back
 bindkey     $CTRL_D          fzf-cd-widget
