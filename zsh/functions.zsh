@@ -1,5 +1,5 @@
 # Aliases
-alias cls="clear"
+alias l='ls -lh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
 alias lt='ls -lhrt --color=auto --group-directories-first'
 alias ldot='ls -ld .*'
@@ -64,6 +64,16 @@ extract () {
     else
         echo "'$1' is not a valid file"
     fi
+}
+
+port_list() {
+    local v=$(sudo lsof -i -P -n)
+    echo $v | fzf
+}
+
+pid_list() {
+    local v=$(sudo ps -aux)
+    echo $v | fzf
 }
 
 # Git functions
@@ -161,6 +171,7 @@ CTRL_BKSP="^H"
 CTRL_SP="^@"
 
 bindkey     $CTRL_G          go
+bindkey     $CTRL_L          clear-screen
 bindkey     $CAPS_LOCK       list_dir
 bindkey     $CTRL_BKSP       go_back
 bindkey     $CTRL_D          fzf-cd-widget
