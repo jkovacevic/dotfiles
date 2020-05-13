@@ -655,11 +655,14 @@
 	{ "keys": ["f13", "p"], "command": "copy_path" },
 	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
 	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
-	{ "keys": ["f13", "w"], "command": "clear_whitespace" },
 	{ "keys": ["f13", "l"], "command": "split_selection_into_lines" },
+	{ "keys": ["f13", "w"], "command": "multicommand", "args": {"commands": [
+		{"command": "clear_whitespace"},
+		{"command": "move_to", "args": {"to": "bol", "extend": false}} ] 	// Press Home button to deselect text
+	} },
 	{ "keys": ["f13", "l"], "command": "multicommand", "args": {"commands": [
 		{"command": "split_selection_into_lines"},
-		{"command": "move_to", "args": {"to": "bol", "extend": false}} ] // Press Home button to deselect text
+		{"command": "move_to", "args": {"to": "bol", "extend": false}} ] 	// Press Home button to deselect text
 	} },
 	{ "keys": ["f13", "a"], "command": "multicommand", "args": {"commands": [
 		{"command": "select_all"}, 
