@@ -194,8 +194,6 @@
 		]
 	},
 
-	{ "keys": ["ctrl+o"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
-	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
 	{ "keys": ["alt+-"], "command": "jump_back" },
 	{ "keys": ["alt+shift+-"], "command": "jump_forward" },
 	{ "keys": ["alt+keypad_minus"], "command": "jump_back" },
@@ -647,9 +645,10 @@
 		]
 	},
 
-	///////// Custom keybindings /////////
+	// Custom keybindings 
 	{ "keys": ["ctrl+n"], "command": "noop" },
 	{ "keys": ["ctrl+b"], "command": "noop" },
+	{ "keys": ["ctrl+g"], "command": "noop" },
 
 	// CapsLock commands
 	{ "keys": ["f13", "s"], "command": "save" },
@@ -663,9 +662,13 @@
 		{"command": "move", "args": {"by": "characters", "forward": true}} ] // Move right to deselect text
 	} },
 
+	// Commands including overlay
+	{ "keys": ["ctrl+o"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+	{ "keys": ["ctrl+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
+
 	// Ctrl commands
 	{ "keys": ["ctrl+t"], "command": "create_tmp_file" },
-	{ "keys": ["ctrl+l"], "command": "split_selection_into_lines" },
 	{ "keys": ["ctrl+k"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
 	
 	{ "keys": ["ctrl+w"], "command": "close" },
