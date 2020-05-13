@@ -657,7 +657,11 @@
 	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
 	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
 	{ "keys": ["f13", "w"], "command": "clear_whitespace" },
-	{ "keys": ["f13", "l"], "command": "multicommand", "args": {"commands": [{"command": "select_all"}, {"command": "split_selection_into_lines"} ] } },
+	{ "keys": ["f13", "l"], "command": "multicommand", "args": {"commands": [
+		{"command": "select_all"}, 
+		{"command": "split_selection_into_lines"},
+		{"command": "move", "args": {"by": "characters", "forward": true}} ] // Move right to deselect text
+	} },
 
 	// Ctrl commands
 	{ "keys": ["ctrl+t"], "command": "create_tmp_file" },
