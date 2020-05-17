@@ -3,6 +3,7 @@ set $mod Mod4
 font pango:DejaVu Sans Bold 10
 floating_modifier $mod
 focus_follows_mouse no
+focus_wrapping no
 
 # Shortcuts and scripts
 bindsym $mod+Escape             kill
