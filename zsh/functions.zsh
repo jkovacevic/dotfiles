@@ -66,12 +66,12 @@ extract () {
     fi
 }
 
-port_list() {
+port-list() {
     local v=$(sudo lsof -i -P -n)
     echo $v | fzf
 }
 
-pid_list() {
+pid-list() {
     local v=$(sudo ps -aux)
     echo $v | fzf
 }
@@ -143,14 +143,6 @@ gfa() {
     (cd $HOME/dotshared; gf;)
 }
 
-# ZLE commands
-# Remove keybinds
-bindkey -r "^[c"    # fzf-cd-widget
-bindkey -r "^d"     # delete-char-or-list
-bindkey -r "^[d"    # delete-blank-word
-bindkey -r "^T"     # fzf-file-widget
-bindkey -r "^L"     # clear-screen
-
 # Terminal navigation
 bindkey     "^[[3~"     delete-char
 bindkey     "^[3;5~"    delete-char
@@ -161,7 +153,40 @@ bindkey     ";5D"       vi-backward-blank-word
 bindkey     ";5C"       .vi-forward-blank-word
 bindkey     "^Z"        undo
 
-# Custom commands
+# Jira commands
+jira-init() {
+    if [ ! "$#" -eq 1 ]; then echo "Expecting Jira ticket number as CLI argument"; exit 1; fi;
+    ticket_num=$1
+
+    jira_home="$HOME/Jira"
+    file_name="memo"
+    dir_name="$jira_home/$ticket_num"
+
+    find_latest_name() {
+        dir_name=$1
+        file_name=$2
+        FILE_NAME="${dir_name}/${file_name}1"
+        while [ -f $FILE_NAME ]
+        do
+            n=$((n + 1))
+            FILE_NAME=${dir_name}/${file_name}${n}
+        done
+    }
+
+    if [ ! -d $dir_name ]; then
+        echo "Creating directory $dir_name"
+        mkdir -p $dir_name
+    fi;
+
+    find_latest_name $dir_name $file_name
+
+    if [ ! -f $FILE_NAME ]; then
+        echo "Creating file: $FILE_NAME"
+        touch $FILE_NAME
+    fi;
+}
+
+# ZLE commands
 CAPS_LOCK="^[[1;2P"
 CTRL_L="^L"
 CTRL_G="^G"
@@ -169,6 +194,13 @@ CTRL_D="^D"
 CTRL_F="^F"
 CTRL_BKSP="^H"
 CTRL_SP="^@"
+
+# Remove keybinds
+bindkey -r "^[c"    # fzf-cd-widget
+bindkey -r "^d"     # delete-char-or-list
+bindkey -r "^[d"    # delete-blank-word
+bindkey -r "^T"     # fzf-file-widget
+bindkey -r "^L"     # clear-screen
 
 bindkey     $CTRL_G          go
 bindkey     $CTRL_L          clear-screen
