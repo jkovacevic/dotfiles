@@ -202,7 +202,6 @@ CTRL_SP="^@"
 # Remove keybinds
 bindkey -r "^[c"    # fzf-cd-widget
 bindkey -r "^d"     # delete-char-or-list
-bindkey -r "^[d"    # delete-blank-word
 bindkey -r "^T"     # fzf-file-widget
 bindkey -r "^L"     # clear-screen
 
