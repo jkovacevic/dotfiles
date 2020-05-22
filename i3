@@ -18,6 +18,7 @@ bindsym $mod+Ctrl+space         exec rofi -show run -padding 16
 bindsym $mod+l                  exec betterlockscreen -l
 bindsym $mod+t                  exec $HOME/dotshared/bash/translate.sh
 bindsym $mod+x                  exec $HOME/dotshared/bash/kill-proc.sh
+bindsym Ctrl+g                  exec $HOME/dotshared/bash/google-search.sh
 bindsym $mod+Ctrl+F5            exec pavucontrol
 bindsym $mod+Ctrl+F6            exec arandr
 

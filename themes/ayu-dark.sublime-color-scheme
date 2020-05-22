@@ -33,6 +33,46 @@
 	},
 	"rules": [
 		{
+			"background": "#002B36FF",
+			"scope": "col_002B36FF",
+			"foreground": "#9F9F9FFF"
+		},
+		{
+			"background": "#268BD2FF",
+			"scope": "col_268BD2FF",
+			"foreground": "#F4F4F4FF"
+		},
+		{
+			"background": "#EEE8D5FF",
+			"scope": "col_EEE8D5FF",
+			"foreground": "#676767FF"
+		},
+		{
+			"background": "#FDF6E3FF",
+			"scope": "col_FDF6E3FF",
+			"foreground": "#757575FF"
+		},
+		{
+			"background": "#FF444444",
+			"scope": "col_FF444444",
+			"foreground": "#AAAAAAFF"
+		},
+		{
+			"background": "#DC322FFF",
+			"scope": "col_DC322FFF",
+			"foreground": "#E4E4E4FF"
+		},
+		{
+			"background": "#586E75FF",
+			"scope": "col_586E75FF",
+			"foreground": "#E8E8E8FF"
+		},
+		{
+			"background": "#5F676AFF",
+			"scope": "col_5F676AFF",
+			"foreground": "#E4E4E4FF"
+		},
+		{
 			"foreground": "#AAAAAAFF",
 			"scope": "col_2A2A2AFF",
 			"background": "#2A2A2AFF"
