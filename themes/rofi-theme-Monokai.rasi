@@ -109,10 +109,6 @@
     handle-width: 0px ;
     padding:      0;
 }
-#sidebar {
-    border:       2px 0px 0px ;
-    border-color: @separatorcolor;
-}
 #button.selected {
     background-color: @selected-normal-background;
     text-color:       @selected-normal-foreground;
@@ -135,7 +131,7 @@
     text-color: @normal-foreground;
 }
 #inputbar {
-    children:   [ textbox-prompt-colon,entry,case-indicator ];
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 #textbox-prompt-colon {
     expand:     false;

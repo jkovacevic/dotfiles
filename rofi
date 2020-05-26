@@ -1,7 +1,5 @@
-rofi.combi-modi:        window,drun,ssh
-rofi.font:              Liberation Sans 12
-rofi.location:          2
-rofi.yoffset:           20
+rofi.combi-modi:        window,drun,ssh,dmenu
+rofi.font:              Liberation Sans 14
 rofi.show-icons:        true
 rofi.fixed-num-lines:   true
-rofi.theme: /usr/share/rofi/themes/Monokai.rasi
+rofi.theme:             rofi-theme-Monokai.rasi

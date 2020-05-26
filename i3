@@ -11,8 +11,8 @@ bindsym $mod+Shift+r            restart
 bindsym $mod+Shift+x            exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+Return             exec i3-sensible-terminal
-bindsym $mod+space              exec rofi -show drun -padding 16
-bindsym $mod+Ctrl+space         exec rofi -show run -padding 16
+bindsym $mod+space              exec rofi -show drun -padding 20 -yoffset -100
+bindsym ctrl+space              exec $HOME/dotshared/bash/google-search.sh
 
 bindsym $mod+l                  exec betterlockscreen -l
 bindsym $mod+t                  exec $HOME/dotshared/bash/translate.sh
@@ -29,6 +29,7 @@ bindsym $mod+Shift+Down         move down
 bindsym $mod+Shift+Up           move up
 bindsym $mod+Shift+Right        move right
 bindsym $mod+Tab                move workspace to output left
+
 bindsym $mod+Shift+f            fullscreen toggle
 bindsym $mod+Shift+q            layout stacking
 bindsym $mod+Shift+w            layout tabbed
