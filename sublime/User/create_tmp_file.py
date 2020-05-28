@@ -294,7 +294,7 @@ class CreateTmpFileCommand(sublime_plugin.TextCommand):
         import random
         title = random.choice(titles)
         title = title.lower().replace(" ", "-")
-        tmp_file = "/tmp/" + title
+        tmp_file = "/tmp/" + title + ".txt"
         open(tmp_file, 'a+').close()
         w = sublime.active_window()
         w.open_file(tmp_file)
