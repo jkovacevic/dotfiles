@@ -185,7 +185,8 @@ jira-init() {
 
     if [ ! -f $FILE_NAME ]; then
         echo "Creating file: $FILE_NAME"
-        echo "https://jira.smaato.net/browse/${ticket_num}" > $FILE_NAME
+        echo "<Insert ticket title>:" > $FILE_NAME
+        echo "https://jira.smaato.net/browse/${ticket_num}" >> $FILE_NAME
         subl $FILE_NAME
     fi;
 }
