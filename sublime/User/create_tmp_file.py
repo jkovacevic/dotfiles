@@ -2,7 +2,7 @@ import sublime
 import sublime_plugin
 sublime.log_commands(True)
 
-titles = [
+titles_all = [
     "Tyrian Explorer",
     "Tyrian Pathfinder",
     "Tyrian Trailblazer",
@@ -287,6 +287,67 @@ titles = [
     "Legendary Commander",
 ]
 
+titles = [
+    "Not Too Smelly",
+    "Not Too Dopey",
+    "Not Too Clumsy",
+    "Not Too Boring",
+    "Not Too Annoying",
+    "Not Too Grumpy",
+    "Not Too Silly",
+    "Not Too Lazy",
+    "Not Too Foolish",
+    "Not Too Shabby",
+    "Guardian of Tyria",
+    "Guardian of Cantha",
+    "Guardian of Elona",
+    "Hero",
+    "Fierce Hero",
+    "Mighty Hero",
+    "Deadly Hero",
+    "Terrifying Hero",
+    "Conquering Hero",
+    "Subjugating Hero",
+    "Vanquishing Hero",
+    "Renowned Hero",
+    "Illustrious Hero",
+    "Eminent Hero",
+    "King's Hero",
+    "Emperor's Hero",
+    "Balthazar's Hero",
+    "Legendary Hero",
+    "Skillz",   
+    "Pro Skillz",
+    "Numchuck Skillz",
+    "Mad Skillz",
+    "Über Micro Skillz",
+    "Gosu Skillz",
+    "1337 Skillz",
+    "iddqd Skillz",
+    "T3h Haxz0rz Skillz",
+    "Pure Pwnage Skillz",
+    "These skillz go to",
+    "Real Ultimate Power Skillz",
+    "Survivor",
+    "Indomitable Survivor",
+    "Legendary Survivor",
+    "Sweet Tooth",
+    "Connoisseur of Confectionaries",
+    "Charmed",
+    "Lucky",
+    "Favored",
+    "Prosperous",
+    "Golden",
+    "Blessed by Fate",
+    "Hapless",
+    "Unlucky",
+    "Unfavored",
+    "Tragic",
+    "Wretched",
+    "Jinxed",
+    "Cursed by Fate"
+]
+
 
 class CreateTmpFileCommand(sublime_plugin.TextCommand):
 
@@ -294,8 +355,11 @@ class CreateTmpFileCommand(sublime_plugin.TextCommand):
         # import random
         # title = random.choice(titles)
         # title = title.lower().replace(" ", "-")
+        # tmp_file = "/tmp/" + title + ".txt"
+
         import uuid
         tmp_file = "/tmp/" + str(uuid.uuid4())
+
         open(tmp_file, 'a+').close()
         w = sublime.active_window()
         w.open_file(tmp_file)
