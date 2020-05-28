@@ -291,10 +291,11 @@ titles = [
 class CreateTmpFileCommand(sublime_plugin.TextCommand):
 
     def create_tmp_file(self):
-        import random
-        title = random.choice(titles)
-        title = title.lower().replace(" ", "-")
-        tmp_file = "/tmp/" + title + ".txt"
+        # import random
+        # title = random.choice(titles)
+        # title = title.lower().replace(" ", "-")
+        import uuid
+        tmp_file = "/tmp/" + str(uuid.uuid4())
         open(tmp_file, 'a+').close()
         w = sublime.active_window()
         w.open_file(tmp_file)
