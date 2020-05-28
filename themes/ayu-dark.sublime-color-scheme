@@ -33,6 +33,86 @@
 	},
 	"rules": [
 		{
+			"scope": "col_959595FF",
+			"foreground": "#151515FF",
+			"background": "#959595FF"
+		},
+		{
+			"scope": "col_151515FF",
+			"foreground": "#959595FF",
+			"background": "#151515FF"
+		},
+		{
+			"scope": "col_00FF00FF",
+			"foreground": "#151515FF",
+			"background": "#00FF00FF"
+		},
+		{
+			"scope": "col_E1E1E1FF",
+			"foreground": "#616161FF",
+			"background": "#E1E1E1FF"
+		},
+		{
+			"scope": "col_616161FF",
+			"foreground": "#E1E1E1FF",
+			"background": "#616161FF"
+		},
+		{
+			"scope": "col_FFFF0001",
+			"foreground": "#8E8E8EFF",
+			"background": "#FFFF0001"
+		},
+		{
+			"scope": "col_FF00FFFF",
+			"foreground": "#E9E9E9FF",
+			"background": "#FF00FFFF"
+		},
+		{
+			"scope": "col_FFFF00FF",
+			"foreground": "#616161FF",
+			"background": "#FFFF00FF"
+		},
+		{
+			"scope": "col_E7E7E7FF",
+			"foreground": "#676767FF",
+			"background": "#E7E7E7FF"
+		},
+		{
+			"scope": "col_5F5F5FFF",
+			"foreground": "#DFDFDFFF",
+			"background": "#5F5F5FFF"
+		},
+		{
+			"scope": "col_F5F5F5FF",
+			"foreground": "#757575FF",
+			"background": "#F5F5F5FF"
+		},
+		{
+			"scope": "col_747474FF",
+			"foreground": "#F4F4F4FF",
+			"background": "#747474FF"
+		},
+		{
+			"scope": "col_757575FF",
+			"foreground": "#F5F5F5FF",
+			"background": "#757575FF"
+		},
+		{
+			"scope": "col_676767FF",
+			"foreground": "#E7E7E7FF",
+			"background": "#676767FF"
+		},
+		{
+			"scope": "col_DFDFDFFF",
+			"foreground": "#5F5F5FFF",
+			"background": "#DFDFDFFF"
+		},
+		{
+			"scope": "col_F4F4F4FF",
+			"foreground": "#747474FF",
+			"background": "#F4F4F4FF"
+		},
+		{
 			"background": "#DC322FFF",
 			"scope": "col_DC322FFF",
 			"foreground": "#E4E4E4FF"
@@ -1719,7 +1799,7 @@
 			"name": "Markup heading",
 			"scope": "markup.heading, markup.heading entity.name",
 			"font_style": "bold",
-			"foreground": "#c2d94c"
+			"foreground": "#00ffff"
 		},
 		{
 			"name": "Markup links",
@@ -1774,7 +1854,7 @@
 		{
 			"name": "Markup added",
 			"scope": "markup.inserted",
-			"foreground": "#91b362"
+			"foreground": "#00ff00"
 		},
 		{
 			"name": "Markup modified",
