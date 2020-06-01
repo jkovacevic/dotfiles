@@ -1,5 +1,5 @@
 #!/bin/bash
-between_strings()` {
+between_strings() {
 	echo "$(sed -e "s/.*$2\(.*\)$3.*/\1/" <<< $1 | xargs)"
 }
 
@@ -34,12 +34,8 @@ accelarate_touchpad() {
 	xinput --set-prop $id "libinput Accel Speed" 0.9
 }
 
-startup_laptop() {
-
-}
-
 disable_touchpad
-# switch_home_end
+switch_home_end
 disable_capslock
 accelarate_touchpad
 xset s off && xset -dpms
