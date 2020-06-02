@@ -12,7 +12,7 @@ bindsym $mod+Shift+x            exec "i3-nagbar -t warning -m 'Do you really wan
 
 bindsym $mod+Return             exec i3-sensible-terminal
 bindsym $mod+space              exec rofi -show drun -padding 20 -yoffset -100
-bindsym ctrl+space              exec $HOME/dotshared/bash/google-search.sh
+bindsym F1                      exec $HOME/dotshared/bash/google-search.sh
 
 bindsym $mod+l                  exec betterlockscreen -l
 bindsym $mod+t                  exec $HOME/dotshared/bash/translate.sh

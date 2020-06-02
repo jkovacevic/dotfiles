@@ -47,3 +47,35 @@ aws-test() { alias aws='aws --profile=smaato-test-admin' }
 
 aws-ssh() {ssh -i ~/.ssh/smart-platform-test.pem ec2-user@$1}
 foxy-proxy() { ssh -i ~/.ssh/smart-platform-test.pem -N -D 8157  hadoop@$1 }
+
+# Terminal navigation
+bindkey     "^[[3~"     delete-char
+bindkey     "^[3;5~"    delete-char
+bindkey     "^[d"       delete-word
+bindkey     "^[[7~"     beginning-of-line
+bindkey     "^[[8~"     end-of-line
+bindkey     ";5D"       vi-backward-blank-word
+bindkey     ";5C"       .vi-forward-blank-word
+bindkey     "^Z"        undo
+
+# ZLE commands
+CAPS_LOCK="^[[1;2P"
+CTRL_L="^L"
+CTRL_G="^G"
+CTRL_D="^D"
+CTRL_F="^F"
+CTRL_BKSP="^H"
+CTRL_SP="^@"
+
+# Remove keybinds
+bindkey -r "^[c"    # fzf-cd-widget
+bindkey -r "^d"     # delete-char-or-list
+bindkey -r "^T"     # fzf-file-widget
+bindkey -r "^L"     # clear-screen
+
+bindkey     $CTRL_G          go
+bindkey     $CTRL_L          clear-screen
+bindkey     $CAPS_LOCK       list_dir
+bindkey     $CTRL_BKSP       go_back
+bindkey     $CTRL_D          fzf-cd-widget
+bindkey     $CTRL_F          fzf-file-widget
