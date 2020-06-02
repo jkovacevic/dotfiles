@@ -204,9 +204,7 @@ list_dir() {
     zle reset-prompt;
 }; zle -N list_dir
 
-tmux_init() {
-
-
+tmux-init() {
     if [ -z "$TMUX" ]
     then
 
