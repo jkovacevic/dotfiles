@@ -66,12 +66,12 @@ extract () {
     fi
 }
 
-port_list() {
+port-list() {
     local v=$(sudo lsof -i -P -n)
     echo $v | fzf
 }
 
-pid_list() {
+pid-list() {
     local v=$(sudo ps -aux)
     echo $v | fzf
 }
@@ -143,40 +143,6 @@ gfa() {
     (cd $HOME/dotshared; gf;)
 }
 
-# ZLE commands
-# Remove keybinds
-bindkey -r "^[c"    # fzf-cd-widget
-bindkey -r "^d"     # delete-char-or-list
-bindkey -r "^[d"    # delete-blank-word
-bindkey -r "^T"     # fzf-file-widget
-bindkey -r "^L"     # clear-screen
-
-# Terminal navigation
-bindkey     "^[[3~"     delete-char
-bindkey     "^[3;5~"    delete-char
-bindkey     "^[d"       delete-word
-bindkey     "^[[7~"     beginning-of-line
-bindkey     "^[[8~"     end-of-line
-bindkey     ";5D"       vi-backward-blank-word
-bindkey     ";5C"       .vi-forward-blank-word
-bindkey     "^Z"        undo
-
-# Custom commands
-CAPS_LOCK="^[[1;2P"
-CTRL_L="^L"
-CTRL_G="^G"
-CTRL_D="^D"
-CTRL_F="^F"
-CTRL_BKSP="^H"
-CTRL_SP="^@"
-
-bindkey     $CTRL_G          go
-bindkey     $CTRL_L          clear-screen
-bindkey     $CAPS_LOCK       list_dir
-bindkey     $CTRL_BKSP       go_back
-bindkey     $CTRL_D          fzf-cd-widget
-bindkey     $CTRL_F          fzf-file-widget
-
 go() {
     line=$(ls --color=auto --group-directories-first)
     sel=$(ls --color=auto --group-directories-first | /bin/cat -n | sed 's/ //g' | awk '{printf ("%s. %s\n", $1, $NF)}'| fzf --prompt='select > ')
@@ -205,3 +171,14 @@ list_dir() {
     echo ""; ls -lFh --color=auto --group-directories-first;
     zle reset-prompt;
 }; zle -N list_dir
+
+tmux-init() {
+    if [ -z "$TMUX" ]
+    then
+
+        echo "Shell: [W]orkshell or [H]omeshell?"
+        read shell
+        if [[ ${shell:l} == "w" ]] then $HOME/dotshared/tmux/tmux.startup.shell; fi
+        if [[ ${shell:l} == "h" ]] then $HOME/dotshared/tmux/tmux.startup.home; fi
+    fi
+}
