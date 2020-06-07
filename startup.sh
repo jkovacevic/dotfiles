@@ -33,9 +33,15 @@ function accelarate_touchpad {
 	xinput --set-prop $id "libinput Accel Speed" 0.9
 }
 
-disable_touchpad
-switch_home_end
 disable_capslock
-accelarate_touchpad
+case "$1" in
+	-l)
+		disable_touchpad
+		accelarate_touchpad
+		switch_home_end
+		;;
+	-k)	echo
+		;;
+esac
 
 xset s off && xset -dpms
