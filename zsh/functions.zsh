@@ -143,6 +143,19 @@ gfa() {
     (cd $HOME/dotshared; gf;)
 }
 
+docker-rmi() {
+    docker rmi $(docker images -q) --force
+}
+
+docker-rmc() {
+    docker rm $(docker ps -a -q) --force
+}
+
+docker-rma() {
+    docker-rmc;
+    docker-rmi;
+}
+
 go() {
     line=$(ls --color=auto --group-directories-first)
     sel=$(ls --color=auto --group-directories-first | /bin/cat -n | sed 's/ //g' | awk '{printf ("%s. %s\n", $1, $NF)}'| fzf --prompt='select > ')
