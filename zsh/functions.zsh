@@ -171,14 +171,3 @@ list_dir() {
     echo ""; ls -lFh --color=auto --group-directories-first;
     zle reset-prompt;
 }; zle -N list_dir
-
-tmux-init() {
-    if [ -z "$TMUX" ]
-    then
-
-        echo "Shell: [W]orkshell or [H]omeshell?"
-        read shell
-        if [[ ${shell:l} == "w" ]] then $HOME/dotshared/tmux/tmux.startup.shell; fi
-        if [[ ${shell:l} == "h" ]] then $HOME/dotshared/tmux/tmux.startup.home; fi
-    fi
-}
