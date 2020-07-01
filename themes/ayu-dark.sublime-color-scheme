@@ -33,6 +33,21 @@
 	},
 	"rules": [
 		{
+			"background": "#22550055",
+			"scope": "col_22550055",
+			"foreground": "#9D9D9DFF"
+		},
+		{
+			"background": "#00773301",
+			"scope": "col_00773301",
+			"foreground": "#8D8D8DFF"
+		},
+		{
+			"background": "#44003311",
+			"scope": "col_44003311",
+			"foreground": "#8E8E8EFF"
+		},
+		{
 			"background": "#BD2C40FF",
 			"scope": "col_BD2C40FF",
 			"foreground": "#D9D9D9FF"
