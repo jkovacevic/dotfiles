@@ -21,9 +21,6 @@ bindsym $mod+x                  exec $HOME/dotshared/bash/kill-proc.sh
 bindsym $mod+Ctrl+F5            exec pavucontrol
 bindsym $mod+Ctrl+F6            exec arandr
 
-bindsym F11                     exec /tmp/start-bot.sh
-bindsym F12                     exec /tmp/stop-bot.sh
-
 bindsym $mod+Left               focus left
 bindsym $mod+Down               focus down
 bindsym $mod+Up                 focus up
