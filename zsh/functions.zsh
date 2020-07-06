@@ -192,14 +192,3 @@ start_wifi() {
 start_btooth() {
     systemctl start bluetooth.service && blueman-applet
 }
-
-tmux-init() {
-    if [ -z "$TMUX" ]
-    then
-
-        echo "Shell: [W]orkshell or [H]omeshell?"
-        read shell
-        if [[ ${shell:l} == "w" ]] then $HOME/dotshared/tmux/tmux.startup.shell; fi
-        if [[ ${shell:l} == "h" ]] then $HOME/dotshared/tmux/tmux.startup.home; fi
-    fi
-}
