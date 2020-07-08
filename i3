@@ -23,10 +23,10 @@ bindsym $mod+Left               focus left
 bindsym $mod+Down               focus down
 bindsym $mod+Up                 focus up
 bindsym $mod+Right              focus right
-bindsym $mod+Shift+Left         move left
-bindsym $mod+Shift+Down         move down
-bindsym $mod+Shift+Up           move up
-bindsym $mod+Shift+Right        move right
+bindsym $mod+Shift+Left         move left 100px
+bindsym $mod+Shift+Down         move down 100px
+bindsym $mod+Shift+Up           move up 100px
+bindsym $mod+Shift+Right        move right 100px
 bindsym $mod+Tab                move workspace to output left
 
 bindsym $mod+Shift+f            fullscreen toggle
