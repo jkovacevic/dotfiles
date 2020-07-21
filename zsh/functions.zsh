@@ -186,7 +186,9 @@ list_dir() {
 }; zle -N list_dir
 
 start_wifi() {
-    rm /tmp/create_ap.all.lock; sudo create_ap wlp3s0 enp0s31f6 Pi jankowifi7
+    # wlp3s0 enp0s31f6 - home
+    # wlp58s0 enp0s31f6 - work
+    rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
 }
 
 start_btooth() {
