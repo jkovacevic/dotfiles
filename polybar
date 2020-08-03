@@ -9,8 +9,8 @@ urgent = #bd2c40
 icon-padding = 4
 
 [bar/bottom]
-monitor = DP-2-2
-monitor-fallback = eDP-1
+monitor = eDP-1
+monitor-fallback = HDMI-2
 bottom = true
 width = 100%
 height = 25
