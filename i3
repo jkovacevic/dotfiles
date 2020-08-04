@@ -23,10 +23,16 @@ bindsym $mod+Left               focus left
 bindsym $mod+Down               focus down
 bindsym $mod+Up                 focus up
 bindsym $mod+Right              focus right
-bindsym $mod+Shift+Left         move left 100px
-bindsym $mod+Shift+Down         move down 100px
-bindsym $mod+Shift+Up           move up 100px
-bindsym $mod+Shift+Right        move right 100px
+
+bindsym $mod+Ctrl+Left          move left 100px
+bindsym $mod+Ctrl+Right         move down 100px
+bindsym $mod+Ctrl+Down          move up 100px
+bindsym $mod+Ctrl+Up            move right 100px
+bindsym $mod+Shift+Left         resize shrink width 20 px
+bindsym $mod+Shift+Down         resize grow width 20 px
+bindsym $mod+Shift+Up           resize grow height 20 px
+bindsym $mod+Shift+Right        resize shrink height 20 px
+
 bindsym $mod+Tab                move workspace to output left
 
 bindsym $mod+Shift+f            fullscreen toggle
@@ -34,10 +40,6 @@ bindsym $mod+Shift+q            layout stacking
 bindsym $mod+Shift+w            layout tabbed
 bindsym $mod+Shift+e            layout toggle split
 bindsym $mod+Shift+t            floating toggle
-bindsym $mod+Ctrl+Left          resize shrink width 20 px
-bindsym $mod+Ctrl+Right         resize grow width 20 px
-bindsym $mod+Ctrl+Down          resize grow height 20 px
-bindsym $mod+Ctrl+Up            resize shrink height 20 px
 
 bindsym XF86AudioMute           exec pactl set-sink-mute 0 toggle
 bindsym XF86AudioLowerVolume    exec pactl set-sink-volume 0 -10%
