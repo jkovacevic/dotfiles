@@ -24,14 +24,14 @@ bindsym $mod+Down               focus down
 bindsym $mod+Up                 focus up
 bindsym $mod+Right              focus right
 
+bindsym $mod+Ctrl+Up            move up 100px
+bindsym $mod+Ctrl+Down          move down 100px
 bindsym $mod+Ctrl+Left          move left 100px
-bindsym $mod+Ctrl+Right         move down 100px
-bindsym $mod+Ctrl+Down          move up 100px
-bindsym $mod+Ctrl+Up            move right 100px
-bindsym $mod+Shift+Left         resize shrink width 20 px
-bindsym $mod+Shift+Down         resize grow width 20 px
-bindsym $mod+Shift+Up           resize grow height 20 px
-bindsym $mod+Shift+Right        resize shrink height 20 px
+bindsym $mod+Ctrl+Right         move right 100px
+bindsym $mod+Shift+Up           resize shrink height 40 px
+bindsym $mod+Shift+Down         resize grow height 40 px
+bindsym $mod+Shift+Left         resize shrink width 40 px
+bindsym $mod+Shift+Right        resize grow width 40 px
 
 bindsym $mod+Tab                move workspace to output left
 
