@@ -28,8 +28,8 @@ cppsh() { xclip -selection clipboard -o > $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
 ws() { rg -n $@ --ignore-case --color=auto; }
 wss() { sudo rg -n $@ --ignore-case --color=auto; }
-ymp3() { youtube-dl --extract-audio --audio-format mp3 $1; }
-yvid() { youtube-dl $1; }
+ymp3() { $HOME/local-tmp/ipython/venv/bin/youtube-dl --extract-audio --audio-format mp3 $1; }
+yvid() { $HOME/local-tmp/ipython/venv/bin/youtube-dl $1; }
 venv() { if [[ "$VIRTUAL_ENV" == "" ]]; then source venv/bin/activate; else deactivate; fi; }
 log() { echo "$1" && notify-send "$1"; }
 ts() { ct=$(date +"%Y%m%d_%H%M%S"); mv $1 $1.$ct }
