@@ -191,6 +191,6 @@ start_wifi() {
     rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
 }
 
-start_btooth() {
+start_blue() {
     systemctl start bluetooth.service && blueman-applet
 }
