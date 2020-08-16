@@ -143,24 +143,18 @@ gfa() {
     (cd $HOME/dotshared; gf;)
 }
 
-go() {
-    line=$(ls --color=auto --group-directories-first)
-    sel=$(ls --color=auto --group-directories-first | /bin/cat -n | sed 's/ //g' | awk '{printf ("%s. %s\n", $1, $NF)}'| fzf --prompt='select > ')
-    files=($(echo "$line" | tr ' ' '\n'))
-    n=$(echo $sel | awk '{print $1}')
-    n=${n/./}
-    re='^[0-9]+$'
-    if [[ $n =~ $re ]] ; then
-        f=${files[$n]}
-        if [ -d $f ]; then
-            cd $f
-        fi;
-        if [ -f $f ]; then 
-            xdotool type --delay 6 ${f} > /dev/null 2>&1
-        fi;
-    fi
-    zle reset-prompt;
-}; zle -N go
+docker-rmi() {
+    docker rmi $(docker images -q) --force
+}
+
+docker-rmc() {
+    docker rm $(docker ps -a -q) --force
+}
+
+docker-rma() {
+    docker-rmc;
+    docker-rmi;
+}
 
 go_back() {
     cd ..; echo "";
@@ -172,10 +166,13 @@ list_dir() {
     zle reset-prompt;
 }; zle -N list_dir
 
-start_wifi() {
-    rm /tmp/create_ap.all.lock; sudo create_ap wlp3s0 enp0s31f6 Pi jankowifi7
+start-wifi() {
+    # wlp3s0 enp0s31f6 - home
+    # wlp58s0 enp0s31f6 - work
+    rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
 }
 
-start_btooth() {
+
+start-blue() {
     systemctl start bluetooth.service && blueman-applet
 }
