@@ -90,3 +90,4 @@ tmux-init() {
         if [[ ${shell:l} == "h" ]] then $HOME/dotshared/tmux/tmux.startup.home; fi
     fi
 }
+tmux-init
