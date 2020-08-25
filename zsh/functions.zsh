@@ -12,7 +12,7 @@ alias tw='$HOME/dotshared/tmux/tmux.startup.shell'
 alias th='$HOME/dotshared/tmux/tmux.startup.home'
 alias lpython='$HOME/local-tmp/ipython/venv/bin/python'
 alias lpip='$HOME/local-tmp/ipython/venv/bin/pip'
-alias micro='TERM=linux MICRO_TRUECOLOR=1 micro'
+alias mi='TERM=linux MICRO_TRUECOLOR=1 micro'
 
 # Functions used as commands
 sz() { source ~/.zshrc; echo "Sourced ~/.zshrc"; }
