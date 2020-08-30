@@ -36,11 +36,13 @@ function accelarate_touchpad {
 disable_capslock
 case "$1" in
 	-l)
+		notify-send "Startup for laptop"
 		disable_touchpad
 		accelarate_touchpad
 		switch_home_end
 		;;
-	-k)	echo
+	-k)	notify-send "Startup for keyboard"
+		revert_home_end
 		;;
 esac
 
