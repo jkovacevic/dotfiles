@@ -10,8 +10,8 @@ alias edit='cat > /tmp/_.txt; subl /tmp/_.txt'
 alias cat='bat --style=plain'
 alias tw='$HOME/dotshared/tmux/tmux.startup.shell'
 alias th='$HOME/dotshared/tmux/tmux.startup.home'
-alias lpython='$HOME/local-tmp/ipython/venv/bin/python'
-alias lpip='$HOME/local-tmp/ipython/venv/bin/pip'
+alias lpython='$HOME/ipython/venv/bin/python'
+alias lpip='$HOME/ipython/venv/bin/pip'
 
 # Functions used as commands
 sz() { source ~/.zshrc; echo "Sourced ~/.zshrc"; }
@@ -28,8 +28,8 @@ cppsh() { xclip -selection clipboard -o > $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
 ws() { rg -n $@ --ignore-case --color=auto; }
 wss() { sudo rg -n $@ --ignore-case --color=auto; }
-ymp3() { $HOME/local-tmp/ipython/venv/bin/youtube-dl --extract-audio --audio-format mp3 $1; }
-yvid() { $HOME/local-tmp/ipython/venv/bin/youtube-dl $1; }
+ymp3() { $HOME/ipython/venv/bin/youtube-dl --extract-audio --audio-format mp3 $1; }
+yvid() { $HOME/ipython/venv/bin/youtube-dl $1; }
 venv() { if [[ "$VIRTUAL_ENV" == "" ]]; then source venv/bin/activate; else deactivate; fi; }
 log() { echo "$1" && notify-send "$1"; }
 ts() { ct=$(date +"%Y%m%d_%H%M%S"); mv $1 $1.$ct }
