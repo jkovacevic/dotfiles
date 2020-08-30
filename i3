@@ -47,7 +47,6 @@ bindsym XF86AudioRaiseVolume    exec pactl set-sink-volume 0 +10%
 
 # Startup
 exec_always --no-startup-id $HOME/dotshared/bash/polybar_launch.sh
-exec $HOME/dotfiles/startup.sh -l
 exec /usr/bin/urxvt -title urxvt_
 exec /usr/bin/thunderbird
 exec /usr/bin/slack
