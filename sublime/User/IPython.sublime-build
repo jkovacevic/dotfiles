@@ -1,4 +1,4 @@
 {
 
-    "shell_cmd": "urxvt -hold -e /usr/bin/zsh -c 'source /home/janko/local-tmp/ipython/venv/bin/activate && ipython -i ${file}; /usr/bin/zsh'"
+    "shell_cmd": "urxvt -hold -e /usr/bin/zsh -c 'source /home/janko/ipython/venv/bin/activate && ipython -i ${file}; /usr/bin/zsh'"
 }
