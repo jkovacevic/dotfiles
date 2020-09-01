@@ -107,6 +107,7 @@ assign [title="urxvt_"]						$workspace0
 assign [class="Google-chrome"]   			$workspace1
 assign [class="jetbrains-idea-ce"]      	$workspace2
 assign [class="jetbrains-pycharm-ce"]       $workspace2
+assign [title="IPython"]                    $workspace2
 assign [class="Subl"]                   	$workspace3
 assign [class="Sublime_merge"]          	$workspace3
 assign [class="Evince"]                 	$workspace4
