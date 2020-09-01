@@ -13,7 +13,6 @@ bindsym $mod+Shift+x            exec "i3-nagbar -t warning -m 'Do you really wan
 
 bindsym $mod+Return             exec i3-sensible-terminal
 bindsym $mod+space              exec rofi -show drun -padding 20 -yoffset -100
-bindsym F1                      exec $HOME/dotshared/bash/google-search.sh
 
 bindsym $mod+l                  exec betterlockscreen -l
 bindsym $mod+t                  exec $HOME/dotshared/bash/translate.sh
@@ -29,6 +28,16 @@ bindsym $mod+Shift+Left         move left
 bindsym $mod+Shift+Down         move down
 bindsym $mod+Shift+Up           move up
 bindsym $mod+Shift+Right        move right
+
+bindsym $mod+Ctrl+Up            move up 100px
+bindsym $mod+Ctrl+Down          move down 100px
+
+bindsym $mod+Ctrl+Left          move left 100px
+bindsym $mod+Ctrl+Right         move right 100px
+bindsym $mod+Shift+Up           resize shrink height 40 px
+bindsym $mod+Shift+Down         resize grow height 40 px
+bindsym $mod+Shift+Left         resize shrink width 40 px
+bindsym $mod+Shift+Right        resize grow width 40 px
 bindsym $mod+Tab                move workspace to output left
 
 bindsym $mod+Shift+f            fullscreen toggle
@@ -36,10 +45,6 @@ bindsym $mod+Shift+q            layout stacking
 bindsym $mod+Shift+w            layout tabbed
 bindsym $mod+Shift+e            layout toggle split
 bindsym $mod+Shift+t            floating toggle
-bindsym $mod+Ctrl+Left          resize shrink width 20 px
-bindsym $mod+Ctrl+Right         resize grow width 20 px
-bindsym $mod+Ctrl+Down          resize grow height 20 px
-bindsym $mod+Ctrl+Up            resize shrink height 20 px
 
 bindsym XF86AudioMute           exec pactl set-sink-mute 0 toggle
 bindsym XF86AudioLowerVolume    exec pactl set-sink-volume 0 -10%
@@ -108,6 +113,7 @@ assign [class="Brave-browser"]              $workspace1
 assign [class="Google-chrome"]              $workspace1
 assign [class="jetbrains-idea-ce"]          $workspace2
 assign [class="jetbrains-pycharm-ce"]       $workspace2
+assign [title="IPython"]                    $workspace2
 assign [class="Subl"]                       $workspace3
 assign [class="Sublime_merge"]              $workspace3
 assign [class="Evince"]                     $workspace4
