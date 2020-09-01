@@ -24,14 +24,9 @@ bindsym $mod+Left               focus left
 bindsym $mod+Down               focus down
 bindsym $mod+Up                 focus up
 bindsym $mod+Right              focus right
-bindsym $mod+Shift+Left         move left
-bindsym $mod+Shift+Down         move down
-bindsym $mod+Shift+Up           move up
-bindsym $mod+Shift+Right        move right
 
 bindsym $mod+Ctrl+Up            move up 100px
 bindsym $mod+Ctrl+Down          move down 100px
-
 bindsym $mod+Ctrl+Left          move left 100px
 bindsym $mod+Ctrl+Right         move right 100px
 bindsym $mod+Shift+Up           resize shrink height 40 px
