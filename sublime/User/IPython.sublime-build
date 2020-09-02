@@ -1,4 +1,3 @@
 {
-
-    "shell_cmd": "urxvt -hold -title IPython -e /usr/bin/zsh -c 'source /home/janko/ipython/venv/bin/activate && ipython -i ${file};'"
+    "shell_cmd": "~/dotfiles/sublime/User/IPython.sublime-build.sh ${file}"
 }
