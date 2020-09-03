@@ -11,7 +11,7 @@ icon-padding = 4
 [bar/bottom]
 bottom = true
 width = 100%
-height = 25
+height = 35
 line-size = 2
 spacing = 0
 
