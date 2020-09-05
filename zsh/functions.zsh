@@ -187,7 +187,7 @@ pid-list() {
     echo $v | fzf
 }
 
-jira-init() {
+project-init() {
     find_latest_name() {
         dir_name=$1
         file_name=$2
@@ -205,10 +205,10 @@ jira-init() {
     ticket_num=$1
     ticket_num=${ticket_num:l}
 
-    jira_home="$HOME/Jira"
+    project_home="$HOME/Jira"
     file_name="item"
     file_ext=".md"
-    dir_name="$jira_home/$ticket_num"
+    dir_name="$project_home/$ticket_num"
 
     if [ ! -d $dir_name ]; then
         echo "Creating directory $dir_name"
@@ -225,13 +225,13 @@ jira-init() {
     fi;
 }
 
-jira-list() {
-    jira_home="$HOME/Jira"
+project-list() {
+    project_home="$HOME/Project"
     file_name="item1.md"
-    dir_name="$jira_home/$ticket_num"
+    dir_name="$project_home/$ticket_num"
 
-    for f in $(ls $jira_home); do
-        fpath="$jira_home/$f/$file_name";
+    for f in $(ls $project_home); do
+        fpath="$project_home/$f/$file_name";
         if [[ -f $fpath ]]; then
             echo "$f - $(head -n 1 $fpath)";
         fi;
