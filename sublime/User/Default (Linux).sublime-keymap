@@ -666,7 +666,7 @@
 		{"command": "split_selection_into_lines"},
 		{"command": "move_to", "args": {"to": "bol", "extend": false}} ] 	// Press Home button to deselect text
 	} },
-	{ "keys": ["f13", "a"], "command": "multicommand", "args": {"commands": [
+	{ "keys": ["f13", "f13"], "command": "multicommand", "args": {"commands": [
 		{"command": "select_all"}, 
 		{"command": "split_selection_into_lines"},
 		{"command": "move_to", "args": {"to": "bol", "extend": false}} ] 	// Press Home button to deselect text
