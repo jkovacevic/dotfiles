@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 # Aliases
 alias l='ls -lh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
