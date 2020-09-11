@@ -126,11 +126,11 @@ gsa() {
 
 gpa() {
     echo "- Pushing notes"
-    (cd $HOME/notes; if gs | grep -q -E "Changes not staged for commit|Untracked files"; then gg; fi;)
+    (cd $HOME/notes; gg;)
     echo "- Pushing dotfiles"
-    (cd $HOME/dotfiles; if gs | grep -q -E "Changes not staged for commit|Untracked files"; then gg; fi;)
+    (cd $HOME/dotfiles; gg;)
     echo "- Pushing dotshared"
-    (cd $HOME/dotshared; if gs | grep -q -E "Changes not staged for commit|Untracked files"; then gg; fi;)
+    (cd $HOME/dotshared; gg;)
 }
 
 gfa() {
