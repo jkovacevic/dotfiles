@@ -60,6 +60,7 @@ bindkey     "^Z"        undo
 
 # ZLE commands
 CAPS_LOCK="^[[1;2P"
+CAPS_LOCK2="^[[25~"
 CTRL_L="^L"
 CTRL_G="^G"
 CTRL_D="^D"
@@ -76,6 +77,7 @@ bindkey -r "^L"     # clear-screen
 bindkey     $CTRL_G          go
 bindkey     $CTRL_L          clear-screen
 bindkey     $CAPS_LOCK       list_dir
+bindkey     $CAPS_LOCK2      list_dir
 bindkey     $CTRL_BKSP       go_back
 bindkey     $CTRL_D          fzf-cd-widget
 bindkey     $CTRL_F          fzf-file-widget

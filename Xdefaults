@@ -27,7 +27,7 @@ URxvt.cursorColor:		white
 URxvt.cursorUnderline:	1
 URxvt.cursorBlink:		1
 URxvt*letterSpace: 		-1
-URxvt*saveLines:        500000
+URxvt*saveLines:        10000
 
 !! Extensions
 URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select,selection-to-clipboard
