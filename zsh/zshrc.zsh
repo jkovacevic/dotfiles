@@ -32,6 +32,13 @@ setopt share_history          # share command history data
 setopt ignore_eof			  # disables closing zsh with ctrl + D
 setopt nomatch                # disables zsh-magic-matching with brackets []
 
+# Z-Autocompletion
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' menu select
+zstyle ':completion:*' insert-tab false
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
+
 # Version control system info
 precmd() { vcs_info }
 zstyle ':vcs_info:*' enable git cvs svn
@@ -39,12 +46,6 @@ zstyle ':vcs_info:*' formats '%F{white}[%f%F{red}%b%f%f] '
 vcs_info_wrapper() { if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}"; fi; }
 export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
 export RPROMPT='$(vcs_info_wrapper)'
-
-# Z-Autocompletion
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*' menu select
-zstyle ':completion:*' insert-tab false
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Terminal navigation
 bindkey     "^[[3~"     delete-char
