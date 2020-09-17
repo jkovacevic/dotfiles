@@ -33,6 +33,19 @@ venv() { if [[ "$VIRTUAL_ENV" == "" ]]; then source venv/bin/activate; else deac
 log() { echo "$1" && notify-send "$1"; }
 ts() { ct=$(date +"%Y%m%d_%H%M%S"); mv $1 $1.$ct }
 
+aws-prod() { alias aws='aws --profile=prod' }
+aws-test() { alias aws='aws --profile=test' }
+
+port-list() {
+    local v=$(sudo lsof -i -P -n)
+    echo $v | fzf
+}
+
+pid-list() {
+    local v=$(sudo ps -aux)
+    echo $v | fzf
+}
+
 short-url() {
     urlencode() {
       python -c 'import urllib, sys; print(urllib.quote(sys.argv[1], sys.argv[2]))' "$1" "$urlencode_safe"
@@ -42,6 +55,16 @@ short-url() {
     local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$encoded")
     xclip -selection clipboard <<< $url
     echo $url
+}
+
+tmux-init() {
+    if [ -z "$TMUX" ]
+    then
+
+        echo "Shell: [W]orkshell or [H]omeshell?"
+        read shell
+        if [[ ${shell:l} == "h" ]] then $HOME/dotshared/tmux/tmux.startup.home; else $HOME/dotshared/tmux/tmux.startup.shell; fi;
+    fi
 }
 
 extract () {
@@ -65,15 +88,93 @@ extract () {
     fi
 }
 
-port-list() {
-    local v=$(sudo lsof -i -P -n)
-    echo $v | fzf
+project-init() {
+    find_latest_name() {
+        dir_name=$1
+        file_name=$2
+        file_ext=$3
+        n="1"
+        FILE_NAME="${dir_name}/${file_name}${n}${file_ext}"
+        while [ -f $FILE_NAME ]
+        do
+            n=$((n + 1))
+            FILE_NAME="${dir_name}/${file_name}${n}${file_ext}"
+        done
+    }
+
+    if [ ! "$#" -eq 1 ]; then echo "Expecting Project ticket number as CLI argument"; exit 1; fi;
+    ticket_num=$1
+    ticket_num=${ticket_num:l}
+
+    project_home="$HOME/Project"
+    file_name="item"
+    file_ext=".md"
+    dir_name="$project_home/$ticket_num"
+
+    if [ ! -d $dir_name ]; then
+        echo "Creating directory $dir_name"
+        mkdir -p $dir_name
+    fi;
+
+    find_latest_name $dir_name $file_name $file_ext
+
+    if [ ! -f $FILE_NAME ]; then
+        echo "Creating file: $FILE_NAME"
+        echo "<Insert ticket title>" > $FILE_NAME
+        echo "https://jira.smaato.net/browse/${ticket_num}" >> $FILE_NAME
+        subl $FILE_NAME
+    fi;
 }
 
-pid-list() {
-    local v=$(sudo ps -aux)
-    echo $v | fzf
+project-list() {
+    project_home="$HOME/Project"
+    file_name="item1.md"
+    dir_name="$project_home/$ticket_num"
+
+    for f in $(ls $project_home); do
+        file_path="$project_home/$f/$file_name";
+        if [[ -f $file_path ]]; then
+            echo "$f - $(head -n 1 $file_path)";
+        fi;
+    done;
 }
+
+# ZLE functions
+go_back() {
+    cd ..; echo "";
+    zle reset-prompt;
+}; zle -N go_back
+
+list_dir() {
+    echo ""; ls -lFh --color=auto --group-directories-first;
+    zle reset-prompt;
+}; zle -N list_dir
+
+# Docker functions
+docker-rmi() {
+    docker rmi $(docker images -q) --force
+}
+
+docker-rmc() {
+    docker rm $(docker ps -a -q) --force
+}
+
+docker-rma() {
+    docker-rmc;
+    docker-rmi;
+}
+
+# Utility functions
+start-wifi() {
+    # wlp3s0 enp0s31f6 - home
+    # wlp58s0 enp0s31f6 - work
+    rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
+}
+
+start-blue() {
+    systemctl start bluetooth.service && blueman-applet
+}
+
 
 # Git functions
 gg () { git add .; git commit -m "automated commit message"; git push; }
@@ -126,11 +227,11 @@ gsa() {
 
 gpa() {
     echo "- Pushing notes"
-    (cd $HOME/notes; gg;)
+    (cd $HOME/notes; if [[ $(git status --short) ]]; then gg; fi;)
     echo "- Pushing dotfiles"
-    (cd $HOME/dotfiles; gg;)
+    (cd $HOME/dotfiles; if [[ $(git status --short) ]]; then gg; fi;)
     echo "- Pushing dotshared"
-    (cd $HOME/dotshared; gg;)
+    (cd $HOME/dotshared; if [[ $(git status --short) ]]; then gg; fi;)
 }
 
 gfa() {
@@ -140,99 +241,4 @@ gfa() {
     (cd $HOME/dotfiles; gf;)
     echo "- Syncing dotshared"
     (cd $HOME/dotshared; gf;)
-}
-
-docker-rmi() {
-    docker rmi $(docker images -q) --force
-}
-
-docker-rmc() {
-    docker rm $(docker ps -a -q) --force
-}
-
-docker-rma() {
-    docker-rmc;
-    docker-rmi;
-}
-
-go_back() {
-    cd ..; echo "";
-    zle reset-prompt;
-}; zle -N go_back
-
-list_dir() {
-    echo ""; ls -lFh --color=auto --group-directories-first;
-    zle reset-prompt;
-}; zle -N list_dir
-
-start-wifi() {
-    # wlp3s0 enp0s31f6 - home
-    # wlp58s0 enp0s31f6 - work
-    rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
-}
-
-
-start-blue() {
-    systemctl start bluetooth.service && blueman-applet
-}
-
-port-list() {
-    local v=$(sudo lsof -i -P -n)
-    echo $v | fzf
-}
-
-pid-list() {
-    local v=$(sudo ps -aux)
-    echo $v | fzf
-}
-
-project-init() {
-    find_latest_name() {
-        dir_name=$1
-        file_name=$2
-        file_ext=$3
-        n="1"
-        FILE_NAME="${dir_name}/${file_name}${n}${file_ext}"
-        while [ -f $FILE_NAME ]
-        do
-            n=$((n + 1))
-            FILE_NAME="${dir_name}/${file_name}${n}${file_ext}"
-        done
-    }
-
-    if [ ! "$#" -eq 1 ]; then echo "Expecting Jira ticket number as CLI argument"; exit 1; fi;
-    ticket_num=$1
-    ticket_num=${ticket_num:l}
-
-    project_home="$HOME/Jira"
-    file_name="item"
-    file_ext=".md"
-    dir_name="$project_home/$ticket_num"
-
-    if [ ! -d $dir_name ]; then
-        echo "Creating directory $dir_name"
-        mkdir -p $dir_name
-    fi;
-
-    find_latest_name $dir_name $file_name $file_ext
-
-    if [ ! -f $FILE_NAME ]; then
-        echo "Creating file: $FILE_NAME"
-        echo "<Insert ticket title>" > $FILE_NAME
-        echo "https://jira.smaato.net/browse/${ticket_num}" >> $FILE_NAME
-        subl $FILE_NAME
-    fi;
-}
-
-project-list() {
-    project_home="$HOME/Project"
-    file_name="item1.md"
-    dir_name="$project_home/$ticket_num"
-
-    for f in $(ls $project_home); do
-        fpath="$project_home/$f/$file_name";
-        if [[ -f $fpath ]]; then
-            echo "$f - $(head -n 1 $fpath)";
-        fi;
-    done;
 }
