@@ -241,9 +241,9 @@ jira-list() {
     dir_name="$jira_home/$ticket_num"
 
     for f in $(ls $jira_home); do
-        fpath="$jira_home/$f/$file_name";
-        if [[ -f $fpath ]]; then
-            echo "$f - $(head -n 1 $fpath)";
+        file_path="$jira_home/$f/$file_name";
+        if [[ -f $file_path ]]; then
+            echo "$f - $(head -n 1 $file_path)";
         fi;
     done;
 }
