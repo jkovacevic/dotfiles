@@ -36,6 +36,10 @@ venv() { if [[ "$VIRTUAL_ENV" == "" ]]; then source venv/bin/activate; else deac
 log() { echo "$1" && notify-send "$1"; }
 ts() { ct=$(date +"%Y%m%d_%H%M%S"); mv $1 $1.$ct }
 
+# AWS
+aws-prod() { alias aws='aws --profile=prod' }
+aws-test() { alias aws='aws --profile=test' }
+
 # Git functions
 gg () { git add .; git commit -m "automated commit message"; git push; }
 ga () { if [[ $1 == "" ]]; then git add .;  else git add $@; fi }
@@ -101,6 +105,18 @@ gfa() {
     (cd $HOME/dotfiles; gf;)
     echo "- Syncing dotshared"
     (cd $HOME/dotshared; gf;)
+}
+
+# TMUX functions
+tmux-init() {
+    if [ -z "$TMUX" ]
+    then
+
+        echo "Shell: [W]orkshell or [H]omeshell?"
+        read shell
+        if [[ ${shell:l} == "w" ]] then $HOME/dotshared/tmux/tmux.startup.shell; fi
+        if [[ ${shell:l} == "h" ]] then $HOME/dotshared/tmux/tmux.startup.home; fi
+    fi
 }
 
 # ZLE functions

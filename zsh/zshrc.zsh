@@ -1,21 +1,25 @@
 source /opt/fzf/shell/key-bindings.zsh
 source $HOME/dotfiles/zsh/functions.zsh
 
-autoload -Uz vcs_info compinit && compinit
+autoload -Uz vcs_info
+autoload -Uz compinit && compinit
 autoload -U select-word-style
 plugins=(zsh-completions)
 
-export FZF_DEFAULT_OPTS='--prompt="search > " --height 40% --layout=reverse --border --exact --sort'
-export FZF_CTRL_T_COMMAND='command fd --hidden --no-ignore --ignore-case . /'
-export FZF_ALT_C_COMMAND='command fd --hidden --no-ignore --ignore-case -t d . /'
+# Environment variables
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>/"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export EDITOR='micro'
+
+# FZF environment variables
+export FZF_DEFAULT_OPTS='--prompt="search > " --height 40% --layout=reverse --border --exact --sort'
+export FZF_CTRL_T_COMMAND='command fd --hidden --no-ignore --ignore-case . /'
+export FZF_ALT_C_COMMAND='command fd --hidden --no-ignore --ignore-case -t d . /'
     
 setopt auto_cd
-setopt prompt_subst
+setopt prompt_subst           # Ability to override PROMPT AND RPROMPT
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
@@ -28,25 +32,19 @@ setopt share_history          # share command history data
 setopt ignore_eof			  # disables closing zsh with ctrl + D
 setopt nomatch                # disables zsh-magic-matching with brackets []
 
+# Version control system info
+precmd() { vcs_info }
 zstyle ':vcs_info:*' enable git cvs svn
 zstyle ':vcs_info:*' formats '%F{white}[%f%F{red}%b%f%f] '
+vcs_info_wrapper() { if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}"; fi; }
+export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
+export RPROMPT='$(vcs_info_wrapper)'
+
+# Z-Autocompletion
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select
 zstyle ':completion:*' insert-tab false
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
-
-vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}"; fi; }
-export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
-export RPROMPT='$(vcs_info_wrapper)'
-
-eval "$(ntfy shell-integration)"
-
-aws-prod() { alias aws='aws --profile=prod' }
-aws-test() { alias aws='aws --profile=test' }
-
-aws-ssh() {ssh -i ~/.ssh/smart-platform-test.pem ec2-user@$1}
-foxy-proxy() { ssh -i ~/.ssh/smart-platform-test.pem -N -D 8157  hadoop@$1 }
 
 # Terminal navigation
 bindkey     "^[[3~"     delete-char
@@ -82,14 +80,5 @@ bindkey     $CTRL_BKSP       go_back
 bindkey     $CTRL_D          fzf-cd-widget
 bindkey     $CTRL_F          fzf-file-widget
 
-tmux-init() {
-    if [ -z "$TMUX" ]
-    then
-
-        echo "Shell: [W]orkshell or [H]omeshell?"
-        read shell
-        if [[ ${shell:l} == "w" ]] then $HOME/dotshared/tmux/tmux.startup.shell; fi
-        if [[ ${shell:l} == "h" ]] then $HOME/dotshared/tmux/tmux.startup.home; fi
-    fi
-}
+eval "$(ntfy shell-integration)"
 tmux-init
