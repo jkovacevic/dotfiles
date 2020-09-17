@@ -229,11 +229,11 @@ gsa() {
 
 gpa() {
     echo "- Pushing notes"
-    (cd $HOME/notes; if [[ git status --short ]]; then gg; fi;)
+    (cd $HOME/notes; if [[ $(git status --short) ]]; then gg; fi;)
     echo "- Pushing dotfiles"
-    (cd $HOME/dotfiles; if [[ git status --short ]]; then gg; fi;)
+    (cd $HOME/dotfiles; if [[ $(git status --short) ]]; then gg; fi;)
     echo "- Pushing dotshared"
-    (cd $HOME/dotshared; if [[ git status --short ]]; then gg; fi;)
+    (cd $HOME/dotshared; if [[ $(git status --short) ]]; then gg; fi;)
 }
 
 gfa() {
