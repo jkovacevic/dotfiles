@@ -76,14 +76,4 @@ bindkey     $CTRL_BKSP       go_back
 bindkey     $CTRL_D          fzf-cd-widget
 bindkey     $CTRL_F          fzf-file-widget
 
-tmux-init() {
-    if [ -z "$TMUX" ]
-    then
-
-        echo "Shell: [W]orkshell or [H]omeshell?"
-        read shell
-        if [[ ${shell:l} == "w" ]] then $HOME/dotshared/tmux/tmux.startup.shell; fi
-        if [[ ${shell:l} == "h" ]] then $HOME/dotshared/tmux/tmux.startup.home; fi
-    fi
-}
 tmux-init

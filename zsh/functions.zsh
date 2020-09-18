@@ -62,10 +62,9 @@ short-url() {
 tmux-init() {
     if [ -z "$TMUX" ]
     then
-
         echo "Shell: [W]orkshell or [H]omeshell?"
         read shell
-        if [[ ${shell:l} == "h" ]] then $HOME/dotshared/tmux/tmux.startup.home; else $HOME/dotshared/tmux/tmux.startup.shell; fi;
+        if [[ ${shell:l} == "h" ]]; then $HOME/dotshared/tmux/tmux.startup.home; else $HOME/dotshared/tmux/tmux.startup.shell; fi;
     fi
 }
 
