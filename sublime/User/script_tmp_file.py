@@ -349,9 +349,9 @@ titles = [
 ]
 
 
-class CreateTmpFileCommand(sublime_plugin.TextCommand):
+class ScriptTmpFileCommand(sublime_plugin.TextCommand):
 
-    def create_tmp_file(self):
+    def script_tmp_file(self):
         # import random
         # title = random.choice(titles)
         # title = title.lower().replace(" ", "-")
@@ -366,4 +366,4 @@ class CreateTmpFileCommand(sublime_plugin.TextCommand):
         pass
 
     def run(self, edit):
-        self.create_tmp_file()
+        self.script_tmp_file()

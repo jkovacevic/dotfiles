@@ -2,9 +2,9 @@ import sublime
 import sublime_plugin
 
 
-class ClearWhitespaceCommand(sublime_plugin.TextCommand):
+class ScriptClearWhitespaceCommand(sublime_plugin.TextCommand):
 
-    def clear_whitespace(self, text):
+    def script_clear_whitespace(self, text):
         import re
         lines = []
         for t in text.splitlines():
@@ -17,5 +17,5 @@ class ClearWhitespaceCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         region = sublime.Region(0, self.view.size())
         text = self.view.substr(region)
-        text = self.clear_whitespace(text)
+        text = self.script_clear_whitespace(text)
         self.view.replace(edit, region, text)

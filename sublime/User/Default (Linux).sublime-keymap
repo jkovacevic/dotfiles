@@ -11,7 +11,7 @@
 	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
 	{ "keys": ["f13", "l"], "command": "split_selection_into_lines" },
 	{ "keys": ["f13", "i"], "command": "multicommand", "args": {"commands": [
-		{"command": "clear_whitespace"},
+		{"command": "script_clear_whitespace"},
 		{"command": "move_to", "args": {"to": "bol", "extend": false}} ] 	// Press Home button to deselect text
 	} },
 	{ "keys": ["f13", "l"], "command": "multicommand", "args": {"commands": [
@@ -30,7 +30,7 @@
 	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
 
 	// Ctrl commands
-	{ "keys": ["ctrl+t"], "command": "create_tmp_file" },
+	{ "keys": ["ctrl+t"], "command": "script_tmp_file" },
 	{ "keys": ["ctrl+k"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
 	{ "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
 	{ "keys": ["ctrl+w"], "command": "close" },
