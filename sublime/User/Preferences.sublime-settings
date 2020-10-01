@@ -105,6 +105,7 @@
 	"ignored_packages":
 	[
 		"ApplySyntax",
+		"Package Control",
 		"Vintage"
 	],
 	"indent_guide_options":
