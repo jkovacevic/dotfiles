@@ -13,7 +13,7 @@ alias tw='$HOME/dotshared/tmux/tmux.startup.shell'
 alias th='$HOME/dotshared/tmux/tmux.startup.home'
 alias lpython='$HOME/ipython/venv/bin/python'
 alias lpip='$HOME/ipython/venv/bin/pip'
-alias mi='TERM=linux MICRO_TRUECOLOR=1 micro'
+alias mi='TERM=xterm-256color MICRO_TRUECOLOR=1 micro'
 
 # Functions used as commands
 bg() { nohup $@ > /dev/null 2>&1 & disown }
