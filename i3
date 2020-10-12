@@ -53,6 +53,7 @@ exec /usr/bin/thunderbird
 exec /usr/bin/slack
 exec /usr/bin/nm-applet
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 
+exec feh --bg-scale wallpapers/wallpaper
 
 # Workspaces
 set $workspace0 "0:"
