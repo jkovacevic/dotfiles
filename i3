@@ -53,6 +53,7 @@ exec /usr/bin/slack
 exec /usr/bin/dunst
 exec /usr/bin/nm-applet
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec feh --bg-scale $HOME/wallpaper/wallpaper
 
 # Workspaces
 set $workspace0 "0:"
