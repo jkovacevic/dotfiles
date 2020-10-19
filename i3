@@ -47,13 +47,15 @@ bindsym XF86AudioRaiseVolume    exec pactl set-sink-volume 0 +10%
 
 # Startup
 exec_always --no-startup-id $HOME/dotshared/bash/polybar_launch.sh
-exec /usr/bin/urxvt -title urxvt_
-exec /usr/bin/thunderbird
-exec /usr/bin/slack
-exec /usr/bin/dunst
-exec /usr/bin/nm-applet
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec feh --bg-scale $HOME/wallpaper/wallpaper
+exec /usr/bin/dunst
+exec /usr/bin/nm-applet
+exec /usr/bin/urxvt -title urxvt_
+exec /usr/bin/chromium
+exec /usr/bin/subl
+exec /usr/bin/thunderbird
+exec /usr/bin/slack
 
 # Workspaces
 set $workspace0 "0:"
