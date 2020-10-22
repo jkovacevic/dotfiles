@@ -1,7 +1,7 @@
 [
     // Scripts
     { "keys": ["ctrl+t"], "command": "script_tmp_file" },
-    { "keys": ["f13", "i"], "command": "multicommand", "args": {"commands": [
+    { "keys": ["f13", "w"], "command": "multicommand", "args": {"commands": [
             {"command": "script_clear_whitespace"},
             {"command": "move_to", "args": {"to": "bol", "extend": false}} ]    // Press Home button to deselect text
         } 
