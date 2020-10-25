@@ -89,7 +89,7 @@ extract () {
     fi
 }
 
-project-init() {
+docs-init() {
     find_latest_name() {
         dir_name=$1
         file_name=$2
@@ -103,11 +103,11 @@ project-init() {
         done
     }
 
-    if [ ! "$#" -eq 1 ]; then echo "Expecting Project ticket number as CLI argument"; exit 1; fi;
+    if [ ! "$#" -eq 1 ]; then echo "Expecting Document ticket number as CLI argument"; exit 1; fi;
     ticket_num=$1
     ticket_num=${ticket_num:l}
 
-    project_home="$HOME/Project"
+    project_home="$HOME/documents"
     file_name="item"
     file_ext=".md"
     dir_name="$project_home/$ticket_num"
@@ -127,8 +127,8 @@ project-init() {
     fi;
 }
 
-project-list() {
-    project_home="$HOME/Project"
+docs-list() {
+    project_home="$HOME/documents"
     file_name="item1.md"
     dir_name="$project_home/$ticket_num"
 
@@ -200,7 +200,8 @@ gdr() {
     local_path=/tmp/$(basename $remote_branch)-$(basename $1)
     git cat-file blob $remote_branch:$(git ls-files --full-name $1) > $local_path;
     readlink -f $1 | xargs echo -n | xclip -selection clipboard;
-    fd $1 $local_path && subl $1;
+    fd $1 $local_path;
+    subl $1;
 }
 
 gpr() {
