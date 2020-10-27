@@ -133,12 +133,12 @@ for_window [class="Sxiv"] focus
 for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
-# for_window [floating] move [absolute] position center
 
 # Intellij and PyCharm settings for popup refresh
 for_window [class="^jetbrains-.+"] focus
+for_window [class="^jetbrains-.+"] tiling
 
-for_window [workspace=$workspace3] layout split
+for_window [workspace=$workspace3] layout stacked
 for_window [workspace=$workspace4] layout stacked
 for_window [workspace=$workspace5] layout stacked
 
