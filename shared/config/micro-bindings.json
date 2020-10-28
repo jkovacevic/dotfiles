@@ -1,0 +1,11 @@
+{
+    "Alt-/": "lua:comment.comment",
+    "Alt-Backspace": "DeleteWordLeft",
+    "Alt-Down": "MoveLinesDown",
+    "Alt-Up": "MoveLinesUp",
+    "Ctrl-Left": "WordLeft",
+    "Ctrl-Right": "WordRight",
+    "Ctrl-Shift-Left": "SelectWordLeft",
+    "Ctrl-Shift-Right": "SelectWordRight",
+    "CtrlUnderscore": "lua:comment.comment"
+}

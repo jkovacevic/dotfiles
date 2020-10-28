@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=OCR-DE
+GenericName=OCR for Linux
+Exec=sh -c "$HOME/dotshared/bash/ocr-de.sh"
+Icon=/home/jk/.icon/icon-console.png
+Type=Application
+StartupNotify=true

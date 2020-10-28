@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Audio - HDMI
+GenericName=Audio - HDMI
+Exec=sh -c "$HOME/dotshared/display/audio-hdmi.sh"
+Icon=/home/jk/.icon/icon-console.png
+Type=Application
+StartupNotify=true

@@ -1,0 +1,1 @@
+kill $(ps aux | grep clicker-start | grep -v grep | awk '{print $2}')

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Startup Laptop
+GenericName=Startup script for Linux
+Exec=sh -c "$HOME/dotfiles/startup.sh -l"
+Icon=/home/jk/.icon/icon-console.png
+Type=Application
+StartupNotify=true
