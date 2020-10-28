@@ -49,6 +49,7 @@ bindsym XF86AudioRaiseVolume    exec pactl set-sink-volume 0 +10%
 exec_always --no-startup-id $HOME/dotshared/bash/polybar_launch.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec feh --bg-scale $HOME/wallpaper/wallpaper
+exec $HOME/dotfiles/debian/startup.sh
 exec /usr/bin/dunst
 exec /usr/bin/nm-applet
 exec /usr/bin/urxvt -title urxvt_
@@ -107,7 +108,6 @@ bindsym $mod+Shift+equal        move container to workspace $workspace13
 
 # Xprop assignation
 assign [title="urxvt_"]                     $workspace0
-assign [class="Brave-browser"]              $workspace1
 assign [class="Google-chrome"]              $workspace1
 assign [class="jetbrains-idea-ce"]          $workspace2
 assign [class="jetbrains-pycharm-ce"]       $workspace2
@@ -136,13 +136,11 @@ for_window [class="Sxiv"] focus
 for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
-for_window [title="Authy"] focus
-for_window [title="Authy"] floating enable
 
 # Intellij and PyCharm settings for popup refresh
-for_window [class="^jetbrains-.+"] focus
-
-for_window [workspace=$workspace3] layout split
+for_window [class="jetbrains-.*" title="win0"] floating enable border none
+for_window [class="jetbrains-.*"] layout tiling
+for_window [workspace=$workspace3] layout stacked
 for_window [workspace=$workspace4] layout stacked
 for_window [workspace=$workspace5] layout stacked
 

@@ -3,6 +3,7 @@ set $mod Mod4
 font pango:DejaVu Sans Bold 9
 floating_modifier $mod
 focus_follows_mouse no
+focus_wrapping no
 
 ## Shortcuts and scripts
 bindsym $mod+Escape             kill
@@ -32,7 +33,6 @@ bindsym $mod+Shift+Up           resize shrink height 40 px
 bindsym $mod+Shift+Down         resize grow height 40 px
 bindsym $mod+Shift+Left         resize shrink width 40 px
 bindsym $mod+Shift+Right        resize grow width 40 px
-
 bindsym $mod+Tab                move workspace to output left
 
 bindsym $mod+Shift+f            fullscreen toggle
@@ -47,13 +47,16 @@ bindsym XF86AudioRaiseVolume    exec pactl set-sink-volume 0 +10%
 
 # Startup
 exec_always --no-startup-id $HOME/dotshared/bash/polybar_launch.sh
-exec $HOME/dotfiles/startup.sh
+exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 
+exec feh --bg-scale $HOME/wallpapers/wallpaper
+exec $HOME/dotfiles/debian/startup.sh
+
+exec /usr/bin/nm-applet
 exec /usr/bin/urxvt -title urxvt_
+exec /usr/bin/google-chrome
+exec /usr/bin/subl
 exec /usr/bin/thunderbird
 exec /usr/bin/slack
-exec /usr/bin/nm-applet
-exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 
-exec feh --bg-scale wallpapers/wallpaper
 
 # Workspaces
 set $workspace0 "0:"
@@ -135,7 +138,6 @@ for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
 
 # Intellij and PyCharm settings for popup refresh
-
 for_window [class="jetbrains-.*" title="win0"] floating enable border none
 for_window [class="jetbrains-.*"] layout tiling
 for_window [workspace=$workspace3] layout stacked
@@ -144,7 +146,7 @@ for_window [workspace=$workspace5] layout stacked
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1e2128 #1e2128 #00ffff #2F343F   #2F343F
-client.focused_inactive #333333 #1e2128 #9398a0 #2F343F   #2F343F
+client.focused_inactive #333333 #5f676a #00ffff #2F343F   #2F343F
 client.unfocused        #333333 #222222 #888888 #292d2e   #2F343F
 client.urgent           #2f343a #900000 #00ffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #00ffff #000000   #2F343F
