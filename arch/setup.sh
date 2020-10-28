@@ -6,6 +6,7 @@ create_symlink() {
     if [ -f "$target" ] || [ -L "$target" ]; then
         sudo rm "$target"
     fi;
+    
 	# Create folders in case they do not exist
 	mkdir -p $(dirname "${target}")
     sudo ln -s "$dotfile" "$target"
