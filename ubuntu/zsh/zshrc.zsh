@@ -1,5 +1,5 @@
 source /opt/fzf/shell/key-bindings.zsh
-source $HOME/dotfiles/zsh/functions.zsh
+source $HOME/dotfiles/ubuntu/zsh/functions.zsh
 
 autoload -Uz vcs_info
 autoload -Uz compinit && compinit
