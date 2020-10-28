@@ -9,8 +9,6 @@ alias mocp='mocp -T rhowaldt'
 alias clip='xclip -selection clipboard'
 alias edit='cat > /tmp/_.txt; subl /tmp/_.txt'
 alias cat='bat --style=plain'
-alias tw='$HOME/dotshared/tmux/tmux.startup.shell'
-alias th='$HOME/dotshared/tmux/tmux.startup.home'
 alias lpython='$HOME/ipython/venv/bin/python'
 alias lpip='$HOME/ipython/venv/bin/pip'
 alias mi='TERM=xterm-256color MICRO_TRUECOLOR=1 micro'
@@ -60,12 +58,19 @@ short-url() {
 }
 
 tmux-init() {
-    if [ -z "$TMUX" ]
+    if [ -z "$TMUX" ]; 
     then
         echo "Shell: [W]orkshell or [H]omeshell?"
         read shell
-        if [[ ${shell:l} == "h" ]]; then $HOME/dotshared/tmux/tmux.startup.home; else $HOME/dotshared/tmux/tmux.startup.shell; fi;
-    fi
+        if [[ ${shell:l} == "h" ]]; then
+            $HOME/dotfiles/shared/tmux/tmux.startup.home;
+        elif [[ ${shell:l} == "w" ]]; then
+            $HOME/dotfiles/shared/tmux/tmux.startup.shell;
+        else
+            tmux new-session -d -s tmux;
+            tmux attach -t tmux;
+        fi;
+    fi;
 }
 
 extract () {
