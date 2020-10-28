@@ -65,9 +65,9 @@ tmux-init() {
         echo "Shell: [W]orkshell or [H]omeshell?"
         read shell
         if [[ ${shell:l} == "h" ]]; then
-            $HOME/dotshared/tmux/tmux.startup.home;
+            $HOME/dotfiles/shared/tmux/tmux.startup.home;
         elif [[ ${shell:l} == "w" ]]; then
-            $HOME/dotshared/tmux/tmux.startup.shell;
+            $HOME/dotfiles/shared/tmux/tmux.startup.shell;
         else
             tmux new-session -d -s tmux;
             tmux attach -t tmux;
