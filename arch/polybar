@@ -2,7 +2,7 @@
 underline = #00ffff
 selected = #3f3f3f
 foreground = #ffffff
-background = #1e2128
+background = #15171c
 urgent = #bd2c40
 
 [i3]
@@ -135,6 +135,8 @@ time = %H:%M:%S
 label = %date% - %time%
 format = <label>
 label-underline = ${colors.underline}
+label-padding-left = 1
+label-padding-right = 1
 
 [module/wireless-network]
 type = internal/network

@@ -17,16 +17,18 @@ spacing = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
+
 font-0 = Liberation Sans:style=Regular:size=8
 font-1 = FontAwesome:size=8
 
 tray-position = right
 tray-detached = false
-tray-scale = 0.8
+tray-scale = 1.0
 tray-reparent = true
 
 module-margin-left = 1
 module-margin-right = 1
+
 modules-left = i3
 modules-right = wireless-network wired-network pulseaudio battery0 battery1 date
 
@@ -34,8 +36,10 @@ modules-right = wireless-network wired-network pulseaudio battery0 battery1 date
 type = internal/i3
 strip-wsnumbers = true
 wrapping-scroll = false
-index-sort = true
 label-mode = %mode%
+index-sort = true
+label-visible = %name%
+label-visible-padding = ${i3.icon-padding}
 
 label-focused = %name%
 label-focused-foreground = ${colors.foreground}
@@ -45,11 +49,9 @@ label-focused-padding = ${i3.icon-padding}
 label-unfocused = %name%
 label-unfocused-padding = ${i3.icon-padding}
 
-label-visible = %name%
-label-visible-padding = ${i3.icon-padding}
-
 label-urgent = %name%
 label-urgent-foreground = ${colors.foreground}
+label-urgent-underline = ${colors.background}
 label-urgent-background = ${colors.urgent}
 label-urgent-padding = ${i3.icon-padding}
 
@@ -143,7 +145,7 @@ interval = 1.0
 ping-interval = 10
 
 format-connected = <label-connected>
-label-connected =  %signal%% - %essid%
+label-connected =   %signal%% - %essid%
 label-connected-foreground = ${colors.foreground}
 
 ;label-disconnected =  None
