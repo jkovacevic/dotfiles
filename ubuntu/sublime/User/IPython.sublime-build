@@ -1,0 +1,3 @@
+{
+    "shell_cmd": "~/dotfiles/sublime/User/IPython.sublime-build.sh ${file}"
+}

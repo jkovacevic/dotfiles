@@ -1,0 +1,23 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+		"Package Control"
+	],
+	"installed_packages":
+	[
+		"ayu",
+		"Color Highlight",
+		"Compare Side-By-Side",
+		"Local History",
+		"Monokai - Spacegray",
+		"Multicommand",
+		"Package Control",
+		"PackageResourceViewer",
+		"PlainTasks",
+		"Pretty JSON",
+		"rainbow_csv",
+		"SideBarEnhancements",
+		"Theme - Spacegray"
+	]
+}

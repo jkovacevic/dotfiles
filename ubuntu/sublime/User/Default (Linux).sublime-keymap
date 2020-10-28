@@ -1,0 +1,55 @@
+[
+    // Scripts
+    { "keys": ["ctrl+t"], "command": "script_tmp_file" },
+    { "keys": ["f13", "w"], "command": "multicommand", "args": {"commands": [
+            {"command": "script_clear_whitespace"},
+            {"command": "move_to", "args": {"to": "bol", "extend": false}} ]    // Press Home button to deselect text
+        } 
+    },
+
+	// Custom keybindings 
+	{ "keys": ["ctrl+n"], "command": "noop" },
+	{ "keys": ["ctrl+b"], "command": "noop" },
+	{ "keys": ["ctrl+g"], "command": "noop" },
+
+	// CapsLock commands
+	{ "keys": ["f13", "s"], "command": "save" },
+	{ "keys": ["f13", "p"], "command": "copy_path" },
+	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
+	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
+	{ "keys": ["f13", "l"], "command": "split_selection_into_lines" },
+	{ "keys": ["f13", "f13"], "command": "multicommand", "args": {"commands": [
+		{"command": "select_all"}, 
+		{"command": "split_selection_into_lines"},
+		{"command": "move_to", "args": {"to": "bol", "extend": false}} ] 	// Press Home button to deselect text
+	} },
+
+	// Commands including overlay
+	{ "keys": ["ctrl+o"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+	{ "keys": ["ctrl+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
+
+	// Ctrl commands
+	{ "keys": ["ctrl+k"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+	{ "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+	{ "keys": ["ctrl+w"], "command": "close" },
+	{ "keys": ["ctrl+r"], "command": "find_all_under" },
+
+	{ "keys": ["ctrl+shift+n"], "command": "new_window" },
+	{ "keys": ["ctrl+shift+w"], "command": "close_window" },
+	{ "keys": ["ctrl+shift+t"], "command": "reopen_last_file" },
+
+	{ "keys": ["f5"], "command": "build" },
+
+	{ "keys": ["ctrl+alt+n"], "command": "sbs_next_diff" },	
+	{ "keys": ["ctrl+alt+p"], "command": "sbs_prev_diff" },
+
+	// Multiline cursors
+	{ "keys": ["ctrl+shift+up"], "command": "select_lines", "args": {"forward": false} },
+	{ "keys": ["ctrl+shift+down"], "command": "select_lines", "args": {"forward": true} },
+
+	// Plain tasks
+	{ "keys": ["alt+a"], "command": "plain_tasks_new","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
+	{ "keys": ["alt+c"], "command": "plain_tasks_complete","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
+  	{ "keys": ["alt+x"], "command": "plain_tasks_cancel", "context": [{"key": "selector", "operator": "equal", "operand": "text.todo" }] },
+]

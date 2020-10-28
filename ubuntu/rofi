@@ -1,0 +1,5 @@
+rofi.combi-modi:        window,drun,ssh,dmenu
+rofi.font:              Liberation Sans 14
+rofi.show-icons:        true
+rofi.fixed-num-lines:   true
+rofi.theme:             rofi-theme-Monokai.rasi

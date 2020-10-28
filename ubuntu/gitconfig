@@ -1,0 +1,5 @@
+[user]
+	email = janko.kovacevic@smaato.com
+	name = jkovacevic
+[push]
+	default = simple
