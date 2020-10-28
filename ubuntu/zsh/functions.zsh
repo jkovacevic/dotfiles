@@ -229,8 +229,6 @@ gsa() {
     (cd $HOME/notes; gss;)
     echo "- Status dotfiles"
     (cd $HOME/dotfiles; gss;)
-    echo "- Status dotshared"
-    (cd $HOME/dotshared; gss;)
 }
 
 gpa() {
@@ -238,8 +236,6 @@ gpa() {
     (cd $HOME/notes; if [[ $(git status --short) ]]; then gg; fi;)
     echo "- Pushing dotfiles"
     (cd $HOME/dotfiles; if [[ $(git status --short) ]]; then gg; fi;)
-    echo "- Pushing dotshared"
-    (cd $HOME/dotshared; if [[ $(git status --short) ]]; then gg; fi;)
 }
 
 gfa() {
@@ -247,6 +243,4 @@ gfa() {
     (cd $HOME/notes; gf;)
     echo "- Syncing dotfiles"
     (cd $HOME/dotfiles; gf;)
-    echo "- Syncing dotshared"
-    (cd $HOME/dotshared; gf;)
 }
