@@ -40,3 +40,4 @@ create_symlink "$HOME/dotfiles/shared/python/file_format.py" "$HOME/.local/bin/f
 create_symlink "$HOME/dotfiles/shared/python/ipython.py" "$HOME/.ipython/profile_default/ipython_config.py"
 create_symlink "$HOME/dotfiles/shared/config/micro-bindings.json" "$HOME/.config/micro/bindings.json"
 create_symlink "$HOME/dotfiles/shared/config/dunstrc" "$HOME/.config/dunst/dunstrc"
+create_symlink "$HOME/dotfiles/shared/Xdefaults" "$HOME/.Xdefaults"
