@@ -140,9 +140,10 @@ for_window [class="TeXstudio"] focus
 # Intellij and PyCharm settings for popup refresh
 for_window [class="jetbrains-.*" title="win0"] floating enable border none
 for_window [class="jetbrains-.*"] layout tiling
-for_window [workspace=$workspace3] layout stacked
-for_window [workspace=$workspace4] layout stacked
-for_window [workspace=$workspace5] layout stacked
+for_window [workspace=$workspace2] layout stacking
+for_window [workspace=$workspace3] layout stacking
+for_window [workspace=$workspace4] layout stacking
+for_window [workspace=$workspace5] layout stacking
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1e2128 #1e2128 #00ffff #2F343F   #2F343F

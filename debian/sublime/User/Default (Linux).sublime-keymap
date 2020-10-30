@@ -44,6 +44,9 @@
 	{ "keys": ["ctrl+alt+n"], "command": "sbs_next_diff" },	
 	{ "keys": ["ctrl+alt+p"], "command": "sbs_prev_diff" },
 
+	{ "keys": ["ctrl+m"], "command": "toggle_record_macro" },
+	{ "keys": ["ctrl+."], "command": "run_macro" },
+
 	// Multiline cursors
 	{ "keys": ["ctrl+shift+up"], "command": "select_lines", "args": {"forward": false} },
 	{ "keys": ["ctrl+shift+down"], "command": "select_lines", "args": {"forward": true} },

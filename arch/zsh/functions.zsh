@@ -177,11 +177,6 @@ start-wifi() {
     rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
 }
 
-start-blue() {
-    systemctl start bluetooth.service && blueman-applet
-}
-
-
 # Git functions
 gg () { git add .; git commit -m "automated commit message"; git push; }
 ga () { if [[ $1 == "" ]]; then git add .;  else git add $@; fi }

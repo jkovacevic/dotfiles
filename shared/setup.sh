@@ -42,3 +42,4 @@ create_symlink "$HOME/dotfiles/shared/config/micro-bindings.json" "$HOME/.config
 create_symlink "$HOME/dotfiles/shared/config/dunstrc" "$HOME/.config/dunst/dunstrc"
 create_symlink "$HOME/dotfiles/shared/config/rofi" "$HOME/.config/rofi/config"
 create_symlink "$HOME/dotfiles/shared/Xdefaults" "$HOME/.Xdefaults"
+create_symlink "$HOME/dotfiles/shared/python/ipython-functions.py" "$HOME/.ipython/profile_default/startup/ipython-functions.py"

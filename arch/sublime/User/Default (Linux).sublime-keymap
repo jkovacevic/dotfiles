@@ -182,9 +182,6 @@
 
 	{ "keys": ["alt+."], "command": "close_tag" },
 
-	{ "keys": ["ctrl+m"], "command": "toggle_record_macro" },
-	{ "keys": ["ctrl+."], "command": "run_macro" },
-
 	{ "keys": ["ctrl+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line.sublime-macro"} },
 	{ "keys": ["ctrl+shift+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line Before.sublime-macro"} },
 	{ "keys": ["enter"], "command": "commit_completion", "context":
@@ -689,7 +686,10 @@
 	{ "keys": ["f5"], "command": "build" },
 
 	{ "keys": ["ctrl+alt+n"], "command": "sbs_next_diff" },	
-	{ "keys": ["ctrl+alt+p"], "command": "sbs_prev_diff" },	
+	{ "keys": ["ctrl+alt+p"], "command": "sbs_prev_diff" },
+
+	{ "keys": ["ctrl+m"], "command": "toggle_record_macro" },
+	{ "keys": ["ctrl+."], "command": "run_macro" },
 
 	// Plain tasks
 	{ "keys": ["alt+a"], "command": "plain_tasks_new","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
