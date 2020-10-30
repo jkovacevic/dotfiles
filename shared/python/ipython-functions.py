@@ -13,6 +13,7 @@ def insert_unexpected(event):
     buf = event.current_buffer
     pyperclip.copy(buf.text)
     subprocess.Popen(['notify-send', f"IPython copied text: {buf.text}"])
+    buf.reset()
     
 
 # Register the shortcut if IPython is using prompt_toolkit
