@@ -58,7 +58,7 @@ short-url() {
 }
 
 tmux-init() {
-    if [ -z "$TMUX" ]; 
+    if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ];
     then
         echo "Shell: [W]orkshell or [H]omeshell?"
         read shell
