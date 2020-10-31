@@ -1,5 +1,6 @@
 import atexit
 import os
+import subprocess
 
 ip = get_ipython()
 LIMIT = 5000 # limit the size of the history
@@ -13,6 +14,8 @@ def edit():
     with open(histfile, 'w') as f:
         # limit to LIMIT entries
         f.writelines(lines[-LIMIT:])
+
+    subprocess.Popen(['subl', histfile])
 
 # do the save at exit
 atexit.register(edit)
