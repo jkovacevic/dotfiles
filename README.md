@@ -48,7 +48,7 @@ Run setup.sh to configure dotfiles.
 `bash/video.sh` - films a video of screen (requires: `ffmpeg, xclip`)  
 `bash/screenshot.sh` - creates a screenshot of selection (requires: `imagemagick, xclip`)  
 `bash/translate.sh` - translate mouse selection to english (requires: `translate-shell, xclip`)  
-`python/file_format.py` - renames all files in current directory to unix appropriate format  
+`python/file-format.py` - renames all files in current directory to unix appropriate format  
 
 #### Sublime Text 3 plugins:
 
