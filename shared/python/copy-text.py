@@ -18,7 +18,7 @@ def insert_unexpected(event):
 # Register the shortcut if IPython is using prompt_toolkit
 if getattr(ip, 'pt_app', None):
     registry = ip.pt_app.key_bindings
-    registry.add_binding(Keys.ControlY,
+    registry.add_binding(Keys.ControlX,
                      filter=(HasFocus(DEFAULT_BUFFER)
                              & ~HasSelection()
                              & insert_mode))(insert_unexpected)

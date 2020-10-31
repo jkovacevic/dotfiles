@@ -565,12 +565,6 @@
 
 	{ "keys": ["alt+q"], "command": "wrap_lines" },
 
-
-
-	{ "keys": ["ctrl++"], "command": "increase_font_size" },
-	{ "keys": ["ctrl+="], "command": "increase_font_size" },
-	{ "keys": ["ctrl+-"], "command": "decrease_font_size" },
-
 	{ "keys": ["alt+shift+w"], "command": "insert_snippet", "args": { "name": "Packages/XML/Snippets/long-tag.sublime-snippet" } },
 
 	{ "keys": ["ctrl+shift+["], "command": "fold" },
@@ -649,32 +643,25 @@
 	{ "keys": ["ctrl+b"], "command": "noop" },
 	{ "keys": ["ctrl+g"], "command": "noop" },
 
+	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
+
 	// CapsLock commands
-	{ "keys": ["f13", "s"], "command": "save" },
+	{ "keys": ["f13", "l"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
 	{ "keys": ["f13", "p"], "command": "copy_path" },
 	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
 	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
-	{ "keys": ["f13", "l"], "command": "split_selection_into_lines" },
 	{ "keys": ["f13", "w"], "command": "multicommand", "args": {"commands": [
 		{"command": "clear_whitespace"},
 		{"command": "move_to", "args": {"to": "bol", "extend": false}} ] 	// Press Home button to deselect text
 	} },
-	{ "keys": ["f13", "l"], "command": "multicommand", "args": {"commands": [
-		{"command": "split_selection_into_lines"},
-		{"command": "move_to", "args": {"to": "bol", "extend": false}} ] 	// Press Home button to deselect text
-	} },
-	{ "keys": ["f13", "f13"], "command": "multicommand", "args": {"commands": [
+	{ "keys": ["f13", "a"], "command": "multicommand", "args": {"commands": [
 		{"command": "select_all"}, 
 		{"command": "split_selection_into_lines"},
 		{"command": "move_to", "args": {"to": "bol", "extend": false}} ] 	// Press Home button to deselect text
 	} },
 
-	// Commands including overlay
-	{ "keys": ["ctrl+o"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
-	{ "keys": ["ctrl+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
-	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
-
 	// Ctrl commands
+	{ "keys": ["ctrl+s"], "command": "save" },
 	{ "keys": ["ctrl+t"], "command": "create_tmp_file" },
 	{ "keys": ["ctrl+k"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
 	
@@ -690,6 +677,10 @@
 
 	{ "keys": ["ctrl+m"], "command": "toggle_record_macro" },
 	{ "keys": ["ctrl+."], "command": "run_macro" },
+
+	{ "keys": ["ctrl+\\"], "command": "split_pane" },
+	{ "keys": ["f13", "left"], "command": "focus_group {\"group\": 0}" },
+	{ "keys": ["f13", "right"], "command": "focus_group {\"group\": 1}" },
 
 	// Plain tasks
 	{ "keys": ["alt+a"], "command": "plain_tasks_new","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },

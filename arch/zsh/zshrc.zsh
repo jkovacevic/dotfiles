@@ -56,6 +56,8 @@ bindkey     "^Z"        undo
 
 # ZLE commands
 CAPS_LOCK="^[[1;2P"
+CMD_HOME="^[[1~"
+CMD_END="^[[4~"
 CTRL_Y="^Y"
 CTRL_L="^L"
 CTRL_G="^G"
@@ -63,6 +65,10 @@ CTRL_D="^D"
 CTRL_F="^F"
 CTRL_BKSP="^H"
 CTRL_SP="^@"
+SHIFT_LARROW="^[[1;2D"
+SHIFT_RARROW="^[[1;2C"
+CTRL_LARROW="^[[1;5D"
+CTRL_RARROW="^[[1;5C"
 
 # Remove keybinds
 bindkey -r "^[c"    # fzf-cd-widget
@@ -71,12 +77,36 @@ bindkey -r "^T"     # fzf-file-widget
 bindkey -r "^L"     # clear-screen
 bindkey -r "^Y"     # unknown
 
-bindkey     $CTRL_G          go
-bindkey     $CTRL_L          clear-screen
-bindkey     $CAPS_LOCK       list-dir
-bindkey     $CTRL_BKSP       go-back
-bindkey     $CTRL_Y          copy-text
-bindkey     $CTRL_D          fzf-cd-widget
-bindkey     $CTRL_F          fzf-file-widget
+bindkey -r $CMD_HOME
+bindkey -r $CMD_END
+bindkey -r $SHIFT_LARROW
+bindkey -r $SHIFT_RARROW
+bindkey -r $CTRL_LARROW
+bindkey -r $CTRL_RARROW
+
+r-char() {
+  ((REGION_ACTIVE)) || zle set-mark-command
+  local widget_name=$1
+  shift
+  zle r-char
+}
+
+select-r-char() {
+    r-char 
+}
+
+bindkey     $CMD_HOME           beginning-of-line
+bindkey     $CMD_END            end-of-line
+bindkey     $SHIFT_LARROW       r-char
+bindkey     $SHIFT_RARROW       r-select-forward-char
+bindkey     $CTRL_LARROW        vi-backward-blank-word
+bindkey     $CTRL_RARROW        .vi-forward-blank-word
+bindkey     $CTRL_G             go
+bindkey     $CTRL_L             clear-screen
+bindkey     $CAPS_LOCK          list-dir
+bindkey     $CTRL_BKSP          go-back
+bindkey     $CTRL_Y             copy-text
+bindkey     $CTRL_D             fzf-cd-widget
+bindkey     $CTRL_F             fzf-file-widget
 
 tmux-init
