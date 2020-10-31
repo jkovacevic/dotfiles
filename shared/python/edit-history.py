@@ -7,7 +7,7 @@ LIMIT = 5000 # limit the size of the history
 
 def edit():
     """save the IPython history to a plaintext file"""
-    histfile = os.path.join(ip.profile_dir.location, "/tmp/ipython-history.py")
+    histfile = os.path.join(ip.profile_dir.location, "/tmp/_ipython.py")
     print("Saving plaintext history to %s" % histfile)
     lines = [f"{record[2]}\n" for record in ip.history_manager.get_range()]
 
