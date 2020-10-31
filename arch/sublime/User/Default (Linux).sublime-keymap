@@ -652,9 +652,18 @@
 
 	{ "keys": ["f13", "f13"], "command": "multicommand", "args": {"commands": [
 		{"command": "hide_panel", "args": {"panel": "console"}},
-		{"command": "split_pane" },
+		{"command": "close_pane" },
 		{"command": "show_sidebar"}, ]
 	} },
+
+	{ "keys": ["f13", "\\"], "command": "multicommand", "args": {"commands": [
+		{"command": "split_pane" }, 
+		{"command": "hide_sidebar" }
+	]
+	} },
+	{ "keys": ["f13", "left"], "command": "focus_group {\"group\": 0}" },
+	{ "keys": ["f13", "right"], "command": "focus_group {\"group\": 1}" },
+
 	{ "keys": ["f13", "a"], "command": "multicommand", "args": {"commands": [
 		{"command": "select_all"}, 
 		{"command": "split_selection_into_lines"},
@@ -682,13 +691,6 @@
 
 	{ "keys": ["ctrl+m"], "command": "toggle_record_macro" },
 	{ "keys": ["ctrl+."], "command": "run_macro" },
-
-	{ "keys": ["ctrl+\\"], "command": "multicommand", "args": {"commands": [
-		{"command": "split_pane" },
-		{"command": "hide_sidebar"}, ]
-	} },
-	{ "keys": ["f13", "left"], "command": "focus_group {\"group\": 0}" },
-	{ "keys": ["f13", "right"], "command": "focus_group {\"group\": 1}" },
 
 	// Plain tasks
 	{ "keys": ["alt+a"], "command": "plain_tasks_new","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
