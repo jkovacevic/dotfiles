@@ -146,20 +146,18 @@ docs-list() {
 }
 
 # ZLE functions
-# ZLE functions
 go-back() {
     cd ..; echo "";
     zle reset-prompt;
-}; zle -N go_back
+}; zle -N go-back
 
 list-dir() {
     echo ""; ls -lFh --color=auto --group-directories-first;
     zle reset-prompt;
-}; zle -N list_dir
+}; zle -N list-dir
 
 copy-text() {
     text="$BUFFER"
-    BUFFER=""
     zle reset-prompt;
     echo -n $text | xclip -selection clipboard
     notify-send "ZSH copy:" $text
