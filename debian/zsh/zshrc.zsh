@@ -7,7 +7,7 @@ autoload -U select-word-style
 plugins=(zsh-completions)
 
 # Environment variables
-export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>/"
+export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
@@ -47,6 +47,8 @@ vcs_info_wrapper() { if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}
 export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
 export RPROMPT='$(vcs_info_wrapper)'
 
+eval "$(ntfy shell-integration)"
+
 # Terminal navigation
 bindkey     "^[[3~"     delete-char
 bindkey     "^[3;5~"    delete-char
@@ -59,7 +61,7 @@ bindkey     "^Z"        undo
 
 # ZLE commands
 CAPS_LOCK="^[[1;2P"
-CAPS_LOCK2="^[[25~"
+CTRL_Y="^Y"
 CTRL_L="^L"
 CTRL_G="^G"
 CTRL_D="^D"
@@ -72,14 +74,14 @@ bindkey -r "^[c"    # fzf-cd-widget
 bindkey -r "^d"     # delete-char-or-list
 bindkey -r "^T"     # fzf-file-widget
 bindkey -r "^L"     # clear-screen
+bindkey -r "^Y"     # unknown
 
 bindkey     $CTRL_G          go
 bindkey     $CTRL_L          clear-screen
-bindkey     $CAPS_LOCK       list_dir
-bindkey     $CAPS_LOCK2      list_dir
-bindkey     $CTRL_BKSP       go_back
+bindkey     $CAPS_LOCK       list-dir
+bindkey     $CTRL_BKSP       go-back
+bindkey     $CTRL_Y          copy-text
 bindkey     $CTRL_D          fzf-cd-widget
 bindkey     $CTRL_F          fzf-file-widget
 
-eval "$(ntfy shell-integration)"
 tmux-init

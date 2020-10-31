@@ -146,15 +146,24 @@ docs-list() {
 }
 
 # ZLE functions
-go_back() {
+# ZLE functions
+go-back() {
     cd ..; echo "";
     zle reset-prompt;
 }; zle -N go_back
 
-list_dir() {
+list-dir() {
     echo ""; ls -lFh --color=auto --group-directories-first;
     zle reset-prompt;
 }; zle -N list_dir
+
+copy-text() {
+    text="$BUFFER"
+    BUFFER=""
+    zle reset-prompt;
+    echo -n $text | xclip -selection clipboard
+    notify-send "ZSH copy:" $text
+}; zle -N copy-text
 
 # Docker functions
 docker-rmi() {

@@ -86,22 +86,6 @@ sub yank_selection {
 
 	$self->selection_beg(1, 0);
 	$self->selection_end(1, 0);
-	# notify_message("Copying selection to clipboard");
-	system("~/dotfiles/shared/python/tidy-clipboard.py &");
-}
-
-sub yank_command {
-	my ($self, $event) = @_;
-	my ($cr, $cc) = $self->screen_cur();
-	$self->selection_beg($cr, 0);
-	$self->selection_end($cr, 1000);
-	$self->selection_make($event->{time});
-	$self->selection_grab($event->{time}, 1);
-
-	$self->selection_beg(1, 0);
-	$self->selection_end(1, 0);
-	# notify_message("Copying line to clipboard");
-	system("~/dotfiles/shared/python/tidy-clipboard.py &");
 }
 
 
@@ -137,9 +121,6 @@ sub key_press {
 		toggle_select($self, 'b');
 	} elsif ($key eq 'y' && $self->{select}) {
 		yank_selection($self, $event);
-		deactivate($self);
-	} elsif ($key eq 'c') {
-		yank_command($self, $event);
 		deactivate($self);
 	}
 
