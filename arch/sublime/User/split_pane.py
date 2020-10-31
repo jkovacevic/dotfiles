@@ -5,9 +5,7 @@ class SplitPaneCommand(sublime_plugin.WindowCommand):
         w = self.window
         if w.num_groups() == 1:
             w.run_command('set_layout', {
-                "cols": [0.0, 0.5, 1.0], 
-                "rows": [0.0, 1.0],
-                'cells': [[0, 0, 1, 1], [1, 0, 2, 1]]
+                'cells': [[0, 0, 1, 1], [1, 0, 2, 1]], "cols": [0.0, 0.5, 1.0], "rows": [0.0, 1.0],
             })
             w.focus_group(0)
             w.run_command('clone_file')
@@ -17,7 +15,5 @@ class SplitPaneCommand(sublime_plugin.WindowCommand):
             w.focus_group(1)
             w.run_command('close')
             w.run_command('set_layout', {
-                'cols': [0.0, 1.0],
-                'rows': [0.0, 1.0],
-                'cells': [[0, 0, 1, 1]]
+                "cells": [[0, 0, 1, 1]], "cols": [0.0, 1.0], "rows": [0.0, 1.0]
             })

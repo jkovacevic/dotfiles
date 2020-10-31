@@ -652,7 +652,8 @@
 
 	{ "keys": ["f13", "f13"], "command": "multicommand", "args": {"commands": [
 		{"command": "hide_panel", "args": {"panel": "console"}},
-		{"command": "set_layout", "args": {"cells": [[0, 0, 1, 1]], "cols": [0.0, 1.0], "rows": [0.0, 1.0] }} ]
+		{"command": "split_pane" },
+		{"command": "show_sidebar"}, ]
 	} },
 	{ "keys": ["f13", "a"], "command": "multicommand", "args": {"commands": [
 		{"command": "select_all"}, 
@@ -682,7 +683,10 @@
 	{ "keys": ["ctrl+m"], "command": "toggle_record_macro" },
 	{ "keys": ["ctrl+."], "command": "run_macro" },
 
-	{ "keys": ["ctrl+\\"], "command": "split_pane" },
+	{ "keys": ["ctrl+\\"], "command": "multicommand", "args": {"commands": [
+		{"command": "split_pane" },
+		{"command": "hide_sidebar"}, ]
+	} },
 	{ "keys": ["f13", "left"], "command": "focus_group {\"group\": 0}" },
 	{ "keys": ["f13", "right"], "command": "focus_group {\"group\": 1}" },
 

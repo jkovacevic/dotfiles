@@ -1,6 +1,5 @@
 import sublime
 import sublime_plugin
-sublime.log_commands(True)
 
 titles_all = [
     "Tyrian Explorer",
