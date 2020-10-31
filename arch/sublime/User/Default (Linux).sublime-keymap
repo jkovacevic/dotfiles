@@ -645,7 +645,6 @@
 	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
 
 	// CapsLock commands
-	{ "keys": ["f13", "l"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
 	{ "keys": ["f13", "p"], "command": "copy_path" },
 	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
 	{ "keys": ["f13", "r"], "command": "side_bar_delete"},
@@ -677,6 +676,7 @@
 	// Ctrl commands
 	{ "keys": ["ctrl+s"], "command": "save" },
 	{ "keys": ["ctrl+t"], "command": "create_tmp_file" },
+	{ "keys": ["ctrl+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"}},
 	{ "keys": ["ctrl+k"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
 	
 	{ "keys": ["ctrl+w"], "command": "close" },

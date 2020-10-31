@@ -84,17 +84,6 @@ bindkey -r $SHIFT_RARROW
 bindkey -r $CTRL_LARROW
 bindkey -r $CTRL_RARROW
 
-r-char() {
-  ((REGION_ACTIVE)) || zle set-mark-command
-  local widget_name=$1
-  shift
-  zle r-char
-}
-
-select-r-char() {
-    r-char 
-}
-
 bindkey     $CMD_HOME           beginning-of-line
 bindkey     $CMD_END            end-of-line
 bindkey     $SHIFT_LARROW       r-char
