@@ -11,8 +11,11 @@ insert_mode = ViInsertMode() | EmacsInsertMode()
 
 def insert_unexpected(event):
     buf = event.current_buffer
-    pyperclip.copy(buf.text)
-    subprocess.Popen(['notify-send', "IPython copy", f"{buf.text}"])
+    text = buf.text
+    buf.text = ""
+    pyperclip.copy(text)
+    subprocess.Popen(['notify-send', "IPython copy", f"{text}"])
+
 
 
 # Register the shortcut if IPython is using prompt_toolkit
