@@ -49,7 +49,7 @@ bindsym XF86AudioRaiseVolume    exec pactl set-sink-volume 0 +10%
 exec_always --no-startup-id $HOME/dotfiles/shared/bash/polybar_launch.sh
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec feh --bg-scale $HOME/wallpaper/wallpaper
-exec $HOME/dotfiles/debian/startup.sh
+exec $HOME/dotfiles/shared/startup.sh -l
 exec /usr/bin/dunst
 exec /usr/bin/nm-applet
 exec /usr/bin/urxvt -title urxvt_
@@ -109,6 +109,7 @@ bindsym $mod+Shift+equal        move container to workspace $workspace13
 # Xprop assignation
 assign [title="urxvt_"]                     $workspace0
 assign [class="Google-chrome"]              $workspace1
+assign [class="Chromium"]                   $workspace1
 assign [class="jetbrains-idea-ce"]          $workspace2
 assign [class="jetbrains-pycharm-ce"]       $workspace2
 assign [title="IPython"]                    $workspace2
