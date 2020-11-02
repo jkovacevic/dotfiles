@@ -5,16 +5,20 @@ autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
 plugins=(zsh-completions)
 
-export FZF_DEFAULT_OPTS='--prompt="search > " --height 40% --layout=reverse --border --exact --sort'
-export FZF_CTRL_T_COMMAND='command fd --hidden --no-ignore --ignore-case . /'
-export FZF_ALT_C_COMMAND='command fd --hidden --no-ignore --ignore-case -t d . /'
+# Environment variables
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>/"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export EDITOR='micro'
+
+# FZF environment variables
+export FZF_DEFAULT_OPTS='--prompt="search > " --height 40% --layout=reverse --border --exact --sort'
+export FZF_CTRL_T_COMMAND='command fd --hidden --no-ignore --ignore-case . /'
+export FZF_ALT_C_COMMAND='command fd --hidden --no-ignore --ignore-case -t d . /'
+
 export PATH="$HOME/script:$HOME/.local/bin/:$PATH"
-export LS_COLORS="di=01;34" # tree will display folders
+export PYDOC="$HOME/ipython/venv/lib/python3.7/site-packages"
 
 setopt auto_cd
 setopt prompt_subst

@@ -1,13 +1,12 @@
 source /opt/fzf/shell/key-bindings.zsh
 source $HOME/dotfiles/debian/zsh/functions.zsh
 
-autoload -Uz vcs_info
-autoload -Uz compinit && compinit
+autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
 plugins=(zsh-completions)
 
 # Environment variables
-export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
+export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>/"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
@@ -17,6 +16,8 @@ export EDITOR='micro'
 export FZF_DEFAULT_OPTS='--prompt="search > " --height 40% --layout=reverse --border --exact --sort'
 export FZF_CTRL_T_COMMAND='command fd --hidden --no-ignore --ignore-case . /'
 export FZF_ALT_C_COMMAND='command fd --hidden --no-ignore --ignore-case -t d . /'
+
+export PYDOC="$HOME/ipython/venv/lib/python3.7/site-packages"
     
 setopt auto_cd
 setopt prompt_subst           # Ability to override PROMPT AND RPROMPT
