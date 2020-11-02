@@ -48,7 +48,7 @@ bindsym XF86AudioRaiseVolume    exec pactl set-sink-volume 0 +10%
 exec_always --no-startup-id $HOME/dotfiles/shared/bash/polybar_launch.sh
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 
 exec feh --bg-scale $HOME/wallpapers/wallpaper
-exec $HOME/dotfiles/debian/startup.sh
+exec $HOME/dotfiles/shared/startup.sh -k
 
 exec /usr/bin/nm-applet
 exec /usr/bin/urxvt -title urxvt_
