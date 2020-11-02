@@ -12,7 +12,7 @@ insert_mode = ViInsertMode() | EmacsInsertMode()
 def insert_unexpected(event):
     buf = event.current_buffer
     pyperclip.copy(buf.text)
-    subprocess.Popen(['notify-send', f"IPython copied text: {buf.text}"])
+    subprocess.Popen(['notify-send', f"IPython copy:", buf.text])
     buf.reset()
     
 
