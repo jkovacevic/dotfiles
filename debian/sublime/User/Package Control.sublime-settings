@@ -2,7 +2,6 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"Package Control"
 	],
 	"installed_packages":
 	[
@@ -11,6 +10,7 @@
 		"Compare Side-By-Side",
 		"Local History",
 		"Monokai - Spacegray",
+		"MoveTab",
 		"Multicommand",
 		"Package Control",
 		"PackageResourceViewer",
