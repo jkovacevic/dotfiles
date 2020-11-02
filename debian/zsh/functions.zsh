@@ -158,7 +158,8 @@ list-dir() {
 
 copy-text() {
     text="$BUFFER"
-    zle reset-prompt;
+    BUFFER=""
+    zle reset-prompt
     echo -n $text | xclip -selection clipboard
     notify-send "ZSH copy:" $text
 }; zle -N copy-text

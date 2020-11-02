@@ -79,15 +79,11 @@ bindkey -r "^Y"     # unknown
 
 bindkey -r $CMD_HOME
 bindkey -r $CMD_END
-bindkey -r $SHIFT_LARROW
-bindkey -r $SHIFT_RARROW
 bindkey -r $CTRL_LARROW
 bindkey -r $CTRL_RARROW
 
 bindkey     $CMD_HOME           beginning-of-line
 bindkey     $CMD_END            end-of-line
-bindkey     $SHIFT_LARROW       r-char
-bindkey     $SHIFT_RARROW       r-select-forward-char
 bindkey     $CTRL_LARROW        vi-backward-blank-word
 bindkey     $CTRL_RARROW        .vi-forward-blank-word
 bindkey     $CTRL_G             go
