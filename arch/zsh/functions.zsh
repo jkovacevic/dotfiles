@@ -185,6 +185,14 @@ start-wifi() {
     rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
 }
 
+pydoc() {
+    (cd ~/ipython/venv/lib/python3.7/site-packages && rg -n "$@" --ignore-case --color=auto)
+}
+
+pydocf() {
+    subl ~/ipython/venv/lib/python3.7/site-packages/$1
+}
+
 # Git functions
 gg () { git add .; git commit -m "automated commit message"; git push; }
 ga () { if [[ $1 == "" ]]; then git add .;  else git add $@; fi }

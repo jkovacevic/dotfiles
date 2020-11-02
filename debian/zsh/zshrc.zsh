@@ -16,8 +16,6 @@ export EDITOR='micro'
 export FZF_DEFAULT_OPTS='--prompt="search > " --height 40% --layout=reverse --border --exact --sort'
 export FZF_CTRL_T_COMMAND='command fd --hidden --no-ignore --ignore-case . /'
 export FZF_ALT_C_COMMAND='command fd --hidden --no-ignore --ignore-case -t d . /'
-
-export PYDOC="$HOME/ipython/venv/lib/python3.7/site-packages"
     
 setopt auto_cd
 setopt prompt_subst           # Ability to override PROMPT AND RPROMPT
