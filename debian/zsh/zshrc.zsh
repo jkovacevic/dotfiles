@@ -59,7 +59,7 @@ bindkey     ";5C"       .vi-forward-blank-word
 bindkey     "^Z"        undo
 
 # ZLE commands
-CAPS_LOCK="^[[1;2P"
+CAPS_LOCK="^[[25~"
 CMD_HOME="^[[1~"
 CMD_END="^[[4~"
 CTRL_Y="^Y"
