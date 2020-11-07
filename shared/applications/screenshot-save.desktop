@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Screenshot-Save
+GenericName=Screenshot script for Linux
+Exec=sh -c "$HOME/dotfiles/shared/bash/screenshot-save.sh"
+Icon=/home/jk/.icon/icon-console.png
+Type=Application
+StartupNotify=true
