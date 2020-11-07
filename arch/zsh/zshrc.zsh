@@ -5,16 +5,18 @@ autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
 plugins=(zsh-completions)
 
-export FZF_DEFAULT_OPTS='--prompt="search > " --height 40% --layout=reverse --border --exact --sort'
-export FZF_CTRL_T_COMMAND='command fd --hidden --no-ignore --ignore-case . /'
-export FZF_ALT_C_COMMAND='command fd --hidden --no-ignore --ignore-case -t d . /'
+# Environment variables
 export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>/"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export EDITOR='micro'
+
+# FZF environment variables
+export FZF_DEFAULT_OPTS='--prompt="search > " --height 40% --layout=reverse --border --exact --sort'
+export FZF_CTRL_T_COMMAND='command fd --hidden --no-ignore --ignore-case . /'
+export FZF_ALT_C_COMMAND='command fd --hidden --no-ignore --ignore-case -t d . /'
 export PATH="$HOME/script:$HOME/.local/bin/:$PATH"
-export LS_COLORS="di=01;34" # tree will display folders
 
 setopt auto_cd
 setopt prompt_subst
@@ -79,15 +81,11 @@ bindkey -r "^Y"     # unknown
 
 bindkey -r $CMD_HOME
 bindkey -r $CMD_END
-bindkey -r $SHIFT_LARROW
-bindkey -r $SHIFT_RARROW
 bindkey -r $CTRL_LARROW
 bindkey -r $CTRL_RARROW
 
 bindkey     $CMD_HOME           beginning-of-line
 bindkey     $CMD_END            end-of-line
-bindkey     $SHIFT_LARROW       r-char
-bindkey     $SHIFT_RARROW       r-select-forward-char
 bindkey     $CTRL_LARROW        vi-backward-blank-word
 bindkey     $CTRL_RARROW        .vi-forward-blank-word
 bindkey     $CTRL_G             go

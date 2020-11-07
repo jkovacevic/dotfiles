@@ -1,13 +1,12 @@
 source /opt/fzf/shell/key-bindings.zsh
 source $HOME/dotfiles/debian/zsh/functions.zsh
 
-autoload -Uz vcs_info
-autoload -Uz compinit && compinit
+autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
 plugins=(zsh-completions)
 
 # Environment variables
-export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>"
+export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>/"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
@@ -60,7 +59,7 @@ bindkey     ";5C"       .vi-forward-blank-word
 bindkey     "^Z"        undo
 
 # ZLE commands
-CAPS_LOCK="^[[1;2P"
+CAPS_LOCK="^[[25~"
 CMD_HOME="^[[1~"
 CMD_END="^[[4~"
 CTRL_Y="^Y"
@@ -70,6 +69,8 @@ CTRL_D="^D"
 CTRL_F="^F"
 CTRL_BKSP="^H"
 CTRL_SP="^@"
+SHIFT_LARROW="^[[1;2D"
+SHIFT_RARROW="^[[1;2C"
 CTRL_LARROW="^[[1;5D"
 CTRL_RARROW="^[[1;5C"
 

@@ -158,7 +158,8 @@ list-dir() {
 
 copy-text() {
     text="$BUFFER"
-    zle reset-prompt;
+    BUFFER=""
+    zle reset-prompt
     echo -n $text | xclip -selection clipboard
     notify-send "ZSH copy:" $text
 }; zle -N copy-text
@@ -182,6 +183,14 @@ start-wifi() {
     # wlp3s0 enp0s31f6 - home
     # wlp58s0 enp0s31f6 - work
     rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
+}
+
+pydoc() {
+    (cd ~/ipython/venv/lib/python3.7/site-packages && rg -n "$@" --ignore-case --color=auto)
+}
+
+pydocf() {
+    subl ~/ipython/venv/lib/python3.7/site-packages/$1
 }
 
 # Git functions
