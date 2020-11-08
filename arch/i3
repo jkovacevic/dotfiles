@@ -63,16 +63,16 @@ set $workspace0 "0:"
 set $workspace1 "1:"
 set $workspace2 "2:"
 set $workspace3 "3:"
-set $workspace4 "4:"
+set $workspace4 "4:"
 set $workspace5 "5:"
 set $workspace6 "6:"
 set $workspace7 "7:"
-set $workspace8 "8:"
+set $workspace8 "8:"
 set $workspace9 "9:"
 set $workspace10 "10:"
 set $workspace11 "11:"
-set $workspace12 "12:"
-set $workspace13 "13:"
+set $workspace12 "12:"
+set $workspace13 "13:"
 
 # Switch to workspace
 bindsym $mod+grave      workspace $workspace0
@@ -110,22 +110,20 @@ bindsym $mod+Shift+equal        move container to workspace $workspace13
 assign [title="urxvt_"]                     $workspace0
 assign [class="Google-chrome"]              $workspace1
 assign [class="Chromium"]                   $workspace1
-assign [class="jetbrains-idea-ce"]          $workspace2
-assign [class="jetbrains-pycharm-ce"]       $workspace2
+assign [class="jetbrains-.*"]               $workspace2
 assign [title="IPython"]                    $workspace2
 assign [class="Subl"]                       $workspace3
 assign [class="Sublime_merge"]              $workspace3
-assign [class="Evince"]                     $workspace4
 assign [class="Soffice"]                    $workspace4
 assign [class="(?i)libreoffice.*"]          $workspace4
 assign [class="jetbrains-datagrip"]         $workspace4
 assign [class="TeXstudio"]                  $workspace4
-assign [class="Pinta"]                      $workspace5
-assign [class="Sxiv"]                       $workspace5
-assign [class="vlc"]                        $workspace5
 assign [class="Slack"]                      $workspace9
-assign [class="Sublime_merge"]              $workspace10
 assign [class="Thunderbird"]                $workspace11
+assign [class="Evince"]                     $workspace12
+assign [class="Pinta"]                      $workspace12
+assign [class="Sxiv"]                       $workspace12
+assign [class="vlc"]                        $workspace12
 
 for_window [class="urxvt_"] focus
 for_window [class="Subl"] focus
