@@ -19,7 +19,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 font-0 = Liberation Sans:style=Regular:size=8
-font-1 = FontAwesome:size=8
+font-1 = FontAwesome:size=10
 
 tray-position = right
 tray-detached = false
