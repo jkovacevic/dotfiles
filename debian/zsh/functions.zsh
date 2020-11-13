@@ -94,7 +94,7 @@ extract () {
     fi
 }
 
-docs-init() {
+doc-init() {
     find_latest_name() {
         dir_name=$1
         file_name=$2
@@ -132,7 +132,7 @@ docs-init() {
     fi;
 }
 
-docs-list() {
+doc-list() {
     project_home="$HOME/documents"
     file_name="item1.md"
     dir_name="$project_home/$ticket_num"
