@@ -100,7 +100,7 @@ assign [title="urxvt_"]                     $workspace0
 assign [class="Google-chrome"]              $workspace1
 assign [class="Chromium"]                   $workspace1
 assign [class="jetbrains-.*"]               $workspace2
-assign [title="IPython"]                    $workspace2
+assign [title="IPython"]                    $workspace3
 assign [class="Subl"]                       $workspace3
 assign [class="Sublime_merge"]              $workspace3
 assign [class="Soffice"]                    $workspace4
@@ -128,7 +128,7 @@ for_window [class="TeXstudio"] focus
 # Intellij and PyCharm settings for popup refresh
 for_window [class="jetbrains-.*" title="win0"] floating enable border none
 for_window [class="jetbrains-.*"] layout tiling
-for_window [workspace=$workspace3] layout stacked
+for_window [workspace=$workspace3] layout tiling
 for_window [workspace=$workspace4] layout stacked
 for_window [workspace=$workspace5] layout stacked
 
