@@ -185,12 +185,9 @@ start-wifi() {
     rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
 }
 
-pydoc() {
-    (cd ~/ipython/venv/lib/python3.7/site-packages && rg -n "$@" --ignore-case --color=auto)
-}
-
-pydocf() {
-    subl ~/ipython/venv/lib/python3.7/site-packages/$1
+polget() {
+    folder=$(awk -F "/" '{print $NF}' <<< "$1")
+    wget -E -H -k -K -nd -N -p -P $folder $1
 }
 
 # Git functions
