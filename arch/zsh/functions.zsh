@@ -187,6 +187,9 @@ start-wifi() {
 
 polget() {
     folder=$(awk -F "/" '{print $NF}' <<< "$1")
+    if [ ! -e "$folder" ]; then
+        vared -p 'Thread name: ' -c folder
+    fi;
     wget -E -H -k -K -nd -N -p -P $folder $1
 }
 
