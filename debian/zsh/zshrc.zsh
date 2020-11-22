@@ -3,6 +3,7 @@ source $HOME/dotfiles/debian/zsh/functions.zsh
 
 autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
+select-word-style bash
 plugins=(zsh-completions)
 
 # Environment variables
