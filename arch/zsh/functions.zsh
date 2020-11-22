@@ -61,7 +61,6 @@ tmux-init() {
     if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ];
     then
         echo "Shell: [w]orkshell, [h]omeshell or <shell-name>?"
-        shell="w"
         vared -p 'Shell: ' -c shell
         if [[ ${shell:l} == "h" ]]; then
             $HOME/dotfiles/shared/tmux/tmux.startup.home;
