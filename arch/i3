@@ -132,6 +132,7 @@ for_window [workspace=$workspace2] layout stacking
 for_window [workspace=$workspace3] layout tiling
 for_window [workspace=$workspace4] layout stacking
 for_window [workspace=$workspace5] layout stacking
+for_window [workspace=$workspace12] layout stacked
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1e2128 #1e2128 #00ffff #2F343F   #2F343F
