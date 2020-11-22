@@ -1,4 +1,5 @@
-tmux new-session -d -s shell
-tmux neww -t home:2 -c /tmp
+tmux new-session -d -s shell -n 'tmp' -c /tmp
+tmux neww -t shell:2 -n 'home' 
+tmux neww -t shell:3 -n 'zsh' 
 tmux select-window -t shell:1
 tmux attach -t shell
