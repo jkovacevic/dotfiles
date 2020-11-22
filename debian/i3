@@ -58,18 +58,17 @@ exec /usr/bin/thunderbird
 exec /usr/bin/slack
 
 # Workspaces
+# https://fontawesome.com/v4.7.0/cheatsheet/
 set $workspace0 "0:"
 set $workspace1 "1:"
 set $workspace2 "2:"
 set $workspace3 "3:"
 set $workspace4 "4:"
-
 set $workspace9 "9:"
 set $workspace10 "10:"
 set $workspace11 "11:"
-set $workspace12 "12:"
+set $workspace12 "12:"
 set $workspace13 "8:"
-#   
 
 # Switch to workspace
 bindsym $mod+grave      workspace $workspace0
