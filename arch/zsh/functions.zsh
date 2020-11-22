@@ -153,7 +153,13 @@ go-back() {
 }; zle -N go-back
 
 list-dir() {
-    echo ""; ls -lFh --color=auto --group-directories-first;
+    text="$BUFFER"
+    dir=$(awk '{gsub(/^\s*\w+\s+/,x)}1' <<< $text)
+    if [ -d "$dir" ]; then
+        (cd $dir && echo "" && ls -lFh --color=auto --group-directories-first;)
+    else
+        echo ""; ls -lFh --color=auto --group-directories-first;
+    fi;
     zle reset-prompt;
 }; zle -N list-dir
 
