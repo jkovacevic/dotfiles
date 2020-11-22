@@ -60,15 +60,16 @@ short-url() {
 tmux-init() {
     if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ];
     then
-        echo "Shell: [W]orkshell or [H]omeshell?"
-        read shell
+        echo "Shell: [w]orkshell, [h]omeshell or <shell-name>?"
+        shell="w"
+        vared -p 'Shell: ' -c shell
         if [[ ${shell:l} == "h" ]]; then
             $HOME/dotfiles/shared/tmux/tmux.startup.home;
         elif [[ ${shell:l} == "w" ]]; then
             $HOME/dotfiles/shared/tmux/tmux.startup.shell;
         else
-            tmux new-session -d -s tmux;
-            tmux attach -t tmux;
+            tmux new-session -d -s $shell;
+            tmux attach -t $shell;
         fi;
     fi;
 }

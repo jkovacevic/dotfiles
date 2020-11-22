@@ -65,10 +65,10 @@ set $workspace3 "3:"
 set $workspace4 "4:"
 
 set $workspace9 "9:"
-set $workspace10 "10:"
-set $workspace11 "11:"
-set $workspace12 "12:"
-set $workspace13 "13:"
+set $workspace10 "10:"
+set $workspace11 "11:"
+set $workspace12 "12:"
+set $workspace13 "8:"
 #   
 
 # Switch to workspace
@@ -79,9 +79,9 @@ bindsym $mod+3          workspace $workspace3
 bindsym $mod+4          workspace $workspace4
 bindsym $mod+9          workspace $workspace9
 bindsym $mod+0          workspace $workspace10
-bindsym $mod+m          workspace $workspace11
-bindsym $mod+minus      workspace $workspace12
-bindsym $mod+equal      workspace $workspace13
+bindsym $mod+minus      workspace $workspace11
+bindsym $mod+equal      workspace $workspace12
+bindsym $mod+m          workspace $workspace13
 
 # Move focused container to workspace
 bindsym $mod+Shift+grave        move container to workspace $workspace0
@@ -91,9 +91,9 @@ bindsym $mod+Shift+3            move container to workspace $workspace3
 bindsym $mod+Shift+4            move container to workspace $workspace4
 bindsym $mod+Shift+9            move container to workspace $workspace9
 bindsym $mod+Shift+0            move container to workspace $workspace10
-bindsym $mod+Shift+m            move container to workspace $workspace11
-bindsym $mod+Shift+minus        move container to workspace $workspace12
-bindsym $mod+Shift+equal        move container to workspace $workspace13
+bindsym $mod+Shift+minus        move container to workspace $workspace11
+bindsym $mod+Shift+equal        move container to workspace $workspace12
+bindsym $mod+Shift+m            move container to workspace $workspace13
 
 # Xprop assignation
 assign [title="urxvt_"]                     $workspace0
@@ -108,11 +108,11 @@ assign [class="(?i)libreoffice.*"]          $workspace4
 assign [class="jetbrains-datagrip"]         $workspace4
 assign [class="TeXstudio"]                  $workspace4
 assign [class="Slack"]                      $workspace9
-assign [class="Thunderbird"]                $workspace11
-assign [class="Evince"]                     $workspace12
-assign [class="Pinta"]                      $workspace12
-assign [class="Sxiv"]                       $workspace12
-assign [class="vlc"]                        $workspace12
+assign [class="Evince"]                     $workspace10
+assign [class="Pinta"]                      $workspace10
+assign [class="Sxiv"]                       $workspace10
+assign [class="vlc"]                        $workspace10
+assign [class="Thunderbird"]                $workspace13
 
 for_window [class="urxvt_"] focus
 for_window [class="Subl"] focus
