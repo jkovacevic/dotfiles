@@ -133,6 +133,12 @@ doc-init() {
 }
 
 doc-list() {
+    folder=$(doc-list_ | sort | fzf --no-sort | awk '{print $1}')
+    file_path="$HOME/documents/$folder/item1.md"
+    subl $file_path
+}
+
+doc-list_() {
     project_home="$HOME/documents"
     file_name="item1.md"
     dir_name="$project_home/$ticket_num"

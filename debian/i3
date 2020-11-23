@@ -68,7 +68,7 @@ set $workspace9 "9:"
 set $workspace10 "10:"
 set $workspace11 "11:"
 set $workspace12 "12:"
-set $workspace13 "8:"
+set $workspace13 "13:"
 
 # Switch to workspace
 bindsym $mod+grave      workspace $workspace0
@@ -119,6 +119,7 @@ for_window [class="Sublime_merged"] focus
 for_window [class="Evince"] focus
 for_window [class="Soffice"] focus
 for_window [class="(?i)libreoffice.*"] focus
+for_window [class="jetbrains-.*"] focus
 for_window [class="Sxiv"] focus
 for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
