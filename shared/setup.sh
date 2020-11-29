@@ -24,7 +24,6 @@ create_symlink "$HOME/dotfiles/shared/applications/microphone.desktop" "$HOME/.l
 create_symlink "$HOME/dotfiles/shared/applications/ocr-de.desktop" "$HOME/.local/share/applications/ocr-de.desktop"
 create_symlink "$HOME/dotfiles/shared/applications/ocr.desktop" "$HOME/.local/share/applications/ocr.desktop"
 create_symlink "$HOME/dotfiles/shared/applications/screenshot.desktop" "$HOME/.local/share/applications/screenshot.desktop"
-create_symlink "$HOME/dotfiles/shared/applications/screenshot-save.desktop" "$HOME/.local/share/applications/screenshot-save.desktop"
 create_symlink "$HOME/dotfiles/shared/applications/television.desktop" "$HOME/.local/share/applications/television.desktop"
 create_symlink "$HOME/dotfiles/shared/applications/video.desktop" "$HOME/.local/share/applications/video.desktop"
 create_symlink "$HOME/dotfiles/shared/applications/startup-laptop.desktop" "$HOME/.local/share/applications/startup-laptop.desktop"
