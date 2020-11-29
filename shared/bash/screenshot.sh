@@ -6,7 +6,7 @@ find_name() {
 }
 
 find_name
-if [[ "$1" -eq "full-screen" ]]; then
+if [ "$1" == "full-screen" ]; then
     scrot $IMAGE_NAME
 else
     scrot -s $IMAGE_NAME
