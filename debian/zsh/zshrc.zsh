@@ -2,12 +2,11 @@ source /opt/fzf/shell/key-bindings.zsh
 source $HOME/dotfiles/debian/zsh/functions.zsh
 
 autoload -Uz vcs_info compinit && compinit
-autoload -U select-word-style
-select-word-style bash
+select-word-style normal
 plugins=(zsh-completions)
 
 # Environment variables
-export WORDCHARS="*?_-.[]~=:&;!#$%^(){}<>/"
+export WORDCHARS=".-/"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
