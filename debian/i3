@@ -16,6 +16,7 @@ bindsym $mod+space              exec rofi -show drun -padding 20 -yoffset -100
 bindsym $mod+l                  exec betterlockscreen -l
 bindsym $mod+t                  exec $HOME/dotfiles/shared/bash/translate.sh
 bindsym $mod+x                  exec $HOME/dotfiles/shared/bash/kill-proc.sh
+bindsym $mod+p                  exec $HOME/dotfiles/shared/bash/screenshot.sh full-screen
 bindsym $mod+Ctrl+F5            exec pavucontrol
 bindsym $mod+Ctrl+F6            exec arandr
 
