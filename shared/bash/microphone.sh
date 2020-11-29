@@ -11,5 +11,5 @@ find_name
 } || {
     amixer set Capture 100%-;
     echo -n $FILE_NAME | xclip -selection clipboard;
-    notify-send "Created record: $FILE_NAME";
+    notify-send "m1";
 }
