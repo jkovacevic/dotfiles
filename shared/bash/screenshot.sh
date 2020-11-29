@@ -1,11 +1,11 @@
 #!/bin/bash
-find_image_name() {
+find_name() {
     n=$(ls -rt /tmp | grep img | tail -n 1 | sed -e s/img// -e s/\.png//)
     n=$((n+1))
 	IMAGE_NAME="/tmp/img$n.png"
 }
 
-find_image_name
+find_name
 if [[ "$1" -eq "full-screen" ]]; then
     scrot $IMAGE_NAME
 else
