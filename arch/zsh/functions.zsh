@@ -159,7 +159,7 @@ go-back() {
 
 list-dir() {
     text="$BUFFER"
-    dir=$(awk '{gsub(/^\s*\w+\s+/,x)}1' <<< $text)
+    dir=$(awk '{print $NF}' <<< $text)
     if [ -d "$dir" ]; then
         (cd $dir && echo "" && ls -lFh --color=auto --group-directories-first;)
     else

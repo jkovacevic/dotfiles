@@ -2,11 +2,12 @@ source /usr/share/fzf/key-bindings.zsh
 source $HOME/dotfiles/arch/zsh/functions.zsh
 
 autoload -Uz vcs_info compinit && compinit
+autoload -U select-word-style
 select-word-style normal
 plugins=(zsh-completions)
 
 # Environment variables
-export WORDCHARS=".-/"
+export WORDCHARS="<>()[]?-+.\"'"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
@@ -71,7 +72,7 @@ SHIFT_LARROW="^[[1;2D"
 SHIFT_RARROW="^[[1;2C"
 CTRL_LARROW="^[[1;5D"
 CTRL_RARROW="^[[1;5C"
-CTRL_H="^H"
+ALT_H="^[h"
 
 # Remove keybinds
 bindkey -r "^[c"    # fzf-cd-widget
@@ -84,7 +85,7 @@ bindkey -r $CMD_HOME
 bindkey -r $CMD_END
 bindkey -r $CTRL_LARROW
 bindkey -r $CTRL_RARROW
-bindkey -r $CTRL_H
+bindkey -r $ALT_H
 
 bindkey     $CMD_HOME           beginning-of-line
 bindkey     $CMD_END            end-of-line
@@ -97,6 +98,6 @@ bindkey     $CTRL_BKSP          go-back
 bindkey     $CTRL_Y             copy-text
 bindkey     $CTRL_D             fzf-cd-widget
 bindkey     $CTRL_F             fzf-file-widget
-bindkey     $CTRL_H             home-dir
+bindkey     $ALT_H              home-dir
 
 tmux-init
