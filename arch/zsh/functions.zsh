@@ -168,6 +168,11 @@ list-dir() {
     zle reset-prompt;
 }; zle -N list-dir
 
+home-dir() {
+    LBUFFER="$LBUFFER$HOME/"
+    zle reset-prompt;
+}; zle -N home-dir
+
 copy-text() {
     text="$BUFFER"
     BUFFER=""

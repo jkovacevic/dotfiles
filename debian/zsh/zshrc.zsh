@@ -74,6 +74,7 @@ SHIFT_LARROW="^[[1;2D"
 SHIFT_RARROW="^[[1;2C"
 CTRL_LARROW="^[[1;5D"
 CTRL_RARROW="^[[1;5C"
+CTRL_H="^H"
 
 # Remove keybinds
 bindkey -r "^[c"    # fzf-cd-widget
@@ -86,6 +87,7 @@ bindkey -r $CMD_HOME
 bindkey -r $CMD_END
 bindkey -r $CTRL_LARROW
 bindkey -r $CTRL_RARROW
+bindkey -r $CTRL_H
 
 bindkey     $CMD_HOME           beginning-of-line
 bindkey     $CMD_END            end-of-line
@@ -98,5 +100,6 @@ bindkey     $CTRL_BKSP          go-back
 bindkey     $CTRL_Y             copy-text
 bindkey     $CTRL_D             fzf-cd-widget
 bindkey     $CTRL_F             fzf-file-widget
+bindkey     $CTRL_H             home-dir
 
 tmux-init
