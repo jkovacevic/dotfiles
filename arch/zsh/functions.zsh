@@ -25,6 +25,7 @@ fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":
 cpcat() { cat $1 | xclip -selection clipboard; }
 cppsh() { xclip -selection clipboard -o > $1; }
 cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
+cpthlt() { cpth $(ls -r | head -n 1) }
 ws() { rg -n $@ --ignore-case --color=auto; }
 wss() { sudo rg -n $@ --ignore-case --color=auto; }
 ymp3() { $HOME/ipython/venv/bin/youtube-dl --extract-audio --audio-format mp3 $1; }
