@@ -5,9 +5,11 @@
 	],
 	"installed_packages":
 	[
+		"auto-save",
 		"ayu",
 		"Color Highlight",
 		"Compare Side-By-Side",
+		"ExpandRegion",
 		"Local History",
 		"Monokai - Spacegray",
 		"MoveTab",
