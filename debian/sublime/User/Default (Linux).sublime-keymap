@@ -674,7 +674,7 @@
 	} },
 
 	// Ctrl commands
-	{ "keys": ["ctrl+s"], "command": "save" },
+	{ "keys": ["ctrl+s"], "command": "expand_region" },
 	{ "keys": ["ctrl+t"], "command": "create_tmp_file" },
 	{ "keys": ["ctrl+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"}},
 	{ "keys": ["ctrl+k"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
