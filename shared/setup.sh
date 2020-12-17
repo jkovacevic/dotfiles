@@ -35,6 +35,7 @@ create_symlink "$HOME/dotfiles/shared/themes/ayu-dark.sublime-color-scheme" "$HO
 
 create_symlink "$HOME/dotfiles/shared/perl/keyboard-select" "/usr/lib/urxvt/perl/keyboard-select"
 create_symlink "$HOME/dotfiles/shared/bash/sxiv-key.sh" "$HOME/.config/sxiv/exec/key-handler"
+create_symlink "$HOME/dotfiles/shared/bash/mount-hdd.sh" "$HOME/.local/bin/mount-hdd"
 create_symlink "$HOME/dotfiles/shared/tmux/tmux.conf" "$HOME/.tmux.conf"
 create_symlink "$HOME/dotfiles/shared/python/file-format.py" "$HOME/.local/bin/ff"
 create_symlink "$HOME/dotfiles/shared/python/ipython.py" "$HOME/.ipython/profile_default/ipython_config.py"
