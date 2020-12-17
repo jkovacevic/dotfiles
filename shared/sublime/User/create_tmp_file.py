@@ -1,5 +1,7 @@
 import sublime
 import sublime_plugin
+import uuid
+import os
 
 titles_all = [
     "Tyrian Explorer",
@@ -347,22 +349,11 @@ titles = [
     "Cursed by Fate"
 ]
 
-
 class CreateTmpFileCommand(sublime_plugin.TextCommand):
 
-    def create_tmp_file(self):
-        # import random
-        # title = random.choice(titles)
-        # title = title.lower().replace(" ", "-")
-        # tmp_file = "/tmp/" + title + ".txt"
-
-        import uuid
-        tmp_file = "/tmp/" + str(uuid.uuid4())
+    def run(self, edit, tmp):
+        tmp_file = "/tmp/" + str(uuid.uuid4()) if tmp else os.path.expanduser("~/notes/archive/" + str(uuid.uuid4()))
 
         open(tmp_file, 'a+').close()
         w = sublime.active_window()
         w.open_file(tmp_file)
-        pass
-
-    def run(self, edit):
-        self.create_tmp_file()
