@@ -4,7 +4,7 @@
 	"animation_enabled": true,
 	"atomic_save": false,
 	"auto_close_tags": true,
-	"auto_complete": true,
+	"auto_complete": false,
 	"auto_complete_commit_on_tab": false,
 	"auto_complete_cycle": false,
 	"auto_complete_delay": 20,
