@@ -1,3 +1,0 @@
-{
-    "shell_cmd": "~/dotfiles/debian/sublime/User/IPython.sublime-build.sh ${file}"
-}

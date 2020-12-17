@@ -33,6 +33,7 @@ create_symlink "$HOME/dotfiles/shared/themes/rofi-theme-Monokai.rasi" "$HOME/.co
 create_symlink "$HOME/dotfiles/shared/themes/tasks-monokai.hidden-tmTheme" "$HOME/.config/sublime-text-3/Packages/PlainTasks/tasks-monokai.hidden-tmTheme"
 create_symlink "$HOME/dotfiles/shared/themes/ayu-dark.sublime-color-scheme" "$HOME/.config/sublime-text-3/Packages/ayu/ayu-dark.sublime-color-scheme"
 
+create_symlink "$HOME/dotfiles/shared/sublime/User" "$HOME/.config/sublime-text-3/Packages/User"
 create_symlink "$HOME/dotfiles/shared/perl/keyboard-select" "/usr/lib/urxvt/perl/keyboard-select"
 create_symlink "$HOME/dotfiles/shared/bash/sxiv-key.sh" "$HOME/.config/sxiv/exec/key-handler"
 create_symlink "$HOME/dotfiles/shared/bash/mount-hdd.sh" "$HOME/.local/bin/mount-hdd"

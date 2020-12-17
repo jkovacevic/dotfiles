@@ -25,5 +25,4 @@ create_symlink "$HOME/dotfiles/arch/bash/microphone.sh" "$HOME/.local//bin/micro
 create_symlink "$HOME/dotfiles/arch/bash/ocr.sh" "$HOME/.local/bin/ocr"
 create_symlink "$HOME/dotfiles/arch/bash/ocr-de.sh" "$HOME/.local/bin/ocr-de"
 create_symlink "$HOME/dotfiles/arch/bash/sxiv-key.sh" "$HOME/.config/sxiv/exec/key-handler"
-create_symlink "$HOME/dotfiles/arch/sublime/User" "$HOME/.config/sublime-text-3/Packages/User"
 create_symlink "$HOME/.config/sublime-text-3/.sublime/Local History" "$HOME/.sublime-history"
