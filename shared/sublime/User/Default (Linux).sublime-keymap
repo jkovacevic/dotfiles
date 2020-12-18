@@ -6,6 +6,7 @@
 	// Ctrl commands
 	{ "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
 	{ "keys": ["ctrl+o"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+	{ "keys": ["ctrl+r"], "command": "find_all_under"},
 	{ "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
 	{ "keys": ["ctrl+shift+up"], "command": "select_lines", "args": {"forward": false} },
 	{ "keys": ["ctrl+shift+down"], "command": "select_lines", "args": {"forward": true} },
