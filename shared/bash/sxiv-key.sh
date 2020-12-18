@@ -55,10 +55,6 @@ E: open with pinta
 		output="$HOME/hard-disk/webm"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
-	"C-8")
-		output="$HOME/hard-disk/food"
-		cp "$file_name" $output
-		notify-send "Copied $file_name to $output" ;;
 	esac
 }
 
