@@ -126,6 +126,8 @@ for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
 
+for_window [class="^.*"] border pixel 0
+
 # Intellij and PyCharm settings for popup refresh
 for_window [class="jetbrains-.*" title="win0"] floating enable border none
 for_window [class="jetbrains-.*"] layout tiling
