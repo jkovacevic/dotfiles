@@ -39,7 +39,7 @@ bindsym $mod+Tab                move workspace to output left
 bindsym $mod+Shift+f            fullscreen toggle
 bindsym $mod+F9                 layout stacking
 bindsym $mod+F10                layout toggle split
-bindsym $mod+F11                floating toggle
+bindsym $mod+F11                layout tabbed
 
 bindsym XF86AudioMute           exec pactl set-sink-mute 0 toggle
 bindsym XF86AudioLowerVolume    exec pactl set-sink-volume 0 -10%
@@ -65,10 +65,10 @@ set $ws-browse  "1:"
 set $ws-code    "2:"
 set $ws-text    "3:"
 set $ws-data    "4:"
-set $ws-chat    "5:"
-set $ws-media   "6:"
-set $ws-home    "7:"
-set $ws-serve   "8:"
+set $ws-home    "5:"
+set $ws-serve   "6:"
+set $ws-chat    "7:"
+set $ws-media   "8:"
 set $ws-mail    "9:"
 
 # Switch to workspace
@@ -77,10 +77,10 @@ bindsym $mod+1          workspace $ws-browse
 bindsym $mod+2          workspace $ws-code
 bindsym $mod+3          workspace $ws-text
 bindsym $mod+4          workspace $ws-data
-bindsym $mod+q          workspace $ws-media
-bindsym $mod+w          workspace $ws-chat
-bindsym $mod+e          workspace $ws-home
-bindsym $mod+r          workspace $ws-serve
+bindsym $mod+r          workspace $ws-media
+bindsym $mod+e          workspace $ws-chat
+bindsym $mod+q          workspace $ws-home
+bindsym $mod+w          workspace $ws-serve
 bindsym $mod+m          workspace $ws-mail
 
 # Move focused container to workspace
@@ -89,10 +89,10 @@ bindsym $mod+Shift+1            move container to workspace $ws-browse
 bindsym $mod+Shift+2            move container to workspace $ws-code
 bindsym $mod+Shift+3            move container to workspace $ws-text
 bindsym $mod+Shift+4            move container to workspace $ws-data
-bindsym $mod+Shift+q            move container to workspace $ws-media
-bindsym $mod+Shift+w            move container to workspace $ws-chat
-bindsym $mod+Shift+e            move container to workspace $ws-home
-bindsym $mod+Shift+r            move container to workspace $ws-serve
+bindsym $mod+Shift+r            move container to workspace $ws-media
+bindsym $mod+Shift+e            move container to workspace $ws-chat
+bindsym $mod+Shift+q            move container to workspace $ws-home
+bindsym $mod+Shift+w            move container to workspace $ws-serve
 bindsym $mod+Shift+m            move container to workspace $ws-mail
 
 # Xprop assignation
