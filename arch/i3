@@ -77,8 +77,8 @@ bindsym $mod+1          workspace $ws-browse
 bindsym $mod+2          workspace $ws-code
 bindsym $mod+3          workspace $ws-text
 bindsym $mod+4          workspace $ws-data
-bindsym $mod+r          workspace $ws-media
-bindsym $mod+e          workspace $ws-chat
+bindsym $mod+e          workspace $ws-media
+bindsym $mod+r          workspace $ws-chat
 bindsym $mod+q          workspace $ws-home
 bindsym $mod+w          workspace $ws-serve
 bindsym $mod+m          workspace $ws-mail
@@ -89,8 +89,8 @@ bindsym $mod+Shift+1            move container to workspace $ws-browse
 bindsym $mod+Shift+2            move container to workspace $ws-code
 bindsym $mod+Shift+3            move container to workspace $ws-text
 bindsym $mod+Shift+4            move container to workspace $ws-data
-bindsym $mod+Shift+r            move container to workspace $ws-media
-bindsym $mod+Shift+e            move container to workspace $ws-chat
+bindsym $mod+Shift+e            move container to workspace $ws-media
+bindsym $mod+Shift+r            move container to workspace $ws-chat
 bindsym $mod+Shift+q            move container to workspace $ws-home
 bindsym $mod+Shift+w            move container to workspace $ws-serve
 bindsym $mod+Shift+m            move container to workspace $ws-mail

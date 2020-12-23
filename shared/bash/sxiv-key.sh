@@ -10,7 +10,7 @@ R: rotate file
 P: copy file path
 E: open with pinta
 1: copy to hard-disk/save
-2: copy to hard-disk/info
+2: copy to hard-disk/chan
 3: copy to hard-disk/funny
 4: copy to hard-disk/chan
 5: copy to hard-disk/neat
@@ -21,7 +21,7 @@ E: open with pinta
 		rm "$file_name"
 		notify-send "Deleted $file_name" ;;
 	"C-p")
-		echo "$file_name" | xclip -selection clipboard
+		echo -n "$file_name" | xclip -selection clipboard
 		notify-send "Copied $file_name to clipboard" ;;
 	"C-e")
 		pinta "$file_name" ;;
@@ -32,7 +32,7 @@ E: open with pinta
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	"C-2")
-		output="$HOME/hard-disk/info"
+		output="$HOME/hard-disk/chan"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	"C-3")
