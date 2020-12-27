@@ -36,7 +36,7 @@ bindsym $mod+Shift+Left         resize shrink width 40 px
 bindsym $mod+Shift+Right        resize grow width 40 px
 bindsym $mod+Tab                move workspace to output left
 
-bindsym $mod+Shift+f            fullscreen toggle
+bindsym $mod+Shift+space        floating toggle
 bindsym $mod+F9                 layout stacking
 bindsym $mod+F10                layout toggle split
 bindsym $mod+F11                layout tabbed
@@ -114,6 +114,8 @@ assign [class="Sxiv"]                       $ws-media
 assign [class="vlc"]                        $ws-media
 assign [class="Thunderbird"]                $ws-mail
 
+for_window [class=".*"] border pixel 1
+
 for_window [class="urxvt_"] focus
 for_window [class="Subl"] focus
 for_window [class="Sublime_merged"] focus
@@ -125,9 +127,6 @@ for_window [class="Pinta"] focus
 for_window [class="vlc"] focus
 for_window [class="TeXstudio"] focus
 
-for_window [class=".*"] border pixel 1
-
-# Intellij and PyCharm settings for popup refresh
 for_window [class="jetbrains-.*" title="win0"] floating enable border none
 for_window [class="jetbrains-.*"] layout tiling
 for_window [workspace=$ws-code] layout stacking
@@ -135,6 +134,7 @@ for_window [workspace=$ws-text] layout tiling
 for_window [workspace=$ws-data] layout stacking
 for_window [workspace=$workspace5] layout stacking
 for_window [workspace=$ws-serve] layout tabbed
+for_window [class="Tk"] layout floating
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #1e2128 #1e2128 #00ffff #2F343F   #2F343F
