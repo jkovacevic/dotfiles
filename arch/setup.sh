@@ -15,5 +15,5 @@ create_symlink() {
 
 echo "## Setup dotfiles ##"
 create_symlink "$HOME/dotfiles/arch/zsh/zshrc.zsh" "$HOME/.zshrc"
-create_symlink "$HOME/dotfiles/arch/i3" "$HOME/.config/i3/config"
+create_symlink "$HOME/dotfiles/arch/i3.md" "$HOME/.config/i3/config"
 create_symlink "$HOME/dotfiles/arch/polybar.ini" "$HOME/.config/polybar/config"
