@@ -203,7 +203,7 @@ start-wifi() {
     rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
 }
 
-polget() {
+webget() {
     folder=$(awk -F "/" '{print $NF}' <<< "$1")
     if [ ! -e "$folder" ]; then
         vared -p 'Thread name: ' -c folder
