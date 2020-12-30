@@ -5,18 +5,20 @@ keypress_single_selection() {
 	case "$key" in
 	"C-h")
 		notify-send "Help: 
-D: delete file
-R: rotate file
-P: copy file path
-E: open with pinta
 1: copy to hard-disk/save
 2: copy to hard-disk/chan
 3: copy to hard-disk/funny
-4: copy to hard-disk/chan
-5: copy to hard-disk/neat
-6: copy to hard-disk/gif
-7: copy to hard-disk/webm
-8: copy to hard-disk/food" ;;
+4: copy to hard-disk/memo
+5: copy to hard-disk/future
+6: copy to hard-disk/redpill
+7: copy to hard-disk/corrupt
+8: copy to hard-disk/gif
+9: copy to hard-disk/webm
+D: delete file
+R: rotate file
+P: copy file path
+E: open with pinta" ;;
+
 	"C-d")
 		rm "$file_name"
 		notify-send "Deleted $file_name" ;;
@@ -40,18 +42,26 @@ E: open with pinta
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	"C-4")
-		output="$HOME/hard-disk/chan"
+		output="$HOME/hard-disk/memo"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	"C-5")
-		output="$HOME/hard-disk/neat"
+		output="$HOME/hard-disk/future"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	"C-6")
-		output="$HOME/hard-disk/gif"
+		output="$HOME/hard-disk/redpill"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
 	"C-7")
+		output="$HOME/hard-disk/corrupt"
+		cp "$file_name" $output
+		notify-send "Copied $file_name to $output" ;;
+	"C-8")
+		output="$HOME/hard-disk/gif"
+		cp "$file_name" $output
+		notify-send "Copied $file_name to $output" ;;
+	"C-9")
 		output="$HOME/hard-disk/webm"
 		cp "$file_name" $output
 		notify-send "Copied $file_name to $output" ;;
