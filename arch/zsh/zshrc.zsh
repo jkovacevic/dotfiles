@@ -14,9 +14,10 @@ export SAVEHIST=$HISTSIZE
 export EDITOR='mi'
 
 # FZF environment variables
-export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
-export FZF_CTRL_T_COMMAND='command fd --hidden --no-ignore --ignore-case . /'
-export FZF_ALT_C_COMMAND='command fd --hidden --no-ignore --ignore-case -t d . /'
+export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort"
+# --preview 'bat --color=always --style=header,grid --line-range :300 {}'
+export FZF_CTRL_T_COMMAND="command fd --hidden --no-ignore --ignore-case . /"
+export FZF_ALT_C_COMMAND="command fd --hidden --no-ignore --ignore-case -t d . /"
 export PATH="$HOME/script:$HOME/.local/bin/:$PATH"
 
 setopt auto_cd

@@ -18,7 +18,6 @@ D: delete file
 R: rotate file
 P: copy file path
 E: open with pinta" ;;
-
 	"C-d")
 		rm "$file_name"
 		notify-send "Deleted $file_name" ;;
@@ -28,7 +27,7 @@ E: open with pinta" ;;
 	"C-e")
 		pinta "$file_name" ;;
     "C-r")
-            convert -rotate 90 $file_name $file_name ;;
+        convert -rotate 90 $file_name $file_name ;;
 	"C-1")
 		output="$HOME/hard-disk/save"
 		cp "$file_name" $output
