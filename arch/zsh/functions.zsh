@@ -211,6 +211,28 @@ polget() {
     wget -E -H -k -K -nd -N -p -P $folder $1
 }
 
+weather() {
+    curl wttr.in/$1
+}
+
+rtfm() {
+    tldr $@ || man $@ || $BROWSER "http://www.google.com/search?q=$@"; 
+}
+
+upload() {
+    RESPONSE=$(curl -s https://apiv2.gofile.io/getServer)
+    SERVER_STATUS=$(jq -r .status <<< $RESPONSE)
+    if [ $SERVER_STATUS = "ok" ]; then
+        SERVER=$(jq -r .data.server <<< $RESPONSE)
+        FILE_ID=$(jq -r .data.code <<< $(curl -s -F file=@"$1" https://$SERVER.gofile.io/uploadFile))
+        URL="https://gofile.io/d/$FILE_ID"
+        xclip -selection clipboard <<< $URL
+        notify-send "Uploaded file $1 to $URL"
+    else
+        echo "Failed to find server in $RESPONSE. See https://gofile.io/api"
+    fi
+}
+
 # Git functions
 gg () { git add .; git commit -m "automated commit message"; git push; }
 ga () { if [[ $1 == "" ]]; then git add .;  else git add $@; fi }
@@ -236,20 +258,6 @@ gdr() {
     readlink -f $1 | xargs echo -n | xclip -selection clipboard;
     fd $1 $local_path;
     subl $1;
-}
-
-gpr() {
-    if [ "$#" -ne 1 ]; then echo "Usage: gpr file.txt"; return 1; fi;
-    file_name=$1;
-    local_branch=$(git branch | awk '{print $NF}' | fzf --prompt='local-branch > ');
-    current_branch=$(git symbolic-ref --short HEAD)
-    cpcat $file_name;
-    git checkout $local_branch;
-    cppsh $file_name;
-    git add $file_name;
-    git commit -m "automated commit message";
-    git push;
-    git checkout $current_branch;
 }
 
 gsa() {
