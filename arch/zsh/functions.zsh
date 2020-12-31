@@ -8,10 +8,15 @@ alias grep='grep --color=auto'
 alias mocp='mocp -T rhowaldt'
 alias clip='xclip -selection clipboard'
 alias edit='cat > /tmp/_shell.txt; subl /tmp/_shell.txt'
-alias cat='bat --style=plain'
+alias cat='bat'
 alias lpython='$HOME/ipython/venv/bin/python'
 alias lpip='$HOME/ipython/venv/bin/pip'
 alias mi='TERM=xterm-256color MICRO_TRUECOLOR=1 micro'
+
+export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort 
+                            --preview 'bat --color=always --style=numbers {}'"
+export FZF_CTRL_T_COMMAND="command fd --hidden --no-ignore --ignore-case . /"
+export FZF_ALT_C_COMMAND="command fd --hidden --no-ignore --ignore-case -t d . /"
 
 # Functions used as commands
 bg() { nohup $@ > /dev/null 2>&1 & disown }
@@ -81,11 +86,6 @@ tmux-init() {
             tmux attach -t $shell;
         fi;
     fi;
-}
-
-fw() {
-    setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-    rg -n '' | sed -e 's/:/+/' -e 's/:/\t/' -e 's/+/:/' -e 's/\\/\//g' | fzf | cut -f 1 | cut -d ':' -f 1 | xargs echo ./$@
 }
 
 doc-init() {
