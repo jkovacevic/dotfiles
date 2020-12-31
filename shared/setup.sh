@@ -32,6 +32,7 @@ create_symlink "$HOME/dotfiles/shared/applications/startup-keyboard.desktop" "$H
 create_symlink "$HOME/dotfiles/shared/themes/rofi-theme-Monokai.rasi" "$HOME/.config/rofi/rofi-theme-Monokai.rasi"
 create_symlink "$HOME/dotfiles/shared/themes/tasks-monokai.hidden-tmTheme" "$HOME/.config/sublime-text-3/Packages/PlainTasks/tasks-monokai.hidden-tmTheme"
 create_symlink "$HOME/dotfiles/shared/themes/ayu-dark.sublime-color-scheme" "$HOME/.config/sublime-text-3/Packages/ayu/ayu-dark.sublime-color-scheme"
+create_symlink "$HOME/dotfiles/shared/themes/nord-tc.micro" "$HOME/.config/micro/colorschemes/nord-tc.micro"
 
 create_symlink "$HOME/dotfiles/shared/sublime/User" "$HOME/.config/sublime-text-3/Packages/User"
 create_symlink "$HOME/dotfiles/shared/perl/keyboard-select" "/usr/lib/urxvt/perl/keyboard-select"
