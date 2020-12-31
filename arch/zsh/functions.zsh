@@ -8,13 +8,13 @@ alias grep='grep --color=auto'
 alias mocp='mocp -T rhowaldt'
 alias clip='xclip -selection clipboard'
 alias edit='cat > /tmp/_shell.txt; subl /tmp/_shell.txt'
-alias cat='bat'
+alias cat='bat --theme=Nord --style=plain'
 alias lpython='$HOME/ipython/venv/bin/python'
 alias lpip='$HOME/ipython/venv/bin/pip'
-alias mi='TERM=xterm-256color MICRO_TRUECOLOR=1 micro'
+alias mi='TERM=xterm-256color micro'
 
-export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort 
-                            --preview 'bat --color=always --style=numbers {}'"
+export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort"
+                            # --preview 'bat --color=always --style=numbers {}'
 export FZF_CTRL_T_COMMAND="command fd --hidden --no-ignore --ignore-case . /"
 export FZF_ALT_C_COMMAND="command fd --hidden --no-ignore --ignore-case -t d . /"
 
@@ -72,6 +72,8 @@ copy-text() {
     notify-send "ZSH copy:" $text
 }; zle -N copy-text
 
+
+# Other functions
 tmux-init() {
     if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ];
     then

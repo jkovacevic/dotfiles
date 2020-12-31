@@ -1,8 +1,8 @@
 URxvt*foreground: 		White
 URxvt*background:       Black
 
-URxvt*color0: #1b1918
-URxvt*color8: #766e6b
+URxvt*color0: #000000
+URxvt*color8: #000000
 URxvt*color1: #f22c40
 URxvt*color9: #f22c40
 URxvt*color2: #00FF00
