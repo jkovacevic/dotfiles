@@ -12,7 +12,6 @@
 	{ "keys": ["ctrl+shift+down"], "command": "select_lines", "args": {"forward": true} },
 	{ "keys": ["ctrl+alt+up"], "command": "swap_line_up" },
 	{ "keys": ["ctrl+alt+down"], "command": "swap_line_down" },
-	{ "keys": ["ctrl+s"], "command": "save" },
 	{ "keys": ["ctrl+t"], "command": "create_tmp_file", "args": {"tmp": true}},
 	{ "keys": ["ctrl+alt+t"], "command": "create_tmp_file", "args": {"tmp": false}},
 	{ "keys": ["ctrl+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"}},
@@ -32,7 +31,9 @@
 	{ "keys": ["ctrl+."], "command": "run_macro" },
 
 	// CapsLock commands
-	{ "keys": ["f13", "s"], "command": "expand_region" },
+	// { "keys": ["ctrl+s"], "command": "expand_region" },
+	// { "keys": ["f13", "s"], "command": "save" },
+	{ "keys": ["ctrl+s"], "command": "save" },
 	{ "keys": ["f13", "p"], "command": "copy_path" },
 	{ "keys": ["f13", "n"], "command": "side_bar_new_file"},
 	{ "keys": ["f13", "r"], "command": "side_bar_delete"},

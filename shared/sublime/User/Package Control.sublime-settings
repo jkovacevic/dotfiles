@@ -5,17 +5,16 @@
 	],
 	"installed_packages":
 	[
+		"A File Icon",
 		"ayu",
 		"Compare Side-By-Side",
+		"Dayle Rees Color Schemes",
 		"ExpandRegion",
 		"INI",
-		"Monokai - Spacegray",
 		"MoveTab",
-		"Multicommand",
 		"Package Control",
 		"PlainTasks",
 		"Pretty JSON",
-		"SideBarEnhancements",
-		"Theme - Spacegray"
+		"SideBarEnhancements"
 	]
 }
