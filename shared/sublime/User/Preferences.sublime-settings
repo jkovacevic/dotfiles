@@ -105,6 +105,8 @@
 	"ignored_packages":
 	[
 		"ApplySyntax",
+		"Multicommand",
+		"Theme - Spacegray",
 		"Vintage"
 	],
 	"indent_guide_options":
