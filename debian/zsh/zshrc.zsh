@@ -11,15 +11,11 @@ export WORDCHARS="<>()[]?-+.\"'"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
-export EDITOR='micro'
+export EDITOR='mi'
+export PATH="$HOME/script:$HOME/.local/bin/:$PATH"
 
-# FZF environment variables
-export FZF_DEFAULT_OPTS='--prompt="search > " --height 40% --layout=reverse --border --exact --sort'
-export FZF_CTRL_T_COMMAND='command fd --hidden --no-ignore --ignore-case . /'
-export FZF_ALT_C_COMMAND='command fd --hidden --no-ignore --ignore-case -t d . /'
-    
 setopt auto_cd
-setopt prompt_subst           # Ability to override PROMPT AND RPROMPT
+setopt prompt_subst
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
@@ -29,21 +25,18 @@ setopt hist_save_no_dups      # don't write duplicate entries in the history fil
 setopt hist_verify            # show command with history expansion to user before running it
 setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
-setopt ignore_eof			  # disables closing zsh with ctrl + D
+setopt ignore_eof             # disables closing zsh with ctrl + D
 setopt nomatch                # disables zsh-magic-matching with brackets []
 
-# Z-Autocompletion
+zstyle ':vcs_info:*' enable git cvs svn
+zstyle ':vcs_info:*' formats '%F{white}[%f%F{red}%b%f%f] '
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select
 zstyle ':completion:*' insert-tab false
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")'
 
-# Version control system info
-precmd() { vcs_info }
-zstyle ':vcs_info:*' enable git cvs svn
-zstyle ':vcs_info:*' formats '%F{white}[%f%F{red}%b%f%f] '
-vcs_info_wrapper() { if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}"; fi; }
+vcs_info_wrapper() { vcs_info; if [ -n "$vcs_info_msg_0_" ]; then echo "${vcs_info_msg_0_}"; fi; }
 export PROMPT='[%F{cyan}%*%f] %F{cyan}%m%f %F{red}%/%f > '
 export RPROMPT='$(vcs_info_wrapper)'
 

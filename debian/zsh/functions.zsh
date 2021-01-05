@@ -8,10 +8,15 @@ alias grep='grep --color=auto'
 alias mocp='mocp -T rhowaldt'
 alias clip='xclip -selection clipboard'
 alias edit='cat > /tmp/_shell.txt; subl /tmp/_shell.txt'
-alias cat='bat --style=plain'
+alias cat='bat --theme=Nord --style=plain'
 alias lpython='$HOME/ipython/venv/bin/python'
 alias lpip='$HOME/ipython/venv/bin/pip'
-alias mi='TERM=xterm-256color MICRO_TRUECOLOR=1 micro'
+alias mi='TERM=xterm-256color micro'
+
+export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort"
+                            # --preview 'bat --color=always --style=numbers {}'
+export FZF_CTRL_T_COMMAND="command fd --hidden --no-ignore --ignore-case . /"
+export FZF_ALT_C_COMMAND="command fd --hidden --no-ignore --ignore-case -t d . /"
 
 # Functions used as commands
 bg() { nohup $@ > /dev/null 2>&1 & disown }
@@ -20,7 +25,7 @@ libreoffice () { bg libreoffice "$@" }
 pinta () { bg pinta "$@" }
 vlc() { bg vlc "$@" }
 thunar() { bg thunar "$@" }
-sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a *; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
+sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
 fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":\"$(realpath $2)\"}\'; }
 cpcat() { cat $1 | xclip -selection clipboard; }
 cppsh() { xclip -selection clipboard -o > $1; }
@@ -37,27 +42,38 @@ ts() { ct=$(date +"%Y%m%d_%H%M%S"); mv $1 $1.$ct }
 aws-prod() { alias aws='aws --profile=prod' }
 aws-test() { alias aws='aws --profile=test' }
 
-port-list() {
-    local v=$(sudo lsof -i -P -n)
-    echo $v | fzf
-}
+# ZLE functions
+go-back() {
+    cd ..; echo "";
+    zle reset-prompt;
+}; zle -N go-back
 
-pid-list() {
-    local v=$(sudo ps -aux)
-    echo $v | fzf
-}
+list-dir() {
+    text="$BUFFER"
+    dir=$(awk '{print $NF}' <<< $text)
+    if [ -d "$dir" ]; then
+        (cd $dir && echo "" && ls -lFh --color=auto --group-directories-first;)
+    else
+        echo ""; ls -lFh --color=auto --group-directories-first;
+    fi;
+    zle reset-prompt;
+}; zle -N list-dir
 
-short-url() {
-    urlencode() {
-      python -c 'import urllib, sys; print(urllib.quote(sys.argv[1], sys.argv[2]))' "$1" "$urlencode_safe"
-    }
+home-dir() {
+    LBUFFER="$LBUFFER$HOME/"
+    zle reset-prompt;
+}; zle -N home-dir
 
-    encoded=$(urlencode "$1")
-    local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$encoded")
-    xclip -selection clipboard <<< $url
-    echo $url
-}
+copy-text() {
+    text="$BUFFER"
+    BUFFER=""
+    zle reset-prompt
+    echo -n $text | xclip -selection clipboard
+    notify-send "ZSH copy:" $text
+}; zle -N copy-text
 
+
+# Other functions
 tmux-init() {
     if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ];
     then
@@ -72,27 +88,6 @@ tmux-init() {
             tmux attach -t $shell;
         fi;
     fi;
-}
-
-extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)        tar xjf $1        ;;
-            *.tar.gz)         tar xzf $1        ;;
-            *.bz2)            bunzip2 $1        ;;
-            *.rar)            unrar x $1        ;;
-            *.gz)             gunzip $1         ;;
-            *.tar)            tar xf $1         ;;
-            *.tbz2)           tar xjf $1        ;;
-            *.tgz)            tar xzf $1        ;;
-            *.zip)            unzip $1          ;;
-            *.Z)              uncompress $1     ;;
-            *.7z)             7zr e $1          ;;
-            *)                echo "'$1' cannot be extracted via extract()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
 }
 
 doc-init() {
@@ -134,8 +129,7 @@ doc-init() {
 }
 
 doc-list() {
-    folder=$(doc-list_ | sort | fzf --no-sort | awk '{print $1}')
-    file_path="$HOME/documents/$folder/item1.md"
+    file_path=$(doc-list_ | sort | fzf --no-sort | awk '{print $1}')
     subl $file_path
 }
 
@@ -146,41 +140,9 @@ doc-list_() {
 
     for f in $(ls $project_home); do
         file_path="$project_home/$f/$file_name";
-        if [[ -f $file_path ]]; then
-            echo "$f - $(head -n 1 $file_path)";
-        fi;
+        echo $file_path;
     done;
 }
-
-# ZLE functions
-go-back() {
-    cd ..; echo "";
-    zle reset-prompt;
-}; zle -N go-back
-
-list-dir() {
-    text="$BUFFER"
-    dir=$(awk '{gsub(/^\s*\w+\s+/,x)}1' <<< $text)
-    if [ -d "$dir" ]; then
-        (cd $dir && echo "" && ls -lFh --color=auto --group-directories-first;)
-    else
-        echo ""; ls -lFh --color=auto --group-directories-first;
-    fi;
-    zle reset-prompt;
-}; zle -N list-dir
-
-home-dir() {
-    LBUFFER="$LBUFFER$HOME/"
-    zle reset-prompt;
-}; zle -N home-dir
-
-copy-text() {
-    text="$BUFFER"
-    BUFFER=""
-    zle reset-prompt
-    echo -n $text | xclip -selection clipboard
-    notify-send "ZSH copy:" $text
-}; zle -N copy-text
 
 # Docker functions
 docker-rmi() {
@@ -194,18 +156,6 @@ docker-rmc() {
 docker-rma() {
     docker-rmc;
     docker-rmi;
-}
-
-# Utility functions
-start-wifi() {
-    # wlp3s0 enp0s31f6 - home
-    # wlp58s0 enp0s31f6 - work
-    rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
-}
-
-polget() {
-    folder=$(awk -F "/" '{print $NF}' <<< "$1")
-    wget -E -H -k -K -nd -N -p -P $folder $1
 }
 
 # Git functions
@@ -231,21 +181,8 @@ gdr() {
     local_path=/tmp/$(basename $remote_branch)-$(basename $1)
     git cat-file blob $remote_branch:$(git ls-files --full-name $1) > $local_path;
     readlink -f $1 | xargs echo -n | xclip -selection clipboard;
-    fd $1 $local_path && subl $1;
-}
-
-gpr() {
-    if [ "$#" -ne 1 ]; then echo "Usage: gpr file.txt"; return 1; fi;
-    file_name=$1;
-    local_branch=$(git branch | awk '{print $NF}' | fzf --prompt='local-branch > ');
-    current_branch=$(git symbolic-ref --short HEAD)
-    cpcat $file_name;
-    git checkout $local_branch;
-    cppsh $file_name;
-    git add $file_name;
-    git commit -m "automated commit message";
-    git push;
-    git checkout $current_branch;
+    fd $1 $local_path;
+    subl $1;
 }
 
 gsa() {
@@ -267,4 +204,90 @@ gfa() {
     (cd $HOME/notes; gf;)
     echo "- Syncing dotfiles"
     (cd $HOME/dotfiles; gf;)
+}
+
+# Utility functions
+start-wifi() {
+    # wlp3s0 enp0s31f6 - home
+    # wlp58s0 enp0s31f6 - work
+    rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
+}
+
+webget() {
+    vared -p 'Thread name: ' -c folder
+    folder=$(str-format $folder)
+    wget -E -H -k -K -nd -N -p -P $folder $1
+}
+
+weather() {
+    curl wttr.in/$1
+}
+
+rtfm() {
+    tldr $@ || man $@ || $BROWSER "http://www.google.com/search?q=$@"; 
+}
+
+upload() {
+    RESPONSE=$(curl -s https://apiv2.gofile.io/getServer)
+    SERVER_STATUS=$(jq -r .status <<< $RESPONSE)
+    if [ $SERVER_STATUS = "ok" ]; then
+        SERVER=$(jq -r .data.server <<< $RESPONSE)
+        FILE_ID=$(jq -r .data.code <<< $(curl -s -F file=@"$1" https://$SERVER.gofile.io/uploadFile))
+        URL="https://gofile.io/d/$FILE_ID"
+        xclip -selection clipboard <<< $URL
+        notify-send "Uploaded file $1 to $URL"
+    else
+        echo "Failed to find server in $RESPONSE. See https://gofile.io/api"
+    fi
+}
+
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)        tar xjf $1        ;;
+            *.tar.gz)         tar xzf $1        ;;
+            *.bz2)            bunzip2 $1        ;;
+            *.rar)            unrar x $1        ;;
+            *.gz)             gunzip $1         ;;
+            *.tar)            tar xf $1         ;;
+            *.tbz2)           tar xjf $1        ;;
+            *.tgz)            tar xzf $1        ;;
+            *.zip)            unzip $1          ;;
+            *.Z)              uncompress $1     ;;
+            *.7z)             7zr e $1          ;;
+            *)                echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+short-url() {
+    urlencode() {
+      python -c 'import urllib, sys; print(urllib.quote(sys.argv[1], sys.argv[2]))' "$1" "$urlencode_safe"
+    }
+
+    encoded=$(urlencode "$1")
+    local url=$(curl --silent "https://is.gd/create.php?format=simple&url=$encoded")
+    xclip -selection clipboard <<< $url
+    echo $url
+}
+
+port-list() {
+    local v=$(sudo lsof -i -P -n)
+    echo $v | fzf
+}
+
+pid-list() {
+    local v=$(sudo ps -aux)
+    echo $v | fzf
+}
+
+str-format() {
+    x=$(awk '{print tolower($0)}' <<< $1)
+    x=$(sed s#/##g <<< $x)
+    x=$(sed s/-//g <<< $x)
+    x=$(sed s/\ /-/g <<< $x)
+    x=$(sed s/,//g <<< $x)
+    echo $x
 }
