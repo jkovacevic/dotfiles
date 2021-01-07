@@ -216,7 +216,8 @@ start-wifi() {
 webget() {
     vared -p 'Thread name: ' -c folder
     folder=$(str-format $folder)
-    wget -E -H -k -K -nd -N -p -P $folder $1
+    wget -e robots=off -E -H -k -nd -p -P $folder $1
+    lpython $HOME/dotfiles/shared/python/chanimg.py $1 $folder/images/
 }
 
 weather() {
