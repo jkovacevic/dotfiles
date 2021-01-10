@@ -287,7 +287,7 @@ pid-list() {
 str-format() {
     x=$(awk '{print tolower($0)}' <<< $1)
     x=$(sed s#/##g <<< $x)
-    x=$(sed s/-//g <<< $x)
+    x=$(sed s/-/\ /g <<< $x)
     x=$(sed s/\ /-/g <<< $x)
     x=$(sed s/,//g <<< $x)
     echo $x

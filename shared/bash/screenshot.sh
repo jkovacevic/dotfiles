@@ -7,9 +7,9 @@ find_name() {
 
 find_name
 if [ "$1" == "full-screen" ]; then
-    scrot $IMAGE_NAME
+    maim $IMAGE_NAME
 else
-    scrot -s $IMAGE_NAME
+    maim -s $IMAGE_NAME
 fi;
 echo -n $IMAGE_NAME | xclip -selection clipboard;
 notify-send "Created screenshot: $IMAGE_NAME"
