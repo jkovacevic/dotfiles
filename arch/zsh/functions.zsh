@@ -213,13 +213,6 @@ start-wifi() {
     rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
 }
 
-webget() {
-    vared -p 'Thread name: ' -c folder
-    folder=$(str-format $folder)
-    wget -e robots=off -E -H -k -nd -p -P $folder $1
-    lpython $HOME/dotfiles/shared/python/chanimg.py $1 $folder/images/
-}
-
 weather() {
     curl wttr.in/$1
 }
