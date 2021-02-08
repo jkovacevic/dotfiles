@@ -11,7 +11,8 @@ export WORDCHARS="<>()[]?-+.\"'"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
-export EDITOR='mi'
+export TERM='xterm-256color'
+export EDITOR='/usr/bin/micro'
 export PATH="$HOME/script:$HOME/.local/bin/:$PATH"
 
 setopt auto_cd
@@ -53,7 +54,7 @@ bindkey     ";5C"       .vi-forward-blank-word
 bindkey     "^Z"        undo
 
 # ZLE commands
-CAPS_LOCK="^[[1;2P"
+CAPS_LOCK="^[[25~"
 CMD_HOME="^[[1~"
 CMD_END="^[[4~"
 CTRL_Y="^Y"
