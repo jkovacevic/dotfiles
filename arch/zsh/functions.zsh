@@ -42,36 +42,6 @@ ts() { ct=$(date +"%Y%m%d_%H%M%S"); mv $1 $1.$ct }
 aws-prod() { alias aws='aws --profile=prod' }
 aws-test() { alias aws='aws --profile=test' }
 
-# ZLE functions
-go-back() {
-    cd ..; echo "";
-    zle reset-prompt;
-}; zle -N go-back
-
-list-dir() {
-    text="$BUFFER"
-    dir=$(awk '{print $NF}' <<< $text)
-    if [ -d "$dir" ]; then
-        (cd $dir && echo "" && ls -lFh --color=auto --group-directories-first;)
-    else
-        echo ""; ls -lFh --color=auto --group-directories-first;
-    fi;
-    zle reset-prompt;
-}; zle -N list-dir
-
-home-dir() {
-    LBUFFER="$LBUFFER$HOME/"
-    zle reset-prompt;
-}; zle -N home-dir
-
-copy-text() {
-    text="$BUFFER"
-    BUFFER=""
-    zle reset-prompt
-    echo -n $text | xclip -selection clipboard
-    notify-send "ZSH copy:" $text
-}; zle -N copy-text
-
 
 # Other functions
 tmux-init() {
@@ -90,7 +60,7 @@ tmux-init() {
     fi;
 }
 
-doc-init() {
+di() {
     find_latest_name() {
         dir_name=$1
         file_name=$2
@@ -128,7 +98,7 @@ doc-init() {
     fi;
 }
 
-doc-list() {
+dl() {
     file_path=$(doc-list_ | sort | fzf --no-sort | awk '{print $1}')
     subl $file_path
 }

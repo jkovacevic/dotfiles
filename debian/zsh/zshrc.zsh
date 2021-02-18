@@ -13,6 +13,7 @@ export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export EDITOR='mi'
 export PATH="$HOME/script:$HOME/.local/bin/:$PATH"
+export PLATFORM="debian"
 
 setopt auto_cd
 setopt prompt_subst
