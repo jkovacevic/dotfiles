@@ -20,6 +20,7 @@ export FZF_ALT_C_COMMAND="command fd --hidden --no-ignore --ignore-case -t d . /
 
 # Functions used as commands
 bg() { nohup $@ > /dev/null 2>&1 & disown }
+f() { bg mimeo "$@"}
 evince () { bg evince "$@" }
 libreoffice () { bg libreoffice "$@" }
 pinta () { bg pinta "$@" }
