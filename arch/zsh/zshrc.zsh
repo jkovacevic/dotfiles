@@ -1,5 +1,6 @@
 source /usr/share/fzf/key-bindings.zsh
-source $HOME/dotfiles/arch/zsh/functions.zsh
+source ~/dotfiles/arch/zsh/functions.zsh
+source ~/dotfiles/shared/bash/vault.sh
 
 autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
@@ -8,12 +9,12 @@ plugins=(zsh-completions)
 
 # Environment variables
 export WORDCHARS="<>()[]?-+.\"'"
-export HISTFILE="$HOME/.zsh_history"
+export HISTFILE="~/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export TERM='xterm-256color'
 export EDITOR='/usr/bin/micro'
-export PATH="$HOME/script:$HOME/.local/bin/:$PATH"
+export PATH="~/script:~/.local/bin/:$PATH"
 export PLATFORM="arch"
 
 setopt auto_cd
@@ -97,7 +98,7 @@ list-dir() {
 }; zle -N list-dir
 
 home-dir() {
-    LBUFFER="$LBUFFER$HOME/"
+    LBUFFER="$LBUFFER~/"
     zle reset-prompt;
 }; zle -N home-dir
 
