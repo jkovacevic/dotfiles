@@ -70,7 +70,7 @@ SHIFT_RARROW="^[[1;2C"
 CTRL_LARROW="^[[1;5D"
 CTRL_RARROW="^[[1;5C"
 ALT_H="^[h"
-F3="^[[13~"
+F4="^[[14~"
 
 # Remove keybinds
 bindkey -r "^[c"    # fzf-cd-widget
@@ -134,6 +134,6 @@ bindkey     $CTRL_Y             copy-text
 bindkey     $CTRL_D             fzf-cd-widget
 bindkey     $CTRL_F             fzf-file-widget
 bindkey     $ALT_H              home-dir
-bindkey     $F3                 reset-term
+bindkey     $F4                 reset-term
 
 tmux-init
