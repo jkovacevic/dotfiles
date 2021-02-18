@@ -7,7 +7,6 @@ vl() {
     fi;
 
     zip $VAULT_NAME *
-    ts $VAULT_NAME
     rm $(ls -I $VAULT_NAME* )
 }
 
