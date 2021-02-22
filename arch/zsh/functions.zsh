@@ -11,7 +11,7 @@ alias edit='cat > /tmp/_shell.txt; subl /tmp/_shell.txt'
 alias cat='bat --theme=Nord --style=plain'
 alias lpython='$HOME/ipython/venv/bin/python'
 alias lpip='$HOME/ipython/venv/bin/pip'
-alias mi='micro'
+alias mi='TERM=xterm-256color micro'
 
 export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort"
                             # --preview 'bat --color=always --style=numbers {}'

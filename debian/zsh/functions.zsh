@@ -6,7 +6,7 @@ alias lt='ls -lhrt --color=auto --group-directories-first'
 alias ldot='ls -ld .*'
 alias grep='grep --color=auto'
 alias mocp='mocp -T rhowaldt'
-alias clip='xclip -selection clipboard'
+alias clip='sed -z "$ s/\n$//" | xclip -selection clipboard'
 alias edit='cat > /tmp/_shell.txt; subl /tmp/_shell.txt'
 alias cat='bat --theme=Nord --style=plain'
 alias lpython='$HOME/ipython/venv/bin/python'
@@ -20,6 +20,7 @@ export FZF_ALT_C_COMMAND="command fd --hidden --no-ignore --ignore-case -t d . /
 
 # Functions used as commands
 bg() { nohup $@ > /dev/null 2>&1 & disown }
+f() { bg mimeo "$@"}
 evince () { bg evince "$@" }
 libreoffice () { bg libreoffice "$@" }
 pinta () { bg pinta "$@" }
@@ -42,37 +43,6 @@ ts() { ct=$(date +"%Y%m%d_%H%M%S"); mv $1 $1.$ct }
 aws-prod() { alias aws='aws --profile=prod' }
 aws-test() { alias aws='aws --profile=test' }
 
-# ZLE functions
-go-back() {
-    cd ..; echo "";
-    zle reset-prompt;
-}; zle -N go-back
-
-list-dir() {
-    text="$BUFFER"
-    dir=$(awk '{print $NF}' <<< $text)
-    if [ -d "$dir" ]; then
-        (cd $dir && echo "" && ls -lFh --color=auto --group-directories-first;)
-    else
-        echo ""; ls -lFh --color=auto --group-directories-first;
-    fi;
-    zle reset-prompt;
-}; zle -N list-dir
-
-home-dir() {
-    LBUFFER="$LBUFFER$HOME/"
-    zle reset-prompt;
-}; zle -N home-dir
-
-copy-text() {
-    text="$BUFFER"
-    BUFFER=""
-    zle reset-prompt
-    echo -n $text | xclip -selection clipboard
-    notify-send "ZSH copy:" $text
-}; zle -N copy-text
-
-
 # Other functions
 tmux-init() {
     if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ];
@@ -90,7 +60,7 @@ tmux-init() {
     fi;
 }
 
-doc-init() {
+di() {
     find_latest_name() {
         dir_name=$1
         file_name=$2
@@ -128,7 +98,7 @@ doc-init() {
     fi;
 }
 
-doc-list() {
+dl() {
     file_path=$(doc-list_ | sort | fzf --no-sort | awk '{print $1}')
     subl $file_path
 }
@@ -213,12 +183,6 @@ start-wifi() {
     rm /tmp/create_ap.all.lock; sudo create_ap $1 $2 Pi jankowifi7
 }
 
-webget() {
-    vared -p 'Thread name: ' -c folder
-    folder=$(str-format $folder)
-    wget -E -H -k -K -nd -N -p -P $folder $1
-}
-
 weather() {
     curl wttr.in/$1
 }
@@ -286,7 +250,7 @@ pid-list() {
 str-format() {
     x=$(awk '{print tolower($0)}' <<< $1)
     x=$(sed s#/##g <<< $x)
-    x=$(sed s/-//g <<< $x)
+    x=$(sed s/-/\ /g <<< $x)
     x=$(sed s/\ /-/g <<< $x)
     x=$(sed s/,//g <<< $x)
     echo $x

@@ -1,5 +1,6 @@
 source /opt/fzf/shell/key-bindings.zsh
 source $HOME/dotfiles/debian/zsh/functions.zsh
+source ~/dotfiles/shared/bash/vault.sh
 
 autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
@@ -11,7 +12,8 @@ export WORDCHARS="<>()[]?-+.\"'"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
-export EDITOR='mi'
+export TERM='xterm-256color'
+export EDITOR='/usr/bin/micro'
 export PATH="$HOME/script:$HOME/.local/bin/:$PATH"
 export PLATFORM="debian"
 
@@ -69,6 +71,7 @@ SHIFT_RARROW="^[[1;2C"
 CTRL_LARROW="^[[1;5D"
 CTRL_RARROW="^[[1;5C"
 ALT_H="^[h"
+F4="^[[14~"
 
 # Remove keybinds
 bindkey -r "^[c"    # fzf-cd-widget
@@ -76,6 +79,43 @@ bindkey -r "^d"     # delete-char-or-list
 bindkey -r "^T"     # fzf-file-widget
 bindkey -r "^L"     # clear-screen
 bindkey -r "^Y"     # unknown
+
+# ZLE functions
+go-back() {
+    cd ..; echo "";
+    zle reset-prompt;
+}; zle -N go-back
+
+list-dir() {
+    text="$BUFFER"
+    dir=$(awk '{print $NF}' <<< $text)
+    if [ -d "$dir" ]; then
+        (cd $dir && echo "" && ls -lFh --color=auto --group-directories-first;)
+    else
+        echo ""; ls -lFh --color=auto --group-directories-first;
+    fi;
+    zle reset-prompt;
+}; zle -N list-dir
+
+home-dir() {
+    LBUFFER="$LBUFFER~/"
+    zle reset-prompt;
+}; zle -N home-dir
+
+copy-text() {
+    text="$BUFFER"
+    BUFFER=""
+    zle reset-prompt
+    echo -n $text | xclip -selection clipboard
+    notify-send "ZSH copy:" $text
+}; zle -N copy-text
+
+reset-term() {
+    source ~/dotfiles/$PLATFORM/zsh/zshrc.zsh
+    tmux source ~/dotfiles/shared/tmux/tmux.conf
+    zle reset-prompt
+    notify-send "Reset prompt"
+}; zle -N reset-term
 
 bindkey -r $CMD_HOME
 bindkey -r $CMD_END
@@ -95,5 +135,6 @@ bindkey     $CTRL_Y             copy-text
 bindkey     $CTRL_D             fzf-cd-widget
 bindkey     $CTRL_F             fzf-file-widget
 bindkey     $ALT_H              home-dir
+bindkey     $F4                 reset-term
 
 tmux-init
