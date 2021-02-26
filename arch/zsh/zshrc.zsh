@@ -14,7 +14,6 @@ export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export TERM='xterm-256color'
 export EDITOR='/usr/bin/micro'
-export PATH="~/script:~/.local/bin/:$PATH"
 export PLATFORM="arch"
 
 setopt auto_cd
