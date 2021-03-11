@@ -7,5 +7,7 @@
     "Ctrl-Right": "WordRight",
     "Ctrl-Shift-Left": "SelectWordLeft",
     "Ctrl-Shift-Right": "SelectWordRight",
-    "CtrlUnderscore": "lua:comment.comment"
+    "CtrlUnderscore": "lua:comment.comment",
+    "Home": "CursorStart",
+    "End": "CursorEnd",
 }

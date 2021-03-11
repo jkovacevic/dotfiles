@@ -21,11 +21,6 @@ export FZF_ALT_C_COMMAND="command fd --hidden --no-ignore --ignore-case -t d . /
 # Functions used as commands
 bg() { nohup $@ > /dev/null 2>&1 & disown }
 f() { bg mimeo "$@"}
-evince () { bg evince "$@" }
-libreoffice () { bg libreoffice "$@" }
-pinta () { bg pinta "$@" }
-vlc() { bg vlc "$@" }
-thunar() { bg thunar "$@" }
 sxiv () { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
 fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":\"$(realpath $2)\"}\'; }
 cpcat() { cat $1 | xclip -selection clipboard; }
@@ -48,12 +43,14 @@ aws-test() { alias aws='aws --profile=test' }
 tmux-init() {
     if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ];
     then
-        echo "Shell: [w]orkshell, [h]omeshell or <shell-name>?"
-        vared -p 'Shell: ' -c shell
+        echo "---- TMUX Startup ----\n[w]orkshell\n[h]omeshell\n[s]erveshell"
+        vared -p '' -c shell
         if [[ ${shell:l} == "h" ]]; then
             $HOME/dotfiles/shared/tmux/tmux.startup.home;
         elif [[ ${shell:l} == "w" ]]; then
             $HOME/dotfiles/shared/tmux/tmux.startup.shell;
+        elif [[ ${shell:l} == "s" ]]; then
+            $HOME/dotfiles/shared/tmux/tmux.startup.serve;
         else
             tmux new-session -d -s $shell;
             tmux attach -t $shell;

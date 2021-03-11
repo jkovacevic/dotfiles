@@ -1,6 +1,5 @@
 source /usr/share/fzf/key-bindings.zsh
-source ~/dotfiles/arch/zsh/functions.zsh
-source ~/dotfiles/shared/bash/vault.sh
+source $HOME/dotfiles/arch/zsh/functions.zsh
 
 autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
@@ -9,7 +8,7 @@ plugins=(zsh-completions)
 
 # Environment variables
 export WORDCHARS="<>()[]?-+.\"'"
-export HISTFILE="~/.zsh_history"
+export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export TERM='xterm-256color'
