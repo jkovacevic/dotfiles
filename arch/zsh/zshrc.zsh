@@ -15,6 +15,10 @@ export TERM='xterm-256color'
 export EDITOR='/usr/bin/micro'
 export PLATFORM="arch"
 
+# Append to path without duplications due to TMUX
+typeset -aU path
+path=( $path $HOME/script )
+
 setopt auto_cd
 setopt prompt_subst
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE

@@ -245,6 +245,10 @@ pid-list() {
     echo $v | fzf
 }
 
+path-list() {
+    echo $PATH | sed s/:/\\n/g | sort
+}
+
 str-format() {
     x=$(awk '{print tolower($0)}' <<< $1)
     x=$(sed s#/##g <<< $x)

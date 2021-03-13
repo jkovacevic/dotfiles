@@ -49,13 +49,13 @@ def clear_folder(folder):
     os.mkdir(folder)
 
 
-if len(sys.argv) == 1:
+if len(sys.argv) != 2:
     print("Expecting URL as CLI parameter.")
     exit(-1)
 
 
+folder = "/tmp/images/"
 url = sys.argv[1]
-folder = "/tmp/images/" if len(sys.argv) == 2 else sys.argv[2]
 req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 html = urllib.request.urlopen(req).read()
 soup = BeautifulSoup(html, features='html.parser')

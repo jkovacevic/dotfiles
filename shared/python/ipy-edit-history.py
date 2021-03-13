@@ -5,6 +5,7 @@ import subprocess
 ip = get_ipython()
 LIMIT = 5000 # limit the size of the history
 
+# Invoke by calling edit in IPython shell
 def edit():
     """save the IPython history to a plaintext file"""
     histfile = os.path.join(ip.profile_dir.location, "/tmp/_ipython.py")

@@ -9,5 +9,5 @@
     "Ctrl-Shift-Right": "SelectWordRight",
     "CtrlUnderscore": "lua:comment.comment",
     "Home": "CursorStart",
-    "End": "CursorEnd",
+    "End": "CursorEnd"
 }
