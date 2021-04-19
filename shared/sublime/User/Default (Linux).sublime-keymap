@@ -46,8 +46,7 @@
 
 	{ "keys": ["f13", "\\"], "command": "multicommand", "args": {"commands": [
 		{"command": "split_pane" }, 
-		{"command": "hide_sidebar" }
-	]
+		{"command": "hide_sidebar" } ]
 	} },
 	{ "keys": ["f13", "left"], "command": "focus_group {\"group\": 0}" },
 	{ "keys": ["f13", "right"], "command": "focus_group {\"group\": 1}" },
