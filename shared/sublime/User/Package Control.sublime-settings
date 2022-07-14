@@ -1,5 +1,6 @@
 {
 	"bootstrapped": true,
+	"debug": true,
 	"in_process_packages":
 	[
 	],
@@ -16,6 +17,7 @@
 		"Package Control",
 		"PlainTasks",
 		"Pretty JSON",
-		"SideBarEnhancements"
+		"SideBarEnhancements",
+		"TypeScript Syntax"
 	]
 }

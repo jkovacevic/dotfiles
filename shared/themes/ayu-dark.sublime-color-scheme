@@ -1,7 +1,7 @@
 {
 	"name": "ayu",
 	"globals": {
-		"background": "#0A0E14",
+		"background": "#181d26",
 		"foreground": "#f3f2f2",
 		"invisibles": "#f3f2f24d",
 		"caret": "#e6b450",

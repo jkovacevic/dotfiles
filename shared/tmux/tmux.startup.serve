@@ -1,4 +1,3 @@
-tmux new-session -d -s srv -n 'cointop' cointop
-tmux neww -t srv:2 -n 'wifi'
+tmux new-session -d -s srv -n 'zsh'
 tmux select-window -t srv:1
 tmux attach -t srv

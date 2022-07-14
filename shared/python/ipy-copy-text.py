@@ -14,12 +14,10 @@ def insert_unexpected(event):
     text = buf.text
     buf.text = ""
     pyperclip.copy(text)
-    subprocess.Popen(['notify-send', "IPython copy", f"{text}"])
-
-
+    
 
 # Register the shortcut if IPython is using prompt_toolkit
-if getattr(ip, 'pt_app', None):
+if getattr(ip, 'pt_app', None):    
     registry = ip.pt_app.key_bindings
     registry.add_binding(Keys.ControlY,
                      filter=(HasFocus(DEFAULT_BUFFER)

@@ -12,20 +12,12 @@ create_symlink() {
 }
 
 echo "# Setup Configuration"
-create_symlink "$HOME/dotfiles/shared/tmux/tmux.conf" "$HOME/.tmux.conf"
-create_symlink "$HOME/dotfiles/shared/Xdefaults" "$HOME/.Xdefaults"
 create_symlink "$HOME/dotfiles/shared/config/rofi" "$HOME/.config/rofi/config"
-create_symlink "$HOME/dotfiles/shared/config/dunstrc" "$HOME/.config/dunst/dunstrc"
-create_symlink "$HOME/dotfiles/shared/config/micro-bindings.json" "$HOME/.config/micro/bindings.json"
-create_symlink "$HOME/dotfiles/shared/bash/sxiv-key.sh" "$HOME/.config/sxiv/exec/key-handler"
-create_symlink "$HOME/dotfiles/shared/perl/keyboard-select" "/usr/lib/urxvt/perl/keyboard-select"
 create_symlink "$HOME/dotfiles/shared/sublime/User" "$HOME/.config/sublime-text-3/Packages/User"
 
 echo "# Setup Scripts"
 create_symlink "$HOME/dotfiles/shared/bash/mount-hdd.sh" "$HOME/script/mount-hdd"
 create_symlink "$HOME/dotfiles/shared/python/file-format.py" "$HOME/script/ff"
-create_symlink "$HOME/dotfiles/shared/python/changet.py" "$HOME/script/changet"
-create_symlink "$HOME/dotfiles/shared/python/chanimg.py" "$HOME/script/chanimg"
 
 echo "# Setup IPython"
 create_symlink "$HOME/dotfiles/shared/python/ipy-setup.py" "$HOME/.ipython/profile_default/ipython_config.py"
