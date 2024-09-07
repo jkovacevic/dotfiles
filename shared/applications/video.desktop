@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Video
-GenericName=Video script for Linux
-Exec=sh -c "$HOME/dotfiles/shared/bash/video.sh"
-Icon=/home/jk/.icon/icon-console.png
-Type=Application
-StartupNotify=true

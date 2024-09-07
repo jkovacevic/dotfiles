@@ -1,0 +1,7 @@
+configuration {
+    font: "Liberation Sans 14";
+    combi-modi: "window,drun,ssh";
+    show-icons: true;
+    fixed-num-lines: true;
+}
+@theme "rofi-theme.rasi"

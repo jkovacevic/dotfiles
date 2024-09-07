@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Startup Keyboard
-GenericName=Startup script for Linux
-Exec=sh -c "$HOME/dotfiles/shared/startup.sh -k"
-Icon=/home/jk/.icon/icon-console.png
-Type=Application
-StartupNotify=true

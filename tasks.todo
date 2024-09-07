@@ -1,0 +1,9 @@
+Projects:
+    ✔ Install Pulse Audio @done(24-09-06 12:22)
+    ✔ Reset Polybar S@done(24-09-06 04:10)
+    ✔ Smooth startup @done(24-09-06 12:50)
+    ☐ Figureout how to cancel tasks in todo app
+    ☐ Automatic internet on startup or nm-applet (systemctl start NetworkManager)
+    ☐ Install Python
+    ☐ Install TMUX
+    ☐ Push to github
