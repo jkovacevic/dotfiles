@@ -54,7 +54,7 @@ bindkey     ";5C"       .vi-forward-blank-word
 bindkey     "^Z"        undo
 
 # ZLE commands
-CAPS_LOCK="^[[25~"
+CAPS_LOCK="2R"
 CTRL_Y="^Y"
 CTRL_T="^T"
 CTRL_D="^D"
@@ -79,3 +79,5 @@ bindkey     $CTRL_D             fzf-cd-widget
 bindkey     $CTRL_F             fzf-file-widget
 bindkey     $ALT_H              home-dir
 bindkey     $F4                 reset-term
+
+tmux-init

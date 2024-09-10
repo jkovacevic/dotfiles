@@ -1,3 +1,0 @@
-tmux new-session -d -s srv -n 'zsh'
-tmux select-window -t srv:1
-tmux attach -t srv

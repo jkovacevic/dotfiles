@@ -12,7 +12,7 @@ alias cat='bat --theme=Nord --style=plain'
 alias ipy='$HOME/ipython/venv/bin/python'
 alias ipip='$HOME/ipython/venv/bin/pip'
 alias mi='TERM=xterm-256color micro'
-alias vs='vscodium -add'
+alias vs='cursor -add'
 alias pacman='sudo pacman' 
 
 export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort"
@@ -43,15 +43,13 @@ dotfiles-push() { cd $HOME/dotfiles && git add . && git commit -m "automated com
 tmux-init() {
     if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ];
     then
-        echo "---- TMUX Startup ----\n[w]orkshell\n[h]omeshell\n[s]erveshell"
+        echo "---- TMUX Startup ----\n[w]orkshell\n[h]omeshell"
         vared -p '' -c shell
         tmux source-file ~/.tmux.conf
-        if [[ ${shell:l} == "h" ]]; then
-            $HOME/dotfiles/shared/tmux/tmux.startup.home;
-        elif [[ ${shell:l} == "w" ]]; then
-            $HOME/dotfiles/shared/tmux/tmux.startup.shell;
-        elif [[ ${shell:l} == "s" ]]; then
-            $HOME/dotfiles/shared/tmux/tmux.startup.serve;
+        if [[ ${shell:l} == "w" ]]; then
+            $HOME/dotfiles/tmux/tmux.startup.shell;
+        elif [[ ${shell:l} == "h" ]]; then
+            $HOME/dotfiles/tmux/tmux.startup.home;
         else
             tmux new-session -d -s $shell;
             tmux attach -t $shell;

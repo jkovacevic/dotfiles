@@ -7,7 +7,10 @@
     "Ctrl-Right": "WordRight",
     "Ctrl-Shift-Left": "SelectWordLeft",
     "Ctrl-Shift-Right": "SelectWordRight",
+    "\u001b[7$": "SelectToStartOfLine",
+    "\u001b[8$": "SelectToEndOfLine",
+    "CtrlD": "DeleteLine",
     "CtrlUnderscore": "lua:comment.comment",
-    "Home": "CursorStart",
-    "End": "CursorEnd"
+    "\u001b[7~": "StartOfLine",
+    "\u001b[8~": "EndOfLine"
 }
