@@ -1,4 +1,5 @@
 tmux new-session -d -s shell -n 'zsh'
 tmux new-window -t shell:2 -n 'zsh'
+tmux new-window -t shell:3 -n 'dev' -c development
 tmux select-window -t shell:1
 tmux attach -t shell
