@@ -6,11 +6,8 @@
     "files.autoSave": "afterDelay",
     "explorer.confirmDragAndDrop": false,
     "window.zoomLevel": 1,
-    "todo.colors.done": "#1da870",
-    "todo.colors.project": "#005cb3",
     "explorer.confirmDelete": false,
     "makefile.configureOnOpen": false,
-    "todo.colors.tag": "#4694a3",
     "files.exclude": {
         "**/__pycache__": true,
         "**/site-packages": true,
@@ -30,4 +27,9 @@
         "list.hoverForeground": "#30aac2",
         "sideBarSectionHeader.foreground": "#00748c",
     },
+    "todo": {
+        "colors.project": "#0481bf",
+        "colors.done": "#04bf4c",
+        "colors.tag": "#4694a3",
+    }
 }
