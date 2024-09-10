@@ -23,6 +23,7 @@ create_symlink "$HOME/dotfiles/vscode/tasks.json" "$HOME/.config/VSCodium/User/t
 create_symlink "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.tmux.conf"
 create_symlink "$HOME/dotfiles/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
 create_symlink "$HOME/dotfiles/micro/micro-bindings.json" "$HOME/.config/micro/bindings.json"
+create_symlink "$HOME/dotfiles/vscode/settings.json" "$HOME/.config/Cursor/User/settings.json"
 
 echo "# Setup Scripts"
 create_symlink "$HOME/dotfiles/bash/mount-hdd.sh" "$HOME/script/mount-hdd"

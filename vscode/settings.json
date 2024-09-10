@@ -1,0 +1,33 @@
+{
+    "symbols.hidesExplorerArrows": false,
+    "workbench.iconTheme": "symbols",
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "window.confirmSaveUntitledWorkspace": false,
+    "files.autoSave": "afterDelay",
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": 1,
+    "todo.colors.done": "#1da870",
+    "todo.colors.project": "#005cb3",
+    "explorer.confirmDelete": false,
+    "makefile.configureOnOpen": false,
+    "todo.colors.tag": "#4694a3",
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/site-packages": true,
+        "**/venv": true
+    },
+    "cursor.chat.showPremiumChatHistory": false,
+    "cursor.cmdk.autoSelect": false,
+    "cursor.cmdk.useThemedDiffBackground": true,
+    "workbench.colorTheme": "Github Light Theme",
+    "workbench.colorCustomizations": {
+        "editor.selectionBackground": "#4a4a7a80",
+        "editor.selectionHighlightBackground": "#3a3a6a80",
+        "list.activeSelectionForeground": "#198fa7",
+        "list.activeSelectionBackground": "#9bf0ff",
+        "list.inactiveSelectionForeground": "#198fa7",
+        "list.inactiveSelectionBackground": "#9bf0ff",
+        "list.hoverForeground": "#30aac2",
+        "sideBarSectionHeader.foreground": "#00748c",
+    },
+}
