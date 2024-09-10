@@ -1006,7 +1006,7 @@
         "when": "editorTextFocus && inDebugMode"
     },
     {
-        "key": "f9",
+        "key": "ctrl+b",
         "command": "editor.debug.action.toggleBreakpoint",
         "when": "debuggersAvailable && disassemblyViewFocus || debuggersAvailable && editorTextFocus"
     },
@@ -3935,10 +3935,6 @@
         "command": "workbench.action.togglePanel"
     },
     {
-        "key": "ctrl+b",
-        "command": "workbench.action.toggleSidebarVisibility"
-    },
-    {
         "key": "ctrl+k z",
         "command": "workbench.action.toggleZenMode",
         "when": "!isAuxiliaryWindowFocusedContext"
@@ -4213,7 +4209,7 @@
         "when": "variablesFocused"
     },
     {
-        "key": "space",
+        "key": "ctrl+b",
         "command": "debug.toggleBreakpoint",
         "when": "breakpointsFocused && !inputFocus"
     },
@@ -4806,6 +4802,16 @@
         "when": "workbench.scm.active && !gitlens:disabled && config.gitlens.keymap == 'chorded'"
     },
     {
+        "key": "alt+3",
+        "command": "workbench.view.scm",
+        "when": "workbench.view.scm.active && neverMatch =~ /doesNotMatch/"
+    },
+    {
+        "key": "alt+3",
+        "command": "workbench.view.scm",
+        "when": "viewContainer.workbench.view.scm.enabled"
+    },
+    {
         "key": "ctrl+c",
         "command": "gitlens.views.branches.copy",
         "when": "gitlens:enabled && focusedView =~ /^gitlens\\.views\\.branches/"
@@ -5017,10 +5023,6 @@
     },
     {
         "key": "alt+2",
-        "command": "-workbench.action.openEditorAtIndex2"
-    },
-    {
-        "key": "alt+2",
         "command": "workbench.view.search",
         "when": "workbench.view.search.active && neverMatch =~ /doesNotMatch/"
     },
@@ -5107,6 +5109,14 @@
         "key": "ctrl+shift+r",
         "command": "-editor.action.refactor",
         "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "alt+d",
+        "command": "-aidebug.autodebugterminal"
     }
 ]
 // Here are other available commands: 

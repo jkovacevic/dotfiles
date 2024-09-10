@@ -28,10 +28,10 @@ URxvt.cursorUnderline:	1
 URxvt.cursorBlink:		1
 URxvt.internalBorder:   4
 URxvt*letterSpace: 		-2
-URxvt.geometry: 400x400   # prevents prompt being opened at middle of the screen
+URxvt.geometry: 400x400+0+0
 
 !! Extensions
-URxvt.perl-ext-common:	default,matcher,resize-font,url-select,selection-to-clipboard,-confirm-paste
+URxvt.perl-ext-common:	default,matcher,selection-to-clipboard,-confirm-paste
 URxvt.colorUL:			#3AD9C5
 
 URxvt.iso14755: false

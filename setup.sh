@@ -20,6 +20,8 @@ create_symlink "$HOME/dotfiles/rofi/rofi.rasi" "$HOME/.config/rofi/config.rasi"
 create_symlink "$HOME/dotfiles/urxvt/Xdefaults" "$HOME/.Xdefaults"
 create_symlink "$HOME/dotfiles/vscode/keybindings.json" "$HOME/.config/VSCodium/User/keybindings.json"
 create_symlink "$HOME/dotfiles/vscode/tasks.json" "$HOME/.config/VSCodium/User/tasks.json"
+create_symlink "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.tmux.conf"
+create_symlink "$HOME/dotfiles/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
 
 echo "# Setup Scripts"
 create_symlink "$HOME/dotfiles/bash/mount-hdd.sh" "$HOME/script/mount-hdd"
