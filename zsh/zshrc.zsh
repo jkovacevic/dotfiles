@@ -79,5 +79,3 @@ bindkey     $CTRL_D             fzf-cd-widget
 bindkey     $CTRL_F             fzf-file-widget
 bindkey     $ALT_H              home-dir
 bindkey     $F4                 reset-term
-
-tmux-init

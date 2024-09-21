@@ -40,7 +40,7 @@ pass-push() { pass git add . && pass git commit -m "automated commit message" &&
 dotfiles-push() { cd $HOME/dotfiles && git add . && git commit -m "automated commit message" && git push origin master }
 
 # Other functions
-tmux-init() {
+tm() {
     if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ];
     then
         echo "---- TMUX Startup ----\n[w]orkshell\n[h]omeshell"
@@ -55,6 +55,11 @@ tmux-init() {
             tmux attach -t $shell;
         fi;
     fi;
+}
+
+setup-capslock() {
+    xmodmap -e 'clear Lock'
+    xmodmap -e "keycode 66 = F13"
 }
 
 di() {

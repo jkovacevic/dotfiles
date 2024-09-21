@@ -16,7 +16,7 @@
     "cursor.chat.showPremiumChatHistory": false,
     "cursor.cmdk.autoSelect": false,
     "cursor.cmdk.useThemedDiffBackground": true,
-    "workbench.colorTheme": "Github Light Theme",
+    "workbench.colorTheme": "Visual Studio Dark",
     "workbench.colorCustomizations": {
         "editor.selectionBackground": "#4a4a7a80",
         "editor.selectionHighlightBackground": "#3a3a6a80",
@@ -31,5 +31,19 @@
         "colors.project": "#0481bf",
         "colors.done": "#04bf4c",
         "colors.tag": "#4694a3",
-    }
+    },
+    "cursor.chat.terminalShowHoverHint": false,
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingComments": "never",
+    "editor.autoClosingDelete": "never",
+    "editor.autoClosingOvertype": "never",
+    "editor.autoClosingQuotes": "never",
+    "editor.autoIndent": "none",
+    "editor.autoSurround": "never",
+    "editor.comments.insertSpace": false,
+    "editor.comments.ignoreEmptyLines": false,
+    "editor.experimentalInlineEdit.showToolbar": "never",
+    "javascript.suggest.classMemberSnippets.enabled": false,
+    "typescript.suggest.classMemberSnippets.enabled": false,
+    "typescript.suggest.objectLiteralMethodSnippets.enabled": false
 }
