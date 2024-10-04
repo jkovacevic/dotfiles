@@ -5041,11 +5041,6 @@
     },
     {
         "key": "f4",
-        "command": "aipopup.action.modal.generate",
-        "when": "!composerBarIsVisible && !composerControlPanelIsVisible"
-    },
-    {
-        "key": "f4",
         "command": "-references-view.next",
         "when": "reference-list.hasResult && references-view.canNavigate"
     },
@@ -5229,6 +5224,21 @@
         "key": "ctrl+m ctrl+o",
         "command": "-workbench.action.files.openFolder",
         "when": "openFolderWorkspaceSupport"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "-aipopup.action.modal.generate",
+        "when": "editorFocus && !composerBarIsVisible && !composerControlPanelIsVisible"
+    },
+    {
+        "key": "f4",
+        "command": "composer.startComposerPrompt",
+        "when": "composerIsEnabled"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "-composer.startComposerPrompt",
+        "when": "composerIsEnabled"
     }
 ]
 // Here are other available commands: 
