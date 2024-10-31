@@ -10,3 +10,11 @@ xset s off && xset -dpms
 
 pulseaudio --check
 pulseuadio -D
+
+# Start apps
+google-chrome-stable
+cursor
+telegram-desktop
+viber
+discord
+thunderbird
