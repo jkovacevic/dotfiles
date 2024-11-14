@@ -62,7 +62,6 @@ CTRL_F="^F"
 CTRL_P="^P"
 CTRL_BKSP="^H"
 ALT_H="^[h"
-F4="^[[14~"
 
 # Remove keybinds
 bindkey -r "^[c"      # fzf-cd-widget
@@ -78,4 +77,3 @@ bindkey     $CTRL_P             fzf-pass
 bindkey     $CTRL_D             fzf-cd-widget
 bindkey     $CTRL_F             fzf-file-widget
 bindkey     $ALT_H              home-dir
-bindkey     $F4                 reset-term
