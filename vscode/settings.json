@@ -1,6 +1,6 @@
 {
     "symbols.hidesExplorerArrows": false,
-    "workbench.iconTheme": "symbols",
+    "workbench.iconTheme": "Monokai Pro Light (Filter Sun) Icons",
     "security.workspace.trust.untrustedFiles": "newWindow",
     "window.confirmSaveUntitledWorkspace": false,
     "files.autoSave": "afterDelay",
@@ -15,7 +15,7 @@
     },
     "cursor.cmdk.autoSelect": false,
     "cursor.cmdk.useThemedDiffBackground": true,
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Dainty – Ardent",
     "workbench.colorCustomizations": {
         "editor.selectionBackground": "#4a4a7a80",
         "editor.selectionHighlightBackground": "#3a3a6a80",

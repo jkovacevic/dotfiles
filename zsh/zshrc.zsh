@@ -54,7 +54,7 @@ bindkey     ";5C"       .vi-forward-blank-word
 bindkey     "^Z"        undo
 
 # ZLE commands
-CAPS_LOCK="2R"
+CAPS_LOCK="^[[1;2R"
 CTRL_Y="^Y"
 CTRL_T="^T"
 CTRL_D="^D"
