@@ -1,4 +1,3 @@
 #!/usr/bin/bash
 # Install translate-shell
-translation=$(trans -b "$(xsel)")
-notify-send "$translation"
+trans -b "$(xsel)" | zenity --text-info --width=1000 --height=800 --font="Monospace 14"
