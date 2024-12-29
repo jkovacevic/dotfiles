@@ -412,7 +412,7 @@
         "when": "editorTextFocus && selectionAnchorSet"
     },
     {
-        "key": "ctrl+f2",
+        "key": "ctrl+r",
         "command": "editor.action.changeAll",
         "when": "editorTextFocus && !editorReadonly"
     },
@@ -5001,10 +5001,6 @@
         "command": "workbench.action.navigateForwardInNavigationLocations"
     },
     {
-        "key": "ctrl+r",
-        "command": "editor.action.rename"
-    },
-    {
         "key": "ctrl+shift+f5",
         "command": "-workbench.action.debug.restart",
         "when": "inDebugMode"
@@ -5239,6 +5235,11 @@
         "key": "ctrl+k",
         "command": "-composer.startComposerPrompt",
         "when": "composerIsEnabled"
+    },
+    {
+        "key": "ctrl+f2",
+        "command": "-editor.action.changeAll",
+        "when": "editorTextFocus && !editorReadonly"
     }
 ]
 // Here are other available commands: 

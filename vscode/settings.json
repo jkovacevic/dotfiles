@@ -15,7 +15,7 @@
     },
     "cursor.cmdk.autoSelect": false,
     "cursor.cmdk.useThemedDiffBackground": true,
-    "workbench.colorTheme": "Tokyo Night Horizon (Syntax, Dark+ V2)",
+    "workbench.colorTheme": "GitHub Light",
     "workbench.colorCustomizations": {
         "editor.selectionBackground": "#4a4a7a80",
         "editor.selectionHighlightBackground": "#3a3a6a80",
