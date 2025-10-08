@@ -1,5 +1,6 @@
 #!/usr/bin/zsh
 # Aliases
+alias e=''
 alias l='ls -lh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
 alias lt='ls -lhrt --color=auto --group-directories-first'
@@ -13,7 +14,8 @@ alias ipy='$HOME/ipython/venv/bin/python'
 alias ipip='$HOME/ipython/venv/bin/pip'
 alias mi='TERM=xterm-256color micro'
 alias vs='cursor -add'
-alias pacman='sudo pacman' 
+alias pacman='sudo pacman'
+
 
 export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort"
 export FZF_CTRL_T_COMMAND="command fd --hidden --no-ignore --ignore-case . /"

@@ -1,6 +1,6 @@
 {
     "symbols.hidesExplorerArrows": false,
-    "workbench.iconTheme": "Monokai Pro Light (Filter Sun) Icons",
+    "workbench.iconTheme": "symbols",
     "security.workspace.trust.untrustedFiles": "newWindow",
     "window.confirmSaveUntitledWorkspace": false,
     "files.autoSave": "afterDelay",
@@ -15,7 +15,7 @@
     },
     "cursor.cmdk.autoSelect": false,
     "cursor.cmdk.useThemedDiffBackground": true,
-    "workbench.colorTheme": "GitHub Light",
+    "workbench.colorTheme": "GitHub Dark Default",
     "workbench.colorCustomizations": {
         "editor.selectionBackground": "#4a4a7a80",
         "editor.selectionHighlightBackground": "#3a3a6a80",
@@ -47,5 +47,21 @@
     "typescript.suggest.objectLiteralMethodSnippets.enabled": false,
     "cursor.chat.narrowScrollbar": false,
     "cursor.chat.premiumChatAutoScrollWhenAtBottom": true,
-    "disable-hardware-acceleration": true
+    "disable-hardware-acceleration": true,
+    "todo.file.name": "*.todo",
+    "todo.colors.types": {
+
+        "TODO": "#ffcc00",
+        "FIXME": "#cc0000",
+        "FIX": "#cc0000",
+        "BUG": "#cc0000",
+        "UGLY": "#cc0000",
+        "DEBUG": "#cc0000",
+        "HACK": "#cc0000",
+        "REVIEW": "#00ccff",
+        "OPTIMIZE": "#00ccff",
+        "TSC": "#00ccff",
+        "NOTE": "#cc00cc",
+        "IDEA": "#cc00cc"
+    }
 }

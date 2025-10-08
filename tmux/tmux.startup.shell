@@ -1,6 +1,8 @@
+#!/bin/bash
+
 tmux new-session -d -s shell -n 'zsh'
 tmux new-window -t shell:2 -n 'zsh'
 tmux new-window -t shell:3 -n 'dev' -c development
-tmux new-window -t shell:4 -n 'gpt' 'source .env && ipython/venv/bin/gpt'
+#tmux new-window -t shell:4 -n 'model' -c gemini gemini
 tmux select-window -t shell:1
 tmux attach -t shell
