@@ -37,3 +37,6 @@ create_symlink "$HOME/dotfiles/python/ipy-edit-history.py" "$HOME/.ipython/profi
 echo "# Setup Themes"
 create_symlink "$HOME/dotfiles/themes/rofi-theme.rasi" "$HOME/.config/rofi/rofi-theme.rasi"
 create_symlink "$HOME/dotfiles/themes/nord-tc.micro" "$HOME/.config/micro/colorschemes/nord-tc.micro"
+
+echo "# Setup Model"
+create_symlink "$HOME/dotfiles/model/aichat.yaml" "$HOME/.config/aichat/config.yaml"

@@ -17,7 +17,6 @@ pactl set-card-profile alsa_card.pci-0000_01_00.1 off
 # Start apps
 google-chrome-stable
 cursor
-telegram-desktop
-viber
+Telegram
 discord
 thunderbird

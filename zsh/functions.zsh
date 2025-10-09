@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 # Aliases
-alias e=''
+alias f='open-file'
 alias l='ls -lh --color=auto --group-directories-first'
 alias ls='ls --color=auto --group-directories-first'
 alias lt='ls -lhrt --color=auto --group-directories-first'
@@ -15,15 +15,11 @@ alias ipip='$HOME/ipython/venv/bin/pip'
 alias mi='TERM=xterm-256color micro'
 alias vs='cursor -add'
 alias pacman='sudo pacman'
-
-
-export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort"
-export FZF_CTRL_T_COMMAND="command fd --hidden --no-ignore --ignore-case . /"
-export FZF_ALT_C_COMMAND="command fd --hidden --no-ignore --ignore-case -t d . /"
+alias model='ollama run llama3.1'
+alias yay='yay --noconfirm'
 
 # Functions used as commands
 bg() { nohup $@ > /dev/null 2>&1 & disown }
-f() { bg mimeo "$@" }
 sxiv() { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
 fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":\"$(realpath $2)\"}\'; }
 cpcat() { cat $1 | xclip -selection clipboard; }
@@ -41,7 +37,51 @@ notes() {  find "$HOME/notes/tmp/" -type f -empty -delete && EDITOR=vscodium ran
 pass-push() { pass git add . && pass git commit -m "automated commit message" && pass git push origin master }
 dotfiles-push() { cd $HOME/dotfiles && git add . && git commit -m "automated commit message" && git push origin master }
 
-# Other functions
+open-file() {
+  local file="$1"
+
+  if [[ -z "$file" ]]; then
+    echo "Usage: e <filename>"
+    return 1
+  fi
+
+  if [[ ! -e "$file" ]]; then
+    echo "Error: File '$file' not found."
+    return 1
+  fi
+
+  # Extract file extension
+  local ext="${file##*.}"
+
+  # Define app associations
+  declare -A apps=(
+    [md]="cursor"
+    [txt]="cursor"
+    [yaml]="cursor"
+    [pdf]="evince"
+    [png]="sxiv"
+    [jpg]="sxiv"
+  )
+
+  local app="${apps[$ext]}"
+
+  if [[ -n "$app" ]]; then
+    "$app" "$file" &
+    return
+  fi
+
+  if file "$file" | grep -qE 'text|script'; then
+    "${EDITOR:-nvim}" "$file"
+    return
+  fi
+
+  if [[ -z "$app" ]]; then
+    echo "Error: No application defined for *.$ext files."
+    echo "→ Please update ~/dotfiles/functions.zsh to add support for this extension."
+    return 1
+  fi
+}
+
 tm() {
     if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ];
     then
