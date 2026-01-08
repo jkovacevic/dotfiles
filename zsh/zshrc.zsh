@@ -12,9 +12,12 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export TERM='xterm-256color'
-export EDITOR='/usr/bin/cursor'
-# export EDITOR='/usr/bin/micro'
+export EDITOR='/usr/bin/micro'
 export PLATFORM="arch"
+
+# Fixes for cursor not interacting with Python
+export LD_PRELOAD=""
+export LD_LIBRARY_PATH=""
 
 export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort"
 export FZF_CTRL_T_COMMAND="command fd --hidden --no-ignore --ignore-case . /"

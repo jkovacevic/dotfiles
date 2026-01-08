@@ -1,6 +1,5 @@
 {
     "symbols.hidesExplorerArrows": false,
-    "workbench.iconTheme": "symbols",
     "security.workspace.trust.untrustedFiles": "newWindow",
     "window.confirmSaveUntitledWorkspace": false,
     "files.autoSave": "afterDelay",
@@ -15,7 +14,6 @@
     },
     "cursor.cmdk.autoSelect": false,
     "cursor.cmdk.useThemedDiffBackground": true,
-    "workbench.colorTheme": "GitHub Dark Default",
     "workbench.colorCustomizations": {
         "editor.selectionBackground": "#4a4a7a80",
         "editor.selectionHighlightBackground": "#3a3a6a80",
@@ -63,5 +61,14 @@
         "TSC": "#00ccff",
         "NOTE": "#cc00cc",
         "IDEA": "#cc00cc"
-    }
+    },
+    "terminal.integrated.inheritEnv": false,
+    "workbench.colorTheme": "light-jetbrains-color-theme",
+    "window.menuBarVisibility": "toggle",
+    "window.customTitleBarVisibility": "auto",
+    "workbench.productIconTheme": "jetbrains-idea-product-icon-theme",
+    "workbench.iconTheme": "eyecons",
+    "python.languageServer": "Default",
+    "python.editor.defaultFormatter": "ms-python.black-formatter"
+  }
 }

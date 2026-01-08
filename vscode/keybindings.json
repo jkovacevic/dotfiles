@@ -1,5 +1,40 @@
 [
     {
+        "key": "capslock l",
+        "command": "extension.multiCommand.execute",
+        "args": { 
+            "sequence": [
+                "editor.action.selectAll",
+                "editor.action.insertCursorAtEndOfEachLineSelected"
+            ]
+        }
+    },
+    {
+        "key": "alt+up",
+        "command": "gotoNextPreviousMember.previousMember",
+        "args": ["function", "method"]
+    },
+    {
+        "key": "alt+down",
+        "command": "gotoNextPreviousMember.nextMember",
+        "args": ["function", "method"]
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "browserBack.GoBack",
+        "when": "editorHasSelection && textInputFocus"
+    },
+    {
+        "key": "ctrl+alt+right",
+        "command": "browserBack.GoForward",
+        "when": "editorHasSelection && textInputFocus"
+    },
+    {
+        "key": "capslock i",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    {
         "key": "escape escape",
         "command": "workbench.action.exitZenMode",
         "when": "inZenMode"
@@ -476,11 +511,6 @@
         "key": "ctrl+f",
         "command": "editor.action.extensioneditor.showfind",
         "when": "!editorFocus && activeEditor == 'workbench.editor.extension'"
-    },
-    {
-        "key": "ctrl+shift+i",
-        "command": "editor.action.formatDocument",
-        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
     },
     {
         "key": "ctrl+shift+i",
@@ -4707,10 +4737,6 @@
         "when": "inlineEditsVisible"
     },
     {
-        "key": "f9",
-        "command": "python.execInTerminal"
-    },
-    {
         "key": "alt+up",
         "command": "-editor.action.moveLinesUpAction",
         "when": "editorTextFocus && !editorReadonly"
@@ -5240,6 +5266,14 @@
         "key": "ctrl+f2",
         "command": "-editor.action.changeAll",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "composerMode.agent"
+    },
+    {
+        "key": "f9",
+        "command": "python.execInTerminal-icon"
     }
 ]
 // Here are other available commands: 

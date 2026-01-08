@@ -28,7 +28,7 @@ cpth() { readlink -f $1 | xargs echo -n | xclip -selection clipboard; }
 cpthlt() { cpth $(ls -r | head -n 1) }
 ws() { rg -n $@ --ignore-case --color=auto; }
 wss() { sudo rg -n $@ --ignore-case --color=auto; }
-ymp3() { $HOME/ipython/venv/bin/yt-dlp -o "%(title).150B [%(id)s].%(ext)s" --extract-audio --audio-format mp3 $1; }
+ymp3() { $HOME/ipython/venv/bin/yt-dlp -o "%(title).150B.%(ext)s" --extract-audio --audio-format mp3 --no-playlist $1; }
 yvid() { $HOME/ipython/venv/bin/yt-dlp -o "%(title).150B [%(id)s].%(ext)s" $1; }
 venv() { if [[ "$VIRTUAL_ENV" == "" ]]; then source venv/bin/activate; else deactivate; fi; }
 log() { echo "$1" && notify-send "$1"; }
@@ -36,6 +36,8 @@ ts() { ct=$(date +"%Y%m%d_%H%M%S"); mv $1 $1.$ct }
 notes() {  find "$HOME/notes/tmp/" -type f -empty -delete && EDITOR=vscodium ranger "$HOME/notes/tmp/" }
 pass-push() { pass git add . && pass git commit -m "automated commit message" && pass git push origin master }
 dotfiles-push() { cd $HOME/dotfiles && git add . && git commit -m "automated commit message" && git push origin master }
+paclist() { pacman -Q "$@" | sort }
+yaylist() { yay -Qm "$@" | sort }
 
 open-file() {
   local file="$1"
@@ -58,6 +60,7 @@ open-file() {
     [md]="cursor"
     [txt]="cursor"
     [yaml]="cursor"
+    [toml]="cursor"
     [pdf]="evince"
     [png]="sxiv"
     [jpg]="sxiv"

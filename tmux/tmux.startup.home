@@ -13,9 +13,9 @@ tmux new-session -d -s home -n 'ipy'
 tmux send-keys -t home:ipy "[ -f /tmp/ipy_started ] || { cd $HOME/ipython && source venv/bin/activate && ipython && touch /tmp/ipy_started; }" C-m
 
 # Create additional windows
-tmux neww -t home:2 -n 'model' "ipython/venv/bin/oterm"
-tmux neww -t home:3 -n 'cmus' cmus 
-tmux neww -t home:4 -n 'htop' htop
+tmux neww -t home:2 -n 'cmus' cmus 
+tmux neww -t home:3 -n 'htop' htop
+tmux neww -t home:4 -n 'btop' btop
 
 # Select the first window and attach to the session
 tmux select-window -t home:1

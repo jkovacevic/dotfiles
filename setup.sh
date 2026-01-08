@@ -6,8 +6,8 @@ create_symlink() {
     if [ -f "$target" ] || [ -L "$target" ]; then
         rm "$target"
     fi;
-	# Create folders in case they do not exist
-	mkdir -p $(dirname "${target}")
+	
+    mkdir -p $(dirname "${target}")
     ln -s "$dotfile" "$target"
 }
 
@@ -18,12 +18,12 @@ create_symlink "$HOME/dotfiles/zsh/zprofile.zsh" "$HOME/.zprofile"
 create_symlink "$HOME/dotfiles/polybar/polybar.ini" "$HOME/.config/polybar/config"
 create_symlink "$HOME/dotfiles/rofi/rofi.rasi" "$HOME/.config/rofi/config.rasi"
 create_symlink "$HOME/dotfiles/urxvt/Xdefaults" "$HOME/.Xdefaults"
-create_symlink "$HOME/dotfiles/vscode/keybindings.json" "$HOME/.config/VSCodium/User/keybindings.json"
-create_symlink "$HOME/dotfiles/vscode/tasks.json" "$HOME/.config/VSCodium/User/tasks.json"
 create_symlink "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.tmux.conf"
 create_symlink "$HOME/dotfiles/dunst/dunstrc" "$HOME/.config/dunst/dunstrc"
 create_symlink "$HOME/dotfiles/micro/micro-bindings.json" "$HOME/.config/micro/bindings.json"
-create_symlink "$HOME/dotfiles/vscode/settings.json" "$HOME/.config/Cursor/User/settings.json"
+create_symlink "$HOME/dotfiles/vscode/settings.json" "$HOME/.config/VSCodium/User/settings.json"
+create_symlink "$HOME/dotfiles/vscode/keybindings.json" "$HOME/.config/VSCodium/User/keybindings.json"
+create_symlink "$HOME/dotfiles/vscode/tasks.json" "$HOME/.config/VSCodium/User/tasks.json"
 
 echo "# Setup Scripts"
 create_symlink "$HOME/dotfiles/bash/mount-hdd.sh" "$HOME/script/mount-hdd"
@@ -39,4 +39,4 @@ create_symlink "$HOME/dotfiles/themes/rofi-theme.rasi" "$HOME/.config/rofi/rofi-
 create_symlink "$HOME/dotfiles/themes/nord-tc.micro" "$HOME/.config/micro/colorschemes/nord-tc.micro"
 
 echo "# Setup Model"
-create_symlink "$HOME/dotfiles/model/aichat.yaml" "$HOME/.config/aichat/config.yaml"
+create_symlink "$HOME/dotfiles/model/codex.toml" "$HOME/.codex/config.toml"
