@@ -12,6 +12,7 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 export TERM='xterm-256color'
+export TERMINAL='ghostty'
 export EDITOR='/usr/bin/micro'
 export PLATFORM="arch"
 
@@ -40,6 +41,7 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
 setopt ignore_eof			  # disables closing zsh with ctrl + D
 setopt nomatch                # disables zsh-magic-matching with brackets []
+unsetopt PROMPT_SP
 
 zstyle ':vcs_info:*' enable git cvs svn
 zstyle ':vcs_info:*' formats '%F{white}[%f%F{red}%b%f%f] '

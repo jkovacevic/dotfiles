@@ -38,5 +38,8 @@ echo "# Setup Themes"
 create_symlink "$HOME/dotfiles/themes/rofi-theme.rasi" "$HOME/.config/rofi/rofi-theme.rasi"
 create_symlink "$HOME/dotfiles/themes/nord-tc.micro" "$HOME/.config/micro/colorschemes/nord-tc.micro"
 
-echo "# Setup Model"
-create_symlink "$HOME/dotfiles/model/codex.toml" "$HOME/.codex/config.toml"
+echo "$ Setup Terminal"
+create_symlink "$HOME/dotfiles/terminal/ghostty.ini" "$HOME/.config/ghostty/config"
+
+echo "# Setup Claude"
+create_symlink "$HOME/dotfiles/claude/settings.json" "$HOME/.claude/settings.json"
