@@ -20,7 +20,7 @@ alias yay='yay --noconfirm'
 
 # Functions used as commands
 bg() { nohup $@ > /dev/null 2>&1 & disown }
-sxiv() { if [[ $# -eq '0' ]]; then bg /usr/bin/sxiv -t -a .; elif [[ -d $1 ]]; then bg /usr/bin/sxiv -t -a $1; else bg /usr/bin/sxiv -a $@; fi; }
+img() { if [[ $# -eq '0' ]]; then bg xnviewmp .; else bg xnviewmp $@; fi; }
 fd() { eval subl --command \'sbs_compare_files {\"A\":\"$(realpath $1)\", \"B\":\"$(realpath $2)\"}\'; }
 cpcat() { cat $1 | xclip -selection clipboard; }
 cppsh() { xclip -selection clipboard -o > $1; }
@@ -57,13 +57,13 @@ open-file() {
 
   # Define app associations
   declare -A apps=(
-    [md]="cursor"
-    [txt]="cursor"
-    [yaml]="cursor"
-    [toml]="cursor"
+    [md]="code"
+    [txt]="code"
+    [yaml]="code"
+    [toml]="code"
     [pdf]="evince"
-    [png]="sxiv"
-    [jpg]="sxiv"
+    [png]="xnviewmp"
+    [jpg]="xnviewmp"
   )
 
   local app="${apps[$ext]}"
@@ -103,8 +103,9 @@ tm() {
 }
 
 setup-capslock() {
+    setxkbmap -option caps:none
     xmodmap -e 'clear Lock'
-    xmodmap -e "keycode 66 = F13"
+    xmodmap -e "keycode 66 = F9"
 }
 
 di() {

@@ -7,10 +7,14 @@
     "Ctrl-Right": "WordRight",
     "Ctrl-Shift-Left": "SelectWordLeft",
     "Ctrl-Shift-Right": "SelectWordRight",
-    "\u001b[7$": "SelectToStartOfLine",
-    "\u001b[8$": "SelectToEndOfLine",
+    "\u001b[7^": "SelectToStartOfLine",
+    "\u001b[8^": "SelectToEndOfLine",
+    "\u001b[1;2H": "SelectToStartOfLine",
+    "\u001b[1;2F": "SelectToEndOfLine",
+    "\u001b[5;2~": "SelectPageUp",
+    "\u001b[6;2~": "SelectPageDown",
+    "\u001b[99;5u": "Copy",
+    "\u001b[118;5u": "Paste",
     "CtrlD": "DeleteLine",
-    "CtrlUnderscore": "lua:comment.comment",
-    "\u001b[7~": "StartOfLine",
-    "\u001b[8~": "EndOfLine"
+    "CtrlUnderscore": "lua:comment.comment"
 }

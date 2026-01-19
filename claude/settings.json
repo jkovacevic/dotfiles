@@ -1,7 +1,39 @@
 {
-  "model": "opus",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/save-prompt-history.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send -t 60000 -h \"string:x-dunst-stack-tag:claude-$(tmux display-message -p -t \"$TMUX_PANE\" '#W')\" 'Claude Code' \"Response complete - $(tmux display-message -p -t \"$TMUX_PANE\" '#W')\""
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send -t 60000 -h \"string:x-dunst-stack-tag:claude-$(tmux display-message -p -t \"$TMUX_PANE\" '#W')\" 'Claude Code' \"Permission required - $(tmux display-message -p -t \"$TMUX_PANE\" '#W')\""
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
-    "command": "printf '[\\033[36m%s\\033[0m]\\033[36m%s\\033[0m \\033[31m%s\\033[0m' \"$(date +%H:%M:%S)\" \"$(hostname -s)\" \"$(pwd)\""
+    "command": "/home/jk/dotfiles/claude/statusline.sh"
   }
 }

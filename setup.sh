@@ -43,3 +43,4 @@ create_symlink "$HOME/dotfiles/terminal/ghostty.ini" "$HOME/.config/ghostty/conf
 
 echo "# Setup Claude"
 create_symlink "$HOME/dotfiles/claude/settings.json" "$HOME/.claude/settings.json"
+create_symlink "$HOME/dotfiles/claude/hooks" "$HOME/.claude/hooks"

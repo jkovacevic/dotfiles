@@ -3,6 +3,8 @@
 tmux new-session -d -s shell -n 'zsh'
 tmux neww -t shell:2 -n 'zsh'
 tmux neww -t shell:3 -n 'zsh' -c development
-tmux neww -t shell:4 -n 'model' -c development claude
+tmux neww -t shell:4 -n 'm1' -c development claude
+tmux neww -t shell:5 -n 'm2' -c development claude
+tmux neww -t shell:6 -n 'm3' -c development claude
 tmux select-window -t shell:1
 tmux attach -t shell

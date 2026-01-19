@@ -5274,6 +5274,33 @@
     {
         "key": "f9",
         "command": "python.execInTerminal-icon"
+    },
+    {
+        "key": "alt+a",
+        "command": "todo.toggleBox",
+        "when": "editorTextFocus && resourceExtname == .todo"
+    },
+    {
+        "key": "alt+d",
+        "command": "-todo.toggleDone"
+    },
+    {
+        "key": "alt+c",
+        "command": "-todo.toggleCancelled"
+    },
+    {
+        "key": "alt+c",
+        "command": "todo.toggleDone",
+        "when": "editorTextFocus && resourceExtname == .todo"
+    },
+    {
+        "key": "alt+x",
+        "command": "todo.toggleCancelled",
+        "when": "editorTextFocus && resourceExtname == .todo"
+    },
+    {
+        "key": "capslock capslock",
+        "command": "workbench.files.action.collapseExplorerFolders"
     }
 ]
 // Here are other available commands: 
