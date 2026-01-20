@@ -37,6 +37,7 @@ create_symlink "$HOME/dotfiles/python/ipy-edit-history.py" "$HOME/.ipython/profi
 echo "# Setup Themes"
 create_symlink "$HOME/dotfiles/themes/rofi-theme.rasi" "$HOME/.config/rofi/rofi-theme.rasi"
 create_symlink "$HOME/dotfiles/themes/nord-tc.micro" "$HOME/.config/micro/colorschemes/nord-tc.micro"
+create_symlink "$HOME/dotfiles/vscode/ws-light-color-theme.json" "$HOME/.vscode-oss/extensions/septwong.vscode-webstorm-theme-1.0.3-universal/themes/ws-light-color-theme.json"
 
 echo "$ Setup Terminal"
 create_symlink "$HOME/dotfiles/terminal/ghostty.ini" "$HOME/.config/ghostty/config"

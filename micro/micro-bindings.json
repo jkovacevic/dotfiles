@@ -13,8 +13,8 @@
     "\u001b[1;2F": "SelectToEndOfLine",
     "\u001b[5;2~": "SelectPageUp",
     "\u001b[6;2~": "SelectPageDown",
-    "\u001b[99;5u": "Copy",
-    "\u001b[118;5u": "Paste",
+    "Ctrl-c": "Copy",
+    "Ctrl-v": "Paste",
     "CtrlD": "DeleteLine",
     "CtrlUnderscore": "lua:comment.comment"
 }

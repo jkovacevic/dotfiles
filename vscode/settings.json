@@ -15,17 +15,7 @@
     },
     "cursor.cmdk.autoSelect": false,
     "cursor.cmdk.useThemedDiffBackground": true,
-    "workbench.colorCustomizations": {
-        "editor.selectionBackground": "#4a4a7a80",
-        "editor.selectionHighlightBackground": "#3a3a6a80",
-        "list.activeSelectionForeground": "#198fa7",
-        "list.activeSelectionBackground": "#9bf0ff",
-        "list.inactiveSelectionForeground": "#198fa7",
-        "list.inactiveSelectionBackground": "#9bf0ff",
-        "list.hoverForeground": "#30aac2",
-        "sideBarSectionHeader.foreground": "#00748c",
-    },
-    "todo": {
+        "todo": {
         "colors.project": "#0481bf",
         "colors.done": "#04bf4c",
         "colors.tag": "#4694a3",
@@ -64,7 +54,7 @@
         "IDEA": "#cc00cc"
     },
     "terminal.integrated.inheritEnv": false,
-    "workbench.colorTheme": "light-jetbrains-color-theme",
+    "workbench.colorTheme": "WebStorm Light",
     "window.menuBarVisibility": "toggle",
     "window.customTitleBarVisibility": "auto",
     "workbench.productIconTheme": "jetbrains-idea-product-icon-theme",
