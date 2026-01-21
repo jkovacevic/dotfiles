@@ -55,11 +55,9 @@
     },
     "terminal.integrated.inheritEnv": false,
     "workbench.colorTheme": "WebStorm Light",
-    "window.menuBarVisibility": "toggle",
     "window.customTitleBarVisibility": "auto",
     "workbench.productIconTheme": "jetbrains-idea-product-icon-theme",
     "workbench.iconTheme": "eyecons",
     "python.languageServer": "Default",
-    "python.editor.defaultFormatter": "ms-python.black-formatter"
-  }
+    "python.editor.defaultFormatter": "ms-python.black-formatter",
 }

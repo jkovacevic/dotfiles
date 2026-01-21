@@ -88,11 +88,13 @@ open-file() {
 tm() {
     if [ -z "$TMUX" ] && [ ! -z "$DISPLAY" ];
     then
-        echo "---- TMUX Startup ----\n[w]orkshell\n[h]omeshell"
+        echo "---- TMUX Startup ----\n[w]orkshell\n[m]odel\n[h]omeshell"
         vared -p '' -c shell
         tmux source-file ~/.tmux.conf
         if [[ ${shell:l} == "w" ]]; then
             $HOME/dotfiles/tmux/tmux.startup.shell;
+        elif [[ ${shell:l} == "m" ]]; then
+            $HOME/dotfiles/tmux/tmux.startup.model;
         elif [[ ${shell:l} == "h" ]]; then
             $HOME/dotfiles/tmux/tmux.startup.home;
         else
@@ -333,10 +335,17 @@ port-list() {
     echo $v | fzf
 }
 
-pid-list() {
-    local v=$(sudo ps -aux)
-    echo $v | fzf
+killport() {
+    local pid=$(lsof -t -i:$1 2>/dev/null)
+    if [[ -n "$pid" ]]; then
+        local pname=$(ps -p $pid -o comm= 2>/dev/null)
+        kill -9 $pid && echo "Successfully killed process: $pname on port $1"
+    else
+        echo "No process found on port $1"
+    fi
 }
+
+catport() { lsof -i :$1 }
 
 path-list() {
     echo $PATH | sed s/:/\\n/g | sort

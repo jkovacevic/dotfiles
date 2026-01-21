@@ -1,0 +1,7 @@
+#!/bin/bash
+
+tmux new-session -d -s model -n 'm1' -c development claude
+tmux neww -t model -n 'm2' -c development claude
+tmux neww -t model -n 'm3' -c development claude
+tmux select-window -t model:1
+tmux attach -t model
