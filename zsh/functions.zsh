@@ -35,7 +35,7 @@ log() { echo "$1" && notify-send "$1"; }
 ts() { ct=$(date +"%Y%m%d_%H%M%S"); mv $1 $1.$ct }
 notes() {  find "$HOME/notes/tmp/" -type f -empty -delete && EDITOR=vscodium ranger "$HOME/notes/tmp/" }
 pass-push() { pass git add . && pass git commit -m "automated commit message" && pass git push origin master }
-dotfiles-push() { cd $HOME/dotfiles && git add . && git commit -m "automated commit message" && git push origin master }
+dotfiles-push() { (cd $HOME/dotfiles && git add . && git commit -m "automated commit message" && git push origin master) }
 paclist() { pacman -Q "$@" | sort }
 yaylist() { yay -Qm "$@" | sort }
 

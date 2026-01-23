@@ -24,6 +24,7 @@ create_symlink "$HOME/dotfiles/micro/micro-bindings.json" "$HOME/.config/micro/b
 create_symlink "$HOME/dotfiles/vscode/settings.json" "$HOME/.config/VSCodium/User/settings.json"
 create_symlink "$HOME/dotfiles/vscode/keybindings.json" "$HOME/.config/VSCodium/User/keybindings.json"
 create_symlink "$HOME/dotfiles/vscode/tasks.json" "$HOME/.config/VSCodium/User/tasks.json"
+create_symlink "$HOME/dotfiles/htop/htoprc.ini" "$HOME/.config/htop/htoprc"
 
 echo "# Setup Scripts"
 create_symlink "$HOME/dotfiles/bash/mount-hdd.sh" "$HOME/script/mount-hdd"
