@@ -1,5 +1,6 @@
 source /usr/share/fzf/key-bindings.zsh
 source $HOME/dotfiles/zsh/functions.zsh
+source $HOME/dotfiles/zsh/fzf-config.zsh
 
 autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
@@ -16,13 +17,6 @@ export TERMINAL='ghostty'
 export EDITOR='/usr/bin/micro'
 export PLATFORM="arch"
 
-# Fixes for cursor not interacting with Python
-export LD_PRELOAD=""
-export LD_LIBRARY_PATH=""
-
-export FZF_DEFAULT_OPTS="--prompt='search > ' --height 60% --layout=reverse --border --exact --sort"
-export FZF_CTRL_T_COMMAND="command fd --hidden --no-ignore --ignore-case . /"
-export FZF_ALT_C_COMMAND="command fd --hidden --no-ignore --ignore-case -t d . /"
 
 # Append to path without duplications due to TMUX
 typeset -aU path
@@ -30,20 +24,17 @@ path=( $path $HOME/script )
 
 setopt auto_cd
 setopt prompt_subst
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_ignore_all_dups    
+setopt hist_ignore_all_dups   # ignore duplicated commands history list    
 setopt hist_find_no_dups      # do not display a line previously found.
 setopt hist_save_no_dups      # don't write duplicate entries in the history file.
 setopt hist_verify            # show command with history expansion to user before running it
 setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
-setopt ignore_eof			  # disables closing zsh with ctrl + D
 setopt nomatch                # disables zsh-magic-matching with brackets []
 unsetopt PROMPT_SP
 
-zstyle ':vcs_info:*' enable git cvs svn
+zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats '%F{white}[%f%F{red}%b%f%f] '
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' menu select
@@ -63,27 +54,14 @@ bindkey     ";5D"       vi-backward-blank-word
 bindkey     ";5C"       .vi-forward-blank-word
 bindkey     "^Z"        undo
 
-# ZLE commands
-CAPS_LOCK="^[[20~"
-CTRL_Y="^Y"
-CTRL_T="^T"
-CTRL_D="^D"
-CTRL_F="^F"
-CTRL_P="^P"
-CTRL_BKSP="^H"
-ALT_H="^[h"
+# Remove default keybinds
+bindkey -r "^d"   # delete-char-or-list
+bindkey -r "^Y"
+bindkey -r "^[h"
 
-# Remove keybinds
-bindkey -r "^[c"      # fzf-cd-widget
-bindkey -r "^d"       # delete-char-or-list
-bindkey -r CTRL_T     # fzf-file-widget
-bindkey -r CTRL_Y     # unknown
-bindkey -r $ALT_H
-
-bindkey     $CAPS_LOCK          list-dir
-bindkey     $CTRL_BKSP          go-back
-bindkey     $CTRL_Y             copy-text
-bindkey     $CTRL_P             fzf-pass
-bindkey     $CTRL_D             fzf-cd-widget
-bindkey     $CTRL_F             fzf-file-widget
-bindkey     $ALT_H              home-dir
+# Custom keybinds
+bindkey "^[[20~" list-dir         # Caps Lock
+bindkey "^H"     go-back          # Ctrl+Backspace
+bindkey "^Y"     copy-text
+bindkey "^P"     fzf-pass
+bindkey "^[h"    home-dir         # Alt+H
