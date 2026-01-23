@@ -3,31 +3,37 @@
     "UserPromptSubmit": [
       {
         "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.claude/hooks/save-prompt-history.sh"
-          }
+          { "type": "command", "command": "$HOME/.claude/hooks/save-prompt-history.sh" },
+          { "type": "command", "command": "$HOME/dotfiles/claude/hooks/set-tmux-color.sh computing" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          { "type": "command", "command": "$HOME/dotfiles/claude/hooks/set-tmux-color.sh computing" }
         ]
       }
     ],
     "Stop": [
       {
         "hooks": [
-          {
-            "type": "command",
-            "command": "notify-send -t 60000 -h \"string:x-dunst-stack-tag:claude-$(tmux display-message -p -t \"$TMUX_PANE\" '#W')\" 'Claude Code' \"Response complete - $(tmux display-message -p -t \"$TMUX_PANE\" '#W')\""
-          }
+          { "type": "command", "command": "$HOME/dotfiles/claude/hooks/notify.sh 'Response complete'" },
+          { "type": "command", "command": "$HOME/dotfiles/claude/hooks/set-tmux-color.sh idle" }
         ]
       }
     ],
     "Notification": [
       {
+        "hooks": [
+          { "type": "command", "command": "$HOME/dotfiles/claude/hooks/debug-notification.sh" }
+        ]
+      },
+      {
         "matcher": "permission_prompt",
         "hooks": [
-          {
-            "type": "command",
-            "command": "notify-send -t 60000 -h \"string:x-dunst-stack-tag:claude-$(tmux display-message -p -t \"$TMUX_PANE\" '#W')\" 'Claude Code' \"Permission required - $(tmux display-message -p -t \"$TMUX_PANE\" '#W')\""
-          }
+          { "type": "command", "command": "$HOME/dotfiles/claude/hooks/notify.sh 'Permission required'" },
+          { "type": "command", "command": "$HOME/dotfiles/claude/hooks/set-tmux-color.sh prompt" }
         ]
       }
     ]
