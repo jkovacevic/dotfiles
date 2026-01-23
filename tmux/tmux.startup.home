@@ -12,7 +12,7 @@ tmux send-keys -t $SESSION:ipy "cd $HOME/ipython && source venv/bin/activate && 
 
 tmux new-window -t $SESSION -n 'cmus' cmus
 tmux send-keys -t $SESSION:cmus ':add /home/jk/music' C-m
-tmux new-window -t $SESSION -n 'music'
+tmux new-window -t $SESSION -n 'music' -c music
 tmux new-window -t $SESSION -n 'htop' htop
 
 tmux select-window -t $SESSION:1
