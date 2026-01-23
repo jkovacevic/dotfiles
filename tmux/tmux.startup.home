@@ -1,22 +1,19 @@
 #!/bin/bash
 
-# If the session already exists, just attach to it
-if tmux has-session -t home 2>/dev/null; then
-    tmux attach -t home
+SESSION="home"
+
+if tmux has-session -t $SESSION 2>/dev/null; then
+    tmux attach -t $SESSION
     exit 0
 fi
 
-# Session doesn't exist, create it
-tmux new-session -d -s home -n 'ipy'
+tmux new-session -d -s $SESSION -n 'ipy'
+tmux send-keys -t $SESSION:ipy "cd $HOME/ipython && source venv/bin/activate && ipython" C-m
 
-# Run the IPython command only if it hasn't been run before
-tmux send-keys -t home:ipy "[ -f /tmp/ipy_started ] || { cd $HOME/ipython && source venv/bin/activate && ipython && touch /tmp/ipy_started; }" C-m
+tmux new-window -t $SESSION -n 'cmus' cmus
+tmux send-keys -t $SESSION:cmus ':add /home/jk/music' C-m
+tmux new-window -t $SESSION -n 'music'
+tmux new-window -t $SESSION -n 'htop' htop
 
-# Create additional windows
-tmux neww -t home:2 -n 'cmus' cmus 
-tmux neww -t home:3 -n 'htop' htop
-tmux neww -t home:4 -n 'btop' btop
-
-# Select the first window and attach to the session
-tmux select-window -t home:1
-tmux attach -t home
+tmux select-window -t $SESSION:1
+tmux attach -t $SESSION

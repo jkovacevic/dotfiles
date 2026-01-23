@@ -1,7 +1,15 @@
 #!/bin/bash
 
-tmux new-session -d -s shell -n 'zsh'
-tmux neww -t shell:2 -n 'zsh'
-tmux neww -t shell:3 -n 'zsh' -c development
-tmux select-window -t shell:1
-tmux attach -t shell
+SESSION="shell"
+
+if tmux has-session -t $SESSION 2>/dev/null; then
+    tmux attach -t $SESSION
+    exit 0
+fi
+
+tmux new-session -d -s $SESSION -n 'zsh'
+tmux new-window -t $SESSION -n 'zsh'
+tmux new-window -t $SESSION -n 'zsh' -c "$HOME/development"
+
+tmux select-window -t $SESSION:1
+tmux attach -t $SESSION
