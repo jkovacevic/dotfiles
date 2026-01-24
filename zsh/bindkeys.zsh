@@ -15,3 +15,4 @@ bindkey "^[h"       home-dir
 bindkey "^F"        fzf-file-home
 bindkey "^[[102;6u" fzf-file-system
 bindkey "^D"        fzf-cd-home
+bindkey "^[[127;2u" backward-delete-char
