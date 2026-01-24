@@ -12,6 +12,7 @@ create_symlink() {
 }
 
 echo "# Setup configuration"
+create_symlink "$HOME/dotfiles/zsh/rgignore" "$HOME/.rgignore"
 create_symlink "$HOME/dotfiles/zsh/zshrc.zsh" "$HOME/.zshrc"
 create_symlink "$HOME/dotfiles/i3/i3.ini" "$HOME/.config/i3/config"
 create_symlink "$HOME/dotfiles/zsh/zprofile.zsh" "$HOME/.zprofile"

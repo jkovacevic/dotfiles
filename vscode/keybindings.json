@@ -4824,6 +4824,10 @@
     },
     {
         "key": "ctrl+shift+f",
+        "command": "workbench.action.findInFiles"
+    },
+    {
+        "key": "ctrl+shift+f",
         "command": "-workbench.action.terminal.searchWorkspace",
         "when": "terminalFocus && terminalProcessSupported && terminalTextSelected"
     },
@@ -5310,6 +5314,19 @@
     },
     {
         "key": "capslock capslock",
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "sequence": [
+                "workbench.action.closePanel",
+                "workbench.action.closeAuxiliaryBar",
+                "workbench.view.explorer",
+                "workbench.files.action.showActiveFileInExplorer",
+                "workbench.action.focusActiveEditorGroup"
+            ]
+        }
+    },
+    {
+        "key": "capslock c",
         "command": "workbench.files.action.collapseExplorerFolders"
     }
 ]

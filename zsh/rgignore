@@ -1,0 +1,10 @@
+venv/
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+.git/
+dist/
+build/
+target/
+go/pkg/

@@ -26,7 +26,7 @@ cpcat() { xclip -selection clipboard < "$1"; }
 cppsh() { xclip -selection clipboard -o > "$1"; }
 cpth() { readlink -f "$1" | xargs echo -n | xclip -selection clipboard; }
 cpthlt() { cpth "$(ls -r | head -n 1)" }
-ws() { rg -n "$@" --ignore-case --color=auto; }
+ws() { rg -n "$@" --ignore-case --color=always | less -RFMSiN --mouse; }
 wss() { sudo rg -n "$@" --ignore-case --color=auto; }
 ymp3() { $HOME/ipython/venv/bin/yt-dlp -o "%(title).150B.%(ext)s" --extract-audio --audio-format mp3 --no-playlist "$1"; }
 yvid() { $HOME/ipython/venv/bin/yt-dlp -o "%(title).150B [%(id)s].%(ext)s" "$1"; }
