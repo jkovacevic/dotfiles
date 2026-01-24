@@ -1,12 +1,14 @@
 #!/bin/bash
+# After tmux restarts, find windows running Claude and make them green
 
-# Restores Claude tmux colors after tmux restart
-# Run this after tmux starts to set idle (green) status for windows with Claude running
+# Go through each tmux pane
+# For each pane, we get: "session:window" and "/dev/pts/X" (the terminal)
+tmux list-panes -a -F '#{session_name}:#{window_index} #{pane_tty}' | while read -r target tty; do
 
-# Get all tmux panes with their TTYs
-tmux list-panes -a -F '#{session_name}:#{window_index} #{pane_tty}' 2>/dev/null | while read -r target tty; do
-    # Check if a Claude process is running on this TTY
-    if ps -t "$tty" -o comm= 2>/dev/null | grep -q "^claude$"; then
-        tmux set-option -w -t "$target" @claude_status "idle"
+    # Is "claude" running in this terminal?
+    if pgrep -t "${tty#/dev/}" -x claude >/dev/null; then
+        # Yes - set status to idle (green)
+        tmux set-option -w -t "$target" @claude_status idle
     fi
+
 done
