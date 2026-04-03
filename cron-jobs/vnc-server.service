@@ -1,0 +1,12 @@
+[Unit]
+Description=VNC Server for remote desktop access
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/x11vnc -display :0 -rfbauth %h/.vnc/passwd -rfbport 5900 -forever -shared -noxdamage -clip 2560x1440+2560+0
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

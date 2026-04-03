@@ -7,10 +7,10 @@ if tmux has-session -t $SESSION 2>/dev/null; then
     exit 0
 fi
 
-tmux new-session -d -s $SESSION -n 'm1' -c "$HOME/development/archadia-online" claude
-tmux new-window -t $SESSION -n 'm2' -c "$HOME/development/archadia-online" claude
-tmux new-window -t $SESSION -n 'm3' -c "$HOME/development/archadia-online" claude
-tmux new-window -t $SESSION -n 'm4' -c "$HOME/development/archadia-online" claude
+tmux new-session -d -s $SESSION -n 'm1' -c "$HOME/development/" claude
+tmux new-window -t $SESSION -n 'm2' -c "$HOME/development/" claude
+tmux new-window -t $SESSION -n 'm3' -c "$HOME/development/" claude
+tmux new-window -t $SESSION -n 'm4' -c "$HOME/development/" claude
 
 tmux select-window -t $SESSION:1
 tmux attach -t $SESSION

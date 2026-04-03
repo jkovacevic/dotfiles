@@ -1,0 +1,13 @@
+[Unit]
+Description=Forward desktop notifications to Telegram
+After=graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/jk/dotfiles/python
+ExecStart=/usr/bin/python3 /home/jk/dotfiles/python/notifications-worker.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

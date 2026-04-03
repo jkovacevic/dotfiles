@@ -5328,6 +5328,10 @@
     {
         "key": "capslock c",
         "command": "workbench.files.action.collapseExplorerFolders"
+    },
+    {
+        "key": "capslock d",
+        "command": "git.openChange"
     }
 ]
 // Here are other available commands: 

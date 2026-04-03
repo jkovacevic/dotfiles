@@ -60,4 +60,5 @@
     "workbench.iconTheme": "eyecons",
     "python.languageServer": "Default",
     "python.editor.defaultFormatter": "ms-python.black-formatter",
+    "workbench.editor.empty.hint": "hidden",
 }

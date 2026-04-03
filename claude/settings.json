@@ -3,29 +3,44 @@
     "UserPromptSubmit": [
       {
         "hooks": [
-          { "type": "command", "command": "$HOME/dotfiles/claude/hooks/save-user-history.sh" },
-          { "type": "command", "command": "$HOME/dotfiles/claude/integration-tmux/status.sh computing" }
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/claude/hooks/save-user-history.sh"
+          },
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/claude/integration-tmux/status.sh computing"
+          }
         ]
       }
     ],
     "PostToolUse": [
       {
         "hooks": [
-          { "type": "command", "command": "$HOME/dotfiles/claude/integration-tmux/status.sh computing" }
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/claude/integration-tmux/status.sh computing"
+          }
         ]
       }
     ],
     "PermissionRequest": [
       {
         "hooks": [
-          { "type": "command", "command": "$HOME/dotfiles/claude/integration-tmux/status.sh prompt" }
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/claude/integration-tmux/status.sh prompt"
+          }
         ]
       }
     ],
     "Stop": [
       {
         "hooks": [
-          { "type": "command", "command": "$HOME/dotfiles/claude/integration-tmux/status.sh complete" }
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/claude/integration-tmux/status.sh complete"
+          }
         ]
       }
     ]
@@ -33,5 +48,6 @@
   "statusLine": {
     "type": "command",
     "command": "/home/jk/dotfiles/claude/statusline.sh"
-  }
+  },
+  "model": "sonnet"
 }

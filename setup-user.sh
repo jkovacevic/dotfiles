@@ -6,10 +6,14 @@ create_symlink() {
     if [ -f "$target" ] || [ -L "$target" ]; then
         rm "$target"
     fi;
-	
+
     mkdir -p $(dirname "${target}")
     ln -s "$dotfile" "$target"
 }
+
+echo "# Setup Systemd User Services"
+create_symlink "$HOME/dotfiles/cron-jobs/telegram-notifications.service" "$HOME/.config/systemd/user/telegram-notifications.service"
+create_symlink "$HOME/dotfiles/cron-jobs/vnc-server.service" "$HOME/.config/systemd/user/vnc-server.service"
 
 echo "# Setup configuration"
 create_symlink "$HOME/dotfiles/zsh/rgignore" "$HOME/.rgignore"
@@ -40,6 +44,9 @@ echo "# Setup Themes"
 create_symlink "$HOME/dotfiles/themes/rofi-theme.rasi" "$HOME/.config/rofi/rofi-theme.rasi"
 create_symlink "$HOME/dotfiles/themes/nord-tc.micro" "$HOME/.config/micro/colorschemes/nord-tc.micro"
 create_symlink "$HOME/dotfiles/vscode/ws-light-color-theme.json" "$HOME/.vscode-oss/extensions/septwong.vscode-webstorm-theme-1.0.3-universal/themes/ws-light-color-theme.json"
+create_symlink "$HOME/dotfiles/vscode/eyecons-definitions.json" "$HOME/.vscode-oss/extensions/azat-io.eyecons-1.14.0-universal/dist/output/definitions.json"
+create_symlink "$HOME/dotfiles/vscode/icons/root-folder.svg" "$HOME/.vscode-oss/extensions/azat-io.eyecons-1.14.0-universal/dist/output/icons/base/root-folder.svg"
+create_symlink "$HOME/dotfiles/vscode/icons/root-folder-open.svg" "$HOME/.vscode-oss/extensions/azat-io.eyecons-1.14.0-universal/dist/output/icons/base/root-folder-open.svg"
 
 echo "$ Setup Terminal"
 create_symlink "$HOME/dotfiles/terminal/ghostty.ini" "$HOME/.config/ghostty/config"
@@ -47,3 +54,12 @@ create_symlink "$HOME/dotfiles/terminal/ghostty.ini" "$HOME/.config/ghostty/conf
 echo "# Setup Claude"
 create_symlink "$HOME/dotfiles/claude/settings.json" "$HOME/.claude/settings.json"
 create_symlink "$HOME/dotfiles/claude/hooks" "$HOME/.claude/hooks"
+
+echo "#Starting systemctl"
+systemctl --user daemon-reload
+
+systemctl --user enable telegram-notifications.service
+systemctl --user start telegram-notifications.service
+
+systemctl --user enable vnc-server.service
+systemctl --user start vnc-server.service
