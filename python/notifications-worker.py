@@ -7,6 +7,7 @@ from notifications import send_telegram_message
 
 WATCH = [
     "Gemstone Crab HP threshold reached!",
+    "Your inventory is full!"
 ]
 
 proc = subprocess.Popen(
