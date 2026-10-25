@@ -5244,8 +5244,8 @@
         "when": "!inDebugMode && debugConfigurationType == 'node' || !inDebugMode && debugConfigurationType == 'pwa-extensionHost' || !inDebugMode && debugConfigurationType == 'pwa-node'"
     },
     {
-        "key": "f10",
-        "command": "-workbench.action.debug.stepOver",
+        "key": "f8",
+        "command": "workbench.action.debug.stepOver",
         "when": "debugState == 'stopped'"
     },
     {

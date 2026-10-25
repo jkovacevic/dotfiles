@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Stop Screen Recording
+Comment=Stop the active screen recording and copy the output path to clipboard
+Exec=/home/jk/dotfiles/bash/video.sh stop
+Icon=media-playback-stop
+Terminal=false
+Categories=Utility;

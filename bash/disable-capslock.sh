@@ -17,19 +17,6 @@ EOF
 # Set up the key binding in your X server
 xmodmap ~/.Xmodmap
 
-# Check if xbindkeys is installed
-if command -v xbindkeys &> /dev/null; then
-    # Map F13 to the desired sequence using xbindkeys
-    echo "\"xdotool key ctrl+bracketleft 2 5 asciitilde\"" > ~/.xbindkeysrc
-    echo "  F13" >> ~/.xbindkeysrc
-
-    # Restart xbindkeys to apply the changes
-    pkill xbindkeys
-    xbindkeys
-
-    echo "Caps Lock has been disabled and mapped to ^[[25~"
-else
-    echo "xbindkeys is not installed. Caps Lock has been disabled and mapped to F13, but the final key sequence mapping is not complete."
-    echo "Please install xbindkeys to complete the setup:"
-    echo "sudo pacman -S xbindkeys"
-fi
+echo "Caps Lock has been disabled and remapped to F13."
+echo "Ghostty converts F13 to its terminal escape sequence directly (see ghostty.ini);"
+echo "other apps (editor, IDE) should bind the F13 key natively in their own keymaps."

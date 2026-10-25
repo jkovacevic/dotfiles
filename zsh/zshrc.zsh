@@ -2,6 +2,7 @@ source /usr/share/fzf/key-bindings.zsh
 source $HOME/dotfiles/zsh/functions.zsh
 source $HOME/dotfiles/zsh/fzf-config.zsh
 source $HOME/dotfiles/zsh/bindkeys.zsh
+source $HOME/dotfiles/zsh/sound.zsh
 source $HOME/dotfiles/claude/shell.zsh
 
 autoload -Uz vcs_info compinit && compinit

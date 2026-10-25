@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """Send Telegram notifications from your desktop."""
 
+import os
+import sys
+
 import requests
 
-# Replace these with your actual values
-BOT_TOKEN = "8288093061:AAGlqCcQILt8hKRap0I5F82cz2pydY3CuPQ"
-CHAT_ID = "1634521643"
+BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
+
+if not BOT_TOKEN or not CHAT_ID:
+    sys.exit("Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID environment variable")
 
 
 def send_telegram_message(message: str) -> bool:

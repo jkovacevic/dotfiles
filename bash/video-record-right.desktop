@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Record Screen (Right Monitor)
+Comment=Start recording the right monitor with system audio
+Exec=/home/jk/dotfiles/bash/video.sh start right
+Icon=camera-video
+Terminal=false
+Categories=Utility;

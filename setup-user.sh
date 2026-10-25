@@ -35,6 +35,11 @@ echo "# Setup Scripts"
 create_symlink "$HOME/dotfiles/bash/mount-hdd.sh" "$HOME/script/mount-hdd"
 create_symlink "$HOME/dotfiles/python/file-format.py" "$HOME/script/ff"
 
+echo "# Setup Desktop Entries"
+create_symlink "$HOME/dotfiles/bash/video-record-left.desktop" "$HOME/.local/share/applications/video-record-left.desktop"
+create_symlink "$HOME/dotfiles/bash/video-record-right.desktop" "$HOME/.local/share/applications/video-record-right.desktop"
+create_symlink "$HOME/dotfiles/bash/video-record-stop.desktop" "$HOME/.local/share/applications/video-record-stop.desktop"
+
 echo "# Setup IPython"
 create_symlink "$HOME/dotfiles/python/ipy-setup.py" "$HOME/.ipython/profile_default/ipython_config.py"
 create_symlink "$HOME/dotfiles/python/ipy-copy-text.py" "$HOME/.ipython/profile_default/startup/copy-text.py"

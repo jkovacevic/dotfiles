@@ -7,7 +7,7 @@ bindkey "^[d"       delete-word
 bindkey ";5D"       vi-backward-blank-word
 bindkey ";5C"       .vi-forward-blank-word
 bindkey "^Z"        undo
-bindkey "^[[20~"    list-dir
+bindkey "^[[25~"    list-dir
 bindkey "^H"        go-back
 bindkey "^Y"        copy-text
 bindkey "^P"        fzf-pass
