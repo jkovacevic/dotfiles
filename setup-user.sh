@@ -12,7 +12,8 @@ create_symlink() {
 }
 
 echo "# Setup Systemd User Services"
-create_symlink "$HOME/dotfiles/cron-jobs/telegram-notifications.service" "$HOME/.config/systemd/user/telegram-notifications.service"
+create_symlink "$HOME/dotfiles/cron-jobs/notifications-telegram.service" "$HOME/.config/systemd/user/notifications-telegram.service"
+create_symlink "$HOME/dotfiles/cron-jobs/notifications-focus.service" "$HOME/.config/systemd/user/notifications-focus.service"
 create_symlink "$HOME/dotfiles/cron-jobs/vnc-server.service" "$HOME/.config/systemd/user/vnc-server.service"
 
 echo "# Setup configuration"
@@ -63,8 +64,11 @@ create_symlink "$HOME/dotfiles/claude/hooks" "$HOME/.claude/hooks"
 echo "#Starting systemctl"
 systemctl --user daemon-reload
 
-systemctl --user enable telegram-notifications.service
-systemctl --user start telegram-notifications.service
+systemctl --user enable notifications-telegram.service
+systemctl --user start notifications-telegram.service
+
+systemctl --user enable notifications-focus.service
+systemctl --user start notifications-focus.service
 
 systemctl --user enable vnc-server.service
 systemctl --user start vnc-server.service
