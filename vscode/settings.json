@@ -15,12 +15,9 @@
     },
     "cursor.cmdk.autoSelect": false,
     "cursor.cmdk.useThemedDiffBackground": true,
-        "todo": {
-        "colors.project": "#2059E2",
-        "colors.done": "#0D9488",
-        "colors.cancelled": "#C2415B",
-        "colors.tag": "#4694a3",
-    },
+    "todo.colors.project": "#2059E2",
+    "todo.colors.done": "#0D9488",
+    "todo.colors.tag": "#BE6A2C",
     "cursor.chat.terminalShowHoverHint": false,
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingComments": "never",
@@ -39,6 +36,7 @@
     "cursor.chat.premiumChatAutoScrollWhenAtBottom": true,
     "disable-hardware-acceleration": true,
     "todo.file.name": "*.todo",
+    "todo.colors.cancelled": "#C2415B",
     "todo.colors.types": {
 
         "TODO": "#ffcc00",
