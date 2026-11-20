@@ -2,3 +2,8 @@
 __pycache__/
 *.pyc
 htop_history
+
+# Private Claude Code memory (personal; not for GitHub). The rest of claude/ (settings.json,
+# hooks, integration-tmux, statusline) stays tracked so setup-user.sh is reproducible.
+claude/CLAUDE.md
+claude/memory/

@@ -4305,6 +4305,11 @@
         "when": "!notebookEditorFocused && editorLangId == 'markdown'"
     },
     {
+        "key": "f13 p",
+        "command": "markdown.showPreview",
+        "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+    },
+    {
         "key": "ctrl+u",
         "command": "references-view.findReferences",
         "when": "editorHasReferenceProvider"

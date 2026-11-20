@@ -61,6 +61,10 @@ echo "# Setup Claude"
 create_symlink "$HOME/dotfiles/claude/settings.json" "$HOME/.claude/settings.json"
 create_symlink "$HOME/dotfiles/claude/hooks" "$HOME/.claude/hooks"
 
+echo "Installing ~/.claude/CLAUDE.md (copy of dotfiles/claude/CLAUDE.md)"
+mkdir -p "$HOME/.claude"
+cp "$HOME/dotfiles/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+
 echo "#Starting systemctl"
 systemctl --user daemon-reload
 
