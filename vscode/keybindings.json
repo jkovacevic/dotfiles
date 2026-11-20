@@ -10,7 +10,7 @@
         "when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "capslock l",
+        "key": "f13 l",
         "command": "extension.multiCommand.execute",
         "args": { 
             "sequence": [
@@ -40,7 +40,7 @@
         "when": "editorHasSelection && textInputFocus"
     },
     {
-        "key": "capslock i",
+        "key": "f13 i",
         "command": "editor.action.formatDocument",
         "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
     },
@@ -4801,7 +4801,7 @@
         "when": "editorFocus"
     },
     {
-        "key": "capslock .",
+        "key": "f13 .",
         "command": "copyFilePath"
     },
     {
@@ -5313,7 +5313,7 @@
         "when": "editorTextFocus && resourceExtname == .todo"
     },
     {
-        "key": "capslock capslock",
+        "key": "f13 f13",
         "command": "extension.multiCommand.execute",
         "args": {
             "sequence": [
@@ -5326,11 +5326,11 @@
         }
     },
     {
-        "key": "capslock c",
+        "key": "f13 c",
         "command": "workbench.files.action.collapseExplorerFolders"
     },
     {
-        "key": "capslock d",
+        "key": "f13 d",
         "command": "git.openChange"
     }
 ]

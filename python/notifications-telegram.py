@@ -11,7 +11,7 @@ WATCH = [
     ("Gemstone Crab HP threshold reached!", None),
     #("Star layer mined (Shooting Star Info)", None),
     ("RS Salvaging - Cargo Hold is full", None),
-    ("Inventory is full!", None),
+    ("Inventory is full!", "Aeoncrux"),
 ]
 
 proc = subprocess.Popen(

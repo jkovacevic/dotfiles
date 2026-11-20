@@ -98,12 +98,6 @@ tm() {
     esac
 }
 
-setup-capslock() {
-    setxkbmap -option caps:none
-    xmodmap -e 'clear Lock'
-    xmodmap -e "keycode 66 = F13"
-}
-
 di() {
     find_latest_name() {
         dir_name=$1

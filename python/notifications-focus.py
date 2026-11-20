@@ -9,6 +9,7 @@ import subprocess
 # Leave client as None to match regardless of which client sent it.
 WATCH = [
     ("You are now out of combat!", "Aeon IM"),
+    ("Star layer mined (Shooting Star Info)", None),
     ("Inventory is full!", None),
     ("RS Salvaging - Cargo Hold is full", None),
 ]
