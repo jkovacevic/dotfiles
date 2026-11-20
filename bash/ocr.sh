@@ -1,3 +1,5 @@
+#!/bin/bash
+# Select a screen region, OCR it (English), copy the text to the clipboard.
 IMAGE_NAME=/tmp/_.png
 FILE_NAME=/tmp/_.txt
 FILE_TMP=/tmp/__.txt

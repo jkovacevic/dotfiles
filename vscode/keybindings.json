@@ -4916,6 +4916,11 @@
         "args": "TmpFile"
     },
     {
+        "key": "f13 t",
+        "command": "workbench.action.tasks.runTask",
+        "args": "TaskFile"  // Create/open today's task file (task_file.sh)
+    },
+    {
         "key": "ctrl+shift+r",
         "command": "-editor.action.refactor",
         "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"

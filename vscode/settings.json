@@ -16,8 +16,9 @@
     "cursor.cmdk.autoSelect": false,
     "cursor.cmdk.useThemedDiffBackground": true,
         "todo": {
-        "colors.project": "#0481bf",
-        "colors.done": "#04bf4c",
+        "colors.project": "#2059E2",
+        "colors.done": "#0D9488",
+        "colors.cancelled": "#C2415B",
         "colors.tag": "#4694a3",
     },
     "cursor.chat.terminalShowHoverHint": false,

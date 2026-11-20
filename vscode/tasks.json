@@ -14,6 +14,20 @@
             "group": {
                 "kind": "none"
             }
+        },
+        {
+            "label": "TaskFile",
+            "type": "shell",
+            "command": "/bin/bash /home/jk/dotfiles/vscode/task_file.sh",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,               // Display the task label when it runs
+                "reveal": "never",          // Prevent the terminal from opening
+                "focus": false              // Avoid focusing the terminal
+            },
+            "group": {
+                "kind": "none"
+            }
         }
     ]
 }

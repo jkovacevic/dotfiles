@@ -6,7 +6,7 @@ alias ls='ls --color=auto --group-directories-first'
 alias lt='ls -lhrt --color=auto --group-directories-first'
 alias ldot='ls -ld .*'
 alias grep='grep --color=auto'
-alias mocp='mocp -T nightly_theme'
+alias mocp='mociutsp -T nightly_theme'
 alias clip='sed -z "$ s/\n$//" | xclip -selection clipboard'
 alias edit='cat > /tmp/_shell.txt; subl /tmp/_shell.txt'
 alias cat='bat --theme=Nord --style=plain'
@@ -14,7 +14,6 @@ alias ipy='$HOME/ipython/venv/bin/python'
 alias ipip='$HOME/ipython/venv/bin/pip'
 alias mi='TERM=xterm-256color micro'
 alias vs='cursor -add'
-alias pacman='sudo pacman'
 alias model='ollama run llama3.1'
 alias yay='yay --noconfirm'
 
@@ -217,13 +216,6 @@ fzf-pass() {
     echo "" && PASSWORD_STORE_ENABLE_EXTENSIONS=true pass fzf;
     zle reset-prompt;
 }; zle -N fzf-pass
-
-reset-term() {
-    source ~/dotfiles/$PLATFORM/zsh/zshrc.zsh
-    /usr/bin/tmux source ~/dotfiles/shared/tmux/tmux.conf
-    zle reset-prompt
-    /usr/bin/notify-send "Reset prompt"
-}; zle -N reset-term
 
 # Utility functions
 start-wifi() {
