@@ -1,8 +1,8 @@
 #!/usr/bin/zsh
 # Claude Code shell customizations
 
-# Wrapper that sets tmux tab to green (idle) on startup
+# Mark this tmux window green (idle) when launching Claude.
 claude() {
-    [[ -n "$TMUX" ]] && $HOME/dotfiles/claude/hooks/set-tmux-color.sh idle
+    [[ -n "$TMUX" ]] && tmux set-option -w @claude_status idle
     command claude "$@"
 }
