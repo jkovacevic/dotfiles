@@ -18,4 +18,4 @@ Each tmux tab is colored by what Claude is doing in that window, driven by a per
   The color-selection lives in one shared `@claude_fg` option. Also clears `unread`→`idle`
   on focus, and runs `tmux-init.sh` on attach.
 - `tmux-init.sh` — on tmux (re)attach, re-greens windows already running Claude.
-- `../shell.zsh` — the `claude()` wrapper sets `@claude_status idle` on launch.
+- `shell.zsh` — the `claude()` wrapper sets `@claude_status idle` on launch.

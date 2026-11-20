@@ -3,7 +3,7 @@ source $HOME/dotfiles/zsh/functions.zsh
 source $HOME/dotfiles/zsh/fzf-config.zsh
 source $HOME/dotfiles/zsh/bindkeys.zsh
 source $HOME/dotfiles/zsh/sound.zsh
-source $HOME/dotfiles/claude/shell.zsh
+source $HOME/dotfiles/claude/integration-tmux/shell.zsh
 
 autoload -Uz vcs_info compinit && compinit
 autoload -U select-word-style
